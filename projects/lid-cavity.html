@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MATLAB lid-driven cavity CFD solver developed by Ahmed Kandil.">
-    <title>MATLAB Lid-Driven Cavity Solver | Ahmed Kandil</title>
+    <meta name="description" content="MATLAB lid-driven cavity CFD case study by Ahmed Kandil.">
+    <title>MATLAB Lid-Driven Cavity Study | Ahmed Kandil</title>
     <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../style.css">
 </head>
@@ -24,47 +24,82 @@
     <main class="project-page">
         <section class="project-hero">
             <p class="section-label">CFD Solver Development</p>
-            <h1>MATLAB Lid-Driven Cavity Solver</h1>
+            <h1>MATLAB Lid-Driven Cavity Study</h1>
             <p class="hero-text">
-                A two-dimensional incompressible-flow benchmark implemented with the SIMPLE algorithm and a
-                staggered-grid finite-volume formulation.
+                A reproducible 72-case CFD study for the two-dimensional incompressible lid-driven cavity, developed to compare numerical schemes, pressure solvers, mesh resolution, runtime, and benchmark agreement.
             </p>
-            <img class="project-image" src="../assets/images/lid-cavity.svg" alt="Stylized lid-driven cavity flow visualization">
+            <div class="button-row">
+                <a class="button primary" href="https://github.com/Kandil2001/LidCavity_MATLAB" target="_blank" rel="noopener">View Repository</a>
+                <a class="button" href="../index.html#projects">Back to Projects</a>
+            </div>
+            <img class="project-image" src="https://raw.githubusercontent.com/Kandil2001/LidCavity_MATLAB/main/assets/figures/readme_overview.png" alt="Overview of MATLAB lid-driven cavity CFD study results">
         </section>
 
         <section class="section project-content-section">
-            <div class="info-list">
-                <div><h3>Tools</h3><p>MATLAB, Git, numerical visualization</p></div>
-                <div><h3>Methods</h3><p>SIMPLE, finite volume method, staggered grid</p></div>
-                <div><h3>Outputs</h3><p>Residuals, contours, streamlines, centerline profiles</p></div>
+            <div class="proof-grid project-metrics">
+                <div class="metric"><strong>72</strong><span>automated simulations</span></div>
+                <div class="metric"><strong>3 × 3</strong><span>meshes and Reynolds numbers</span></div>
+                <div class="metric"><strong>44</strong><span>cases passing selected Ghia thresholds</span></div>
+                <div class="metric"><strong>2 × 2 × 2</strong><span>schemes, pressure solvers, implementations</span></div>
             </div>
 
-            <h2>Project overview</h2>
+            <h2>Problem</h2>
             <p>
-                The project solves the incompressible Navier–Stokes equations for flow inside a square cavity driven
-                by a moving top wall. It was developed as a transparent CFD benchmark for studying pressure–velocity
-                coupling, discretization, convergence behavior, and code organization.
+                The lid-driven cavity is a compact but demanding benchmark for incompressible-flow solvers. It tests pressure–velocity coupling, wall boundary conditions, vortex formation, numerical diffusion, mesh sensitivity, convergence behaviour, and validation against established reference data.
             </p>
 
-            <h2>Implementation</h2>
+            <h2>My contribution</h2>
             <ul>
-                <li>Staggered arrangement for pressure and velocity variables.</li>
-                <li>Predictor–corrector procedure using the SIMPLE pressure-correction method.</li>
-                <li>Iterative and vectorized MATLAB implementations for comparison.</li>
-                <li>Residual histories and stability monitoring during the solution process.</li>
-                <li>Post-processing for velocity magnitude, pressure, vorticity, streamlines, and centerline profiles.</li>
+                <li>Developed loop-based and vectorized MATLAB implementations.</li>
+                <li>Automated a full parameter study across mesh resolution, Reynolds number, convection scheme, and pressure solver.</li>
+                <li>Implemented residual tracking, structured result export, plotting, and benchmark validation.</li>
+                <li>Documented both successful and limited cases rather than presenting only favourable results.</li>
             </ul>
 
-            <h2>Validation and learning outcomes</h2>
+            <h2>Methodology</h2>
+            <div class="info-list">
+                <div><h3>Flow model</h3><p>Two-dimensional, incompressible Navier–Stokes equations with a moving top wall.</p></div>
+                <div><h3>Pressure coupling</h3><p>SIMPLE-style pressure correction on a structured Cartesian collocated grid.</p></div>
+                <div><h3>Study matrix</h3><p>N = 32, 64, 128; Re = 100, 400, 1000; upwind/central; RBGS/RBSOR; loop/vectorized.</p></div>
+            </div>
+
+            <h2>Representative results</h2>
+            <div class="result-gallery">
+                <figure>
+                    <img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_MATLAB/main/assets/figures/case_029_N64_Re100_central_RBGS_vectorized_speed.png" alt="Velocity magnitude contour">
+                    <figcaption>Velocity magnitude</figcaption>
+                </figure>
+                <figure>
+                    <img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_MATLAB/main/assets/figures/case_029_N64_Re100_central_RBGS_vectorized_streamlines.png" alt="Lid-driven cavity streamlines">
+                    <figcaption>Streamlines and primary vortex</figcaption>
+                </figure>
+                <figure>
+                    <img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_MATLAB/main/assets/figures/case_029_N64_Re100_central_RBGS_vectorized_ghia_u.png" alt="Ghia centerline validation plot">
+                    <figcaption>Centerline benchmark validation</figcaption>
+                </figure>
+                <figure>
+                    <img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_MATLAB/main/assets/figures/study_runtime_implementation.png" alt="Runtime comparison plot">
+                    <figcaption>Study-level runtime comparison</figcaption>
+                </figure>
+            </div>
+
+            <h2>Results and interpretation</h2>
+            <ul>
+                <li>The full study executed 72 simulations and retained the complete result set for comparison.</li>
+                <li>44 cases passed the selected Ghia validation thresholds.</li>
+                <li>RBSOR reduced pressure-solver cost compared with RBGS in the tested cases.</li>
+                <li>Central differencing improved benchmark agreement when the mesh was sufficiently resolved.</li>
+                <li>Upwind differencing was more robust but introduced more numerical diffusion, especially on coarse meshes.</li>
+            </ul>
+
+            <h2>Limitations</h2>
             <p>
-                Centerline velocity profiles and flow structures can be compared with published cavity-flow benchmark
-                data. The project also provides a practical basis for evaluating numerical stability, mesh resolution,
-                and computational performance across different Reynolds numbers.
+                The solver prioritises transparency and comparison over industrial-scale performance. It uses a collocated formulation without Rhie–Chow interpolation, has no turbulence model or multigrid pressure solver, and high-Reynolds-number cases remain sensitive to mesh resolution and convergence settings.
             </p>
 
             <div class="button-row">
-                <a class="button primary" href="https://github.com/kandil/LidCavity_MATLAB" target="_blank" rel="noopener">View GitHub Repository</a>
-                <a class="button" href="../index.html#projects">Back to Projects</a>
+                <a class="button primary" href="https://github.com/Kandil2001/LidCavity_MATLAB" target="_blank" rel="noopener">Open Complete Repository</a>
+                <a class="button" href="../index.html#contact">Contact Me</a>
             </div>
         </section>
     </main>
