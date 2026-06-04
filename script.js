@@ -3,9 +3,15 @@ enhancementStyles.rel = 'stylesheet';
 enhancementStyles.href = document.currentScript.src.includes('/projects/') ? '../enhancements.css' : 'enhancements.css';
 document.head.appendChild(enhancementStyles);
 
-document.querySelectorAll('img[src*="Jupedsim-Evacuation-Analysis"][src$=".gif"]').forEach((image) => {
-    image.src = 'https://raw.githubusercontent.com/Kandil2001/Jupedsim-Evacuation-Analysis/main/figures/pedestrian_heatmap.png';
-    image.alt = 'Pedestrian-flow heatmap from the JuPedSim evacuation analysis project';
+const isProjectPage = document.currentScript.src.includes('/projects/');
+const localPedestrianImage = isProjectPage
+    ? '../assets/images/pedestrian-simulation.svg?v=2'
+    : 'assets/images/pedestrian-simulation.svg?v=2';
+
+document.querySelectorAll('img[src*="Jupedsim-Evacuation-Analysis"], img[alt*="pedestrian" i]').forEach((image) => {
+    image.src = localPedestrianImage;
+    image.alt = 'Pedestrian evacuation and directional flow analysis';
+    image.onerror = null;
 });
 
 const menuToggle = document.querySelector('.menu-toggle');
