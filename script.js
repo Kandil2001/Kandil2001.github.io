@@ -1,3 +1,8 @@
+const enhancementStyles = document.createElement('link');
+enhancementStyles.rel = 'stylesheet';
+enhancementStyles.href = document.currentScript.src.includes('/projects/') ? '../enhancements.css' : 'enhancements.css';
+document.head.appendChild(enhancementStyles);
+
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 
