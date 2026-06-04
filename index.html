@@ -31,61 +31,79 @@
         <section class="hero section">
             <div class="hero-content">
                 <p class="eyebrow">Computational Engineer · CFD · Scientific Computing</p>
-                <h1>Building simulation tools for fluid flow, heat transfer, and engineering design.</h1>
+                <h1>Developing and validating simulation workflows for engineering problems.</h1>
                 <p class="hero-text">
-                    I am Ahmed Kandil, an M.Sc. Computer Simulation in Science student with experience in CFD,
-                    numerical methods, multiphase simulations, and engineering software development.
+                    I combine engineering physics, numerical methods, and programming to build CFD solvers, automate
+                    simulation studies, and analyse complex flow and movement data. My experience includes multiphase
+                    simulation at Vorwerk, battery-production research at Fraunhofer FFB, and custom MATLAB and Python tools.
                 </p>
                 <div class="button-row">
-                    <a class="button primary" href="#projects">View Projects</a>
+                    <a class="button primary" href="#projects">Explore Selected Work</a>
                     <a class="button" href="https://github.com/Kandil2001" target="_blank" rel="noopener">GitHub</a>
                     <a class="button" href="https://www.linkedin.com/in/ahmed-kandil03/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+                <div class="proof-grid" aria-label="Selected project highlights">
+                    <div class="metric"><strong>72</strong><span>automated CFD cases</span></div>
+                    <div class="metric"><strong>Re 100–1000</strong><span>benchmark range</span></div>
+                    <div class="metric"><strong>MATLAB + Python</strong><span>solver development</span></div>
+                    <div class="metric"><strong>JuPedSim + YOLO</strong><span>movement analysis</span></div>
                 </div>
             </div>
         </section>
 
         <section id="about" class="section narrow">
             <p class="section-label">About</p>
-            <h2>CFD-focused engineer with a strong numerical simulation background.</h2>
+            <h2>CFD-focused engineer with experience from numerical methods to industrial simulation.</h2>
             <p>
-                My work combines engineering physics, numerical methods, and programming. I have worked on CFD
-                applications involving multiphase flow, thermal systems, battery-production research, pedestrian
-                dynamics, and custom solver development.
+                I am completing an M.Sc. in Computer Simulation in Science at Bergische Universität Wuppertal. My work
+                focuses on pressure–velocity coupling, solver verification, multiphase and thermal-fluid simulation,
+                scientific programming, and structured post-processing.
             </p>
             <p>
-                This portfolio presents selected projects with their methodology, implementation, results, and
-                validation approach.
+                I build projects as reproducible engineering case studies: the problem is defined, assumptions are
+                documented, outputs are validated, limitations are stated, and the complete implementation is organised
+                for others to review.
             </p>
         </section>
 
         <section id="projects" class="section">
             <p class="section-label">Featured Projects</p>
-            <h2>Selected engineering and simulation projects</h2>
+            <h2>Selected work with methods, results, and validation</h2>
 
             <div class="project-grid">
                 <article class="project-card">
-                    <img src="assets/images/lid-cavity.svg" alt="Stylized lid-driven cavity flow visualization">
+                    <img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_MATLAB/main/assets/figures/readme_overview.png" alt="Overview of the MATLAB lid-driven cavity CFD study">
                     <div class="card-body">
-                        <h3>MATLAB Lid-Driven Cavity Solver</h3>
+                        <p class="project-type">CFD solver development</p>
+                        <h3>MATLAB Lid-Driven Cavity Study</h3>
                         <p>
-                            A two-dimensional incompressible-flow solver using the SIMPLE algorithm on a staggered
-                            grid, with residual tracking, contours, streamlines, and validation plots.
+                            Built and automated a 72-case SIMPLE-style CFD study covering three meshes, Reynolds numbers
+                            from 100 to 1000, two convection schemes, two pressure solvers, and loop/vectorized implementations.
                         </p>
-                        <p class="tags">MATLAB · CFD · SIMPLE · Numerical Methods</p>
-                        <a href="projects/lid-cavity.html">View project →</a>
+                        <div class="result-callout"><strong>Result:</strong> 44 cases passed the selected Ghia benchmark thresholds, while non-passing cases were retained to document numerical limitations.</div>
+                        <p class="tags">MATLAB · CFD · SIMPLE · Ghia Validation</p>
+                        <div class="project-links">
+                            <a href="projects/lid-cavity.html">Read case study →</a>
+                            <a href="https://github.com/Kandil2001/LidCavity_MATLAB" target="_blank" rel="noopener">Repository ↗</a>
+                        </div>
                     </div>
                 </article>
 
                 <article class="project-card">
-                    <img src="assets/images/pedestrian-simulation.svg" alt="Stylized pedestrian-flow and crowd-counting visualization">
+                    <img src="https://raw.githubusercontent.com/Kandil2001/Jupedsim-Evacuation-Analysis/main/figures/demo.gif" alt="JuPedSim pedestrian evacuation simulation animation">
                     <div class="card-body">
-                        <h3>Pedestrian Simulation and Crowd Counting</h3>
+                        <p class="project-type">Pedestrian dynamics and computer vision</p>
+                        <h3>Pedestrian Evacuation and Flow Analysis</h3>
                         <p>
-                            Evacuation and crowd-flow analysis using JuPedSim and YOLO-based video processing for
-                            counting, flow-rate estimation, and scenario comparison.
+                            Developed configurable JuPedSim evacuation scenarios with multiple exits, spawn regions,
+                            trajectory output, animations, and density analysis, alongside a YOLO-based video-counting workflow.
                         </p>
+                        <div class="result-callout"><strong>Result:</strong> Created a repeatable workflow for comparing evacuation scenarios and estimating directional pedestrian flow from recorded video.</div>
                         <p class="tags">Python · JuPedSim · YOLO · Data Analysis</p>
-                        <a href="projects/pedestrian-simulation.html">View project →</a>
+                        <div class="project-links">
+                            <a href="projects/pedestrian-simulation.html">Read case study →</a>
+                            <a href="https://github.com/Kandil2001/Jupedsim-Evacuation-Analysis" target="_blank" rel="noopener">Repository ↗</a>
+                        </div>
                     </div>
                 </article>
             </div>
@@ -93,35 +111,35 @@
 
         <section id="experience" class="section narrow">
             <p class="section-label">Experience</p>
-            <h2>Engineering experience</h2>
+            <h2>Engineering and research experience</h2>
             <div class="timeline">
                 <div class="timeline-item">
-                    <h3>Fraunhofer FFB</h3>
-                    <p>Student Research Assistant · Battery-cell production and engineering research.</p>
+                    <div class="timeline-heading"><h3>Fraunhofer FFB</h3><span>Student Assistant</span></div>
+                    <p>Supporting battery-cell production research, process analysis, and engineering documentation.</p>
                 </div>
                 <div class="timeline-item">
-                    <h3>Vorwerk</h3>
-                    <p>Working Student CFD · Multiphase-flow simulation, thermal-fluid analysis, and automation.</p>
+                    <div class="timeline-heading"><h3>Bergische Universität Wuppertal</h3><span>Research Assistant</span></div>
+                    <p>Supporting simulation and data-analysis work, including pedestrian-dynamics research workflows.</p>
                 </div>
                 <div class="timeline-item">
-                    <h3>Mansoura Motorsport</h3>
-                    <p>Aerodynamics Head / Chief Engineer · Aerodynamic design, CFD analysis, and team leadership.</p>
+                    <div class="timeline-heading"><h3>Vorwerk</h3><span>Working Student · CFD</span></div>
+                    <p>Worked on multiphase and thermal-fluid simulations, Java automation, test-bench support, and engineering analysis.</p>
                 </div>
                 <div class="timeline-item">
-                    <h3>GRIND for Engineering Solutions</h3>
-                    <p>CFD Engineer · Simulation and design optimization using engineering CFD tools.</p>
+                    <div class="timeline-heading"><h3>GRIND for Engineering Solutions</h3><span>CFD Engineer</span></div>
+                    <p>Performed CFD simulation and design optimisation using engineering analysis tools.</p>
                 </div>
             </div>
         </section>
 
         <section id="skills" class="section">
-            <p class="section-label">Skills</p>
-            <h2>Technical stack</h2>
+            <p class="section-label">Technical Capabilities</p>
+            <h2>Tools used to build, verify, and communicate simulations</h2>
             <div class="skills-grid">
-                <div><h3>Simulation</h3><p>CFD, heat transfer, multiphase flow, aerodynamics, pedestrian dynamics</p></div>
-                <div><h3>Numerical Methods</h3><p>Finite volume methods, SIMPLE, staggered grids, validation, convergence analysis</p></div>
-                <div><h3>Programming</h3><p>MATLAB, Python, C/C++, Java automation, Git</p></div>
-                <div><h3>Software</h3><p>STAR-CCM+, ANSYS Fluent, SimScale, MATLAB, JuPedSim</p></div>
+                <div><h3>CFD &amp; Simulation</h3><p>STAR-CCM+, ANSYS Fluent, SimScale, finite-volume methods, multiphase flow, heat transfer</p></div>
+                <div><h3>Numerical Methods</h3><p>SIMPLE-style pressure correction, iterative solvers, mesh studies, residual analysis, benchmark validation</p></div>
+                <div><h3>Programming</h3><p>MATLAB, Python, C/C++, Java automation, Git, scientific scripting</p></div>
+                <div><h3>Data &amp; Automation</h3><p>YOLO, JuPedSim, SQLite, Excel automation, plotting, structured result export</p></div>
             </div>
         </section>
 
