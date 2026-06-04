@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio of Ahmed Kandil, a computational engineer specializing in CFD, numerical simulation, and scientific computing.">
+    <meta property="og:title" content="Ahmed Kandil | Computational Engineer">
+    <meta property="og:description" content="CFD, numerical simulation, and scientific-computing portfolio.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kandil.github.io">
     <title>Ahmed Kandil | Computational Engineer</title>
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="site-header">
-        <nav class="navbar">
+        <nav class="navbar" aria-label="Main navigation">
             <a class="logo" href="index.html">Ahmed Kandil</a>
-            <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
+            <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#projects">Projects</a>
@@ -34,7 +39,7 @@
                 <div class="button-row">
                     <a class="button primary" href="#projects">View Projects</a>
                     <a class="button" href="assets/documents/Ahmed_Kandil_CV.pdf">Download CV</a>
-                    <a class="button" href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" rel="noopener">GitHub</a>
+                    <a class="button" href="https://github.com/kandil" target="_blank" rel="noopener">GitHub</a>
                 </div>
             </div>
         </section>
@@ -44,11 +49,12 @@
             <h2>CFD-focused engineer with a strong numerical simulation background.</h2>
             <p>
                 My work combines engineering physics, numerical methods, and programming. I have worked on CFD
-                applications involving multiphase flow, thermal systems, Formula Student aerodynamics, fire dynamics,
-                and custom solver development.
+                applications involving multiphase flow, thermal systems, battery-production research, pedestrian
+                dynamics, and custom solver development.
             </p>
             <p>
-                This portfolio presents selected projects with methodology, tools, results, and validation whenever possible.
+                This portfolio presents selected projects with their methodology, implementation, results, and
+                validation approach.
             </p>
         </section>
 
@@ -58,12 +64,12 @@
 
             <div class="project-grid">
                 <article class="project-card">
-                    <img src="assets/images/lid-cavity.png" alt="Lid-driven cavity CFD simulation placeholder">
+                    <img src="assets/images/lid-cavity.svg" alt="Stylized lid-driven cavity flow visualization">
                     <div class="card-body">
                         <h3>MATLAB Lid-Driven Cavity Solver</h3>
                         <p>
-                            A 2D incompressible-flow solver using the SIMPLE algorithm on a staggered grid, including
-                            residual tracking, contours, streamlines, and validation plots.
+                            A two-dimensional incompressible-flow solver using the SIMPLE algorithm on a staggered
+                            grid, with residual tracking, contours, streamlines, and validation plots.
                         </p>
                         <p class="tags">MATLAB · CFD · SIMPLE · Numerical Methods</p>
                         <a href="projects/lid-cavity.html">View project →</a>
@@ -71,38 +77,12 @@
                 </article>
 
                 <article class="project-card">
-                    <img src="assets/images/formula-student.png" alt="Formula Student aerodynamic development placeholder">
-                    <div class="card-body">
-                        <h3>Formula Student Aerodynamics</h3>
-                        <p>
-                            Aerodynamic development of Formula Student vehicle concepts, including bodywork and front-wing
-                            design supported by CFD analysis.
-                        </p>
-                        <p class="tags">ANSYS Fluent · CAD · Aerodynamics · Optimization</p>
-                        <a href="projects/formula-student.html">View project →</a>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <img src="assets/images/fire-simulation.png" alt="Compartment fire simulation placeholder">
-                    <div class="card-body">
-                        <h3>Compartment Fire Simulation</h3>
-                        <p>
-                            FDS-based fire simulation with mesh sensitivity, smoke movement analysis, thermal field results,
-                            and comparison against experimental data.
-                        </p>
-                        <p class="tags">FDS · Smokeview · Fire Dynamics · Validation</p>
-                        <a href="projects/fire-simulation.html">View project →</a>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <img src="assets/images/pedestrian-simulation.png" alt="Pedestrian simulation placeholder">
+                    <img src="assets/images/pedestrian-simulation.svg" alt="Stylized pedestrian-flow and crowd-counting visualization">
                     <div class="card-body">
                         <h3>Pedestrian Simulation and Crowd Counting</h3>
                         <p>
-                            Evacuation and crowd-flow analysis using JuPedSim and YOLO-based video processing for counting,
-                            flow-rate estimation, and scenario comparison.
+                            Evacuation and crowd-flow analysis using JuPedSim and YOLO-based video processing for
+                            counting, flow-rate estimation, and scenario comparison.
                         </p>
                         <p class="tags">Python · JuPedSim · YOLO · Data Analysis</p>
                         <a href="projects/pedestrian-simulation.html">View project →</a>
@@ -117,15 +97,15 @@
             <div class="timeline">
                 <div class="timeline-item">
                     <h3>Fraunhofer FFB</h3>
-                    <p>Student Research Assistant · Battery cell production and engineering research.</p>
+                    <p>Student Research Assistant · Battery-cell production and engineering research.</p>
                 </div>
                 <div class="timeline-item">
                     <h3>Vorwerk</h3>
-                    <p>Working Student CFD · Multiphase flow simulation, thermal-fluid analysis, and automation.</p>
+                    <p>Working Student CFD · Multiphase-flow simulation, thermal-fluid analysis, and automation.</p>
                 </div>
                 <div class="timeline-item">
                     <h3>Mansoura Motorsport</h3>
-                    <p>Aerodynamics Head / Chief Engineer · Formula Student aerodynamic design and team leadership.</p>
+                    <p>Aerodynamics Head / Chief Engineer · Aerodynamic design, CFD analysis, and team leadership.</p>
                 </div>
                 <div class="timeline-item">
                     <h3>GRIND for Engineering Solutions</h3>
@@ -138,23 +118,21 @@
             <p class="section-label">Skills</p>
             <h2>Technical stack</h2>
             <div class="skills-grid">
-                <div><h3>Simulation</h3><p>CFD, heat transfer, multiphase flow, fire dynamics, aerodynamics</p></div>
-                <div><h3>Software</h3><p>STAR-CCM+, ANSYS Fluent, FDS, Smokeview, SimScale</p></div>
+                <div><h3>Simulation</h3><p>CFD, heat transfer, multiphase flow, aerodynamics, pedestrian dynamics</p></div>
+                <div><h3>Numerical Methods</h3><p>Finite volume methods, SIMPLE, staggered grids, validation, convergence analysis</p></div>
                 <div><h3>Programming</h3><p>MATLAB, Python, C/C++, Java automation, Git</p></div>
-                <div><h3>Future Additions</h3><p>OpenFOAM, MPI, OpenMP, CUDA, HPC benchmarking</p></div>
+                <div><h3>Software</h3><p>STAR-CCM+, ANSYS Fluent, SimScale, MATLAB, JuPedSim</p></div>
             </div>
         </section>
 
         <section id="contact" class="section narrow contact-box">
             <p class="section-label">Contact</p>
             <h2>Let’s connect</h2>
-            <p>
-                I am interested in CFD, numerical simulation, scientific computing, and engineering R&D opportunities.
-            </p>
+            <p>I am interested in CFD, numerical simulation, scientific computing, and engineering R&amp;D opportunities.</p>
             <div class="button-row">
                 <a class="button primary" href="mailto:kandil.ahmed.amr@gmail.com">Email Me</a>
-                <a class="button" href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener">LinkedIn</a>
-                <a class="button" href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" rel="noopener">GitHub</a>
+                <a class="button" href="https://www.linkedin.com/in/ahmed-kandil03/" target="_blank" rel="noopener">LinkedIn</a>
+                <a class="button" href="https://github.com/kandil" target="_blank" rel="noopener">GitHub</a>
             </div>
         </section>
     </main>

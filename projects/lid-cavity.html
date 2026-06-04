@@ -3,37 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MATLAB lid-driven cavity CFD solver developed by Ahmed Kandil.">
     <title>MATLAB Lid-Driven Cavity Solver | Ahmed Kandil</title>
+    <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-<header class="site-header"><nav class="navbar"><a class="logo" href="../index.html">Ahmed Kandil</a><div class="nav-links"><a href="../index.html#projects">Projects</a><a href="../index.html#contact">Contact</a></div></nav></header>
-<main class="project-page">
-    <section class="project-hero">
-        <p class="section-label">CFD Solver Development</p>
-        <h1>MATLAB Lid-Driven Cavity Solver</h1>
-        <p class="hero-text">A two-dimensional incompressible-flow solver using the SIMPLE algorithm and staggered-grid discretization.</p>
-        <img class="project-image" src="../assets/images/lid-cavity.png" alt="Lid-driven cavity CFD result placeholder">
-    </section>
-    <section class="section">
-        <div class="info-list">
-            <div><h3>Tools</h3><p>MATLAB, numerical methods, plotting</p></div>
-            <div><h3>Methods</h3><p>SIMPLE, finite volume, staggered grid</p></div>
-            <div><h3>Outputs</h3><p>Residuals, contours, centerline profiles</p></div>
-        </div>
-        <h2>Project overview</h2>
-        <p>This project implements a CFD benchmark for incompressible flow in a square lid-driven cavity.</p>
-        <h2>What to show here</h2>
-        <ul>
-            <li>Velocity magnitude contour</li>
-            <li>Streamlines and vorticity</li>
-            <li>Residual convergence history</li>
-            <li>Centerline velocity validation against reference data</li>
-            <li>Comparison between iterative and vectorized implementations</li>
-        </ul>
-        <div class="button-row"><a class="button primary" href="https://github.com/YOUR-GITHUB-USERNAME/YOUR-REPOSITORY" target="_blank" rel="noopener">View GitHub Repository</a></div>
-    </section>
-</main>
-<footer><p>© 2026 Ahmed Kandil</p></footer>
+    <header class="site-header">
+        <nav class="navbar" aria-label="Project navigation">
+            <a class="logo" href="../index.html">Ahmed Kandil</a>
+            <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+            <div class="nav-links">
+                <a href="../index.html#projects">Projects</a>
+                <a href="../index.html#experience">Experience</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="project-page">
+        <section class="project-hero">
+            <p class="section-label">CFD Solver Development</p>
+            <h1>MATLAB Lid-Driven Cavity Solver</h1>
+            <p class="hero-text">
+                A two-dimensional incompressible-flow benchmark implemented with the SIMPLE algorithm and a
+                staggered-grid finite-volume formulation.
+            </p>
+            <img class="project-image" src="../assets/images/lid-cavity.svg" alt="Stylized lid-driven cavity flow visualization">
+        </section>
+
+        <section class="section project-content-section">
+            <div class="info-list">
+                <div><h3>Tools</h3><p>MATLAB, Git, numerical visualization</p></div>
+                <div><h3>Methods</h3><p>SIMPLE, finite volume method, staggered grid</p></div>
+                <div><h3>Outputs</h3><p>Residuals, contours, streamlines, centerline profiles</p></div>
+            </div>
+
+            <h2>Project overview</h2>
+            <p>
+                The project solves the incompressible Navier–Stokes equations for flow inside a square cavity driven
+                by a moving top wall. It was developed as a transparent CFD benchmark for studying pressure–velocity
+                coupling, discretization, convergence behavior, and code organization.
+            </p>
+
+            <h2>Implementation</h2>
+            <ul>
+                <li>Staggered arrangement for pressure and velocity variables.</li>
+                <li>Predictor–corrector procedure using the SIMPLE pressure-correction method.</li>
+                <li>Iterative and vectorized MATLAB implementations for comparison.</li>
+                <li>Residual histories and stability monitoring during the solution process.</li>
+                <li>Post-processing for velocity magnitude, pressure, vorticity, streamlines, and centerline profiles.</li>
+            </ul>
+
+            <h2>Validation and learning outcomes</h2>
+            <p>
+                Centerline velocity profiles and flow structures can be compared with published cavity-flow benchmark
+                data. The project also provides a practical basis for evaluating numerical stability, mesh resolution,
+                and computational performance across different Reynolds numbers.
+            </p>
+
+            <div class="button-row">
+                <a class="button primary" href="https://github.com/kandil/LidCavity_MATLAB" target="_blank" rel="noopener">View GitHub Repository</a>
+                <a class="button" href="../index.html#projects">Back to Projects</a>
+            </div>
+        </section>
+    </main>
+
+    <footer><p>© 2026 Ahmed Kandil</p></footer>
+    <script src="../script.js"></script>
 </body>
 </html>

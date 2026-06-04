@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Lid-driven cavity flow</title>
+  <desc id="desc">Stylized CFD streamlines inside a square cavity with a moving upper wall.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="1" stop-color="#102744"/>
+    </linearGradient>
+    <linearGradient id="flow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#7dd3fc"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <g opacity=".2" stroke="#7dd3fc" stroke-width="1">
+    <path d="M0 110H1200M0 220H1200M0 330H1200M0 440H1200M0 550H1200"/>
+    <path d="M150 0V675M300 0V675M450 0V675M600 0V675M750 0V675M900 0V675M1050 0V675"/>
+  </g>
+  <rect x="305" y="95" width="590" height="500" rx="8" fill="#0b1728" stroke="#7dd3fc" stroke-width="5"/>
+  <path d="M365 95H835" stroke="url(#flow)" stroke-width="12" stroke-linecap="round" filter="url(#glow)"/>
+  <path d="M800 70l45 25-45 25" fill="none" stroke="#f7fbff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="none" stroke="url(#flow)" stroke-width="4" opacity=".9">
+    <path d="M385 160C650 110 845 220 835 370S680 555 520 530 350 420 385 290 520 195 700 205 805 285 790 370 675 475 555 450 430 380 455 285 550 235 675 255 745 320 715 385 620 420 535 380 495 315 555 275 645 290 685 335 650 370 590 380"/>
+    <path d="M385 220C500 175 620 180 740 215" opacity=".55"/>
+    <path d="M365 500C420 545 500 570 585 575" opacity=".55"/>
+  </g>
+  <circle cx="590" cy="340" r="11" fill="#f7fbff" filter="url(#glow)"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#f7fbff">
+    <text x="55" y="82" font-size="30" font-weight="700" fill="#7dd3fc">CFD SOLVER DEVELOPMENT</text>
+    <text x="55" y="625" font-size="42" font-weight="800">MATLAB Lid-Driven Cavity</text>
+  </g>
+</svg>

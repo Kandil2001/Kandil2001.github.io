@@ -1,56 +1,48 @@
 # Ahmed Kandil Portfolio Website
 
-This is a ready-to-upload personal portfolio website for GitHub Pages.
+Ready-to-upload personal portfolio website for GitHub Pages.
 
-## How to use it
+## Publish the website
 
-1. Rename the repository to:
+1. Create or open the public GitHub repository named exactly:
 
 ```text
-YOUR-GITHUB-USERNAME.github.io
+kandil.github.io
 ```
 
-2. Upload all files in this folder to that repository.
+2. Upload all files and folders from this package to the repository root.
+3. Commit the files to the `main` branch.
+4. Open **Settings > Pages** in the repository.
+5. Select **Deploy from a branch**, choose `main` and `/root`, then save.
 
-3. Replace these placeholders:
+The website will be available at:
 
-- `YOUR-GITHUB-USERNAME`
-- `YOUR-LINKEDIN`
-- `YOUR-REPOSITORY`
+```text
+https://kandil.github.io
+```
 
-4. Add your CV here:
+## Before publishing
+
+Add your CV here using the exact filename:
 
 ```text
 assets/documents/Ahmed_Kandil_CV.pdf
 ```
 
-5. Replace the placeholder images in:
+The package includes two polished vector project covers. Replace them later only if you prefer real result images, while keeping the same filenames:
 
 ```text
-assets/images/
+assets/images/lid-cavity.svg
+assets/images/pedestrian-simulation.svg
 ```
 
-Recommended images:
-
-- `lid-cavity.png`: velocity contour or streamline plot
-- `formula-student.png`: car render or CFD pressure/velocity contour
-- `fire-simulation.png`: Smokeview screenshot or fire temperature plot
-- `pedestrian-simulation.png`: JuPedSim animation screenshot or YOLO detection result
-
-## Publish with GitHub Pages
-
-1. Open the repository on GitHub.
-2. Go to Settings > Pages.
-3. Source: Deploy from a branch.
-4. Branch: main.
-5. Folder: /root.
-6. Save.
-
-Your website will be available at:
+The GitHub profile and LinkedIn links are already configured. The lid-driven-cavity project button currently links to:
 
 ```text
-https://YOUR-GITHUB-USERNAME.github.io
+https://github.com/kandil/LidCavity_MATLAB
 ```
+
+Change that link in `projects/lid-cavity.html` only if your repository has a different name.
 
 ## Main files
 

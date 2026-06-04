@@ -3,35 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pedestrian simulation and YOLO-based crowd-counting project by Ahmed Kandil.">
     <title>Pedestrian Simulation and Crowd Counting | Ahmed Kandil</title>
+    <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-<header class="site-header"><nav class="navbar"><a class="logo" href="../index.html">Ahmed Kandil</a><div class="nav-links"><a href="../index.html#projects">Projects</a><a href="../index.html#contact">Contact</a></div></nav></header>
-<main class="project-page">
-    <section class="project-hero">
-        <p class="section-label">Pedestrian Dynamics</p>
-        <h1>Pedestrian Simulation and Crowd Counting</h1>
-        <p class="hero-text">Scenario-based pedestrian simulation and video-based crowd counting using Python, JuPedSim, and YOLO.</p>
-        <img class="project-image" src="../assets/images/pedestrian-simulation.png" alt="Pedestrian simulation placeholder">
-    </section>
-    <section class="section">
-        <div class="info-list">
-            <div><h3>Tools</h3><p>Python, JuPedSim, YOLO, Excel</p></div>
-            <div><h3>Analysis</h3><p>Evacuation time, flow rate, tracking</p></div>
-            <div><h3>Outputs</h3><p>Animations, plots, scenario comparison</p></div>
-        </div>
-        <h2>Project overview</h2>
-        <p>This project combines simulation and computer vision to analyze pedestrian flow and evacuation behavior.</p>
-        <h2>What to add</h2>
-        <ul>
-            <li>Scenario geometry plots</li>
-            <li>Evacuation animations</li>
-            <li>YOLO detection screenshots</li>
-            <li>Flow-rate and counting validation plots</li>
-        </ul>
-    </section>
-</main>
-<footer><p>© 2026 Ahmed Kandil</p></footer>
+    <header class="site-header">
+        <nav class="navbar" aria-label="Project navigation">
+            <a class="logo" href="../index.html">Ahmed Kandil</a>
+            <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+            <div class="nav-links">
+                <a href="../index.html#projects">Projects</a>
+                <a href="../index.html#experience">Experience</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="project-page">
+        <section class="project-hero">
+            <p class="section-label">Pedestrian Dynamics and Computer Vision</p>
+            <h1>Pedestrian Simulation and Crowd Counting</h1>
+            <p class="hero-text">
+                A combined simulation and video-analysis workflow for evaluating evacuation behavior, pedestrian flow,
+                and counting accuracy.
+            </p>
+            <img class="project-image" src="../assets/images/pedestrian-simulation.svg" alt="Stylized pedestrian-flow and crowd-counting visualization">
+        </section>
+
+        <section class="section project-content-section">
+            <div class="info-list">
+                <div><h3>Tools</h3><p>Python, JuPedSim, YOLO, SQLite, Excel</p></div>
+                <div><h3>Analysis</h3><p>Evacuation time, flow rate, tracking, scenario comparison</p></div>
+                <div><h3>Outputs</h3><p>Animations, detection videos, logs, plots, spreadsheets</p></div>
+            </div>
+
+            <h2>Project overview</h2>
+            <p>
+                The project combines agent-based pedestrian simulation with computer-vision-based crowd counting.
+                JuPedSim is used to assess movement and evacuation scenarios, while a YOLO-based workflow processes
+                recorded videos to estimate pedestrian counts and flow rates.
+            </p>
+
+            <h2>Simulation workflow</h2>
+            <ul>
+                <li>Defined walkable geometry, spawning regions, destinations, and multiple exits.</li>
+                <li>Compared scenarios using evacuation time, agent trajectories, and exit utilization.</li>
+                <li>Generated trajectory databases, geometry plots, and evacuation animations for analysis.</li>
+            </ul>
+
+            <h2>Video-analysis workflow</h2>
+            <ul>
+                <li>Tracked pedestrians in high-angle video using a YOLO-based detection pipeline.</li>
+                <li>Applied line-crossing logic and time-window aggregation to estimate directional flow rates.</li>
+                <li>Exported logs and spreadsheet summaries for comparison with manual counts.</li>
+            </ul>
+
+            <h2>Outcome</h2>
+            <p>
+                The combined approach supports both scenario testing and measurement-based validation. It demonstrates
+                how simulation, computer vision, and structured post-processing can be integrated into a repeatable
+                engineering-analysis workflow.
+            </p>
+
+            <div class="button-row">
+                <a class="button" href="../index.html#projects">Back to Projects</a>
+                <a class="button" href="../index.html#contact">Contact Me</a>
+            </div>
+        </section>
+    </main>
+
+    <footer><p>© 2026 Ahmed Kandil</p></footer>
+    <script src="../script.js"></script>
 </body>
 </html>
