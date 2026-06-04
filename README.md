@@ -1,48 +1,22 @@
 # Ahmed Kandil Portfolio Website
 
-Ready-to-upload personal portfolio website for GitHub Pages.
+Personal portfolio website for CFD, numerical simulation, and scientific computing.
 
-## Publish the website
+## Website
 
-1. Create or open the public GitHub repository named exactly:
-
-```text
-kandil.github.io
-```
-
-2. Upload all files and folders from this package to the repository root.
-3. Commit the files to the `main` branch.
-4. Open **Settings > Pages** in the repository.
-5. Select **Deploy from a branch**, choose `main` and `/root`, then save.
-
-The website will be available at:
+The site is published at:
 
 ```text
-https://kandil.github.io
+https://kandil2001.github.io
 ```
 
-## Before publishing
-
-Add your CV here using the exact filename:
+The GitHub Pages repository is:
 
 ```text
-assets/documents/Ahmed_Kandil_CV.pdf
+Kandil2001/Kandil2001.github.io
 ```
 
-The package includes two polished vector project covers. Replace them later only if you prefer real result images, while keeping the same filenames:
-
-```text
-assets/images/lid-cavity.svg
-assets/images/pedestrian-simulation.svg
-```
-
-The GitHub profile and LinkedIn links are already configured. The lid-driven-cavity project button currently links to:
-
-```text
-https://github.com/kandil/LidCavity_MATLAB
-```
-
-Change that link in `projects/lid-cavity.html` only if your repository has a different name.
+The site is published from the `main` branch and repository root.
 
 ## Main files
 
@@ -50,3 +24,12 @@ Change that link in `projects/lid-cavity.html` only if your repository has a dif
 - `style.css`: design and responsive layout
 - `script.js`: mobile menu
 - `projects/`: individual project pages
+- `assets/images/`: project illustrations and favicon
+
+## CV
+
+To enable a CV download button later, upload the PDF as:
+
+```text
+assets/documents/Ahmed_Kandil_CV.pdf
+```
