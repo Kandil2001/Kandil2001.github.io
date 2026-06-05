@@ -26,7 +26,7 @@ if (menuToggle && navLinks) {
 }
 
 async function fetchTotalVisits() {
-    const response = await fetch(`${GOATCOUNTER_BASE}/counter/TOTAL.json`, {
+    const response = await fetch(`visitor-count.json?t=${Date.now()}`, {
         cache: 'no-store',
     });
 
@@ -54,10 +54,10 @@ function addTotalVisitCounter() {
     const refreshCount = async () => {
         try {
             value.textContent = await fetchTotalVisits();
-            value.title = 'Total anonymous portfolio page visits recorded by GoatCounter';
+            value.title = 'Total anonymous portfolio visits recorded by GoatCounter';
         } catch (error) {
             value.textContent = '—';
-            value.title = 'Enable public visitor counts in GoatCounter settings to display this number.';
+            value.title = 'Visitor count is temporarily unavailable.';
         }
     };
 
