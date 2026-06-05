@@ -1,118 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="JuPedSim evacuation-analysis case study by Ahmed Kandil.">
-    <title>JuPedSim Evacuation Analysis | Ahmed Kandil</title>
-    <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../enhancements.css?v=9">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JuPedSim evacuation-analysis case study by Ahmed Kandil.">
+  <title>JuPedSim Evacuation Analysis | Ahmed Kandil</title>
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../enhancements.css?v=13">
 </head>
 <body>
-    <header class="site-header">
-        <nav class="navbar" aria-label="Project navigation">
-            <a class="logo" href="../index.html">Ahmed Kandil</a>
-            <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-            <div class="nav-links">
-                <a href="../index.html#projects">Projects</a>
-                <a href="../index.html#experience">Experience</a>
-                <a href="../index.html#contact">Contact</a>
-            </div>
-        </nav>
-    </header>
-
-    <main class="project-page">
-        <section class="project-hero">
-            <p class="section-label">Pedestrian Dynamics</p>
-            <h1>JuPedSim Evacuation Analysis</h1>
-            <p class="hero-text">
-                A configurable pedestrian-evacuation workflow built around a real building geometry, multiple spawn regions,
-                several exit-assignment strategies, and reproducible trajectory output.
-            </p>
-            <div class="button-row">
-                <a class="button primary" href="https://github.com/Kandil2001/Jupedsim-Evacuation-Analysis" target="_blank" rel="noopener">View Repository</a>
-                <a class="button" href="../index.html#projects">Back to Projects</a>
-            </div>
-            <img class="project-image" src="https://raw.githubusercontent.com/Kandil2001/Jupedsim-Evacuation-Analysis/main/figures/bottleneck_example.png" alt="Pedestrian bottleneck illustration from the JuPedSim evacuation project">
-        </section>
-
-        <section class="section project-content-section">
-            <div class="proof-grid project-metrics">
-                <div class="metric"><strong>6</strong><span>evacuation scenarios</span></div>
-                <div class="metric"><strong>9</strong><span>modelled exits</span></div>
-                <div class="metric"><strong>6</strong><span>spawn regions</span></div>
-                <div class="metric"><strong>Up to 600</strong><span>configured agents</span></div>
-            </div>
-
-            <h2>Problem</h2>
-            <p>
-                Building-evacuation performance depends on where pedestrians start, which exits are available, how exits are
-                assigned, and how quickly agents move. The project was developed to compare these factors in a controlled,
-                repeatable simulation workflow.
-            </p>
-
-            <h2>My contribution</h2>
-            <ul>
-                <li>Imported and prepared the walkable building geometry from a WKT file.</li>
-                <li>Defined nine exit polygons and six configurable pedestrian spawn regions.</li>
-                <li>Created six scenarios with different active spawns, exit assignments, and pedestrian speeds.</li>
-                <li>Parallelised the initial agent-distribution step using <code>ThreadPoolExecutor</code>.</li>
-                <li>Used Numba to accelerate nearest-exit selection for constrained exit groups.</li>
-                <li>Exported trajectories to SQLite and generated scenario animations and runtime summaries.</li>
-            </ul>
-
-            <h2>Simulation methodology</h2>
-            <div class="info-list">
-                <div><h3>Movement model</h3><p>JuPedSim CollisionFreeSpeedModel with configurable desired speeds and motivation time.</p></div>
-                <div><h3>Geometry</h3><p>Real building walkable area imported from <code>HC.wkt</code>, with explicit exits and spawn regions.</p></div>
-                <div><h3>Outputs</h3><p>SQLite trajectories, evacuation times, simulation runtimes, configuration plots, and animations.</p></div>
-            </div>
-
-            <h2>Scenario design</h2>
-            <table class="case-table">
-                <thead><tr><th>Scenario group</th><th>Main comparison</th></tr></thead>
-                <tbody>
-                    <tr><td>Scenarios 1–2</td><td>Same spawn region assigned to two different exits.</td></tr>
-                    <tr><td>Scenarios 3–4</td><td>Selected spawn combinations with logically constrained exit groups.</td></tr>
-                    <tr><td>Scenarios 5–6</td><td>All spawn regions active, comparing mean pedestrian speeds of 1.2 and 2.0.</td></tr>
-                </tbody>
-            </table>
-
-            <h2>Representative visuals</h2>
-            <div class="result-gallery">
-                <figure>
-                    <img src="https://raw.githubusercontent.com/Kandil2001/Jupedsim-Evacuation-Analysis/main/figures/heatmap.gif" alt="JuPedSim pedestrian trajectory animation">
-                    <figcaption>Trajectory animation generated from the evacuation workflow.</figcaption>
-                </figure>
-                <figure>
-                    <img src="https://raw.githubusercontent.com/Kandil2001/Jupedsim-Evacuation-Analysis/main/figures/bottleneck_example.png" alt="Illustration of pedestrian bottleneck behaviour">
-                    <figcaption>Bottleneck behaviour used to explain congestion effects.</figcaption>
-                </figure>
-            </div>
-
-            <h2>Engineering outcome</h2>
-            <p>
-                The project provides a repeatable framework for comparing evacuation configurations instead of evaluating
-                only one simulation. By separating geometry, spawn configuration, exit logic, movement parameters, and
-                output generation, the workflow can be extended to additional scenarios and validation studies.
-            </p>
-
-            <h2>Limitations and next steps</h2>
-            <p>
-                Exit selection is based partly on Euclidean distance and scenario-defined logical constraints rather than a
-                complete route-choice model. Future improvements include path-aware exit selection, stronger quantitative
-                post-processing with PedPy, parameter calibration, and systematic sensitivity analysis.
-            </p>
-
-            <div class="button-row">
-                <a class="button primary" href="https://github.com/Kandil2001/Jupedsim-Evacuation-Analysis" target="_blank" rel="noopener">Open Complete Repository</a>
-                <a class="button" href="../index.html#contact">Contact Me</a>
-            </div>
-        </section>
-    </main>
-
-    <footer><p>© 2026 Ahmed Kandil</p></footer>
-    <script src="../script.js?v=9"></script>
+<a class="skip-link" href="#project-content">Skip to content</a>
+<header class="site-header"><nav class="navbar" aria-label="Project navigation"><a class="logo" href="../index.html">Ahmed Kandil</a><button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button><div class="nav-links"><a href="../index.html#projects">Projects</a><a href="../index.html#experience">Experience</a><a href="../index.html#contact">Contact</a></div></nav></header>
+<main class="project-page" id="project-content">
+<section class="project-hero">
+  <p class="section-label">Pedestrian Dynamics</p>
+  <h1>JuPedSim Evacuation Analysis</h1>
+  <p class="hero-text">A configurable pedestrian-evacuation workflow built around a real building geometry, manually defined exits, scenario-specific assignments, and reproducible trajectory output.</p>
+  <div class="button-row"><a class="button primary" href="https://github.com/Kandil2001/Jupedsim-Evacuation-Analysis" target="_blank" rel="noopener">View Repository</a><a class="button" href="../index.html#projects">Back to Projects</a></div>
+  <img class="project-image" src="https://raw.githubusercontent.com/Kandil2001/Jupedsim-Evacuation-Analysis/main/figures/heatmap.gif" alt="JuPedSim pedestrian evacuation simulation">
+</section>
+<section class="section project-content-section">
+  <div class="proof-grid project-metrics"><div class="metric"><strong>9</strong><span>manually defined exits</span></div><div class="metric"><strong>WKT</strong><span>building geometry</span></div><div class="metric"><strong>SQLite</strong><span>trajectory output</span></div><div class="metric"><strong>Python</strong><span>simulation workflow</span></div></div>
+  <h2>Problem</h2><p>Evacuation behaviour depends on where pedestrians begin, which exits are available, how groups are assigned, and how movement parameters are configured. The project was developed to compare these factors through one repeatable workflow.</p>
+  <h2>My contribution</h2><ul><li>Imported and prepared the walkable building geometry from a WKT file.</li><li>Defined nine exit polygons and configurable pedestrian spawn areas.</li><li>Created scenario-specific rules for group placement and exit assignment.</li><li>Used JuPedSim distribution utilities to generate valid initial positions.</li><li>Used NumPy, Numba, and <code>ThreadPoolExecutor</code> for selected setup calculations.</li><li>Exported trajectories to SQLite and generated notebook animations.</li></ul>
+  <h2>Simulation methodology</h2><div class="info-list"><div><h3>Geometry</h3><p>The walkable area is loaded from <code>HC.wkt</code>, with exits and spawn areas defined explicitly.</p></div><div><h3>Scenario logic</h3><p>Each case can change active spawn areas, group sizes, available exits, and walking parameters.</p></div><div><h3>Outputs</h3><p>The notebook records trajectories, evacuation time, runtime, and animations for comparison.</p></div></div>
+  <h2>Representative visual</h2><div class="result-gallery single-result"><figure><img src="https://raw.githubusercontent.com/Kandil2001/Jupedsim-Evacuation-Analysis/main/figures/heatmap.gif" alt="JuPedSim pedestrian trajectory animation"><figcaption>Trajectory animation generated from the evacuation workflow.</figcaption></figure></div>
+  <h2>Engineering outcome</h2><p>The project provides a reusable setup for comparing evacuation configurations instead of evaluating only one simulation. Geometry, spawn configuration, exit logic, movement parameters, and output generation remain separated so the workflow can be extended more easily.</p>
+  <h2>Limitations and next steps</h2><p>This is an educational pedestrian-dynamics study rather than a certified safety assessment. Exit selection is based partly on centroid distance and scenario-defined constraints, and the simulation has not been calibrated against measured evacuation data. Useful next steps include path-aware exit selection, sensitivity studies, additional geometries, and experimental validation.</p>
+  <div class="button-row"><a class="button primary" href="https://github.com/Kandil2001/Jupedsim-Evacuation-Analysis" target="_blank" rel="noopener">Open Complete Repository</a><a class="button" href="../index.html#contact">Contact Me</a></div>
+</section>
+</main>
+<footer><p>© 2026 Ahmed Kandil</p></footer>
+<script src="../script.js?v=13"></script>
 </body>
 </html>
