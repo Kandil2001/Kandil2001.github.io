@@ -1,15 +1,11 @@
-const GOATCOUNTER_CODE = 'kandil2001';
-const GOATCOUNTER_BASE = `https://${GOATCOUNTER_CODE}.goatcounter.com`;
-const IS_ANALYTICS_PAGE = window.location.pathname.endsWith('/analytics.html');
+const GOATCOUNTER_BASE = 'https://kandil2001.goatcounter.com';
 
-// Track normal portfolio pages, but do not count visits to the statistics page itself.
-if (!IS_ANALYTICS_PAGE) {
-    const goatCounterScript = document.createElement('script');
-    goatCounterScript.async = true;
-    goatCounterScript.src = 'https://gc.zgo.at/count.js';
-    goatCounterScript.dataset.goatcounter = `${GOATCOUNTER_BASE}/count`;
-    document.head.appendChild(goatCounterScript);
-}
+// Track visits on every portfolio page.
+const goatCounterScript = document.createElement('script');
+goatCounterScript.async = true;
+goatCounterScript.src = 'https://gc.zgo.at/count.js';
+goatCounterScript.dataset.goatcounter = `${GOATCOUNTER_BASE}/count`;
+document.head.appendChild(goatCounterScript);
 
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
@@ -28,72 +24,42 @@ if (menuToggle && navLinks) {
     });
 }
 
-function counterUrl(path) {
-    return `${GOATCOUNTER_BASE}/counter/${encodeURIComponent(path)}.json`;
-}
+async function fetchTotalVisits() {
+    const response = await fetch(`${GOATCOUNTER_BASE}/counter/TOTAL.json`, {
+        cache: 'no-store',
+    });
 
-async function getCount(path) {
-    const response = await fetch(counterUrl(path), { cache: 'no-store' });
     if (!response.ok) {
         throw new Error(`Counter request failed with status ${response.status}`);
     }
+
     const data = await response.json();
     return data.count;
 }
 
-function addFooterAnalyticsShortcut() {
+function addTotalVisitCounter() {
     const footer = document.querySelector('footer');
     if (!footer || footer.querySelector('.analytics-shortcut')) return;
 
-    const onProjectPage = window.location.pathname.includes('/projects/');
-    const analyticsPath = onProjectPage ? '../analytics.html' : 'analytics.html';
+    const counter = document.createElement('div');
+    counter.className = 'analytics-shortcut';
+    counter.innerHTML = '<span>Total portfolio visits: <strong data-site-total>—</strong></span>';
+    footer.appendChild(counter);
 
-    const shortcut = document.createElement('div');
-    shortcut.className = 'analytics-shortcut';
-    shortcut.innerHTML = `
-        <span>Portfolio views: <strong data-site-total>—</strong></span>
-        <a href="${analyticsPath}">View site stats</a>
-    `;
-    footer.appendChild(shortcut);
+    const value = counter.querySelector('[data-site-total]');
 
-    getCount('TOTAL')
-        .then((count) => {
-            const total = shortcut.querySelector('[data-site-total]');
-            if (total) total.textContent = count;
-        })
-        .catch(() => {
-            const total = shortcut.querySelector('[data-site-total]');
-            if (total) {
-                total.textContent = '—';
-                total.title = 'Enable public visitor counts in GoatCounter settings to display this number.';
-            }
-        });
-}
-
-async function populateAnalyticsPage() {
-    const cards = document.querySelectorAll('[data-goat-path]');
-    if (!cards.length) return;
-
-    await Promise.all(Array.from(cards).map(async (card) => {
-        const path = card.dataset.goatPath;
-        const value = card.querySelector('[data-count-value]');
-        const status = card.querySelector('[data-count-status]');
-
+    const refreshCount = async () => {
         try {
-            const count = await getCount(path);
-            if (value) value.textContent = count;
-            if (status) status.textContent = 'Tracked page views';
+            value.textContent = await fetchTotalVisits();
+            value.title = 'Total anonymous portfolio page visits recorded by GoatCounter';
         } catch (error) {
-            if (value) value.textContent = '—';
-            if (status) status.textContent = 'Enable public visitor counts in GoatCounter settings';
+            value.textContent = '—';
+            value.title = 'Enable public visitor counts in GoatCounter settings to display this number.';
         }
-    }));
+    };
 
-    const updated = document.querySelector('[data-stats-updated]');
-    if (updated) {
-        updated.textContent = `Checked ${new Date().toLocaleString()}`;
-    }
+    refreshCount();
+    window.setInterval(refreshCount, 300000);
 }
 
-addFooterAnalyticsShortcut();
-populateAnalyticsPage();
+addTotalVisitCounter();
