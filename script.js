@@ -1,4 +1,5 @@
 const GOATCOUNTER_BASE = 'https://kandil2001.goatcounter.com';
+const IS_HOME_PAGE = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html');
 
 // Track visits on every portfolio page.
 const goatCounterScript = document.createElement('script');
@@ -38,6 +39,8 @@ async function fetchTotalVisits() {
 }
 
 function addTotalVisitCounter() {
+    if (!IS_HOME_PAGE) return;
+
     const footer = document.querySelector('footer');
     if (!footer || footer.querySelector('.analytics-shortcut')) return;
 
