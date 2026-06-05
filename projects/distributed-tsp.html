@@ -7,30 +7,31 @@
   <title>Distributed TSP Solver | Ahmed Kandil</title>
   <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../style.css">
-  <link rel="stylesheet" href="../enhancements.css?v=12">
+  <link rel="stylesheet" href="../enhancements.css?v=13">
 </head>
 <body>
+<a class="skip-link" href="#project-content">Skip to content</a>
 <header class="site-header"><nav class="navbar" aria-label="Project navigation"><a class="logo" href="../index.html">Ahmed Kandil</a><button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button><div class="nav-links"><a href="../index.html#projects">Projects</a><a href="../index.html#experience">Experience</a><a href="../index.html#contact">Contact</a></div></nav></header>
-<main class="project-page">
+<main class="project-page" id="project-content">
 <section class="project-hero">
   <p class="section-label">High-Performance Computing</p>
   <h1>Distributed TSP Solver</h1>
-  <p class="hero-text">A distributed-memory Traveling Salesman Problem solver written in C99 and OpenMPI, combining Parallel Tempering, local search, constant-time route updates, and coordinated replica exchange.</p>
+  <p class="hero-text">A distributed-memory Traveling Salesman Problem solver written in C99 and MPI, combining parallel tempering, two-opt local search, precomputed distances, and coordinated replica exchange.</p>
   <div class="button-row"><a class="button primary" href="https://github.com/Kandil2001/Distributed-TSP-Solver" target="_blank" rel="noopener">View Repository</a><a class="button" href="../index.html#projects">Back to Projects</a></div>
   <img class="project-image" src="https://raw.githubusercontent.com/Kandil2001/Distributed-TSP-Solver/main/figures/route_comparison.png" alt="TSP route comparison from the distributed solver">
 </section>
 <section class="section project-content-section">
-  <div class="proof-grid project-metrics"><div class="metric"><strong>20.7×</strong><span>reported speedup</span></div><div class="metric"><strong>24</strong><span>tested cores</span></div><div class="metric"><strong>86%</strong><span>parallel efficiency</span></div><div class="metric"><strong>O(1)</strong><span>route-delta updates</span></div></div>
-  <h2>Problem</h2><p>The Traveling Salesman Problem has a rapidly growing search space. Distributed optimisation can improve runtime, but it also introduces communication, synchronization, and scaling challenges.</p>
-  <h2>My contribution</h2><ul><li>Implemented distributed Parallel Tempering using C99 and OpenMPI.</li><li>Used 2-opt route modifications with a stochastic acceptance strategy.</li><li>Precomputed a distance matrix for constant-time route-delta evaluation.</li><li>Designed an odd-even replica-exchange protocol.</li><li>Automated strong-scaling benchmarks and performance plots.</li></ul>
-  <h2>Parallel methodology</h2><div class="info-list"><div><h3>Search</h3><p>Multiple temperature replicas help the optimisation escape local minima.</p></div><div><h3>Communication</h3><p>Neighbouring replicas exchange states using an ordered odd-even protocol.</p></div><div><h3>Performance</h3><p>Distance lookup tables reduce the cost of the inner optimisation loop.</p></div></div>
-  <h2>Representative results</h2><div class="result-gallery tsp-gallery"><figure><img src="https://raw.githubusercontent.com/Kandil2001/Distributed-TSP-Solver/main/figures/scaling_speedup.png" alt="Strong scaling speedup"><figcaption>Strong-scaling speedup.</figcaption></figure><figure><img src="https://raw.githubusercontent.com/Kandil2001/Distributed-TSP-Solver/main/figures/scaling_efficiency.png" alt="Parallel efficiency"><figcaption>Parallel efficiency across core counts.</figcaption></figure><figure><img src="https://raw.githubusercontent.com/Kandil2001/Distributed-TSP-Solver/main/figures/scaling_breakdown_fixed.png" alt="Runtime breakdown"><figcaption>Computation and communication runtime breakdown.</figcaption></figure><figure><img src="https://raw.githubusercontent.com/Kandil2001/Distributed-TSP-Solver/main/figures/scaling_swap_rate.png" alt="Replica swap rate"><figcaption>Replica-exchange acceptance rate.</figcaption></figure></div>
-  <h2>Results</h2><ul><li>The repository reports a 20.7× speedup on a 24-core cluster.</li><li>Reported parallel efficiency remains at 86% at 24 cores.</li><li>Computation remains the dominant cost while communication overhead grows gradually.</li><li>Solution quality remains stable across the tested processor counts.</li></ul>
-  <h2>Next steps</h2><p>Planned extensions include hybrid MPI/OpenMP execution, CUDA acceleration, and comparisons across additional TSP datasets.</p>
+  <div class="proof-grid project-metrics"><div class="metric"><strong>20.7×</strong><span>reported speedup</span></div><div class="metric"><strong>24</strong><span>tested cores</span></div><div class="metric"><strong>≈86%</strong><span>reported parallel efficiency</span></div><div class="metric"><strong>O(1)</strong><span>distance lookups</span></div></div>
+  <h2>Problem</h2><p>The Traveling Salesman Problem has a rapidly growing search space. Distributed optimisation can reduce runtime, but it also introduces communication, synchronization, load-distribution, and scaling challenges.</p>
+  <h2>My contribution</h2><ul><li>Implemented a distributed parallel-tempering search using C99 and MPI.</li><li>Used two-opt route modifications with Metropolis acceptance.</li><li>Precomputed a distance matrix to reduce inner-loop lookup cost.</li><li>Designed an alternating neighbouring-rank exchange pattern.</li><li>Automated strong-scaling runs and performance plots.</li></ul>
+  <h2>Parallel methodology</h2><div class="info-list"><div><h3>Search</h3><p>Replicas at different temperatures balance local improvement with wider exploration.</p></div><div><h3>Communication</h3><p>Neighbouring replicas exchange routes through an ordered alternating pattern.</p></div><div><h3>Benchmarking</h3><p>The total number of replicas remains fixed while the MPI process count changes.</p></div></div>
+  <h2>Representative results</h2><div class="result-gallery tsp-gallery"><figure><img src="https://raw.githubusercontent.com/Kandil2001/Distributed-TSP-Solver/main/figures/scaling_speedup.png" alt="Strong scaling speedup"><figcaption>Strong-scaling speedup.</figcaption></figure><figure><img src="https://raw.githubusercontent.com/Kandil2001/Distributed-TSP-Solver/main/figures/scaling_efficiency.png" alt="Parallel efficiency"><figcaption>Parallel efficiency across tested process counts.</figcaption></figure><figure><img src="https://raw.githubusercontent.com/Kandil2001/Distributed-TSP-Solver/main/figures/scaling_breakdown_fixed.png" alt="Runtime breakdown"><figcaption>Computation and communication runtime breakdown.</figcaption></figure><figure><img src="https://raw.githubusercontent.com/Kandil2001/Distributed-TSP-Solver/main/figures/scaling_quality_bar.png" alt="Solution quality comparison"><figcaption>Solution quality across tested process counts.</figcaption></figure></div>
+  <h2>Results and limitations</h2><ul><li>The tested Berlin52 configuration reported a 20.7× speedup on 24 cores.</li><li>Reported parallel efficiency was approximately 86% at 24 cores.</li><li>Communication overhead increased as more MPI processes were used.</li><li>The timings are specific to the tested cluster and solver settings.</li><li>Because the search is stochastic, repeated runs are needed for wider conclusions about solution quality.</li></ul>
+  <h2>Next steps</h2><p>Planned extensions include hybrid MPI/OpenMP execution, CUDA acceleration, runtime-configurable solver parameters, and comparisons across additional TSPLIB datasets.</p>
   <div class="button-row"><a class="button primary" href="https://github.com/Kandil2001/Distributed-TSP-Solver" target="_blank" rel="noopener">Open Complete Repository</a><a class="button" href="../index.html#contact">Contact Me</a></div>
 </section>
 </main>
 <footer><p>© 2026 Ahmed Kandil</p></footer>
-<script src="../script.js?v=12"></script>
+<script src="../script.js?v=13"></script>
 </body>
 </html>
