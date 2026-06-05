@@ -2,7 +2,7 @@ name: Update visitor count
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/15 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -21,38 +21,93 @@ jobs:
           GOATCOUNTER_API_KEY: ${{ secrets.GOATCOUNTER_API_KEY }}
         run: |
           python - <<'PY'
+          import base64
           import datetime
           import json
           import os
+          import urllib.error
+          import urllib.parse
           import urllib.request
 
-          token = os.environ.get("GOATCOUNTER_API_KEY")
+          token = os.environ.get("GOATCOUNTER_API_KEY", "").strip()
           if not token:
               raise SystemExit("Missing GOATCOUNTER_API_KEY repository secret")
 
-          url = (
-              "https://kandil2001.goatcounter.com/api/v0/stats/total"
-              "?start=2020-01-01T00%3A00%3A00Z"
-          )
-          request = urllib.request.Request(
-              url,
-              headers={
-                  "Authorization": f"Bearer {token}",
-                  "Content-Type": "application/json",
-              },
-          )
+          base = "https://kandil2001.goatcounter.com/api/v0"
+          now = datetime.datetime.now(datetime.timezone.utc)
+          start = "2026-01-01T00:00:00Z"
+          end = now.replace(minute=0, second=0, microsecond=0).isoformat().replace("+00:00", "Z")
+          query = urllib.parse.urlencode({"start": start, "end": end})
 
-          with urllib.request.urlopen(request, timeout=30) as response:
-              data = json.load(response)
+          bearer_headers = {
+              "Authorization": f"Bearer {token}",
+              "Content-Type": "application/json",
+              "User-Agent": "Kandil2001-Portfolio-Counter/1.0",
+          }
+          basic_value = base64.b64encode(f":{token}".encode()).decode()
+          basic_headers = {
+              "Authorization": f"Basic {basic_value}",
+              "Content-Type": "application/json",
+              "User-Agent": "Kandil2001-Portfolio-Counter/1.0",
+          }
+
+          def request_json(url, headers):
+              request = urllib.request.Request(url, headers=headers)
+              try:
+                  with urllib.request.urlopen(request, timeout=30) as response:
+                      return response.status, json.load(response)
+              except urllib.error.HTTPError as error:
+                  body = error.read().decode("utf-8", errors="replace")[:1000]
+                  return error.code, {"error_body": body}
+
+          selected_headers = None
+          auth_errors = []
+          for auth_name, headers in (("Bearer", bearer_headers), ("Basic", basic_headers)):
+              status, body = request_json(f"{base}/me", headers)
+              print(f"Authentication check with {auth_name}: HTTP {status}")
+              if status == 200:
+                  selected_headers = headers
+                  break
+              auth_errors.append(f"{auth_name}: HTTP {status}: {body}")
+
+          if selected_headers is None:
+              raise SystemExit(
+                  "Could not authenticate with GoatCounter. Confirm the replacement token has Read statistics permission "
+                  "and access to kandil2001.goatcounter.com.\n" + "\n".join(auth_errors)
+              )
+
+          status, data = request_json(f"{base}/stats/total?{query}", selected_headers)
+          print(f"Total statistics endpoint: HTTP {status}")
+
+          if status == 200 and "total" in data:
+              total = int(data["total"])
+          else:
+              # Fallback: sum the visitor counts for all tracked paths.
+              hits_query = urllib.parse.urlencode({
+                  "start": start,
+                  "end": end,
+                  "limit": 100,
+              })
+              hits_status, hits_data = request_json(f"{base}/stats/hits?{hits_query}", selected_headers)
+              print(f"Hits statistics fallback: HTTP {hits_status}")
+              if hits_status != 200 or "hits" not in hits_data:
+                  raise SystemExit(
+                      "Unable to read GoatCounter statistics. "
+                      f"Total endpoint response: HTTP {status}: {data}; "
+                      f"Hits endpoint response: HTTP {hits_status}: {hits_data}"
+                  )
+              total = sum(int(hit.get("count", 0)) for hit in hits_data["hits"])
 
           output = {
-              "count": int(data["total"]),
-              "updated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+              "count": total,
+              "updated_at": now.isoformat(),
           }
 
           with open("visitor-count.json", "w", encoding="utf-8") as file:
               json.dump(output, file, indent=2)
               file.write("\n")
+
+          print(f"Updated visitor count to {total}")
           PY
 
       - name: Commit updated count
