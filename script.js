@@ -1,12 +1,15 @@
 const GOATCOUNTER_CODE = 'kandil2001';
 const GOATCOUNTER_BASE = `https://${GOATCOUNTER_CODE}.goatcounter.com`;
+const IS_ANALYTICS_PAGE = window.location.pathname.endsWith('/analytics.html');
 
-// Load GoatCounter on every page.
-const goatCounterScript = document.createElement('script');
-goatCounterScript.async = true;
-goatCounterScript.src = 'https://gc.zgo.at/count.js';
-goatCounterScript.dataset.goatcounter = `${GOATCOUNTER_BASE}/count`;
-document.head.appendChild(goatCounterScript);
+// Track normal portfolio pages, but do not count visits to the statistics page itself.
+if (!IS_ANALYTICS_PAGE) {
+    const goatCounterScript = document.createElement('script');
+    goatCounterScript.async = true;
+    goatCounterScript.src = 'https://gc.zgo.at/count.js';
+    goatCounterScript.dataset.goatcounter = `${GOATCOUNTER_BASE}/count`;
+    document.head.appendChild(goatCounterScript);
+}
 
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
