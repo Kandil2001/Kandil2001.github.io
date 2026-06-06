@@ -26,18 +26,38 @@ if (menuToggle && navLinks) {
 }
 
 function setupProjectCarousel() {
+    const carousel = document.querySelector('.project-carousel');
     const track = document.querySelector('#project-track');
     const previousButton = document.querySelector('.carousel-prev');
     const nextButton = document.querySelector('.carousel-next');
     const status = document.querySelector('.carousel-status');
 
-    if (!track || !previousButton || !nextButton) return;
+    if (!carousel || !track || !previousButton || !nextButton) return;
 
+    if (!carousel.querySelector('.carousel-side-prev')) {
+        const sidePrevious = document.createElement('button');
+        sidePrevious.className = 'carousel-side-button carousel-side-prev';
+        sidePrevious.type = 'button';
+        sidePrevious.setAttribute('aria-label', 'Show previous project');
+        sidePrevious.textContent = '‹';
+        carousel.prepend(sidePrevious);
+    }
+
+    if (!carousel.querySelector('.carousel-side-next')) {
+        const sideNext = document.createElement('button');
+        sideNext.className = 'carousel-side-button carousel-side-next';
+        sideNext.type = 'button';
+        sideNext.setAttribute('aria-label', 'Show next project');
+        sideNext.textContent = '›';
+        carousel.appendChild(sideNext);
+    }
+
+    const previousButtons = Array.from(document.querySelectorAll('.carousel-prev, .carousel-side-prev'));
+    const nextButtons = Array.from(document.querySelectorAll('.carousel-next, .carousel-side-next'));
     const cards = Array.from(track.querySelectorAll('.project-card'));
     if (!cards.length) return;
 
     const tolerance = 8;
-
     const getMaxScroll = () => Math.max(0, track.scrollWidth - track.clientWidth);
 
     const getStep = () => {
@@ -51,10 +71,8 @@ function setupProjectCarousel() {
     const isAtEnd = () => track.scrollLeft >= getMaxScroll() - tolerance;
 
     const updateStatus = () => {
-        const maxScroll = getMaxScroll();
-        const progress = maxScroll === 0 ? 0 : track.scrollLeft / maxScroll;
-        const page = Math.round(progress) + 1;
-        const totalPages = maxScroll === 0 ? 1 : 2;
+        const totalPages = getMaxScroll() === 0 ? 1 : 2;
+        const page = isAtEnd() ? totalPages : 1;
 
         if (status) {
             status.textContent = `${page} / ${totalPages}`;
@@ -62,6 +80,14 @@ function setupProjectCarousel() {
 
         previousButton.textContent = isAtStart() ? '← End' : '← Previous';
         nextButton.textContent = isAtEnd() ? 'Start →' : 'Next →';
+
+        previousButtons.forEach((button) => {
+            button.title = isAtStart() ? 'Go to the last projects' : 'Previous projects';
+        });
+
+        nextButtons.forEach((button) => {
+            button.title = isAtEnd() ? 'Back to the first projects' : 'Next projects';
+        });
     };
 
     const scrollToPosition = (left) => {
@@ -69,22 +95,26 @@ function setupProjectCarousel() {
         window.setTimeout(updateStatus, 400);
     };
 
-    previousButton.addEventListener('click', () => {
-        if (isAtStart()) {
-            scrollToPosition(getMaxScroll());
-            return;
-        }
+    previousButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            if (isAtStart()) {
+                scrollToPosition(getMaxScroll());
+                return;
+            }
 
-        scrollToPosition(Math.max(0, track.scrollLeft - getStep()));
+            scrollToPosition(Math.max(0, track.scrollLeft - getStep()));
+        });
     });
 
-    nextButton.addEventListener('click', () => {
-        if (isAtEnd()) {
-            scrollToPosition(0);
-            return;
-        }
+    nextButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            if (isAtEnd()) {
+                scrollToPosition(0);
+                return;
+            }
 
-        scrollToPosition(Math.min(getMaxScroll(), track.scrollLeft + getStep()));
+            scrollToPosition(Math.min(getMaxScroll(), track.scrollLeft + getStep()));
+        });
     });
 
     track.addEventListener('scroll', () => window.requestAnimationFrame(updateStatus));
