@@ -25,6 +25,30 @@ if (menuToggle && navLinks) {
     });
 }
 
+function setupProjectCarousel() {
+    const carousel = document.querySelector('.project-carousel');
+    const track = document.querySelector('#project-track');
+    const previousButton = document.querySelector('.carousel-prev');
+    const nextButton = document.querySelector('.carousel-next');
+
+    if (!carousel || !track || !previousButton || !nextButton) return;
+
+    const getScrollAmount = () => {
+        const card = track.querySelector('.project-card');
+        if (!card) return track.clientWidth;
+        const gap = parseFloat(window.getComputedStyle(track).columnGap || '0');
+        return card.getBoundingClientRect().width + gap;
+    };
+
+    previousButton.addEventListener('click', () => {
+        track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+    });
+
+    nextButton.addEventListener('click', () => {
+        track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+    });
+}
+
 async function fetchTotalVisits() {
     const response = await fetch(`visitor-count.json?t=${Date.now()}`, {
         cache: 'no-store',
@@ -65,4 +89,5 @@ function addTotalVisitCounter() {
     window.setInterval(refreshCount, 300000);
 }
 
+setupProjectCarousel();
 addTotalVisitCounter();
