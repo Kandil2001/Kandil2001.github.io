@@ -26,27 +26,44 @@ if (menuToggle && navLinks) {
 }
 
 function setupProjectCarousel() {
-    const carousel = document.querySelector('.project-carousel');
     const track = document.querySelector('#project-track');
     const previousButton = document.querySelector('.carousel-prev');
     const nextButton = document.querySelector('.carousel-next');
+    const status = document.querySelector('.carousel-status');
 
-    if (!carousel || !track || !previousButton || !nextButton) return;
+    if (!track || !previousButton || !nextButton) return;
 
-    const getScrollAmount = () => {
-        const card = track.querySelector('.project-card');
-        if (!card) return track.clientWidth;
-        const gap = parseFloat(window.getComputedStyle(track).columnGap || '0');
-        return card.getBoundingClientRect().width + gap;
+    const cards = Array.from(track.querySelectorAll('.project-card'));
+    if (!cards.length) return;
+
+    let currentIndex = 0;
+
+    const updateStatus = () => {
+        const trackLeft = track.getBoundingClientRect().left;
+        const distances = cards.map((card) => Math.abs(card.getBoundingClientRect().left - trackLeft));
+        currentIndex = distances.indexOf(Math.min(...distances));
+
+        if (status) {
+            status.textContent = `${currentIndex + 1} / ${cards.length}`;
+        }
+
+        previousButton.disabled = currentIndex === 0;
+        nextButton.disabled = currentIndex === cards.length - 1;
     };
 
-    previousButton.addEventListener('click', () => {
-        track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
-    });
+    const scrollToCard = (index) => {
+        const safeIndex = Math.max(0, Math.min(cards.length - 1, index));
+        cards[safeIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        currentIndex = safeIndex;
+        window.setTimeout(updateStatus, 350);
+    };
 
-    nextButton.addEventListener('click', () => {
-        track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
-    });
+    previousButton.addEventListener('click', () => scrollToCard(currentIndex - 1));
+    nextButton.addEventListener('click', () => scrollToCard(currentIndex + 1));
+    track.addEventListener('scroll', () => window.requestAnimationFrame(updateStatus));
+    window.addEventListener('resize', updateStatus);
+
+    updateStatus();
 }
 
 async function fetchTotalVisits() {
