@@ -12,7 +12,7 @@
   <title>Ahmed Kandil | CFD Engineer</title>
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="enhancements.css?v=13">
+  <link rel="stylesheet" href="enhancements.css?v=14">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -63,67 +63,72 @@
       <p class="section-label">Featured Projects</p>
       <h2>CFD, HPC, and computational simulation</h2>
 
-      <div class="project-grid">
-        <article class="project-card">
-          <img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_MATLAB/main/assets/figures/readme_overview.png" alt="Overview of the MATLAB lid-driven cavity CFD study">
-          <div class="card-body">
-            <p class="project-type">Core CFD Project</p>
-            <h3>MATLAB Lid-Driven Cavity Solver</h3>
-            <p>Built a transparent incompressible-flow solver and automated a 72-case study across meshes, Reynolds numbers, convection schemes, pressure solvers, and MATLAB implementations.</p>
-            <div class="result-callout"><strong>Result:</strong> 44 cases met the selected Ghia centreline-error limits; the remaining cases were retained to document convergence and resolution limits.</div>
-            <p class="tags">MATLAB · CFD · Pressure Correction · Validation</p>
-            <div class="project-links">
-              <a href="projects/lid-cavity.html">Read case study →</a>
-              <a href="https://github.com/Kandil2001/LidCavity_MATLAB" target="_blank" rel="noopener">Repository ↗</a>
+      <div class="project-carousel" aria-label="Featured project carousel">
+        <button class="carousel-button carousel-prev" type="button" aria-label="Show previous project">‹</button>
+        <div class="project-grid" id="project-track" tabindex="0">
+          <article class="project-card">
+            <img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_MATLAB/main/assets/figures/readme_overview.png" alt="Overview of the MATLAB lid-driven cavity CFD study">
+            <div class="card-body">
+              <p class="project-type">Core CFD Project</p>
+              <h3>MATLAB Lid-Driven Cavity Solver</h3>
+              <p>Built a transparent incompressible-flow solver and automated a 72-case study across meshes, Reynolds numbers, convection schemes, pressure solvers, and MATLAB implementations.</p>
+              <div class="result-callout"><strong>Result:</strong> 44 cases met the selected Ghia centreline-error limits; the remaining cases were retained to document convergence and resolution limits.</div>
+              <p class="tags">MATLAB · CFD · Pressure Correction · Validation</p>
+              <div class="project-links">
+                <a href="projects/lid-cavity.html">Read case study →</a>
+                <a href="https://github.com/Kandil2001/LidCavity_MATLAB" target="_blank" rel="noopener">Repository ↗</a>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
 
-        <article class="project-card">
-          <img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_CPP/main/assets/figures/re1000_streamlines.svg" alt="Streamlines from the C++ lid-driven cavity solver">
-          <div class="card-body">
-            <p class="project-type">CFD Solver Port</p>
-            <h3>C++ Lid-Driven Cavity Solver</h3>
-            <p>Reimplemented the same lid-driven cavity benchmark in serial C++17 as a readable single-core baseline for later OpenMP, MPI, CUDA, and OpenFOAM comparisons.</p>
-            <div class="result-callout"><strong>Result:</strong> 22 of 36 cases met the selected Ghia centreline-error limits; all N = 128 cases passed the selected validation thresholds.</div>
-            <p class="tags">C++17 · CFD · Pressure Correction · Python Post-processing</p>
-            <div class="project-links">
-              <a href="projects/lid-cavity-cpp.html">Read case study →</a>
-              <a href="https://github.com/Kandil2001/LidCavity_CPP" target="_blank" rel="noopener">Repository ↗</a>
+          <article class="project-card">
+            <img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_CPP/main/assets/figures/re1000_streamlines.svg" alt="Streamlines from the C++ lid-driven cavity solver">
+            <div class="card-body">
+              <p class="project-type">CFD Solver Port</p>
+              <h3>C++ Lid-Driven Cavity Solver</h3>
+              <p>Reimplemented the same lid-driven cavity benchmark in serial C++17 as a readable single-core baseline for later OpenMP, MPI, CUDA, and OpenFOAM comparisons.</p>
+              <div class="result-callout"><strong>Result:</strong> 22 of 36 cases met the selected Ghia centreline-error limits; all N = 128 cases passed the selected validation thresholds.</div>
+              <p class="tags">C++17 · CFD · Pressure Correction · Python Post-processing</p>
+              <div class="project-links">
+                <a href="projects/lid-cavity-cpp.html">Read case study →</a>
+                <a href="https://github.com/Kandil2001/LidCavity_CPP" target="_blank" rel="noopener">Repository ↗</a>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
 
-        <article class="project-card">
-          <img src="https://raw.githubusercontent.com/Kandil2001/Distributed-TSP-Solver/main/figures/route_comparison.png" alt="Traveling Salesman Problem route comparison from the distributed solver">
-          <div class="card-body">
-            <p class="project-type">High-Performance Computing</p>
-            <h3>Distributed TSP Solver</h3>
-            <p>Developed a distributed-memory optimisation solver in C99 and MPI using parallel tempering, two-opt moves, precomputed distances, and coordinated replica exchanges.</p>
-            <div class="result-callout"><strong>Result:</strong> The tested Berlin52 configuration reported a 20.7× speedup and approximately 86% parallel efficiency on 24 cores.</div>
-            <p class="tags">C99 · MPI · HPC · Parallel Tempering</p>
-            <div class="project-links">
-              <a href="projects/distributed-tsp.html">Read case study →</a>
-              <a href="https://github.com/Kandil2001/Distributed-TSP-Solver" target="_blank" rel="noopener">Repository ↗</a>
+          <article class="project-card">
+            <img src="https://raw.githubusercontent.com/Kandil2001/Distributed-TSP-Solver/main/figures/route_comparison.png" alt="Traveling Salesman Problem route comparison from the distributed solver">
+            <div class="card-body">
+              <p class="project-type">High-Performance Computing</p>
+              <h3>Distributed TSP Solver</h3>
+              <p>Developed a distributed-memory optimisation solver in C99 and MPI using parallel tempering, two-opt moves, precomputed distances, and coordinated replica exchanges.</p>
+              <div class="result-callout"><strong>Result:</strong> The tested Berlin52 configuration reported a 20.7× speedup and approximately 86% parallel efficiency on 24 cores.</div>
+              <p class="tags">C99 · MPI · HPC · Parallel Tempering</p>
+              <div class="project-links">
+                <a href="projects/distributed-tsp.html">Read case study →</a>
+                <a href="https://github.com/Kandil2001/Distributed-TSP-Solver" target="_blank" rel="noopener">Repository ↗</a>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
 
-        <article class="project-card">
-          <img src="https://raw.githubusercontent.com/Kandil2001/Jupedsim-Evacuation-Analysis/main/figures/heatmap.gif" alt="JuPedSim pedestrian evacuation simulation">
-          <div class="card-body">
-            <p class="project-type">Computational Simulation</p>
-            <h3>JuPedSim Evacuation Analysis</h3>
-            <p>Built a configurable pedestrian-evacuation workflow using a real building geometry, manually defined exits, scenario-based assignments, and reproducible trajectory output.</p>
-            <div class="result-callout"><strong>Result:</strong> Created a repeatable framework for studying how spawn locations, exit choices, and movement parameters affect evacuation behaviour.</div>
-            <p class="tags">Python · JuPedSim · PedPy · Numba · SQLite</p>
-            <div class="project-links">
-              <a href="projects/pedestrian-simulation.html">Read case study →</a>
-              <a href="https://github.com/Kandil2001/Jupedsim-Evacuation-Analysis" target="_blank" rel="noopener">Repository ↗</a>
+          <article class="project-card">
+            <img src="https://raw.githubusercontent.com/Kandil2001/Jupedsim-Evacuation-Analysis/main/figures/heatmap.gif" alt="JuPedSim pedestrian evacuation simulation">
+            <div class="card-body">
+              <p class="project-type">Computational Simulation</p>
+              <h3>JuPedSim Evacuation Analysis</h3>
+              <p>Built a configurable pedestrian-evacuation workflow using a real building geometry, manually defined exits, scenario-based assignments, and reproducible trajectory output.</p>
+              <div class="result-callout"><strong>Result:</strong> Created a repeatable framework for studying how spawn locations, exit choices, and movement parameters affect evacuation behaviour.</div>
+              <p class="tags">Python · JuPedSim · PedPy · Numba · SQLite</p>
+              <div class="project-links">
+                <a href="projects/pedestrian-simulation.html">Read case study →</a>
+                <a href="https://github.com/Kandil2001/Jupedsim-Evacuation-Analysis" target="_blank" rel="noopener">Repository ↗</a>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+        </div>
+        <button class="carousel-button carousel-next" type="button" aria-label="Show next project">›</button>
       </div>
+      <p class="carousel-hint">Use the arrows or swipe sideways to browse the projects.</p>
 
       <aside class="ongoing-card" aria-labelledby="ongoing-title">
         <div>
@@ -185,6 +190,6 @@
   </main>
 
   <footer><p>© 2026 Ahmed Kandil. Built with GitHub Pages.</p></footer>
-  <script src="script.js?v=13"></script>
+  <script src="script.js?v=14"></script>
 </body>
 </html>
