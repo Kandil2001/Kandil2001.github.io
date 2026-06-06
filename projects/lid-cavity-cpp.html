@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="C++ lid-driven cavity CFD case study by Ahmed Kandil.">
+  <title>C++ Lid-Driven Cavity Solver | Ahmed Kandil</title>
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../enhancements.css?v=13">
+</head>
+<body>
+<a class="skip-link" href="#project-content">Skip to content</a>
+<header class="site-header"><nav class="navbar" aria-label="Project navigation"><a class="logo" href="../index.html">Ahmed Kandil</a><button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button><div class="nav-links"><a href="../index.html#projects">Projects</a><a href="../index.html#experience">Experience</a><a href="../index.html#contact">Contact</a></div></nav></header>
+<main class="project-page" id="project-content">
+<section class="project-hero">
+  <p class="section-label">CFD Solver Development · C++ Baseline</p>
+  <h1>C++ Lid-Driven Cavity Solver</h1>
+  <p class="hero-text">A serial C++17 implementation of the same two-dimensional incompressible lid-driven cavity benchmark used in the MATLAB solver, built as a clean single-core baseline for later OpenMP, MPI, CUDA, and OpenFOAM comparisons.</p>
+  <div class="button-row"><a class="button primary" href="https://github.com/Kandil2001/LidCavity_CPP" target="_blank" rel="noopener">View Repository</a><a class="button" href="https://github.com/Kandil2001/LidCavity_MATLAB" target="_blank" rel="noopener">MATLAB Reference</a><a class="button" href="../index.html#projects">Back to Projects</a></div>
+  <img class="project-image" src="https://raw.githubusercontent.com/Kandil2001/LidCavity_CPP/main/assets/figures/re1000_streamlines.svg" alt="Streamlines from the C++ lid-driven cavity solver">
+</section>
+<section class="section project-content-section">
+  <div class="proof-grid project-metrics"><div class="metric"><strong>36</strong><span>automated simulations</span></div><div class="metric"><strong>3 × 3</strong><span>meshes and Reynolds numbers</span></div><div class="metric"><strong>22</strong><span>cases meeting selected Ghia limits</span></div><div class="metric"><strong>C++17</strong><span>serial baseline solver</span></div></div>
+  <h2>Problem</h2><p>The lid-driven cavity benchmark is used here as a controlled CFD test case for pressure–velocity coupling, mesh sensitivity, convection schemes, convergence behaviour, and validation against Ghia et al. centreline velocity data.</p>
+  <h2>Why this version matters</h2><p>The MATLAB solver is useful for rapid development and comparison. This C++ version keeps the same physical benchmark idea but moves the implementation into a lower-level compiled language, making it a better baseline for future OpenMP, MPI, and CUDA acceleration.</p>
+  <h2>My contribution</h2><ul><li>Reimplemented the pressure-correction workflow in serial C++17.</li><li>Kept the study structure aligned with the MATLAB benchmark for fair comparison.</li><li>Added CSV export for fields, residual histories, and study summaries.</li><li>Used Python post-processing to generate contours, streamlines, Ghia validation plots, and study-level comparisons.</li></ul>
+  <h2>Numerical methodology</h2><div class="info-list"><div><h3>Flow model</h3><p>Two-dimensional incompressible Navier–Stokes equations with a moving lid and no-slip cavity walls.</p></div><div><h3>Pressure coupling</h3><p>Pseudo-transient pressure-correction algorithm on a structured collocated Cartesian grid.</p></div><div><h3>Study matrix</h3><p><code>N = 32, 64, 128</code>; <code>Re = 100, 400, 1000</code>; upwind/central; RBGS/RBSOR; serial C++ implementation.</p></div></div>
+  <h2>Representative results</h2><div class="result-gallery"><figure><img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_CPP/main/assets/figures/re1000_streamlines.svg" alt="C++ lid-driven cavity streamlines"><figcaption>Streamlines for the representative Re = 1000 case.</figcaption></figure><figure><img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_CPP/main/assets/figures/re1000_speed.svg" alt="Velocity magnitude from the C++ solver"><figcaption>Velocity magnitude field from the C++ solver.</figcaption></figure><figure><img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_CPP/main/assets/figures/re1000_ghia_u.svg" alt="Ghia u-velocity centreline validation"><figcaption>Horizontal velocity centreline validation.</figcaption></figure><figure><img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_CPP/main/assets/figures/study_pressure_solver_iterations.svg" alt="Pressure solver iteration comparison"><figcaption>Study-level pressure-solver comparison.</figcaption></figure></div>
+  <h2>Results and interpretation</h2><ul><li>22 of the 36 cases met the selected Ghia centreline-error limits.</li><li>All <code>N = 128</code> cases met the selected validation thresholds.</li><li>The refined-grid central-difference cases gave the strongest validation behaviour.</li><li>RBSOR produced nearly the same validation error as RBGS while reducing pressure-solver cost.</li><li>The full uploaded study took about 4.83 hours on the machine used to generate the results.</li></ul>
+  <h2>Current direction</h2><p>This repository is the serial C++ baseline in a larger lid-driven cavity comparison study. The next step is to compare it with OpenMP, MPI, CUDA, Python, C, and OpenFOAM implementations using the same benchmark specification and result layout.</p>
+  <h2>Limitations</h2><p>The solver is an educational and portfolio solver, not a production CFD package. It uses a collocated grid without Rhie–Chow interpolation and an iterative pressure solver without multigrid acceleration. The convergence strategy and pressure–velocity treatment are still the main areas for improvement.</p>
+  <div class="button-row"><a class="button primary" href="https://github.com/Kandil2001/LidCavity_CPP" target="_blank" rel="noopener">Open Complete Repository</a><a class="button" href="https://github.com/Kandil2001/LidCavity_MATLAB" target="_blank" rel="noopener">Compare with MATLAB Version</a><a class="button" href="../index.html#contact">Contact Me</a></div>
+</section>
+</main>
+<footer><p>© 2026 Ahmed Kandil</p></footer>
+<script src="../script.js?v=13"></script>
+</body>
+</html>
