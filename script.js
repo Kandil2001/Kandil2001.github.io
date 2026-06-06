@@ -36,30 +36,57 @@ function setupProjectCarousel() {
     const cards = Array.from(track.querySelectorAll('.project-card'));
     if (!cards.length) return;
 
-    let currentIndex = 0;
+    const tolerance = 8;
+
+    const getMaxScroll = () => Math.max(0, track.scrollWidth - track.clientWidth);
+
+    const getStep = () => {
+        const card = cards[0];
+        if (!card) return track.clientWidth;
+        const gap = parseFloat(window.getComputedStyle(track).columnGap || '0');
+        return card.getBoundingClientRect().width + gap;
+    };
+
+    const isAtStart = () => track.scrollLeft <= tolerance;
+    const isAtEnd = () => track.scrollLeft >= getMaxScroll() - tolerance;
 
     const updateStatus = () => {
-        const trackLeft = track.getBoundingClientRect().left;
-        const distances = cards.map((card) => Math.abs(card.getBoundingClientRect().left - trackLeft));
-        currentIndex = distances.indexOf(Math.min(...distances));
+        const maxScroll = getMaxScroll();
+        const progress = maxScroll === 0 ? 0 : track.scrollLeft / maxScroll;
+        const page = Math.round(progress) + 1;
+        const totalPages = maxScroll === 0 ? 1 : 2;
 
         if (status) {
-            status.textContent = `${currentIndex + 1} / ${cards.length}`;
+            status.textContent = `${page} / ${totalPages}`;
         }
 
-        previousButton.disabled = currentIndex === 0;
-        nextButton.disabled = currentIndex === cards.length - 1;
+        previousButton.textContent = isAtStart() ? '← End' : '← Previous';
+        nextButton.textContent = isAtEnd() ? 'Start →' : 'Next →';
     };
 
-    const scrollToCard = (index) => {
-        const safeIndex = Math.max(0, Math.min(cards.length - 1, index));
-        cards[safeIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-        currentIndex = safeIndex;
-        window.setTimeout(updateStatus, 350);
+    const scrollToPosition = (left) => {
+        track.scrollTo({ left, behavior: 'smooth' });
+        window.setTimeout(updateStatus, 400);
     };
 
-    previousButton.addEventListener('click', () => scrollToCard(currentIndex - 1));
-    nextButton.addEventListener('click', () => scrollToCard(currentIndex + 1));
+    previousButton.addEventListener('click', () => {
+        if (isAtStart()) {
+            scrollToPosition(getMaxScroll());
+            return;
+        }
+
+        scrollToPosition(Math.max(0, track.scrollLeft - getStep()));
+    });
+
+    nextButton.addEventListener('click', () => {
+        if (isAtEnd()) {
+            scrollToPosition(0);
+            return;
+        }
+
+        scrollToPosition(Math.min(getMaxScroll(), track.scrollLeft + getStep()));
+    });
+
     track.addEventListener('scroll', () => window.requestAnimationFrame(updateStatus));
     window.addEventListener('resize', updateStatus);
 
