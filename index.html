@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ahmed Kandil's CFD and computational engineering portfolio: solver development, validation, high-performance computing, automation, and reproducible simulation workflows.">
+  <meta name="description" content="Ahmed Kandil's CFD and computational engineering portfolio: solver development, validation, high-performance computing, automation, ANSYS Fluent, STAR-CCM+, and reproducible simulation workflows.">
   <meta name="author" content="Ahmed Kandil">
   <meta name="keywords" content="CFD engineer, numerical simulation, scientific computing, MATLAB, C++, MPI, Python, STAR-CCM+, ANSYS Fluent, GitHub portfolio">
   <meta property="og:title" content="Ahmed Kandil | CFD Engineer">
@@ -14,7 +14,7 @@
   <title>Ahmed Kandil | CFD Engineer</title>
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="enhancements.css?v=16">
+  <link rel="stylesheet" href="enhancements.css?v=17">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -43,13 +43,13 @@
         <p class="hero-text">My work sits between fluid mechanics, numerical methods, and practical engineering: developing solvers, validating results against benchmarks, automating studies, and communicating what the numbers actually mean.</p>
         <div class="button-row">
           <a class="button primary" href="#projects">View Selected Work</a>
-          <a class="button" href="mailto:kandil.ahmed.amr@gmail.com?subject=CV%20request%20from%20portfolio%20website">Request CV</a>
+          <a class="button" href="assets/Ahmed_Kandil_CV.pdf" target="_blank" rel="noopener">Download CV</a>
           <a class="button" href="https://github.com/Kandil2001" target="_blank" rel="noopener">GitHub</a>
           <a class="button" href="https://www.linkedin.com/in/ahmed-kandil03/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
         <div class="proof-grid" aria-label="Selected portfolio highlights">
           <div class="metric"><strong>CFD</strong><span>solver development and validation</span></div>
-          <div class="metric"><strong>Re 100–1000</strong><span>lid-cavity benchmark range</span></div>
+          <div class="metric"><strong>STAR-CCM+ / ANSYS</strong><span>industrial CFD tools</span></div>
           <div class="metric"><strong>MPI / C++</strong><span>HPC and compiled-code projects</span></div>
           <div class="metric"><strong>6</strong><span>SOLIDWORKS credentials</span></div>
         </div>
@@ -77,8 +77,8 @@
       <div class="section-heading projects-heading">
         <div>
           <p class="section-label">Selected Projects</p>
-          <h2>CFD, HPC, and computational simulation</h2>
-          <p class="section-intro">A small set of projects showing how I approach engineering problems: start from the physics, build a reproducible workflow, compare against reference data, and keep the results readable.</p>
+          <h2>CFD first, then HPC and computational simulation</h2>
+          <p class="section-intro">A selected set of projects showing how I approach engineering problems: start from the physics, build a reproducible workflow, compare against reference data, and keep the results readable.</p>
         </div>
         <div class="project-controls" aria-label="Project carousel controls">
           <button class="carousel-button carousel-prev" type="button" aria-label="Show previous project">← Previous</button>
@@ -89,21 +89,6 @@
 
       <div class="project-carousel" aria-label="Featured project carousel">
         <div class="project-grid" id="project-track" tabindex="0" aria-label="Selected project cards">
-          <article class="project-card">
-            <img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_MATLAB/main/assets/figures/readme_overview.png" alt="Overview of the MATLAB lid-driven cavity CFD study">
-            <div class="card-body">
-              <p class="project-type">Reference CFD Solver</p>
-              <h3>MATLAB Lid-Driven Cavity Solver</h3>
-              <p>Developed the reference version of a two-dimensional incompressible-flow solver and automated a 72-case benchmark study across mesh sizes, Reynolds numbers, schemes, pressure solvers, and MATLAB implementations.</p>
-              <div class="result-callout"><strong>Result:</strong> 44 of 72 cases met the selected Ghia centreline-error limits. The remaining cases were kept and documented instead of hidden.</div>
-              <p class="tags">MATLAB · CFD · Pressure Correction · Validation</p>
-              <div class="project-links">
-                <a href="projects/lid-cavity.html">Read case study →</a>
-                <a href="https://github.com/Kandil2001/LidCavity_MATLAB" target="_blank" rel="noopener">Repository ↗</a>
-              </div>
-            </div>
-          </article>
-
           <article class="project-card featured-project">
             <img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_CPP/main/assets/figures/re1000_streamlines.svg" alt="Streamlines from the C++ lid-driven cavity solver">
             <div class="card-body">
@@ -115,6 +100,21 @@
               <div class="project-links">
                 <a href="projects/lid-cavity-cpp.html">Read case study →</a>
                 <a href="https://github.com/Kandil2001/LidCavity_CPP" target="_blank" rel="noopener">Repository ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_MATLAB/main/assets/figures/readme_overview.png" alt="Overview of the MATLAB lid-driven cavity CFD study">
+            <div class="card-body">
+              <p class="project-type">Reference CFD Solver</p>
+              <h3>MATLAB Lid-Driven Cavity Solver</h3>
+              <p>Developed the reference version of a two-dimensional incompressible-flow solver and automated a 72-case benchmark study across mesh sizes, Reynolds numbers, schemes, pressure solvers, and MATLAB implementations.</p>
+              <div class="result-callout"><strong>Result:</strong> 44 of 72 cases met the selected Ghia centreline-error limits. The remaining cases were kept and documented instead of hidden.</div>
+              <p class="tags">MATLAB · CFD · Pressure Correction · Validation</p>
+              <div class="project-links">
+                <a href="projects/lid-cavity.html">Read case study →</a>
+                <a href="https://github.com/Kandil2001/LidCavity_MATLAB" target="_blank" rel="noopener">Repository ↗</a>
               </div>
             </div>
           </article>
@@ -167,9 +167,9 @@
       <h2>Engineering and research experience</h2>
       <div class="timeline">
         <div class="timeline-item"><div class="timeline-heading"><h3>Fraunhofer FFB</h3><span>Student Assistant · Jun 2026 – Present</span></div><p>Supporting battery-cell production research, process analysis, and engineering documentation.</p></div>
-        <div class="timeline-item"><div class="timeline-heading"><h3>Bergische Universität Wuppertal</h3><span>Student Assistant</span></div><p>Supporting simulation and data-analysis work, including pedestrian-dynamics research workflows.</p></div>
-        <div class="timeline-item"><div class="timeline-heading"><h3>Vorwerk</h3><span>Working Student · CFD</span></div><p>Worked on multiphase and thermal-fluid simulations, Java automation, test-bench support, and engineering analysis.</p></div>
-        <div class="timeline-item"><div class="timeline-heading"><h3>GRIND for Engineering Solutions</h3><span>CFD Engineer · Jun 2023 – Oct 2023</span></div><p>Performed CFD simulation and design optimisation using engineering analysis tools.</p></div>
+        <div class="timeline-item"><div class="timeline-heading"><h3>Bergische Universität Wuppertal</h3><span>Student Assistant · 2024 – Present</span></div><p>Supporting simulation and data-analysis work, including pedestrian-dynamics research workflows.</p></div>
+        <div class="timeline-item"><div class="timeline-heading"><h3>Vorwerk</h3><span>Working Student · CFD · Mar 2024 – Mar 2026</span></div><p>Worked on multiphase and thermal-fluid simulations, STAR-CCM+ workflows, Java automation, test-bench support, and engineering analysis.</p></div>
+        <div class="timeline-item"><div class="timeline-heading"><h3>GRIND for Engineering Solutions</h3><span>CFD Engineer · Jun 2023 – Oct 2023</span></div><p>Performed CFD simulation and design optimisation using ANSYS Fluent and engineering analysis tools.</p></div>
       </div>
     </section>
 
@@ -177,8 +177,8 @@
       <p class="section-label">Education</p>
       <h2>Simulation, CFD, and mechatronics foundation</h2>
       <div class="timeline education-list">
-        <div class="timeline-item"><div class="timeline-heading"><h3>Bergische Universität Wuppertal</h3><span>M.Sc. Computer Simulation in Science</span></div><p>Focus areas include numerical simulation, scientific computing, mathematical modelling, programming, and applied computational methods.</p></div>
-        <div class="timeline-item"><div class="timeline-heading"><h3>Mansoura University</h3><span>B.Sc. Mechatronics Engineering</span></div><p>Graduation project: CFD-based micro-pin-fin heat-sink study for microprocessor cooling.</p></div>
+        <div class="timeline-item"><div class="timeline-heading"><h3>Bergische Universität Wuppertal</h3><span>M.Sc. Computer Simulation in Science · Nov 2023 – Present</span></div><p>Focus areas include numerical simulation, scientific computing, mathematical modelling, programming, and applied computational methods.</p></div>
+        <div class="timeline-item"><div class="timeline-heading"><h3>Mansoura University</h3><span>B.Sc. Mechatronics Engineering · Jul 2018 – Jun 2023</span></div><p>Bachelor thesis: CFD-based investigation of a micro-pin-fin heat sink for microprocessor cooling, including a MATLAB-based two-dimensional CFD solver and thermal-flow analysis.</p></div>
       </div>
     </section>
 
@@ -186,7 +186,7 @@
       <p class="section-label">Technical Capabilities</p>
       <h2>Tools I use to develop, validate, and communicate simulations</h2>
       <div class="skills-grid">
-        <div><h3>CFD &amp; Physics</h3><p>STAR-CCM+, ANSYS Fluent, SimScale, aerodynamics, multiphase flow, heat transfer, thermal-fluid systems</p></div>
+        <div><h3>CFD Software &amp; Physics</h3><p>STAR-CCM+, ANSYS Fluent, ANSYS CFD, SimScale, aerodynamics, multiphase flow, heat transfer, thermal-fluid systems</p></div>
         <div><h3>Numerical Methods</h3><p>Pressure correction, finite-volume concepts, iterative solvers, mesh studies, residual tracking, benchmark validation</p></div>
         <div><h3>Programming &amp; HPC</h3><p>MATLAB, Python, C/C++, MPI, parallel algorithms, automation scripts, Git-based documentation</p></div>
         <div><h3>Modelling &amp; Analysis</h3><p>SOLIDWORKS, JuPedSim, PedPy, Numba, SQLite trajectories, Matplotlib, structured post-processing</p></div>
@@ -215,7 +215,7 @@
       <p class="reference-note">Professional references are available upon request.</p>
       <div class="button-row">
         <a class="button primary" href="mailto:kandil.ahmed.amr@gmail.com">Email Me</a>
-        <a class="button" href="mailto:kandil.ahmed.amr@gmail.com?subject=CV%20request%20from%20portfolio%20website">Request CV</a>
+        <a class="button" href="assets/Ahmed_Kandil_CV.pdf" target="_blank" rel="noopener">Download CV</a>
         <a class="button" href="https://www.linkedin.com/in/ahmed-kandil03/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="button" href="https://github.com/Kandil2001" target="_blank" rel="noopener">GitHub</a>
       </div>
