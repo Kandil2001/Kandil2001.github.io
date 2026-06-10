@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://kandil2001.github.io/</loc></url>
+  <url><loc>https://kandil2001.github.io/projects/lid-cavity-comparison.html</loc></url>
+  <url><loc>https://kandil2001.github.io/projects/lid-cavity-cpp.html</loc></url>
   <url><loc>https://kandil2001.github.io/projects/lid-cavity.html</loc></url>
+  <url><loc>https://kandil2001.github.io/projects/lbm-poiseuille.html</loc></url>
   <url><loc>https://kandil2001.github.io/projects/distributed-tsp.html</loc></url>
   <url><loc>https://kandil2001.github.io/projects/pedestrian-simulation.html</loc></url>
 </urlset>
