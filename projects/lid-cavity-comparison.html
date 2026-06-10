@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lid-driven cavity multi-language CFD solver comparison case study by Ahmed Kandil.">
+  <title>Lid-Driven Cavity Solver Comparison | Ahmed Kandil</title>
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip-link" href="#project-content">Skip to content</a>
+<header class="site-header"><nav class="navbar" aria-label="Project navigation"><a class="logo" href="../index.html">Ahmed Kandil</a><button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button><div class="nav-links"><a href="../index.html#projects">Projects</a><a href="../index.html#experience">Experience</a><a href="../index.html#contact">Contact</a></div></nav></header>
+<main class="project-page" id="project-content">
+<section class="project-hero">
+  <p class="section-label">CFD benchmark · multi-language comparison</p>
+  <h1>Lid-Driven Cavity Solver Comparison</h1>
+  <p class="hero-text">A portfolio hub for solving the same incompressible lid-driven cavity benchmark in MATLAB, Python, C, C++, OpenMP, MPI, and CUDA, with comparison scripts for accuracy, runtime, output structure, and validation behaviour.</p>
+  <div class="button-row"><a class="button primary" href="https://github.com/Kandil2001/LidCavity_Solver_Comparison" target="_blank" rel="noopener">View Repository</a><a class="button" href="../index.html#projects">Back to Projects</a></div>
+  <div class="project-visual code-visual"><span>One CFD benchmark<br>many implementations</span></div>
+</section>
+<section class="section project-content-section">
+  <div class="proof-grid project-metrics"><div class="metric"><strong>MATLAB</strong><span>reference workflow</span></div><div class="metric"><strong>C/C++/Python</strong><span>serial baselines</span></div><div class="metric"><strong>OpenMP/MPI</strong><span>parallel CPU versions</span></div><div class="metric"><strong>CUDA</strong><span>GPU prototype path</span></div></div>
+  <h2>Why this is the strongest website project</h2><p>This project connects the parts recruiters usually care about: CFD understanding, numerical methods, readable code, compiled-code development, parallel programming, and honest comparison of results. It is stronger than showing only one solver because it explains how the same problem changes when the implementation changes.</p>
+  <h2>Benchmark idea</h2><p>The physical problem is kept as consistent as possible. Each implementation exports comparable CSV files so the comparison scripts can match cases by mesh size, Reynolds number, convection scheme, and pressure solver instead of by run order.</p>
+  <h2>What I would highlight in interviews</h2><ul><li>Started from a readable MATLAB reference before moving to C++, C, Python, and parallel versions.</li><li>Kept a shared result structure so outputs can be compared fairly.</li><li>Separated smoke, quick, medium, and full run modes for practical testing.</li><li>Documented MPI as case-level parallelism instead of pretending it is domain decomposition.</li><li>Kept CUDA as a GPU path but clearly marked that it requires an NVIDIA GPU and CUDA toolkit.</li></ul>
+  <h2>Suggested next improvements</h2><ul><li>Add final benchmark plots after the full run finishes.</li><li>Add one clear summary table: runtime, validation error, and comments for each implementation.</li><li>Add a short “What I learned” section to make the repository more human.</li><li>Add OpenFOAM and LBM later as separate follow-up projects, not mixed too early into the main benchmark.</li></ul>
+  <div class="button-row"><a class="button primary" href="https://github.com/Kandil2001/LidCavity_Solver_Comparison" target="_blank" rel="noopener">Open complete repository</a><a class="button" href="../index.html#contact">Contact me</a></div>
+</section>
+</main>
+<footer><p>© 2026 Ahmed Kandil</p></footer>
+<script src="../script.js"></script>
+</body>
+</html>
