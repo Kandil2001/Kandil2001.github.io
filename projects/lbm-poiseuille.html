@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="D2Q9 lattice Boltzmann channel-flow case study by Ahmed Kandil.">
+  <title>D2Q9 LBM Channel Flow | Ahmed Kandil</title>
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip-link" href="#project-content">Skip to content</a>
+<header class="site-header"><nav class="navbar" aria-label="Project navigation"><a class="logo" href="../index.html">Ahmed Kandil</a><button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button><div class="nav-links"><a href="../index.html#projects">Projects</a><a href="../index.html#experience">Experience</a><a href="../index.html#contact">Contact</a></div></nav></header>
+<main class="project-page" id="project-content">
+<section class="project-hero">
+  <p class="section-label">LBM learning project · C++</p>
+  <h1>D2Q9 LBM Channel Flow in C++</h1>
+  <p class="hero-text">A small lattice Boltzmann Method project for 2D Poiseuille flow. The goal is not to make the most advanced solver, but to understand the collide–stream cycle and verify the result against the analytical parabolic profile.</p>
+  <div class="button-row"><a class="button primary" href="https://github.com/Kandil2001/LBM_Poiseuille_D2Q9_CPP" target="_blank" rel="noopener">View Repository</a><a class="button" href="../index.html#projects">Back to Projects</a></div>
+  <div class="project-visual lbm-visual"><span>D2Q9 lattice<br>collide → stream → bounce-back</span></div>
+</section>
+<section class="section project-content-section">
+  <div class="proof-grid project-metrics"><div class="metric"><strong>D2Q9</strong><span>LBM lattice</span></div><div class="metric"><strong>C++</strong><span>simple solver structure</span></div><div class="metric"><strong>Poiseuille</strong><span>analytical check</span></div><div class="metric"><strong>CSV</strong><span>profile and convergence output</span></div></div>
+  <h2>Problem</h2><p>Poiseuille flow is a good first LBM case because the expected velocity profile is known. That makes it easier to see whether the implementation is physically reasonable before moving to harder CFD cases.</p>
+  <h2>My contribution</h2><ul><li>Implemented a minimal D2Q9 lattice Boltzmann solver in C++.</li><li>Used body-force-driven channel flow with top and bottom bounce-back walls.</li><li>Kept the code divided but simple: constants/helpers in <code>include/</code> and solver logic in <code>src/</code>.</li><li>Exported centreline velocity, velocity field, convergence history, and run information.</li><li>Added a Python plotting script to compare LBM output with the analytical profile.</li></ul>
+  <h2>Why it belongs on the portfolio</h2><p>This project shows learning-by-building. It is small, readable, and honest. It also supports the wider CFD portfolio because LBM can later become a second numerical method beside finite-volume pressure-correction solvers.</p>
+  <h2>Good next steps</h2><ul><li>Add a result image directly to the README and website after running the final case.</li><li>Add grid and relaxation-time sensitivity checks.</li><li>Add a short explanation of stability limits and why <code>tau</code> matters.</li><li>Later extend to lid-driven cavity LBM or obstacle flow.</li></ul>
+  <div class="button-row"><a class="button primary" href="https://github.com/Kandil2001/LBM_Poiseuille_D2Q9_CPP" target="_blank" rel="noopener">Open complete repository</a><a class="button" href="../index.html#contact">Contact me</a></div>
+</section>
+</main>
+<footer><p>© 2026 Ahmed Kandil</p></footer>
+<script src="../script.js"></script>
+</body>
+</html>
