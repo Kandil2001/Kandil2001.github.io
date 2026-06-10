@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ahmed Kandil's CFD and computational engineering portfolio: solver development, validation, high-performance computing, automation, ANSYS Fluent, STAR-CCM+, and reproducible simulation workflows.">
+  <meta name="description" content="Ahmed Kandil portfolio: CFD solver development, thermal-fluid simulation, numerical methods, HPC, MPI, OpenMP, C++, MATLAB, Python, validation, and reproducible engineering workflows.">
   <meta name="author" content="Ahmed Kandil">
-  <meta name="keywords" content="CFD engineer, numerical simulation, scientific computing, MATLAB, C++, MPI, Python, STAR-CCM+, ANSYS Fluent, GitHub portfolio">
-  <meta property="og:title" content="Ahmed Kandil | CFD Engineer">
-  <meta property="og:description" content="CFD, numerical simulation, HPC, and scientific-computing portfolio with validated solver and simulation projects.">
+  <meta name="keywords" content="Ahmed Kandil, CFD engineer, numerical simulation, HPC, C++, MATLAB, Python, MPI, OpenMP, LBM, ANSYS Fluent, STAR-CCM+, OpenFOAM, GitHub portfolio">
+  <meta property="og:title" content="Ahmed Kandil | CFD & Scientific Computing">
+  <meta property="og:description" content="CFD, numerical simulation, solver validation, and HPC portfolio by Ahmed Kandil.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kandil2001.github.io/">
   <link rel="canonical" href="https://kandil2001.github.io/">
-  <title>Ahmed Kandil | CFD Engineer</title>
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="enhancements.css?v=18">
+  <title>Ahmed Kandil | CFD & Scientific Computing</title>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -22,14 +21,12 @@
   <header class="site-header">
     <nav class="navbar" aria-label="Main navigation">
       <a class="logo" href="index.html">Ahmed Kandil</a>
-      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
       <div class="nav-links">
-        <a href="#about">About</a>
+        <a href="#work">Work</a>
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
         <a href="#skills">Skills</a>
-        <a href="#credentials">Credentials</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
@@ -37,192 +34,187 @@
 
   <main id="main-content">
     <section class="hero section">
-      <div class="hero-content">
-        <p class="eyebrow">CFD Engineer · Numerical Simulation · Scientific Computing</p>
-        <h1>I build simulation workflows that are clear, reproducible, and honest about their limits.</h1>
-        <p class="hero-text">My work sits between fluid mechanics, numerical methods, and practical engineering: developing solvers, validating results against benchmarks, automating studies, and communicating what the numbers actually mean.</p>
-        <div class="button-row">
-          <a class="button primary" href="#projects">View Selected Work</a>
-          <a class="button" href="assets/Ahmed_Kandil_CV.pdf" target="_blank" rel="noopener">Download CV</a>
-          <a class="button" href="https://github.com/Kandil2001" target="_blank" rel="noopener">GitHub</a>
-          <a class="button" href="https://www.linkedin.com/in/ahmed-kandil03/" target="_blank" rel="noopener">LinkedIn</a>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">CFD · numerical simulation · HPC</p>
+          <h1>I build CFD and simulation workflows that are easy to check, run, and explain.</h1>
+          <p class="hero-text">I am Ahmed Kandil, a CFD-focused engineer in Germany. My work connects fluid mechanics, heat transfer, numerical methods, and scientific programming: from industrial STAR-CCM+ and ANSYS work to my own MATLAB, C++, C, Python, MPI, OpenMP, CUDA, and LBM projects.</p>
+          <div class="button-row">
+            <a class="button primary" href="#projects">See projects</a>
+            <a class="button" href="https://github.com/Kandil2001" target="_blank" rel="noopener">GitHub</a>
+            <a class="button" href="https://www.linkedin.com/in/ahmed-kandil03/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
         </div>
-        <div class="proof-grid" aria-label="Selected portfolio highlights">
-          <div class="metric"><strong>CFD</strong><span>solver development and validation</span></div>
-          <div class="metric"><strong>STAR-CCM+ / ANSYS</strong><span>industrial CFD tools</span></div>
-          <div class="metric"><strong>MPI / C++</strong><span>HPC and compiled-code projects</span></div>
-          <div class="metric"><strong>6</strong><span>SOLIDWORKS credentials</span></div>
-        </div>
-        <div class="recruiter-strip" aria-label="Recruiter summary">
-          <span>Based in Germany</span>
-          <span>M.Sc. Computer Simulation in Science</span>
-          <span>CFD · HPC · automation · validation</span>
-        </div>
+        <aside class="hero-panel" aria-label="Quick profile">
+          <div class="panel-item"><strong>Focus</strong><span>CFD, thermal-fluid simulation, solver validation</span></div>
+          <div class="panel-item"><strong>Code</strong><span>MATLAB, Python, C/C++, MPI, OpenMP, CUDA basics</span></div>
+          <div class="panel-item"><strong>Tools</strong><span>STAR-CCM+, ANSYS Fluent, SimScale, OpenFOAM learning path</span></div>
+          <div class="panel-item"><strong>Education</strong><span>M.Sc. Computer Simulation in Science, BU Wuppertal</span></div>
+        </aside>
       </div>
     </section>
 
-    <section id="about" class="section narrow">
-      <p class="section-label">About</p>
-      <h2>CFD-focused engineer with a strong interest in numerical methods and applied simulation.</h2>
-      <p>I am completing an M.Sc. in Computer Simulation in Science at Bergische Universität Wuppertal. I have worked on industrial CFD, multiphase and thermal-flow simulation, scientific programming, solver validation, automation, and technical documentation.</p>
-      <p>I like projects where the method matters as much as the final plot: checking assumptions, comparing against reference data, documenting limitations, and making the workflow reproducible enough for someone else to run.</p>
-      <div class="focus-grid" aria-label="Portfolio focus areas">
-        <div><strong>What I build</strong><span>CFD solvers, post-processing scripts, automated studies, and reproducible simulation workflows.</span></div>
-        <div><strong>How I validate</strong><span>Mesh studies, residual histories, benchmark comparisons, documented limitations, and transparent failed cases.</span></div>
-        <div><strong>Where I fit</strong><span>CFD, thermal-fluid simulation, engineering R&amp;D, numerical methods, and scientific software roles.</span></div>
+    <section id="work" class="section narrow">
+      <p class="section-label">What I want this site to show</p>
+      <h2>Not only screenshots. A clear engineering story.</h2>
+      <p>This portfolio is built around the way I work: define the physics, keep the numerical setup reproducible, compare the result against reference data, and explain the limits honestly. That is why the projects include code, plots, run instructions, validation notes, and what still needs improvement.</p>
+      <div class="focus-grid">
+        <div><strong>Solver development</strong><span>Small CFD solvers and benchmarks where the method is visible instead of hidden inside a black box.</span></div>
+        <div><strong>Validation</strong><span>Mesh studies, centreline comparisons, residual histories, analytical checks, and documented failed cases.</span></div>
+        <div><strong>HPC mindset</strong><span>Serial baselines first, then OpenMP, MPI, CUDA, runtime comparison, and clear output folders.</span></div>
       </div>
     </section>
 
     <section id="projects" class="section">
-      <div class="section-heading projects-heading">
+      <div class="section-heading">
         <div>
-          <p class="section-label">Selected Projects</p>
-          <h2>CFD first, then HPC and computational simulation</h2>
-          <p class="section-intro">A selected set of projects showing how I approach engineering problems: start from the physics, build a reproducible workflow, compare against reference data, and keep the results readable.</p>
-        </div>
-        <div class="project-controls" aria-label="Project carousel controls">
-          <button class="carousel-button carousel-prev" type="button" aria-label="Show previous project">← Previous</button>
-          <span class="carousel-status" aria-live="polite">1 / 4</span>
-          <button class="carousel-button carousel-next" type="button" aria-label="Show next project">Next →</button>
+          <p class="section-label">Selected projects</p>
+          <h2>CFD first. HPC and simulation around it.</h2>
+          <p class="section-intro">These are the projects I would put in front of a CFD or scientific-software recruiter first.</p>
         </div>
       </div>
 
-      <div class="project-carousel" aria-label="Featured project carousel">
-        <div class="project-grid" id="project-track" tabindex="0" aria-label="Selected project cards">
-          <article class="project-card featured-project">
-            <img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_CPP/main/assets/figures/re1000_streamlines.svg" alt="Streamlines from the C++ lid-driven cavity solver">
-            <div class="card-body">
-              <p class="project-type">C++ CFD Baseline</p>
-              <h3>C++ Lid-Driven Cavity Solver</h3>
-              <p>Reimplemented the same benchmark in serial C++17 as a clean single-core baseline. This version is designed to make later OpenMP, MPI, CUDA, and OpenFOAM comparisons fair and easy to understand.</p>
-              <div class="result-callout"><strong>Result:</strong> 22 of 36 cases met the selected Ghia validation limits; all refined-grid cases passed the selected thresholds.</div>
-              <p class="tags">C++17 · CFD · CSV Export · Python Post-processing</p>
-              <div class="project-links">
-                <a href="projects/lid-cavity-cpp.html">Read case study →</a>
-                <a href="https://github.com/Kandil2001/LidCavity_CPP" target="_blank" rel="noopener">Repository ↗</a>
-              </div>
+      <div class="project-grid">
+        <article class="project-card featured-project">
+          <div class="project-visual code-visual" aria-hidden="true"><span>MATLAB · Python · C · C++ · MPI · OpenMP · CUDA</span></div>
+          <div class="card-body">
+            <p class="project-type">Main portfolio project</p>
+            <h3>Lid-Driven Cavity Solver Comparison</h3>
+            <p>A multi-language CFD benchmark that compares the same lid-driven cavity problem across readable reference code, compiled CPU solvers, MPI/OpenMP versions, and a CUDA prototype.</p>
+            <div class="result-callout"><strong>Why it matters:</strong> it shows numerical thinking, code structure, validation, benchmarking, and HPC development in one project.</div>
+            <p class="tags">CFD · Benchmarking · HPC · Validation</p>
+            <div class="project-links">
+              <a href="projects/lid-cavity-comparison.html">Read case study →</a>
+              <a href="https://github.com/Kandil2001/LidCavity_Solver_Comparison" target="_blank" rel="noopener">Repository ↗</a>
             </div>
-          </article>
+          </div>
+        </article>
 
-          <article class="project-card">
-            <img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_MATLAB/main/assets/figures/readme_overview.png" alt="Overview of the MATLAB lid-driven cavity CFD study">
-            <div class="card-body">
-              <p class="project-type">Reference CFD Solver</p>
-              <h3>MATLAB Lid-Driven Cavity Solver</h3>
-              <p>Developed the reference version of a two-dimensional incompressible-flow solver and automated a 72-case benchmark study across mesh sizes, Reynolds numbers, schemes, pressure solvers, and MATLAB implementations.</p>
-              <div class="result-callout"><strong>Result:</strong> 44 of 72 cases met the selected Ghia centreline-error limits. The remaining cases were kept and documented instead of hidden.</div>
-              <p class="tags">MATLAB · CFD · Pressure Correction · Validation</p>
-              <div class="project-links">
-                <a href="projects/lid-cavity.html">Read case study →</a>
-                <a href="https://github.com/Kandil2001/LidCavity_MATLAB" target="_blank" rel="noopener">Repository ↗</a>
-              </div>
+        <article class="project-card">
+          <img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_CPP/main/assets/figures/re1000_streamlines.svg" alt="Streamlines from the C++ lid-driven cavity solver">
+          <div class="card-body">
+            <p class="project-type">C++ CFD baseline</p>
+            <h3>C++ Lid-Driven Cavity Solver</h3>
+            <p>A clean C++17 implementation used as a single-core baseline before adding parallel versions. The project keeps the numerical setup close to the MATLAB reference.</p>
+            <div class="result-callout"><strong>Result:</strong> refined-grid cases passed the selected Ghia validation thresholds.</div>
+            <p class="tags">C++17 · CFD · CSV · Python plots</p>
+            <div class="project-links">
+              <a href="projects/lid-cavity-cpp.html">Read case study →</a>
+              <a href="https://github.com/Kandil2001/LidCavity_CPP" target="_blank" rel="noopener">Repository ↗</a>
             </div>
-          </article>
+          </div>
+        </article>
 
-          <article class="project-card">
-            <img src="https://raw.githubusercontent.com/Kandil2001/Distributed-TSP-Solver/main/figures/route_comparison.png" alt="Traveling Salesman Problem route comparison from the distributed solver">
-            <div class="card-body">
-              <p class="project-type">High-Performance Computing</p>
-              <h3>Distributed TSP Solver</h3>
-              <p>Built a distributed-memory optimisation solver in C99 and MPI using parallel tempering, two-opt moves, precomputed distances, and coordinated replica exchanges.</p>
-              <div class="result-callout"><strong>Result:</strong> The tested Berlin52 configuration reported a 20.7× speedup and approximately 86% parallel efficiency on 24 cores.</div>
-              <p class="tags">C99 · MPI · HPC · Parallel Tempering</p>
-              <div class="project-links">
-                <a href="projects/distributed-tsp.html">Read case study →</a>
-                <a href="https://github.com/Kandil2001/Distributed-TSP-Solver" target="_blank" rel="noopener">Repository ↗</a>
-              </div>
+        <article class="project-card">
+          <img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_MATLAB/main/assets/figures/readme_overview.png" alt="MATLAB lid-driven cavity CFD overview">
+          <div class="card-body">
+            <p class="project-type">Reference solver</p>
+            <h3>MATLAB Lid-Driven Cavity Solver</h3>
+            <p>The reference implementation for the cavity benchmark, with looped/vectorized variants, mesh studies, solver comparison, and Ghia centreline validation.</p>
+            <div class="result-callout"><strong>Result:</strong> documented both successful and limited cases instead of hiding weak results.</div>
+            <p class="tags">MATLAB · SIMPLE-style · Validation</p>
+            <div class="project-links">
+              <a href="projects/lid-cavity.html">Read case study →</a>
+              <a href="https://github.com/Kandil2001/LidCavity_MATLAB" target="_blank" rel="noopener">Repository ↗</a>
             </div>
-          </article>
+          </div>
+        </article>
 
-          <article class="project-card">
-            <img src="https://raw.githubusercontent.com/Kandil2001/Jupedsim-Evacuation-Analysis/main/figures/heatmap.gif" alt="JuPedSim pedestrian evacuation simulation">
-            <div class="card-body">
-              <p class="project-type">Computational Simulation</p>
-              <h3>JuPedSim Evacuation Analysis</h3>
-              <p>Created a configurable pedestrian-evacuation workflow using a real building geometry, manually defined exits, scenario-based assignments, and reproducible trajectory output.</p>
-              <div class="result-callout"><strong>Result:</strong> Built a repeatable framework for studying how spawn locations, exit choices, and movement parameters affect evacuation behaviour.</div>
-              <p class="tags">Python · JuPedSim · PedPy · Numba · SQLite</p>
-              <div class="project-links">
-                <a href="projects/pedestrian-simulation.html">Read case study →</a>
-                <a href="https://github.com/Kandil2001/Jupedsim-Evacuation-Analysis" target="_blank" rel="noopener">Repository ↗</a>
-              </div>
+        <article class="project-card">
+          <div class="project-visual lbm-visual" aria-hidden="true"><span>LBM D2Q9<br>Poiseuille flow</span></div>
+          <div class="card-body">
+            <p class="project-type">LBM learning project</p>
+            <h3>D2Q9 LBM Channel Flow in C++</h3>
+            <p>A deliberately simple lattice Boltzmann code for 2D Poiseuille flow, checked against the analytical parabolic velocity profile.</p>
+            <div class="result-callout"><strong>Why it matters:</strong> it shows you can learn a new CFD method from first principles and keep the code readable.</div>
+            <p class="tags">C++ · LBM · D2Q9 · Poiseuille flow</p>
+            <div class="project-links">
+              <a href="projects/lbm-poiseuille.html">Read case study →</a>
+              <a href="https://github.com/Kandil2001/LBM_Poiseuille_D2Q9_CPP" target="_blank" rel="noopener">Repository ↗</a>
             </div>
-          </article>
-        </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="https://raw.githubusercontent.com/Kandil2001/Distributed-TSP-Solver/main/figures/route_comparison.png" alt="Traveling Salesman Problem route comparison from the distributed solver">
+          <div class="card-body">
+            <p class="project-type">High-performance computing</p>
+            <h3>Distributed TSP Solver</h3>
+            <p>A C99/MPI optimisation project using parallel tempering, two-opt moves, precomputed distances, and coordinated replica exchange.</p>
+            <div class="result-callout"><strong>Result:</strong> reported strong speedup and good efficiency on the tested cluster setup.</div>
+            <p class="tags">C99 · MPI · Parallel tempering</p>
+            <div class="project-links">
+              <a href="projects/distributed-tsp.html">Read case study →</a>
+              <a href="https://github.com/Kandil2001/Distributed-TSP-Solver" target="_blank" rel="noopener">Repository ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="https://raw.githubusercontent.com/Kandil2001/Jupedsim-Evacuation-Analysis/main/figures/heatmap.gif" alt="JuPedSim pedestrian evacuation simulation">
+          <div class="card-body">
+            <p class="project-type">Computational simulation</p>
+            <h3>JuPedSim Evacuation Analysis</h3>
+            <p>A reproducible pedestrian-dynamics workflow using a real building geometry, scenario logic, trajectory output, and visual post-processing.</p>
+            <div class="result-callout"><strong>Why it matters:</strong> it shows simulation setup, geometry handling, automation, and communication of results.</div>
+            <p class="tags">Python · JuPedSim · SQLite · Numba</p>
+            <div class="project-links">
+              <a href="projects/pedestrian-simulation.html">Read case study →</a>
+              <a href="https://github.com/Kandil2001/Jupedsim-Evacuation-Analysis" target="_blank" rel="noopener">Repository ↗</a>
+            </div>
+          </div>
+        </article>
       </div>
-      <p class="carousel-hint">Use the buttons above, swipe sideways, or scroll horizontally to browse the project cards.</p>
-
-      <aside class="ongoing-card" aria-labelledby="ongoing-title">
-        <div>
-          <p class="project-type">Ongoing Comparison Study</p>
-          <h3 id="ongoing-title">Lid Cavity Evolution</h3>
-          <p>I am building a comparison hub for the same lid-driven cavity benchmark in MATLAB, C++, C, Python, OpenMP, MPI, CUDA, and OpenFOAM. The goal is to compare accuracy, runtime, code structure, and scalability under one shared specification.</p>
-        </div>
-        <a class="button" href="https://github.com/Kandil2001/Lid-Cavity-Evolution" target="_blank" rel="noopener">View Roadmap ↗</a>
-      </aside>
     </section>
 
     <section id="experience" class="section narrow">
       <p class="section-label">Experience</p>
       <h2>Engineering and research experience</h2>
       <div class="timeline">
-        <div class="timeline-item"><div class="timeline-heading"><h3>Fraunhofer FFB</h3><span>Student Assistant · Jun 2026 – Present</span></div><p>Supporting battery-cell production research, process analysis, and engineering documentation.</p></div>
-        <div class="timeline-item"><div class="timeline-heading"><h3>Bergische Universität Wuppertal</h3><span>Student Assistant · Jan 2026 – Present</span></div><p>Supporting simulation and data-analysis work, including pedestrian-dynamics research workflows.</p></div>
-        <div class="timeline-item"><div class="timeline-heading"><h3>Vorwerk</h3><span>Working Student · CFD · Mar 2024 – Mar 2026</span></div><p>Worked on multiphase and thermal-fluid simulations, STAR-CCM+ workflows, Java automation, test-bench support, and engineering analysis.</p></div>
+        <div class="timeline-item"><div class="timeline-heading"><h3>Fraunhofer FFB</h3><span>Student Assistant · Jun 2026 – Present</span></div><p>Supporting battery-cell production research, process analysis, and engineering documentation, with a thesis direction around low-humidity mini-environments and air-curtain sealing.</p></div>
+        <div class="timeline-item"><div class="timeline-heading"><h3>Bergische Universität Wuppertal</h3><span>Student Assistant · Jan 2026 – Present</span></div><p>Supporting simulation and data-analysis workflows, including pedestrian-dynamics research and structured analysis output.</p></div>
+        <div class="timeline-item"><div class="timeline-heading"><h3>Vorwerk</h3><span>Working Student · CFD · Mar 2024 – Mar 2026</span></div><p>Worked on thermal-fluid and multiphase simulation tasks, STAR-CCM+ workflows, Java automation, test-bench support, and engineering analysis.</p></div>
         <div class="timeline-item"><div class="timeline-heading"><h3>GRIND for Engineering Solutions</h3><span>CFD Engineer · Jun 2023 – Oct 2023</span></div><p>Performed CFD simulation and design optimisation using ANSYS Fluent and engineering analysis tools.</p></div>
       </div>
     </section>
 
-    <section id="education" class="section narrow">
-      <p class="section-label">Education</p>
-      <h2>Simulation, CFD, and mechatronics foundation</h2>
-      <div class="timeline education-list">
-        <div class="timeline-item"><div class="timeline-heading"><h3>Bergische Universität Wuppertal</h3><span>M.Sc. Computer Simulation in Science · 2023 – Present</span></div><p>Focus areas include numerical simulation, scientific computing, mathematical modelling, programming, and applied computational methods.</p></div>
-        <div class="timeline-item"><div class="timeline-heading"><h3>Mansoura University</h3><span>B.Sc. Mechatronics Engineering · Jul 2018 – Jun 2023</span></div><p>Bachelor thesis: CFD-based investigation of a micro-pin-fin heat sink for microprocessor cooling, including a MATLAB-based two-dimensional CFD solver and thermal-flow analysis.</p></div>
-      </div>
-    </section>
-
     <section id="skills" class="section">
-      <p class="section-label">Technical Capabilities</p>
-      <h2>Tools I use to develop, validate, and communicate simulations</h2>
+      <p class="section-label">Technical skills</p>
+      <h2>Tools and methods I use</h2>
       <div class="skills-grid">
-        <div><h3>CFD Software &amp; Physics</h3><p>STAR-CCM+, ANSYS Fluent, ANSYS CFD, SimScale, aerodynamics, multiphase flow, heat transfer, thermal-fluid systems</p></div>
-        <div><h3>Numerical Methods</h3><p>Pressure correction, finite-volume concepts, iterative solvers, mesh studies, residual tracking, benchmark validation</p></div>
-        <div><h3>Programming &amp; HPC</h3><p>MATLAB, Python, C/C++, MPI, parallel algorithms, automation scripts, Git-based documentation</p></div>
-        <div><h3>Modelling &amp; Analysis</h3><p>SOLIDWORKS, JuPedSim, PedPy, Numba, SQLite trajectories, Matplotlib, structured post-processing</p></div>
+        <div><h3>CFD & physics</h3><p>Incompressible flow, heat transfer, multiphase flow, aerodynamics, thermal-fluid systems, humidity/dew-point related modelling.</p></div>
+        <div><h3>CFD software</h3><p>STAR-CCM+, ANSYS Fluent, SimScale, OpenFOAM learning path, FDS/Smokeview, post-processing and reporting.</p></div>
+        <div><h3>Programming</h3><p>MATLAB, Python, C, C++, Java automation, shell scripts, Git, structured CSV output, plotting workflows.</p></div>
+        <div><h3>HPC & numerics</h3><p>MPI, OpenMP, CUDA basics, pressure correction, iterative solvers, mesh studies, validation, runtime comparison.</p></div>
       </div>
     </section>
 
-    <section id="credentials" class="section">
-      <p class="section-label">Professional Credentials</p>
-      <h2>SOLIDWORKS certifications</h2>
-      <p class="credentials-intro">Six Dassault Systèmes SOLIDWORKS credentials covering expert-level mechanical design, surfacing, drawings, and mold-making workflows.</p>
-      <div class="credentials-grid">
-        <article class="credential-card featured-credential"><p class="project-type">Expert</p><h3>Mechanical Design</h3><p>SOLIDWORKS Certified Expert</p><span>July 2021 · C-W5XDR2F3GQ</span></article>
-        <article class="credential-card"><p class="project-type">Professional</p><h3>Mechanical Design</h3><p>SOLIDWORKS Certified Professional</p><span>May 2021 · C-FXL85K2MAC</span></article>
-        <article class="credential-card"><p class="project-type">Professional</p><h3>Advanced Surfacing</h3><p>SOLIDWORKS Advanced Professional</p><span>July 2021 · C-T2NYHDM9ZR</span></article>
-        <article class="credential-card"><p class="project-type">Professional</p><h3>Advanced Drawing Tools</h3><p>SOLIDWORKS Advanced Professional</p><span>July 2021 · C-SJG6ZXMUK8</span></article>
-        <article class="credential-card"><p class="project-type">Professional</p><h3>Advanced Mold Making</h3><p>SOLIDWORKS Advanced Professional</p><span>July 2021 · C-JET2N3D9AM</span></article>
-        <article class="credential-card"><p class="project-type">Associate</p><h3>Mechanical Design</h3><p>SOLIDWORKS Certified Associate</p><span>April 2021 · C-TCG7VBY59P</span></article>
+    <section id="education" class="section narrow">
+      <p class="section-label">Education and credentials</p>
+      <h2>Simulation foundation plus mechanical design background</h2>
+      <div class="timeline">
+        <div class="timeline-item"><div class="timeline-heading"><h3>Bergische Universität Wuppertal</h3><span>M.Sc. Computer Simulation in Science · 2023 – Present</span></div><p>Focus areas: numerical simulation, scientific computing, mathematical modelling, programming, and applied computational methods.</p></div>
+        <div class="timeline-item"><div class="timeline-heading"><h3>Mansoura University</h3><span>B.Sc. Mechatronics Engineering · 2018 – 2023</span></div><p>Bachelor thesis on CFD-based micro-pin-fin heat-sink analysis for microprocessor cooling.</p></div>
+        <div class="timeline-item"><div class="timeline-heading"><h3>SOLIDWORKS certifications</h3><span>6 credentials</span></div><p>Mechanical design, surfacing, drawings, mold tools, and expert-level CAD certification background.</p></div>
       </div>
     </section>
 
     <section id="contact" class="section narrow contact-box">
       <p class="section-label">Contact</p>
       <h2>Let’s connect</h2>
-      <p>I am interested in CFD, numerical simulation, scientific computing, and engineering R&amp;D opportunities where clear modelling and reproducible workflows matter.</p>
+      <p>I am interested in CFD, numerical simulation, scientific computing, and engineering R&amp;D roles where clear modelling and reproducible workflows matter.</p>
       <p class="contact-line"><strong>Email:</strong> <a href="mailto:kandil.ahmed.amr@gmail.com">kandil.ahmed.amr@gmail.com</a></p>
-      <p class="reference-note">Professional references are available upon request.</p>
       <div class="button-row">
-        <a class="button primary" href="mailto:kandil.ahmed.amr@gmail.com">Email Me</a>
-        <a class="button" href="assets/Ahmed_Kandil_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+        <a class="button primary" href="mailto:kandil.ahmed.amr@gmail.com">Email me</a>
         <a class="button" href="https://www.linkedin.com/in/ahmed-kandil03/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="button" href="https://github.com/Kandil2001" target="_blank" rel="noopener">GitHub</a>
       </div>
     </section>
   </main>
 
-  <footer><p>© 2026 Ahmed Kandil. Built with GitHub Pages.</p></footer>
-  <script src="script.js?v=15"></script>
+  <footer>
+    <p>© 2026 Ahmed Kandil. Built with GitHub Pages.</p>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
