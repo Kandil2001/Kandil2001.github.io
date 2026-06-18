@@ -15,7 +15,7 @@
   <link rel="alternate" hreflang="en" href="https://kandil2001.github.io/">
   <link rel="alternate" hreflang="de" href="https://kandil2001.github.io/?lang=de">
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=20260618-5">
+  <link rel="stylesheet" href="style.css?v=20260618-6">
   <title>Ahmed Kandil | CFD & Scientific Computing</title>
   <script type="application/ld+json">
   {
@@ -95,9 +95,9 @@
 
       <div class="hero-stats" aria-label="Portfolio highlights">
         <div><strong data-i18n="stats.cfd.title">CFD + R&amp;D</strong><span data-i18n="stats.cfd.text">Simulation experience in academic and industrial environments</span></div>
-        <div><strong data-i18n="stats.projects.title">6+ projects</strong><span data-i18n="stats.projects.text">CFD solvers, HPC, LBM, TSP, and evacuation simulation</span></div>
+        <div><strong data-i18n="stats.projects.title">6 public project repos</strong><span data-i18n="stats.projects.text">CFD solvers, LBM, MPI optimisation, and evacuation simulation</span></div>
         <div><strong data-i18n="stats.validation.title">Validation-focused</strong><span data-i18n="stats.validation.text">Reference data, mesh studies, residuals, and documented limitations</span></div>
-        <div><strong data-i18n="stats.hpc.title">HPC workflow</strong><span data-i18n="stats.hpc.text">Serial baseline first, followed by OpenMP, MPI, and acceleration</span></div>
+        <div><strong data-i18n="stats.hpc.title">HPC workflow</strong><span data-i18n="stats.hpc.text">Serial baselines followed by OpenMP, MPI, and CUDA-style acceleration</span></div>
       </div>
     </section>
 
@@ -133,20 +133,20 @@
       <div class="section-heading">
         <div>
           <p class="section-label" data-i18n="projects.label">Selected projects</p>
-          <h2 data-i18n="projects.title">CFD-focused projects with numerical and HPC depth.</h2>
-          <p class="section-intro" data-i18n="projects.intro">These projects best represent my work in CFD, numerical simulation, scientific programming, and performance-oriented engineering workflows.</p>
+          <h2 data-i18n="projects.title">Updated GitHub projects: CFD, HPC, LBM, and evacuation simulation.</h2>
+          <p class="section-intro" data-i18n="projects.intro">The cards below were updated from the current public GitHub repositories, including the latest README results, run modes, validation notes, and project scope.</p>
         </div>
       </div>
 
       <div class="project-grid">
         <article class="project-card featured-project">
-          <div class="project-visual code-visual" aria-hidden="true"><span>MATLAB · Python · C · C++ · MPI · OpenMP · CUDA</span></div>
+          <div class="project-visual code-visual" aria-hidden="true"><span>MATLAB · Python · C · C++ · OpenMP · MPI · CUDA</span></div>
           <div class="card-body">
-            <p class="project-type" data-i18n="project.comparison.type">Main portfolio project</p>
+            <p class="project-type" data-i18n="project.comparison.type">Main CFD benchmark suite</p>
             <h3 data-i18n="project.comparison.title">Lid-Driven Cavity Solver Comparison</h3>
-            <p data-i18n="project.comparison.text">A CFD benchmark solving the same cavity-flow problem across multiple languages and implementations, including readable reference code, compiled CPU solvers, MPI/OpenMP versions, and a CUDA prototype.</p>
-            <div class="result-callout"><strong data-i18n="project.why.label">Why it matters:</strong> <span data-i18n="project.comparison.result">it combines numerical methods, code structure, validation, benchmarking, and HPC workflow development in one project.</span></div>
-            <p class="tags">CFD · Benchmarking · HPC · Validation</p>
+            <p data-i18n="project.comparison.text">A multi-platform CFD benchmark for the 2D incompressible lid-driven cavity problem. The same solver idea is implemented in MATLAB, Python, C, C++, OpenMP, MPI, and CUDA-style workflows with shared result folders and comparison scripts.</p>
+            <div class="result-callout"><strong data-i18n="project.why.label">Why it matters:</strong> <span data-i18n="project.comparison.result">the project compares implementation style, runtime, convergence behaviour, validation error, output structure, and post-processing across languages.</span></div>
+            <p class="tags">CFD · Benchmarking · OpenMP · MPI · CUDA · Validation</p>
             <div class="project-links">
               <a href="projects/lid-cavity-comparison.html" data-i18n="project.link.case">Read case study →</a>
               <a href="https://github.com/Kandil2001/LidCavity_Solver_Comparison" target="_blank" rel="noopener" data-i18n="project.link.repo">Repository ↗</a>
@@ -157,10 +157,10 @@
         <article class="project-card">
           <img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_CPP/main/assets/figures/re1000_streamlines.svg" alt="Streamlines from the C++ lid-driven cavity solver">
           <div class="card-body">
-            <p class="project-type" data-i18n="project.cpp.type">C++ CFD baseline</p>
+            <p class="project-type" data-i18n="project.cpp.type">C++17 serial CFD baseline</p>
             <h3 data-i18n="project.cpp.title">C++ Lid-Driven Cavity Solver</h3>
-            <p data-i18n="project.cpp.text">A C++17 implementation used as the single-core baseline before moving to parallel versions. The setup stays close to the MATLAB reference to keep the comparison consistent.</p>
-            <div class="result-callout"><strong data-i18n="project.result.label">Result:</strong> <span data-i18n="project.cpp.result">the refined-grid cases passed the selected Ghia validation limits.</span></div>
+            <p data-i18n="project.cpp.text">A C++17 single-core baseline for the larger cavity benchmark series, including upwind and central schemes, RBGS/RBSOR pressure solvers, CSV output, and Python post-processing.</p>
+            <div class="result-callout"><strong data-i18n="project.result.label">Current result:</strong> <span data-i18n="project.cpp.result">22/36 cases met the selected Ghia limits, all N = 128 cases passed, and RBSOR reduced pressure-solver cost in the uploaded study.</span></div>
             <p class="tags">C++17 · CFD · CSV · Python plots</p>
             <div class="project-links">
               <a href="projects/lid-cavity-cpp.html" data-i18n="project.link.case">Read case study →</a>
@@ -172,10 +172,10 @@
         <article class="project-card">
           <img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_MATLAB/main/assets/figures/readme_overview.png" alt="MATLAB lid-driven cavity CFD overview">
           <div class="card-body">
-            <p class="project-type" data-i18n="project.matlab.type">Reference solver</p>
+            <p class="project-type" data-i18n="project.matlab.type">MATLAB reference implementation</p>
             <h3 data-i18n="project.matlab.title">MATLAB Lid-Driven Cavity Solver</h3>
-            <p data-i18n="project.matlab.text">The reference implementation for the cavity benchmark, including looped and vectorized code, mesh studies, solver comparison, and Ghia centreline validation.</p>
-            <div class="result-callout"><strong data-i18n="project.result.label">Result:</strong> <span data-i18n="project.matlab.result">successful cases and limitations are documented, not only the cleanest plots.</span></div>
+            <p data-i18n="project.matlab.text">The MATLAB reference version for developing the numerical method and comparing loop-based and vectorized momentum predictors before moving to lower-level implementations.</p>
+            <div class="result-callout"><strong data-i18n="project.result.label">Current result:</strong> <span data-i18n="project.matlab.result">44/72 cases met the selected Ghia limits, all N = 128 cases passed, and pressure solving remained the main runtime cost.</span></div>
             <p class="tags">MATLAB · SIMPLE-style · Validation</p>
             <div class="project-links">
               <a href="projects/lid-cavity.html" data-i18n="project.link.case">Read case study →</a>
@@ -185,12 +185,12 @@
         </article>
 
         <article class="project-card">
-          <div class="project-visual lbm-visual" aria-hidden="true"><span>LBM D2Q9<br>Poiseuille flow</span></div>
+          <img src="https://raw.githubusercontent.com/Kandil2001/LBM_Poiseuille_D2Q9_CPP/main/results/velocity_profile.png" alt="LBM Poiseuille velocity profile compared with the analytical solution">
           <div class="card-body">
-            <p class="project-type" data-i18n="project.lbm.type">LBM learning project</p>
+            <p class="project-type" data-i18n="project.lbm.type">LBM D2Q9 validation project</p>
             <h3 data-i18n="project.lbm.title">D2Q9 LBM Channel Flow in C++</h3>
-            <p data-i18n="project.lbm.text">A compact lattice Boltzmann implementation for 2D Poiseuille flow, checked against the analytical parabolic velocity profile.</p>
-            <div class="result-callout"><strong data-i18n="project.why.label">Why it matters:</strong> <span data-i18n="project.lbm.result">it demonstrates learning a new CFD method from the fundamentals while keeping the implementation readable.</span></div>
+            <p data-i18n="project.lbm.text">A compact C++ lattice Boltzmann solver for 2D Poiseuille channel flow using D2Q9, BGK collision, bounce-back walls, periodic streamwise boundaries, and CSV output.</p>
+            <div class="result-callout"><strong data-i18n="project.result.label">Current result:</strong> <span data-i18n="project.lbm.result">the numerical velocity profile is compared directly with the analytical parabolic Poiseuille solution and includes convergence-history output.</span></div>
             <p class="tags">C++ · LBM · D2Q9 · Poiseuille flow</p>
             <div class="project-links">
               <a href="projects/lbm-poiseuille.html" data-i18n="project.link.case">Read case study →</a>
@@ -202,10 +202,10 @@
         <article class="project-card">
           <img src="https://raw.githubusercontent.com/Kandil2001/Distributed-TSP-Solver/main/figures/route_comparison.png" alt="Traveling Salesman Problem route comparison from the distributed solver">
           <div class="card-body">
-            <p class="project-type" data-i18n="project.tsp.type">High-performance computing</p>
+            <p class="project-type" data-i18n="project.tsp.type">MPI high-performance computing</p>
             <h3 data-i18n="project.tsp.title">Distributed TSP Solver</h3>
-            <p data-i18n="project.tsp.text">A C99/MPI optimisation project using parallel tempering, two-opt moves, precomputed distances, and replica exchange.</p>
-            <div class="result-callout"><strong data-i18n="project.result.label">Result:</strong> <span data-i18n="project.tsp.result">the tested cluster runs showed strong speedup and good efficiency.</span></div>
+            <p data-i18n="project.tsp.text">A C99/MPI distributed-memory Traveling Salesman solver using parallel tempering, Metropolis acceptance, two-opt route updates, precomputed distances, and neighbour replica exchange.</p>
+            <div class="result-callout"><strong data-i18n="project.result.label">Current result:</strong> <span data-i18n="project.tsp.result">the Berlin52 study reported 20.7× speedup on 24 cores, approximately 86% parallel efficiency, with scaling and runtime-breakdown plots.</span></div>
             <p class="tags">C99 · MPI · Parallel tempering</p>
             <div class="project-links">
               <a href="projects/distributed-tsp.html" data-i18n="project.link.case">Read case study →</a>
@@ -217,10 +217,10 @@
         <article class="project-card">
           <img src="https://raw.githubusercontent.com/Kandil2001/Jupedsim-Evacuation-Analysis/main/figures/heatmap.gif" alt="JuPedSim pedestrian evacuation simulation">
           <div class="card-body">
-            <p class="project-type" data-i18n="project.jps.type">Computational simulation</p>
+            <p class="project-type" data-i18n="project.jps.type">Pedestrian dynamics simulation</p>
             <h3 data-i18n="project.jps.title">JuPedSim Evacuation Analysis</h3>
-            <p data-i18n="project.jps.text">A reproducible pedestrian-simulation workflow using real building geometry, scenario logic, trajectory output, and visual post-processing.</p>
-            <div class="result-callout"><strong data-i18n="project.why.label">Why it matters:</strong> <span data-i18n="project.jps.result">it demonstrates geometry handling, simulation setup, automation, and result communication.</span></div>
+            <p data-i18n="project.jps.text">A JuPedSim-based evacuation workflow for a university building layout with WKT geometry, nine exits, configurable spawn areas, scenario-specific exit assignment, and SQLite trajectory output.</p>
+            <div class="result-callout"><strong data-i18n="project.result.label">Current result:</strong> <span data-i18n="project.jps.result">the project compares scenario runtime and evacuation time while clearly documenting that it is an educational study, not a certified safety model.</span></div>
             <p class="tags">Python · JuPedSim · SQLite · Numba</p>
             <div class="project-links">
               <a href="projects/pedestrian-simulation.html" data-i18n="project.link.case">Read case study →</a>
@@ -297,6 +297,6 @@
   <footer>
     <p data-i18n="footer.text">© 2026 Ahmed Kandil. Built with GitHub Pages.</p>
   </footer>
-  <script src="script.js?v=20260618-5"></script>
+  <script src="script.js?v=20260618-6"></script>
 </body>
 </html>
