@@ -14,11 +14,24 @@ This site positions Ahmed as a CFD-focused engineer who can:
 - compare MATLAB, Python, C, C++, MPI, OpenMP, and CUDA-style workflows,
 - communicate assumptions, limitations, and next steps clearly.
 
+## Languages
+
+The homepage supports English and German.
+
+- English is the default language.
+- The `DE` / `EN` button in the navigation switches the homepage language.
+- The selected language is saved in the browser using `localStorage`.
+- German can also be opened directly with:
+
+```text
+https://kandil2001.github.io/?lang=de
+```
+
 ## Main files
 
 - `index.html` — homepage and recruiter-facing portfolio summary
-- `style.css` — full responsive styling and project-page styling
-- `script.js` — mobile navigation, analytics, optional carousel logic, and visit counter
+- `style.css` — full responsive styling, project-page styling, and language-button styling
+- `script.js` — mobile navigation, English/German language toggle, analytics, optional carousel logic, and visit counter
 - `projects/` — individual project case studies
 - `sitemap.xml` — pages exposed to search engines
 - `robots.txt` — crawler access and sitemap reference
