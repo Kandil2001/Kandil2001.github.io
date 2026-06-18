@@ -1,27 +1,47 @@
 const GOATCOUNTER_BASE = 'https://kandil2001.goatcounter.com';
 const IS_HOME_PAGE = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html');
 
-// Track visits on every portfolio page.
-const goatCounterScript = document.createElement('script');
-goatCounterScript.async = true;
-goatCounterScript.src = 'https://gc.zgo.at/count.js';
-goatCounterScript.dataset.goatcounter = `${GOATCOUNTER_BASE}/count`;
-document.head.appendChild(goatCounterScript);
+function loadAnalytics() {
+    const goatCounterScript = document.createElement('script');
+    goatCounterScript.async = true;
+    goatCounterScript.src = 'https://gc.zgo.at/count.js';
+    goatCounterScript.dataset.goatcounter = `${GOATCOUNTER_BASE}/count`;
+    document.head.appendChild(goatCounterScript);
+}
 
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
+function setupMobileNavigation() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
-if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', () => {
+    if (!menuToggle || !navLinks) return;
+
+    const closeMenu = () => {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+    };
+
+    const toggleMenu = () => {
         const isOpen = navLinks.classList.toggle('open');
         menuToggle.setAttribute('aria-expanded', String(isOpen));
-    });
+    };
+
+    menuToggle.addEventListener('click', toggleMenu);
 
     navLinks.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('open');
-            menuToggle.setAttribute('aria-expanded', 'false');
-        });
+        link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closeMenu();
+    });
+
+    document.addEventListener('click', (event) => {
+        const clickedInsideMenu = navLinks.contains(event.target);
+        const clickedToggle = menuToggle.contains(event.target);
+
+        if (!clickedInsideMenu && !clickedToggle) {
+            closeMenu();
+        }
     });
 }
 
@@ -55,39 +75,29 @@ function setupProjectCarousel() {
     const previousButtons = Array.from(document.querySelectorAll('.carousel-prev, .carousel-side-prev'));
     const nextButtons = Array.from(document.querySelectorAll('.carousel-next, .carousel-side-next'));
     const cards = Array.from(track.querySelectorAll('.project-card'));
+
     if (!cards.length) return;
 
     const tolerance = 8;
     const getMaxScroll = () => Math.max(0, track.scrollWidth - track.clientWidth);
-
     const getStep = () => {
-        const card = cards[0];
-        if (!card) return track.clientWidth;
+        const firstCard = cards[0];
         const gap = parseFloat(window.getComputedStyle(track).columnGap || '0');
-        return card.getBoundingClientRect().width + gap;
+        return firstCard ? firstCard.getBoundingClientRect().width + gap : track.clientWidth;
     };
 
     const isAtStart = () => track.scrollLeft <= tolerance;
     const isAtEnd = () => track.scrollLeft >= getMaxScroll() - tolerance;
 
     const updateStatus = () => {
-        const totalPages = getMaxScroll() === 0 ? 1 : 2;
-        const page = isAtEnd() ? totalPages : 1;
+        const maxScroll = getMaxScroll();
+        const totalPages = maxScroll === 0 ? 1 : Math.ceil(track.scrollWidth / track.clientWidth);
+        const currentPage = maxScroll === 0 ? 1 : Math.min(totalPages, Math.floor(track.scrollLeft / Math.max(1, track.clientWidth)) + 1);
 
-        if (status) {
-            status.textContent = `${page} / ${totalPages}`;
-        }
+        if (status) status.textContent = `${currentPage} / ${totalPages}`;
 
         previousButton.textContent = isAtStart() ? '← End' : '← Previous';
         nextButton.textContent = isAtEnd() ? 'Start →' : 'Next →';
-
-        previousButtons.forEach((button) => {
-            button.title = isAtStart() ? 'Go to the last projects' : 'Previous projects';
-        });
-
-        nextButtons.forEach((button) => {
-            button.title = isAtEnd() ? 'Back to the first projects' : 'Next projects';
-        });
     };
 
     const scrollToPosition = (left) => {
@@ -97,36 +107,23 @@ function setupProjectCarousel() {
 
     previousButtons.forEach((button) => {
         button.addEventListener('click', () => {
-            if (isAtStart()) {
-                scrollToPosition(getMaxScroll());
-                return;
-            }
-
-            scrollToPosition(Math.max(0, track.scrollLeft - getStep()));
+            scrollToPosition(isAtStart() ? getMaxScroll() : Math.max(0, track.scrollLeft - getStep()));
         });
     });
 
     nextButtons.forEach((button) => {
         button.addEventListener('click', () => {
-            if (isAtEnd()) {
-                scrollToPosition(0);
-                return;
-            }
-
-            scrollToPosition(Math.min(getMaxScroll(), track.scrollLeft + getStep()));
+            scrollToPosition(isAtEnd() ? 0 : Math.min(getMaxScroll(), track.scrollLeft + getStep()));
         });
     });
 
     track.addEventListener('scroll', () => window.requestAnimationFrame(updateStatus));
     window.addEventListener('resize', updateStatus);
-
     updateStatus();
 }
 
 async function fetchTotalVisits() {
-    const response = await fetch(`visitor-count.json?t=${Date.now()}`, {
-        cache: 'no-store',
-    });
+    const response = await fetch(`visitor-count.json?t=${Date.now()}`, { cache: 'no-store' });
 
     if (!response.ok) {
         throw new Error(`Counter request failed with status ${response.status}`);
@@ -163,5 +160,7 @@ function addTotalVisitCounter() {
     window.setInterval(refreshCount, 300000);
 }
 
+loadAnalytics();
+setupMobileNavigation();
 setupProjectCarousel();
 addTotalVisitCounter();
