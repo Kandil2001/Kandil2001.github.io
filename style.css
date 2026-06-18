@@ -37,7 +37,7 @@ ul { color: var(--muted); }
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 900;
   background: rgba(11, 13, 16, .88);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(16px);
@@ -95,18 +95,33 @@ ul { color: var(--muted); }
 }
 
 .language-toggle {
-  min-width: 3rem;
-  padding: .45rem .75rem;
+  position: fixed;
+  top: .7rem;
+  right: 1.25rem;
+  z-index: 1200;
+  min-width: 3.35rem;
+  min-height: 2.35rem;
+  padding: .48rem .85rem;
   font-size: .82rem;
-  font-weight: 850;
+  font-weight: 900;
   letter-spacing: .08em;
+  color: #101318;
+  background: var(--text);
+  border-color: rgba(228, 212, 162, .75);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, .38);
+}
+
+.language-toggle::before {
+  content: "🌐";
+  margin-right: .35rem;
+  letter-spacing: 0;
 }
 
 .language-toggle:hover,
 .menu-toggle:hover {
   transform: translateY(-1px);
-  background: rgba(228, 212, 162, .1);
-  border-color: rgba(228, 212, 162, .55);
+  background: #e4d4a2;
+  border-color: rgba(228, 212, 162, .95);
 }
 
 .menu-toggle {
@@ -449,7 +464,7 @@ footer {
   position: fixed;
   left: 1rem;
   top: -4rem;
-  z-index: 100;
+  z-index: 1300;
   background: var(--text);
   color: #111317;
   border-radius: .55rem;
@@ -675,6 +690,14 @@ code {
 
   .navbar {
     flex-wrap: wrap;
+  }
+
+  .language-toggle {
+    top: .68rem;
+    right: 4.25rem;
+    min-width: 3.1rem;
+    min-height: 2.25rem;
+    padding: .42rem .68rem;
   }
 
   .nav-links {
