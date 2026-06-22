@@ -3,20 +3,386 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ahmed Kandil portfolio: CFD, thermal-fluid simulation, scientific computing, solver validation, MATLAB, Python, C/C++, MPI, OpenMP, STAR-CCM+, ANSYS Fluent, and reproducible engineering workflows.">
+  <meta name="description" content="Ahmed Kandil portfolio: CFD, scientific computing, HPC, solver development, numerical simulation, STAR-CCM+, ANSYS Fluent, OpenFOAM, C++, Python, MPI, and OpenMP.">
   <meta name="author" content="Ahmed Kandil">
-  <meta name="keywords" content="Ahmed Kandil, CFD engineer, scientific computing, numerical simulation, thermal-fluid simulation, HPC, MPI, OpenMP, C++, MATLAB, Python, STAR-CCM+, ANSYS Fluent, OpenFOAM, GitHub portfolio">
-  <meta name="theme-color" content="#0b0d10">
-  <meta property="og:title" content="Ahmed Kandil | CFD & Scientific Computing">
-  <meta property="og:description" content="CFD, thermal-fluid simulation, solver validation, and HPC portfolio by Ahmed Kandil.">
+  <meta name="keywords" content="Ahmed Kandil, CFD Engineer, Simulation Engineer, Scientific Computing, HPC, MPI, OpenMP, C++, Python, STAR-CCM+, ANSYS Fluent, OpenFOAM, Fraunhofer FFB, Bergische Universität Wuppertal">
+  <meta name="theme-color" content="#060a12">
+  <meta property="og:title" content="Ahmed Kandil | CFD, Scientific Computing & HPC">
+  <meta property="og:description" content="CFD, solver development, scientific computing, HPC, and engineering simulation portfolio by Ahmed Kandil.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kandil2001.github.io/">
   <link rel="canonical" href="https://kandil2001.github.io/">
-  <link rel="alternate" hreflang="en" href="https://kandil2001.github.io/">
-  <link rel="alternate" hreflang="de" href="https://kandil2001.github.io/?lang=de">
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=20260618-6">
-  <title>Ahmed Kandil | CFD & Scientific Computing</title>
+  <title>Ahmed Kandil | CFD, Scientific Computing & HPC</title>
+  <style>
+    :root {
+      --bg: #060a12;
+      --bg-2: #0b111d;
+      --card: rgba(255, 255, 255, .06);
+      --card-2: rgba(255, 255, 255, .035);
+      --text: #f7f8fb;
+      --muted: #a8b3c5;
+      --muted-2: #7d8ba2;
+      --line: rgba(255, 255, 255, .12);
+      --blue: #39a8ff;
+      --cyan: #47f3ff;
+      --gold: #f2c46d;
+      --green: #6af0b7;
+      --max: 1180px;
+      --radius: 24px;
+      --shadow: 0 30px 90px rgba(0, 0, 0, .42);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 18% 14%, rgba(57, 168, 255, .19), transparent 32rem),
+        radial-gradient(circle at 82% 8%, rgba(71, 243, 255, .12), transparent 28rem),
+        linear-gradient(180deg, #060a12 0%, #0b111d 46%, #070b13 100%);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .38;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(180deg, black, transparent 72%);
+    }
+
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    p { margin: 0 0 1rem; color: var(--muted); }
+    h1, h2, h3 { margin: 0 0 1rem; line-height: 1.08; }
+    h1 { font-size: clamp(3.1rem, 8vw, 7.4rem); letter-spacing: -.07em; }
+    h2 { font-size: clamp(2rem, 4vw, 3.7rem); letter-spacing: -.05em; }
+    h3 { font-size: 1.2rem; }
+    ::selection { color: #04101a; background: var(--cyan); }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 1rem;
+      background: var(--text);
+      color: #07101c;
+      padding: .7rem 1rem;
+      border-radius: 999px;
+      z-index: 1000;
+    }
+    .skip-link:focus { left: 1rem; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--line);
+      background: rgba(6, 10, 18, .76);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: .7rem;
+      font-weight: 900;
+      letter-spacing: -.02em;
+      text-decoration: none;
+    }
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: #06101d;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      box-shadow: 0 0 26px rgba(71, 243, 255, .24);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      transition: color .18s ease, transform .18s ease;
+    }
+    .nav-links a:hover { color: var(--text); transform: translateY(-1px); }
+
+    main { max-width: var(--max); margin: 0 auto; padding: 0 1.25rem; }
+    .section { padding: 5.2rem 0; }
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      align-items: center;
+      padding: 3rem 0 4rem;
+    }
+
+    .hero-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, .76fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .eyebrow,
+    .section-label,
+    .tags,
+    .project-type {
+      color: var(--cyan);
+      font-size: .78rem;
+      font-weight: 850;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .hero-title span {
+      display: block;
+      background: linear-gradient(90deg, #fff, #bcdfff 48%, #48efff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-lead {
+      max-width: 760px;
+      font-size: clamp(1.06rem, 2vw, 1.28rem);
+      color: #c7d0de;
+    }
+
+    .hero-line {
+      margin: 1.6rem 0 1.55rem;
+      width: min(460px, 70%);
+      height: 1px;
+      background: linear-gradient(90deg, var(--cyan), rgba(71, 243, 255, .04));
+    }
+
+    .button-row { display: flex; flex-wrap: wrap; gap: .85rem; margin-top: 1.7rem; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: .78rem 1.05rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.045);
+      color: var(--text);
+      font-weight: 760;
+      text-decoration: none;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+    .button:hover { transform: translateY(-2px); background: rgba(255,255,255,.08); border-color: rgba(71,243,255,.48); }
+    .button.primary { color: #05101b; background: linear-gradient(135deg, var(--cyan), var(--blue)); border-color: transparent; }
+
+    .hero-visual {
+      position: relative;
+      min-height: 560px;
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 68% 38%, rgba(71,243,255,.24), transparent 12rem),
+        radial-gradient(circle at 18% 84%, rgba(242,196,109,.1), transparent 14rem),
+        linear-gradient(145deg, rgba(255,255,255,.065), rgba(255,255,255,.018));
+      box-shadow: var(--shadow);
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: -20%;
+      background:
+        repeating-radial-gradient(ellipse at 70% 42%, transparent 0 10px, rgba(71,243,255,.20) 11px 12px, transparent 13px 24px),
+        radial-gradient(ellipse at 88% 7%, rgba(255,92,56,.85), rgba(242,196,109,.55) 8%, rgba(71,243,255,.23) 19%, transparent 36%);
+      transform: rotate(-6deg);
+      opacity: .75;
+    }
+
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(6,10,18,.88) 0%, rgba(6,10,18,.28) 48%, rgba(6,10,18,.05) 100%),
+        linear-gradient(180deg, transparent 0%, rgba(6,10,18,.78) 100%);
+    }
+
+    .flow-card {
+      position: absolute;
+      inset: auto 1.1rem 1.1rem 1.1rem;
+      z-index: 2;
+      padding: 1rem;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 22px;
+      background: rgba(6,10,18,.62);
+      backdrop-filter: blur(16px);
+    }
+
+    .flow-card strong { display: block; margin-bottom: .35rem; color: var(--text); }
+    .mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; margin-top: .8rem; }
+    .mini-grid div {
+      padding: .7rem;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 14px;
+      color: var(--muted);
+      font-size: .86rem;
+      background: rgba(255,255,255,.035);
+    }
+    .mini-grid b { display:block; color: var(--cyan); }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+    .stat {
+      padding: 1.15rem;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255,255,255,.04);
+    }
+    .stat strong { display: block; color: var(--text); font-size: 1.02rem; }
+    .stat span { display: block; color: var(--muted); margin-top: .25rem; font-size: .93rem; }
+
+    .section-head { max-width: 860px; margin-bottom: 2rem; }
+    .section-head p:last-child { margin-bottom: 0; }
+
+    .about-grid,
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .about-card,
+    .skill-card,
+    .timeline-item,
+    .contact-box,
+    .current-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--card), var(--card-2));
+      box-shadow: 0 18px 52px rgba(0,0,0,.22);
+    }
+    .about-card, .skill-card, .current-card, .contact-box { padding: 1.35rem; }
+    .about-card h3, .skill-card h3 { color: var(--text); }
+
+    .current-card { border-left: 3px solid var(--cyan); }
+    .note { color: var(--muted-2); font-size: .94rem; }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.062), rgba(255,255,255,.022));
+      box-shadow: var(--shadow);
+      transition: transform .2s ease, border-color .2s ease;
+    }
+    .project-card:hover { transform: translateY(-4px); border-color: rgba(71,243,255,.44); }
+    .project-card.featured { grid-column: 1 / -1; }
+    .project-media {
+      min-height: 230px;
+      display: grid;
+      place-items: center;
+      padding: 1.4rem;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 80% 0%, rgba(71,243,255,.18), transparent 14rem),
+        radial-gradient(circle at 12% 90%, rgba(242,196,109,.10), transparent 11rem),
+        #07101b;
+      color: #cfe9ff;
+      text-align: center;
+    }
+    .project-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: contain;
+      padding: 14px;
+      background: #eef3f8;
+      border-bottom: 1px solid var(--line);
+    }
+    .project-body { display: flex; flex-direction: column; flex: 1; padding: 1.35rem; }
+    .project-body p:last-child { margin-bottom: 0; }
+    .callout {
+      margin: 1rem 0;
+      padding: .9rem 1rem;
+      border-left: 3px solid var(--cyan);
+      border-radius: 0 14px 14px 0;
+      background: rgba(71,243,255,.075);
+      color: var(--muted);
+      font-size: .95rem;
+    }
+    .callout strong { color: var(--text); }
+    .tags { color: var(--gold); letter-spacing: .08em; }
+    .project-links { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: auto; padding-top: 1.1rem; }
+    .project-links a, .contact-line a { color: var(--cyan); font-weight: 800; text-decoration: none; }
+    .project-links a:hover, .contact-line a:hover { color: var(--text); }
+
+    .timeline { display: grid; gap: .9rem; }
+    .timeline-item { padding: 1.25rem; }
+    .timeline-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: baseline;
+      margin-bottom: .35rem;
+    }
+    .timeline-head span { color: var(--muted-2); font-size: .94rem; }
+
+    .contact-box { max-width: 880px; }
+    footer { padding: 2rem 1.25rem 3rem; text-align: center; color: var(--muted-2); }
+
+    @media (max-width: 920px) {
+      .hero-shell { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 380px; }
+      .stats, .about-grid, .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .project-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      main, .nav { padding-left: 1rem; padding-right: 1rem; }
+      .section { padding: 3.8rem 0; }
+      .hero { min-height: auto; }
+      .hero-visual { min-height: 330px; border-radius: 24px; }
+      .stats, .about-grid, .skills-grid, .mini-grid { grid-template-columns: 1fr; }
+      .timeline-head { display: block; }
+      h1 { font-size: clamp(2.75rem, 16vw, 4.2rem); }
+    }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -30,273 +396,219 @@
     "jobTitle": "CFD and Scientific Computing Engineer",
     "knowsAbout": [
       "Computational Fluid Dynamics",
-      "Thermal-fluid simulation",
-      "Numerical methods",
-      "Scientific computing",
-      "High-performance computing",
-      "Solver validation"
+      "Scientific Computing",
+      "High Performance Computing",
+      "Numerical Simulation",
+      "Solver Development",
+      "Multiphase Flow"
     ]
   }
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#main-content" data-i18n="skip.link">Skip to content</a>
-  <button class="language-toggle floating-language-toggle" type="button" data-language-toggle aria-label="Switch language">Deutsch</button>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
   <header class="site-header">
-    <nav class="navbar" aria-label="Main navigation">
-      <a class="logo" href="index.html" aria-label="Ahmed Kandil homepage">Ahmed Kandil</a>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="logo" href="index.html" aria-label="Ahmed Kandil homepage"><span class="logo-mark">AK</span><span>Ahmed Kandil</span></a>
       <div class="nav-links">
-        <a href="#about" data-i18n="nav.about">About</a>
-        <a href="#projects" data-i18n="nav.projects">Projects</a>
-        <a href="#experience" data-i18n="nav.experience">Experience</a>
-        <a href="#skills" data-i18n="nav.skills">Skills</a>
-        <a href="#contact" data-i18n="nav.contact">Contact</a>
-      </div>
-      <div class="nav-actions">
-        <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
       </div>
     </nav>
   </header>
 
   <main id="main-content">
-    <section class="hero section">
-      <div class="hero-grid">
+    <section class="hero" aria-label="Homepage introduction">
+      <div class="hero-shell">
         <div class="hero-copy">
-          <p class="eyebrow" data-i18n="hero.eyebrow">CFD · thermal-fluid simulation · scientific computing</p>
-          <h1 data-i18n="hero.title">CFD and simulation work built for validation, clarity, and reproducibility.</h1>
-          <p class="hero-text" data-i18n="hero.text">I am Ahmed Kandil, an engineering graduate student in Germany focused on CFD, heat transfer, numerical simulation, and scientific computing. My work combines physics-based modelling, structured implementation, validation against reference data, and clear technical documentation.</p>
-          <div class="button-row" aria-label="Primary links">
-            <a class="button primary" href="#projects" data-i18n="hero.cta.projects">View selected projects</a>
+          <p class="eyebrow">CFD · Scientific Computing · HPC</p>
+          <h1 class="hero-title">Ahmed <span>Kandil</span></h1>
+          <div class="hero-line"></div>
+          <p class="hero-lead">I build validation-focused CFD and scientific computing workflows for real engineering problems — from industrial multiphase simulation to solver development, benchmarking, and parallel computing.</p>
+          <div class="button-row">
+            <a class="button primary" href="#projects">View projects</a>
             <a class="button" href="https://github.com/Kandil2001" target="_blank" rel="noopener">GitHub</a>
             <a class="button" href="https://www.linkedin.com/in/ahmed-kandil03/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="button" href="mailto:a.akandil@outlook.com?subject=Portfolio%20contact%20-%20Ahmed%20Kandil">Contact</a>
           </div>
         </div>
 
-        <aside class="hero-panel" aria-label="Quick profile">
-          <div class="panel-item">
-            <strong data-i18n="panel.focus.title">Current work</strong>
-            <span data-i18n="panel.focus.text">Fraunhofer FFB, battery-cell production research, and low-humidity mini-environments.</span>
-          </div>
-          <div class="panel-item">
-            <strong data-i18n="panel.strength.title">Core strength</strong>
-            <span data-i18n="panel.strength.text">Connecting CFD physics, validation, clean implementation, and engineering communication.</span>
-          </div>
-          <div class="panel-item">
-            <strong data-i18n="panel.code.title">Technical stack</strong>
-            <span data-i18n="panel.code.text">MATLAB, Python, C/C++, MPI, OpenMP, shell scripting, and post-processing workflows.</span>
-          </div>
-          <div class="panel-item">
-            <strong data-i18n="panel.education.title">Education</strong>
-            <span data-i18n="panel.education.text">M.Sc. Computer Simulation in Science, Bergische Universität Wuppertal.</span>
+        <aside class="hero-visual" aria-label="CFD-inspired visual summary">
+          <div class="flow-card">
+            <strong>Simulation stack</strong>
+            <p>Physics → numerical method → implementation → validation → clear engineering insight.</p>
+            <div class="mini-grid">
+              <div><b>CFD</b>STAR-CCM+ · Fluent · OpenFOAM</div>
+              <div><b>Code</b>C++ · Python · MATLAB</div>
+              <div><b>HPC</b>MPI · OpenMP · clusters</div>
+            </div>
           </div>
         </aside>
       </div>
 
-      <div class="hero-stats" aria-label="Portfolio highlights">
-        <div><strong data-i18n="stats.cfd.title">CFD + R&amp;D</strong><span data-i18n="stats.cfd.text">Simulation experience in academic and industrial environments</span></div>
-        <div><strong data-i18n="stats.projects.title">6 public project repos</strong><span data-i18n="stats.projects.text">CFD solvers, LBM, MPI optimisation, and evacuation simulation</span></div>
-        <div><strong data-i18n="stats.validation.title">Validation-focused</strong><span data-i18n="stats.validation.text">Reference data, mesh studies, residuals, and documented limitations</span></div>
-        <div><strong data-i18n="stats.hpc.title">HPC workflow</strong><span data-i18n="stats.hpc.text">Serial baselines followed by OpenMP, MPI, and CUDA-style acceleration</span></div>
+      <div class="stats" aria-label="Portfolio highlights">
+        <div class="stat"><strong>Fraunhofer FFB</strong><span>Research work around battery-cell production, CFD concepts, and validation.</span></div>
+        <div class="stat"><strong>Vorwerk CFD</strong><span>Industrial multiphase flow, phase change, particles, and STAR-CCM+ workflows.</span></div>
+        <div class="stat"><strong>Solver portfolio</strong><span>Lid-driven cavity, LBM channel flow, MPI optimisation, and reproducible outputs.</span></div>
+        <div class="stat"><strong>Formula Student</strong><span>Aerodynamics, design decisions, manufacturing constraints, and team leadership.</span></div>
       </div>
     </section>
 
-    <section id="about" class="section narrow">
-      <p class="section-label" data-i18n="about.label">Engineering approach</p>
-      <h2 data-i18n="about.title">From physical assumptions to documented results.</h2>
-      <p data-i18n="about.text">A strong simulation project should make the full workflow clear: assumptions, setup, numerical method, validation, limitations, and next steps. This portfolio is structured around that idea.</p>
-
-      <div class="focus-grid">
-        <div>
-          <strong data-i18n="about.physics.title">Physics-led setup</strong>
-          <span data-i18n="about.physics.text">Each project starts from the physical problem before moving into software, code, or visualisation.</span>
-        </div>
-        <div>
-          <strong data-i18n="about.workflow.title">Reproducible workflow</strong>
-          <span data-i18n="about.workflow.text">Projects are organised with run instructions, structured outputs, plots, and notes so the work can be checked and extended.</span>
-        </div>
-        <div>
-          <strong data-i18n="about.validation.title">Transparent validation</strong>
-          <span data-i18n="about.validation.text">The portfolio includes reference comparisons, mesh effects, runtime behaviour, and limitations rather than only final plots.</span>
-        </div>
+    <section id="about" class="section">
+      <div class="section-head">
+        <p class="section-label">Engineering approach</p>
+        <h2>From physical assumptions to trustworthy results.</h2>
+        <p>A strong simulation workflow should make the full path clear: assumptions, setup, numerical method, validation, limitations, and next steps. My portfolio is built around that idea.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-card"><h3>Physics first</h3><p>I start from the engineering problem before moving into software, code, or visualization.</p></div>
+        <div class="about-card"><h3>Reproducible workflows</h3><p>Projects include run instructions, structured outputs, plots, and documentation so the work can be checked and extended.</p></div>
+        <div class="about-card"><h3>Validation mindset</h3><p>I focus on reference comparisons, mesh effects, residuals, runtime behavior, and honest limitations.</p></div>
       </div>
     </section>
 
-    <section class="section narrow now-card" aria-labelledby="current-focus-title">
-      <p class="section-label" data-i18n="current.label">Current direction</p>
-      <h2 id="current-focus-title" data-i18n="current.title">Air-curtain sealing for low-humidity mini-environments.</h2>
-      <p data-i18n="current.text">At Fraunhofer FFB, my current thesis direction focuses on reducing moisture ingress into low-humidity mini-environments. The work connects literature review, process understanding, experimental planning, and CFD analysis around humidity, turbulence, temperature, and dew-point behaviour.</p>
-      <p class="note" data-i18n="current.note">The technical details are intentionally kept high-level because the work is connected to an active research environment.</p>
+    <section class="section">
+      <div class="current-card">
+        <p class="section-label">Current direction</p>
+        <h2>Air-curtain sealing for low-humidity mini-environments.</h2>
+        <p>At Fraunhofer FFB, my current thesis direction focuses on reducing moisture ingress into low-humidity mini-environments. The work connects literature review, process understanding, experimental planning, and CFD analysis around humidity, turbulence, temperature, and dew-point behavior.</p>
+        <p class="note">Technical details are intentionally kept high-level because the work is connected to an active research environment.</p>
+      </div>
     </section>
 
     <section id="projects" class="section">
-      <div class="section-heading">
-        <div>
-          <p class="section-label" data-i18n="projects.label">Selected projects</p>
-          <h2 data-i18n="projects.title">Updated GitHub projects: CFD, HPC, LBM, and evacuation simulation.</h2>
-          <p class="section-intro" data-i18n="projects.intro">The cards below were updated from the current public GitHub repositories, including the latest README results, run modes, validation notes, and project scope.</p>
-        </div>
+      <div class="section-head">
+        <p class="section-label">Selected projects</p>
+        <h2>CFD, solver development, HPC, and simulation projects.</h2>
+        <p>These projects show the practical side of my work: implementing numerical methods, comparing languages, validating results, running parallel workflows, and documenting engineering limitations.</p>
       </div>
 
       <div class="project-grid">
-        <article class="project-card featured-project">
-          <div class="project-visual code-visual" aria-hidden="true"><span>MATLAB · Python · C · C++ · OpenMP · MPI · CUDA</span></div>
-          <div class="card-body">
-            <p class="project-type" data-i18n="project.comparison.type">Main CFD benchmark suite</p>
-            <h3 data-i18n="project.comparison.title">Lid-Driven Cavity Solver Comparison</h3>
-            <p data-i18n="project.comparison.text">A multi-platform CFD benchmark for the 2D incompressible lid-driven cavity problem. The same solver idea is implemented in MATLAB, Python, C, C++, OpenMP, MPI, and CUDA-style workflows with shared result folders and comparison scripts.</p>
-            <div class="result-callout"><strong data-i18n="project.why.label">Why it matters:</strong> <span data-i18n="project.comparison.result">the project compares implementation style, runtime, convergence behaviour, validation error, output structure, and post-processing across languages.</span></div>
-            <p class="tags">CFD · Benchmarking · OpenMP · MPI · CUDA · Validation</p>
+        <article class="project-card featured">
+          <div class="project-media"><strong>MATLAB · Python · C · C++ · OpenMP · MPI · CUDA-style workflows</strong></div>
+          <div class="project-body">
+            <p class="project-type">Main CFD benchmark suite</p>
+            <h3>Lid-Driven Cavity Solver Comparison</h3>
+            <p>A multi-platform CFD benchmark for the 2D incompressible lid-driven cavity problem. The same solver idea is implemented across multiple languages and parallel workflows with shared result folders and comparison scripts.</p>
+            <div class="callout"><strong>Why it matters:</strong> the project compares implementation style, runtime, convergence behavior, validation error, output structure, and post-processing across languages.</div>
+            <p class="tags">CFD · Benchmarking · OpenMP · MPI · Validation</p>
             <div class="project-links">
-              <a href="projects/lid-cavity-comparison.html" data-i18n="project.link.case">Read case study →</a>
-              <a href="https://github.com/Kandil2001/LidCavity_Solver_Comparison" target="_blank" rel="noopener" data-i18n="project.link.repo">Repository ↗</a>
+              <a href="projects/lid-cavity-comparison.html">Read case study →</a>
+              <a href="https://github.com/Kandil2001/LidCavity_Solver_Comparison" target="_blank" rel="noopener">Repository ↗</a>
             </div>
           </div>
         </article>
 
         <article class="project-card">
-          <img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_CPP/main/assets/figures/re1000_streamlines.svg" alt="Streamlines from the C++ lid-driven cavity solver">
-          <div class="card-body">
-            <p class="project-type" data-i18n="project.cpp.type">C++17 serial CFD baseline</p>
-            <h3 data-i18n="project.cpp.title">C++ Lid-Driven Cavity Solver</h3>
-            <p data-i18n="project.cpp.text">A C++17 single-core baseline for the larger cavity benchmark series, including upwind and central schemes, RBGS/RBSOR pressure solvers, CSV output, and Python post-processing.</p>
-            <div class="result-callout"><strong data-i18n="project.result.label">Current result:</strong> <span data-i18n="project.cpp.result">22/36 cases met the selected Ghia limits, all N = 128 cases passed, and RBSOR reduced pressure-solver cost in the uploaded study.</span></div>
-            <p class="tags">C++17 · CFD · CSV · Python plots</p>
-            <div class="project-links">
-              <a href="projects/lid-cavity-cpp.html" data-i18n="project.link.case">Read case study →</a>
-              <a href="https://github.com/Kandil2001/LidCavity_CPP" target="_blank" rel="noopener" data-i18n="project.link.repo">Repository ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_MATLAB/main/assets/figures/readme_overview.png" alt="MATLAB lid-driven cavity CFD overview">
-          <div class="card-body">
-            <p class="project-type" data-i18n="project.matlab.type">MATLAB reference implementation</p>
-            <h3 data-i18n="project.matlab.title">MATLAB Lid-Driven Cavity Solver</h3>
-            <p data-i18n="project.matlab.text">The MATLAB reference version for developing the numerical method and comparing loop-based and vectorized momentum predictors before moving to lower-level implementations.</p>
-            <div class="result-callout"><strong data-i18n="project.result.label">Current result:</strong> <span data-i18n="project.matlab.result">44/72 cases met the selected Ghia limits, all N = 128 cases passed, and pressure solving remained the main runtime cost.</span></div>
-            <p class="tags">MATLAB · SIMPLE-style · Validation</p>
-            <div class="project-links">
-              <a href="projects/lid-cavity.html" data-i18n="project.link.case">Read case study →</a>
-              <a href="https://github.com/Kandil2001/LidCavity_MATLAB" target="_blank" rel="noopener" data-i18n="project.link.repo">Repository ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <img src="https://raw.githubusercontent.com/Kandil2001/LBM_Poiseuille_D2Q9_CPP/main/results/velocity_profile.png" alt="LBM Poiseuille velocity profile compared with the analytical solution">
-          <div class="card-body">
-            <p class="project-type" data-i18n="project.lbm.type">LBM D2Q9 validation project</p>
-            <h3 data-i18n="project.lbm.title">D2Q9 LBM Channel Flow in C++</h3>
-            <p data-i18n="project.lbm.text">A compact C++ lattice Boltzmann solver for 2D Poiseuille channel flow using D2Q9, BGK collision, bounce-back walls, periodic streamwise boundaries, and CSV output.</p>
-            <div class="result-callout"><strong data-i18n="project.result.label">Current result:</strong> <span data-i18n="project.lbm.result">the numerical velocity profile is compared directly with the analytical parabolic Poiseuille solution and includes convergence-history output.</span></div>
+          <img src="https://raw.githubusercontent.com/Kandil2001/LBM_Poiseuille_D2Q9_CPP/main/results/velocity_profile.png" alt="LBM Poiseuille velocity profile compared with analytical solution">
+          <div class="project-body">
+            <p class="project-type">LBM D2Q9 validation project</p>
+            <h3>D2Q9 LBM Channel Flow in C++</h3>
+            <p>A compact C++ lattice Boltzmann solver for 2D Poiseuille channel flow using D2Q9, BGK collision, bounce-back walls, periodic streamwise boundaries, and CSV output.</p>
+            <div class="callout"><strong>Current result:</strong> numerical velocity profiles are compared directly with the analytical parabolic Poiseuille solution.</div>
             <p class="tags">C++ · LBM · D2Q9 · Poiseuille flow</p>
             <div class="project-links">
-              <a href="projects/lbm-poiseuille.html" data-i18n="project.link.case">Read case study →</a>
-              <a href="https://github.com/Kandil2001/LBM_Poiseuille_D2Q9_CPP" target="_blank" rel="noopener" data-i18n="project.link.repo">Repository ↗</a>
+              <a href="projects/lbm-poiseuille.html">Read case study →</a>
+              <a href="https://github.com/Kandil2001/LBM_Poiseuille_D2Q9_CPP" target="_blank" rel="noopener">Repository ↗</a>
             </div>
           </div>
         </article>
 
         <article class="project-card">
           <img src="https://raw.githubusercontent.com/Kandil2001/Distributed-TSP-Solver/main/figures/route_comparison.png" alt="Traveling Salesman Problem route comparison from the distributed solver">
-          <div class="card-body">
-            <p class="project-type" data-i18n="project.tsp.type">MPI high-performance computing</p>
-            <h3 data-i18n="project.tsp.title">Distributed TSP Solver</h3>
-            <p data-i18n="project.tsp.text">A C99/MPI distributed-memory Traveling Salesman solver using parallel tempering, Metropolis acceptance, two-opt route updates, precomputed distances, and neighbour replica exchange.</p>
-            <div class="result-callout"><strong data-i18n="project.result.label">Current result:</strong> <span data-i18n="project.tsp.result">the Berlin52 study reported 20.7× speedup on 24 cores, approximately 86% parallel efficiency, with scaling and runtime-breakdown plots.</span></div>
+          <div class="project-body">
+            <p class="project-type">MPI high-performance computing</p>
+            <h3>Distributed TSP Solver</h3>
+            <p>A C99/MPI distributed-memory Traveling Salesman solver using parallel tempering, Metropolis acceptance, two-opt route updates, precomputed distances, and neighbor replica exchange.</p>
+            <div class="callout"><strong>Current result:</strong> Berlin52 study with strong scaling, runtime breakdown, and route comparison plots.</div>
             <p class="tags">C99 · MPI · Parallel tempering</p>
             <div class="project-links">
-              <a href="projects/distributed-tsp.html" data-i18n="project.link.case">Read case study →</a>
-              <a href="https://github.com/Kandil2001/Distributed-TSP-Solver" target="_blank" rel="noopener" data-i18n="project.link.repo">Repository ↗</a>
+              <a href="projects/distributed-tsp.html">Read case study →</a>
+              <a href="https://github.com/Kandil2001/Distributed-TSP-Solver" target="_blank" rel="noopener">Repository ↗</a>
             </div>
           </div>
         </article>
 
         <article class="project-card">
-          <img src="https://raw.githubusercontent.com/Kandil2001/Jupedsim-Evacuation-Analysis/main/figures/heatmap.gif" alt="JuPedSim pedestrian evacuation simulation">
-          <div class="card-body">
-            <p class="project-type" data-i18n="project.jps.type">Pedestrian dynamics simulation</p>
-            <h3 data-i18n="project.jps.title">JuPedSim Evacuation Analysis</h3>
-            <p data-i18n="project.jps.text">A JuPedSim-based evacuation workflow for a university building layout with WKT geometry, nine exits, configurable spawn areas, scenario-specific exit assignment, and SQLite trajectory output.</p>
-            <div class="result-callout"><strong data-i18n="project.result.label">Current result:</strong> <span data-i18n="project.jps.result">the project compares scenario runtime and evacuation time while clearly documenting that it is an educational study, not a certified safety model.</span></div>
+          <img src="https://raw.githubusercontent.com/Kandil2001/Jupedsim-Evacuation-Analysis/main/figures/heatmap.gif" alt="JuPedSim pedestrian evacuation simulation heatmap">
+          <div class="project-body">
+            <p class="project-type">Pedestrian dynamics simulation</p>
+            <h3>JuPedSim Evacuation Analysis</h3>
+            <p>A JuPedSim-based evacuation workflow for a university building layout with WKT geometry, scenario-specific exit assignment, SQLite trajectory output, and Python post-processing.</p>
+            <div class="callout"><strong>Current result:</strong> scenario runtime and evacuation time are compared while documenting assumptions and limitations.</div>
             <p class="tags">Python · JuPedSim · SQLite · Numba</p>
             <div class="project-links">
-              <a href="projects/pedestrian-simulation.html" data-i18n="project.link.case">Read case study →</a>
-              <a href="https://github.com/Kandil2001/Jupedsim-Evacuation-Analysis" target="_blank" rel="noopener" data-i18n="project.link.repo">Repository ↗</a>
+              <a href="projects/pedestrian-simulation.html">Read case study →</a>
+              <a href="https://github.com/Kandil2001/Jupedsim-Evacuation-Analysis" target="_blank" rel="noopener">Repository ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="https://raw.githubusercontent.com/Kandil2001/LidCavity_CPP/main/assets/figures/re1000_streamlines.svg" alt="Streamlines from the C++ lid-driven cavity solver">
+          <div class="project-body">
+            <p class="project-type">C++17 serial CFD baseline</p>
+            <h3>C++ Lid-Driven Cavity Solver</h3>
+            <p>A C++17 baseline for the larger cavity benchmark series, including convection schemes, pressure solvers, CSV output, and Python post-processing.</p>
+            <div class="callout"><strong>Current result:</strong> validation studies compare centerline profiles and pressure-solver behavior across cases.</div>
+            <p class="tags">C++17 · CFD · CSV · Python plots</p>
+            <div class="project-links">
+              <a href="projects/lid-cavity-cpp.html">Read case study →</a>
+              <a href="https://github.com/Kandil2001/LidCavity_CPP" target="_blank" rel="noopener">Repository ↗</a>
             </div>
           </div>
         </article>
       </div>
     </section>
 
-    <section id="experience" class="section narrow">
-      <p class="section-label" data-i18n="experience.label">Experience</p>
-      <h2 data-i18n="experience.title">Engineering and research experience</h2>
+    <section id="experience" class="section">
+      <div class="section-head">
+        <p class="section-label">Experience</p>
+        <h2>Engineering and research experience.</h2>
+      </div>
       <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-heading"><h3 data-i18n="experience.ffb.title">Fraunhofer FFB</h3><span data-i18n="experience.ffb.date">Student Assistant · Jun 2026 – Present</span></div>
-          <p data-i18n="experience.ffb.text">Supporting research around battery-cell production, process analysis, and technical documentation. My thesis direction is linked to low-humidity mini-environments and air-curtain sealing.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-heading"><h3 data-i18n="experience.uni.title">Bergische Universität Wuppertal</h3><span data-i18n="experience.uni.date">Student Assistant · Jan 2026 – Present</span></div>
-          <p data-i18n="experience.uni.text">Supporting simulation and data-analysis work, including pedestrian-dynamics research and structured result output.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-heading"><h3 data-i18n="experience.vorwerk.title">Vorwerk</h3><span data-i18n="experience.vorwerk.date">Working Student · CFD · Mar 2024 – Mar 2026</span></div>
-          <p data-i18n="experience.vorwerk.text">Worked on thermal-fluid and multiphase simulation tasks, STAR-CCM+ workflows, Java automation, test-bench support, and engineering analysis.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-heading"><h3 data-i18n="experience.fs.title">Mansoura Motorsport Formula Student</h3><span data-i18n="experience.fs.date">Aerodynamics & Chief Engineer roles · 2020 – 2023</span></div>
-          <p data-i18n="experience.fs.text">Worked on bodywork, front wing, and vehicle-design decisions, connecting aerodynamics, CAD, simulation, manufacturing limits, and team leadership.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-heading"><h3 data-i18n="experience.grind.title">GRIND for Engineering Solutions</h3><span data-i18n="experience.grind.date">CFD Engineer · Jun 2023 – Oct 2023</span></div>
-          <p data-i18n="experience.grind.text">Worked on CFD simulations and design optimisation using ANSYS Fluent and engineering analysis tools.</p>
-        </div>
+        <div class="timeline-item"><div class="timeline-head"><h3>Fraunhofer FFB</h3><span>Research Assistant · Jun 2026 – Present</span></div><p>Supporting research and engineering work in battery cell production, with a focus on simulation, process understanding, and validation. Preparing CFD-based analysis concepts for air curtain systems, humidity control, and experimental validation.</p></div>
+        <div class="timeline-item"><div class="timeline-head"><h3>Bergische Universität Wuppertal</h3><span>Research Assistant · Jan 2026 – Present</span></div><p>Supporting research on pedestrian flow and crowd dynamics using computer-vision-based analysis. Developing Python image-processing workflows to extract kinematic quantities such as density fields, velocity, and flow rates from video data.</p></div>
+        <div class="timeline-item"><div class="timeline-head"><h3>Vorwerk</h3><span>Working Student · CFD</span></div><p>Developed CFD models in STAR-CCM+ for multiphase flow applications, including phase change and Lagrangian particle tracking. Created Java-based automation macros and performed parametric studies to support engineering decisions.</p></div>
+        <div class="timeline-item"><div class="timeline-head"><h3>GRIND for Engineering Solutions</h3><span>CFD Engineer · Jun 2023 – Oct 2023</span></div><p>Conducted CFD analyses of industrial fluid-flow and thermal systems using ANSYS Fluent. Performed mesh refinement studies and parametric design comparisons to improve simulation reliability and support design optimization.</p></div>
+        <div class="timeline-item"><div class="timeline-head"><h3>Mansoura Motorsport Formula Student</h3><span>Aerodynamics & Chief Engineer roles</span></div><p>Worked on bodywork, front wing, and vehicle-design decisions, connecting aerodynamics, CAD, simulation, manufacturing limits, and team leadership.</p></div>
       </div>
     </section>
 
     <section id="skills" class="section">
-      <p class="section-label" data-i18n="skills.label">Technical skills</p>
-      <h2 data-i18n="skills.title">Tools and methods</h2>
+      <div class="section-head">
+        <p class="section-label">Technical skills</p>
+        <h2>Tools and methods.</h2>
+      </div>
       <div class="skills-grid">
-        <div><h3 data-i18n="skills.cfd.title">CFD & physics</h3><p data-i18n="skills.cfd.text">Incompressible flow, heat transfer, multiphase flow, aerodynamics, thermal-fluid systems, humidity, and dew-point related modelling.</p></div>
-        <div><h3 data-i18n="skills.numerics.title">Numerical methods</h3><p data-i18n="skills.numerics.text">Pressure-correction ideas, iterative solvers, mesh studies, validation against reference data, and interpretation of numerical results.</p></div>
-        <div><h3 data-i18n="skills.programming.title">Programming</h3><p data-i18n="skills.programming.text">MATLAB, Python, C, C++, Java automation, shell scripts, Git, structured CSV output, and plotting workflows.</p></div>
-        <div><h3 data-i18n="skills.hpc.title">HPC</h3><p data-i18n="skills.hpc.text">MPI, OpenMP, CUDA basics, serial baselines, scaling tests, runtime comparison, and cluster-run documentation.</p></div>
-        <div><h3 data-i18n="skills.software.title">CFD software</h3><p data-i18n="skills.software.text">STAR-CCM+, ANSYS Fluent, SimScale, OpenFOAM learning path, FDS/Smokeview, post-processing, and reporting.</p></div>
-        <div><h3 data-i18n="skills.communication.title">Communication</h3><p data-i18n="skills.communication.text">Technical documentation, literature review, presentation preparation, English, Arabic, and German B2-level communication.</p></div>
+        <div class="skill-card"><h3>CFD & physics</h3><p>Incompressible flow, heat transfer, multiphase flow, aerodynamics, thermal-fluid systems, humidity, and dew-point related modeling.</p></div>
+        <div class="skill-card"><h3>Numerical methods</h3><p>Pressure-correction ideas, iterative solvers, mesh studies, validation against reference data, and interpretation of numerical results.</p></div>
+        <div class="skill-card"><h3>Programming</h3><p>MATLAB, Python, C, C++, Java automation, shell scripts, Git, structured CSV output, and plotting workflows.</p></div>
+        <div class="skill-card"><h3>HPC</h3><p>MPI, OpenMP, CUDA basics, serial baselines, scaling tests, runtime comparison, and cluster-run documentation.</p></div>
+        <div class="skill-card"><h3>CFD software</h3><p>STAR-CCM+, ANSYS Fluent, SimScale, OpenFOAM, FDS/Smokeview, post-processing, and reporting.</p></div>
+        <div class="skill-card"><h3>Communication</h3><p>Technical documentation, literature review, presentation preparation, English, Arabic, and German B2-level communication.</p></div>
       </div>
     </section>
 
-    <section id="education" class="section narrow">
-      <p class="section-label" data-i18n="education.label">Education and certificates</p>
-      <h2 data-i18n="education.title">Simulation background with mechanical engineering roots</h2>
-      <div class="timeline education-list">
-        <div class="timeline-item"><div class="timeline-heading"><h3 data-i18n="education.msc.title">Bergische Universität Wuppertal</h3><span data-i18n="education.msc.date">M.Sc. Computer Simulation in Science · 2023 – Present</span></div><p data-i18n="education.msc.text">Focus areas: numerical simulation, scientific computing, mathematical modelling, programming, and applied computational methods.</p></div>
-        <div class="timeline-item"><div class="timeline-heading"><h3 data-i18n="education.bsc.title">Mansoura University</h3><span data-i18n="education.bsc.date">B.Sc. Mechatronics Engineering · 2018 – 2023</span></div><p data-i18n="education.bsc.text">Bachelor thesis on CFD-based micro-pin-fin heat-sink analysis for microprocessor cooling.</p></div>
-        <div class="timeline-item"><div class="timeline-heading"><h3 data-i18n="education.sw.title">SOLIDWORKS certifications</h3><span data-i18n="education.sw.date">6 credentials</span></div><p data-i18n="education.sw.text">Mechanical design, surfacing, drawings, mold tools, and expert-level CAD certification background.</p></div>
-      </div>
-    </section>
-
-    <section id="contact" class="section narrow contact-box">
-      <p class="section-label" data-i18n="contact.label">Contact</p>
-      <h2 data-i18n="contact.title">Let’s connect</h2>
-      <p data-i18n="contact.text">I am interested in CFD, numerical simulation, scientific computing, and engineering R&amp;D roles where clear modelling, validation, and reproducible workflows matter.</p>
-      <p class="contact-line"><strong data-i18n="contact.email.label">Email:</strong> <a href="mailto:a.akandil@outlook.com">a.akandil@outlook.com</a></p>
-      <div class="button-row">
-        <a class="button primary" href="mailto:a.akandil@outlook.com?subject=Portfolio%20contact%20-%20Ahmed%20Kandil" data-i18n="contact.email.button">Email me</a>
-        <a class="button" href="https://www.linkedin.com/in/ahmed-kandil03/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="button" href="https://github.com/Kandil2001" target="_blank" rel="noopener">GitHub</a>
+    <section id="contact" class="section">
+      <div class="contact-box">
+        <p class="section-label">Contact</p>
+        <h2>Let’s connect.</h2>
+        <p>I am interested in CFD, numerical simulation, scientific computing, and engineering R&D roles where clear modeling, validation, and reproducible workflows matter.</p>
+        <p class="contact-line"><strong>Email:</strong> <a href="mailto:a.akandil@outlook.com">a.akandil@outlook.com</a></p>
+        <div class="button-row">
+          <a class="button primary" href="mailto:a.akandil@outlook.com?subject=Portfolio%20contact%20-%20Ahmed%20Kandil">Email me</a>
+          <a class="button" href="https://www.linkedin.com/in/ahmed-kandil03/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="button" href="https://github.com/Kandil2001" target="_blank" rel="noopener">GitHub</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <p data-i18n="footer.text">© 2026 Ahmed Kandil. Built with GitHub Pages.</p>
-  </footer>
-  <script src="script.js?v=20260618-6"></script>
+  <footer>© 2026 Ahmed Kandil. Built with GitHub Pages.</footer>
 </body>
 </html>
