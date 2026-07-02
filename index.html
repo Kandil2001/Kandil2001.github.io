@@ -5,13 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ahmed Kandil | CFD & Scientific Computing</title>
   <meta name="description" content="Ahmed Kandil portfolio: CFD, scientific computing, HPC, solver validation, MATLAB, C++, Python, MPI, OpenMP, ANSYS, STAR-CCM+, and reproducible engineering workflows.">
-  <!-- version: blue-streamline-orcid-2026-07-02 -->
+  <!-- version: blue-streamline-icons-2026-07-02 -->
   <style>
     :root{
       --bg:#030816;
       --bg2:#071527;
       --panel:rgba(9,20,38,.72);
-      --panel2:rgba(14,31,56,.58);
       --text:#f6fbff;
       --muted:#aebbd0;
       --soft:#7e8da6;
@@ -26,69 +25,17 @@
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      color:var(--text);
-      font-family:Inter,"Segoe UI",Arial,sans-serif;
-      background:
-        radial-gradient(circle at 8% 4%,rgba(26,132,255,.22),transparent 24rem),
-        radial-gradient(circle at 86% 8%,rgba(0,214,200,.13),transparent 28rem),
-        linear-gradient(180deg,#020713 0%,#07101e 45%,#030816 100%);
-      line-height:1.65;
-      overflow-x:hidden;
-    }
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      background:
-        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
-      background-size:54px 54px;
-      mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.5) 55%,transparent 100%);
-      opacity:.35;
-    }
-    body::after{
-      content:"";
-      position:fixed;
-      left:-22vw;
-      top:-18vh;
-      width:72vw;
-      height:54vh;
-      z-index:-1;
-      opacity:.72;
-      background:
-        repeating-radial-gradient(ellipse at 34% 48%,transparent 0 13px,rgba(29,217,255,.13) 14px 16px,transparent 17px 28px),
-        radial-gradient(ellipse at 35% 50%,rgba(0,214,200,.24),transparent 14rem),
-        radial-gradient(ellipse at 20% 45%,rgba(240,169,54,.18),transparent 9rem),
-        radial-gradient(ellipse at 50% 35%,rgba(17,119,255,.22),transparent 20rem);
-      filter:blur(.1px);
-      transform:rotate(-8deg);
-    }
+    body{margin:0;color:var(--text);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.65;overflow-x:hidden;background:radial-gradient(circle at 8% 4%,rgba(26,132,255,.22),transparent 24rem),radial-gradient(circle at 86% 8%,rgba(0,214,200,.13),transparent 28rem),linear-gradient(180deg,#020713 0%,#07101e 45%,#030816 100%)}
+    body::before{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.5) 55%,transparent 100%);opacity:.35}
+    body::after{content:"";position:fixed;left:-22vw;top:-18vh;width:72vw;height:54vh;z-index:-1;opacity:.72;background:repeating-radial-gradient(ellipse at 34% 48%,transparent 0 13px,rgba(29,217,255,.13) 14px 16px,transparent 17px 28px),radial-gradient(ellipse at 35% 50%,rgba(0,214,200,.24),transparent 14rem),radial-gradient(ellipse at 20% 45%,rgba(240,169,54,.18),transparent 9rem),radial-gradient(ellipse at 50% 35%,rgba(17,119,255,.22),transparent 20rem);filter:blur(.1px);transform:rotate(-8deg)}
     a{color:inherit}
     p{margin:0 0 1rem;color:var(--muted)}
     h1,h2,h3{margin:.2rem 0 1rem;line-height:1.08}
     h1{font-size:clamp(3.4rem,8vw,7.4rem);letter-spacing:-.07em;max-width:780px}
     h2{font-size:clamp(2rem,4vw,3.6rem);letter-spacing:-.05em}
     h3{font-size:1.18rem}
-    .nav{
-      position:sticky;
-      top:0;
-      z-index:20;
-      background:rgba(3,8,22,.76);
-      border-bottom:1px solid rgba(92,196,255,.12);
-      backdrop-filter:blur(18px);
-    }
-    .nav-inner{
-      max-width:var(--max);
-      margin:auto;
-      padding:1rem 1.25rem;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:1rem;
-    }
+    .nav{position:sticky;top:0;z-index:20;background:rgba(3,8,22,.76);border-bottom:1px solid rgba(92,196,255,.12);backdrop-filter:blur(18px)}
+    .nav-inner{max-width:var(--max);margin:auto;padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
     .logo{font-weight:950;text-decoration:none;letter-spacing:.01em}
     .links{display:flex;gap:1rem;color:var(--muted);font-size:.94rem}
     .links a{text-decoration:none;transition:.18s ease}
@@ -104,67 +51,21 @@
     .hero-line{width:150px;height:3px;margin:1.1rem 0;background:linear-gradient(90deg,var(--cyan),var(--blue),transparent);border-radius:999px}
     .lead{font-size:clamp(1.04rem,1.7vw,1.22rem);max-width:760px;color:#b9c8dc}
     .buttons,.pills{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.3rem}
-    .btn,.pill{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:.45rem;
-      border:1px solid var(--line);
-      border-radius:999px;
-      text-decoration:none;
-      background:rgba(255,255,255,.045);
-      padding:.74rem 1rem;
-      font-weight:850;
-      color:var(--text);
-      transition:.18s ease;
-    }
+    .btn,.pill{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border:1px solid var(--line);border-radius:999px;text-decoration:none;background:rgba(255,255,255,.045);padding:.74rem 1rem;font-weight:850;color:var(--text);transition:.18s ease}
     .btn:hover{transform:translateY(-2px);border-color:rgba(29,217,255,.55);background:rgba(29,217,255,.09)}
     .btn.primary{border:0;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#03101f;box-shadow:0 15px 45px rgba(17,119,255,.28)}
+    .brand-icon{width:1.12em;height:1.12em;display:inline-block;flex:0 0 auto;vertical-align:-.18em;fill:currentColor}
+    .orcid-icon{width:1em;height:1em;display:inline-block;flex:0 0 auto;vertical-align:-.12em}
     .pill{padding:.42rem .72rem;color:#dff9ff;font-size:.86rem;letter-spacing:.03em}
     .pill.gold{color:#ffd68a;border-color:rgba(240,169,54,.34)}
-    .flow-card{
-      min-height:430px;
-      border:1px solid var(--line);
-      border-radius:34px;
-      position:relative;
-      overflow:hidden;
-      background:
-        radial-gradient(circle at 72% 47%,rgba(240,92,55,.42),transparent 6rem),
-        repeating-radial-gradient(ellipse at 35% 42%,transparent 0 14px,rgba(29,217,255,.18) 15px 17px,transparent 18px 31px),
-        radial-gradient(circle at 18% 44%,rgba(0,214,200,.22),transparent 12rem),
-        linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.018));
-      box-shadow:var(--shadow);
-    }
-    .flow-card::before{
-      content:"";
-      position:absolute;
-      inset:-20%;
-      background:repeating-radial-gradient(ellipse at 28% 38%,transparent 0 15px,rgba(17,119,255,.18) 16px 18px,transparent 19px 32px);
-      transform:rotate(-12deg);
-      opacity:.72;
-    }
-    .flow-card-inner{
-      position:absolute;
-      left:1rem;
-      right:1rem;
-      bottom:1rem;
-      padding:1rem;
-      border-radius:22px;
-      border:1px solid var(--line);
-      background:rgba(3,8,22,.78);
-      backdrop-filter:blur(8px);
-    }
+    .flow-card{min-height:430px;border:1px solid var(--line);border-radius:34px;position:relative;overflow:hidden;background:radial-gradient(circle at 72% 47%,rgba(240,92,55,.42),transparent 6rem),repeating-radial-gradient(ellipse at 35% 42%,transparent 0 14px,rgba(29,217,255,.18) 15px 17px,transparent 18px 31px),radial-gradient(circle at 18% 44%,rgba(0,214,200,.22),transparent 12rem),linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.018));box-shadow:var(--shadow)}
+    .flow-card::before{content:"";position:absolute;inset:-20%;background:repeating-radial-gradient(ellipse at 28% 38%,transparent 0 15px,rgba(17,119,255,.18) 16px 18px,transparent 19px 32px);transform:rotate(-12deg);opacity:.72}
+    .flow-card-inner{position:absolute;left:1rem;right:1rem;bottom:1rem;padding:1rem;border-radius:22px;border:1px solid var(--line);background:rgba(3,8,22,.78);backdrop-filter:blur(8px)}
     .mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:.8rem;color:#d6e6f8;font-size:.9rem}
     .mini-grid b{color:#fff}
     .stats,.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
     .stats{grid-template-columns:repeat(4,1fr);margin-top:2rem}
-    .card,.project,.cert-card,.cert-feature,.stat,.contact{
-      border:1px solid var(--line);
-      border-radius:var(--r);
-      background:linear-gradient(180deg,var(--panel),rgba(5,13,28,.46));
-      padding:1.2rem;
-      box-shadow:0 18px 60px rgba(0,0,0,.18);
-    }
+    .card,.project,.cert-card,.cert-feature,.stat,.contact{border:1px solid var(--line);border-radius:var(--r);background:linear-gradient(180deg,var(--panel),rgba(5,13,28,.46));padding:1.2rem;box-shadow:0 18px 60px rgba(0,0,0,.18)}
     .stat strong,.card h3,.project h3{color:#fff}
     .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
     .featured{grid-column:1/-1}
@@ -172,21 +73,14 @@
     .project-links a,.cert-link,.contact a{color:var(--cyan);font-weight:850;text-decoration:none}
     .project-links a:hover,.cert-link:hover,.contact a:hover{color:#fff}
     .cert-feature{grid-column:1/-1;display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;border-color:rgba(29,217,255,.28)}
-    .badge{display:grid;place-items:center;width:86px;height:86px;border-radius:24px;background:linear-gradient(135deg,var(--cyan),#ffffff);color:#03101f;font-weight:950}
+    .badge{display:grid;place-items:center;width:86px;height:86px;border-radius:24px;background:linear-gradient(135deg,var(--cyan),#fff);color:#03101f;font-weight:950}
     .cert-list{display:grid;gap:.7rem;margin-top:1rem}
     .cert-row{display:flex;gap:.75rem;border:1px solid rgba(92,196,255,.12);border-radius:16px;background:rgba(255,255,255,.035);padding:.72rem}
     .tick{color:var(--cyan);font-weight:900}
     .contact{padding:1.6rem}
     .contact-line{display:flex;gap:.55rem;flex-wrap:wrap;align-items:baseline}
-    .orcid-icon{width:1em;margin-inline-start:.35em;vertical-align:-.12em;display:inline-block}
     footer{text-align:center;color:var(--soft);padding:2.5rem 1rem;border-top:1px solid rgba(92,196,255,.08)}
-    @media(max-width:880px){
-      .hero-grid,.project-grid,.stats,.grid{grid-template-columns:1fr}
-      .links{display:none}
-      .flow-card{min-height:320px}
-      .cert-feature{grid-template-columns:1fr}
-      h1{font-size:clamp(3rem,15vw,5rem)}
-    }
+    @media(max-width:880px){.hero-grid,.project-grid,.stats,.grid{grid-template-columns:1fr}.links{display:none}.flow-card{min-height:320px}.cert-feature{grid-template-columns:1fr}h1{font-size:clamp(3rem,15vw,5rem)}}
   </style>
 </head>
 <body>
@@ -213,110 +107,30 @@
           <div class="hero-line"></div>
           <p class="tagline">Building <em>simulations</em> people can trust.</p>
           <p class="lead">I build validation-focused CFD and scientific computing workflows for real engineering problems — from industrial multiphase simulation to solver development, benchmarking, and parallel computing.</p>
-          <div class="pills">
-            <span class="pill">CFD</span><span class="pill">Scientific Computing</span><span class="pill">HPC</span><span class="pill">ANSYS</span><span class="pill">STAR-CCM+</span><span class="pill gold">C++ / Python</span>
-          </div>
+          <div class="pills"><span class="pill">CFD</span><span class="pill">Scientific Computing</span><span class="pill">HPC</span><span class="pill">ANSYS</span><span class="pill">STAR-CCM+</span><span class="pill gold">C++ / Python</span></div>
           <div class="buttons">
             <a class="btn primary" href="#projects">View projects</a>
-            <a class="btn" href="https://github.com/Kandil2001" target="_blank" rel="noopener">GitHub</a>
-            <a class="btn" href="https://www.linkedin.com/in/ahmed-kandil03/" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn" id="cy-effective-orcid-url" href="https://orcid.org/0009-0007-2724-4565" target="orcid.widget" rel="me noopener noreferrer">ORCID iD <img class="orcid-icon" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID iD icon"></a>
+            <a class="btn" href="https://github.com/Kandil2001" target="_blank" rel="noopener" aria-label="GitHub profile"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.15c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18.92-.26 1.91-.38 2.89-.39.98 0 1.97.13 2.89.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.69.42.36.78 1.07.78 2.16v3.2c0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/in/ahmed-kandil03/" target="_blank" rel="noopener" aria-label="LinkedIn profile"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg>LinkedIn</a>
+            <a class="btn" id="cy-effective-orcid-url" href="https://orcid.org/0009-0007-2724-4565" target="orcid.widget" rel="me noopener noreferrer" aria-label="ORCID iD"><img class="orcid-icon" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="">ORCID iD</a>
           </div>
         </div>
-        <div class="flow-card" aria-label="CFD streamline visual">
-          <div class="flow-card-inner">
-            <strong>Simulation stack</strong>
-            <p>Physics → numerical method → implementation → validation → clear engineering insight.</p>
-            <div class="mini-grid">
-              <div><b>CFD</b><br>ANSYS · STAR-CCM+ · OpenFOAM</div>
-              <div><b>Code</b><br>C++ · Python · MATLAB</div>
-              <div><b>HPC</b><br>MPI · OpenMP · clusters</div>
-            </div>
-          </div>
-        </div>
+        <div class="flow-card" aria-label="CFD streamline visual"><div class="flow-card-inner"><strong>Simulation stack</strong><p>Physics → numerical method → implementation → validation → clear engineering insight.</p><div class="mini-grid"><div><b>CFD</b><br>ANSYS · STAR-CCM+ · OpenFOAM</div><div><b>Code</b><br>C++ · Python · MATLAB</div><div><b>HPC</b><br>MPI · OpenMP · clusters</div></div></div></div>
       </div>
-      <div class="stats">
-        <div class="stat"><strong>Fraunhofer FFB</strong><p>Research support in battery-cell production, simulation, process understanding, ANSYS-based CFD work, and validation concepts.</p></div>
-        <div class="stat"><strong>Vorwerk CFD</strong><p>Industrial multiphase flow, phase change, particles, and STAR-CCM+ workflows.</p></div>
-        <div class="stat"><strong>Solver portfolio</strong><p>Lid-driven cavity, LBM channel flow, MPI optimisation, and reproducible outputs.</p></div>
-        <div class="stat"><strong>SOLIDWORKS certified</strong><p>Verified credentials in expert, professional, associate, surfacing, weldments, drawing tools, and mold making areas.</p></div>
-      </div>
+      <div class="stats"><div class="stat"><strong>Fraunhofer FFB</strong><p>Research support in battery-cell production, simulation, process understanding, ANSYS-based CFD work, and validation concepts.</p></div><div class="stat"><strong>Vorwerk CFD</strong><p>Industrial multiphase flow, phase change, particles, and STAR-CCM+ workflows.</p></div><div class="stat"><strong>Solver portfolio</strong><p>Lid-driven cavity, LBM channel flow, MPI optimisation, and reproducible outputs.</p></div><div class="stat"><strong>SOLIDWORKS certified</strong><p>Verified credentials in expert, professional, associate, surfacing, weldments, drawing tools, and mold making areas.</p></div></div>
     </section>
 
-    <section id="about" class="section">
-      <p class="label">Engineering approach</p>
-      <h2>From physical assumptions to trustworthy results.</h2>
-      <p>A strong simulation workflow should make the full path clear: assumptions, setup, numerical method, validation, limitations, and next steps.</p>
-      <div class="grid">
-        <div class="card"><h3>Physics first</h3><p>I start from the engineering problem before moving into software, code, or visualization.</p></div>
-        <div class="card"><h3>Reproducible workflows</h3><p>Projects include run instructions, structured outputs, plots, and documentation.</p></div>
-        <div class="card"><h3>Validation mindset</h3><p>I focus on reference comparisons, mesh effects, residuals, runtime behavior, and honest limitations.</p></div>
-      </div>
-    </section>
+    <section id="about" class="section"><p class="label">Engineering approach</p><h2>From physical assumptions to trustworthy results.</h2><p>A strong simulation workflow should make the full path clear: assumptions, setup, numerical method, validation, limitations, and next steps.</p><div class="grid"><div class="card"><h3>Physics first</h3><p>I start from the engineering problem before moving into software, code, or visualization.</p></div><div class="card"><h3>Reproducible workflows</h3><p>Projects include run instructions, structured outputs, plots, and documentation.</p></div><div class="card"><h3>Validation mindset</h3><p>I focus on reference comparisons, mesh effects, residuals, runtime behavior, and honest limitations.</p></div></div></section>
 
-    <section id="projects" class="section">
-      <p class="label">Selected projects</p>
-      <h2>CFD, solver development, HPC, and simulation projects.</h2>
-      <div class="project-grid">
-        <article class="project featured">
-          <p class="tags">Main CFD benchmark suite</p>
-          <h3>Lid-Driven Cavity Solver Comparison</h3>
-          <p>A multi-platform CFD benchmark for the 2D incompressible lid-driven cavity problem.</p>
-          <p class="tags">CFD · Benchmarking · OpenMP · MPI · Validation</p>
-          <div class="project-links"><a href="projects/lid-cavity-comparison.html">Read case study →</a><a href="https://github.com/Kandil2001/LidCavity_Solver_Comparison" target="_blank" rel="noopener">Repository ↗</a></div>
-        </article>
-        <article class="project"><p class="tags">LBM D2Q9</p><h3>D2Q9 LBM Channel Flow in C++</h3><p>A compact C++ lattice Boltzmann solver for 2D Poiseuille channel flow.</p><div class="project-links"><a href="projects/lbm-poiseuille.html">Read case study →</a><a href="https://github.com/Kandil2001/LBM_Poiseuille_D2Q9_CPP" target="_blank" rel="noopener">Repository ↗</a></div></article>
-        <article class="project"><p class="tags">MPI HPC</p><h3>Distributed TSP Solver</h3><p>A C99/MPI distributed-memory Traveling Salesman solver using parallel tempering and two-opt route updates.</p><div class="project-links"><a href="projects/distributed-tsp.html">Read case study →</a><a href="https://github.com/Kandil2001/Distributed-TSP-Solver" target="_blank" rel="noopener">Repository ↗</a></div></article>
-        <article class="project"><p class="tags">Pedestrian dynamics simulation</p><h3>JuPedSim Evacuation Analysis</h3><p>A JuPedSim-based evacuation workflow for a university building layout with Python post-processing.</p><div class="project-links"><a href="projects/pedestrian-simulation.html">Read case study →</a><a href="https://github.com/Kandil2001/Jupedsim-Evacuation-Analysis" target="_blank" rel="noopener">Repository ↗</a></div></article>
-      </div>
-    </section>
+    <section id="projects" class="section"><p class="label">Selected projects</p><h2>CFD, solver development, HPC, and simulation projects.</h2><div class="project-grid"><article class="project featured"><p class="tags">Main CFD benchmark suite</p><h3>Lid-Driven Cavity Solver Comparison</h3><p>A multi-platform CFD benchmark for the 2D incompressible lid-driven cavity problem.</p><p class="tags">CFD · Benchmarking · OpenMP · MPI · Validation</p><div class="project-links"><a href="projects/lid-cavity-comparison.html">Read case study →</a><a href="https://github.com/Kandil2001/LidCavity_Solver_Comparison" target="_blank" rel="noopener">Repository ↗</a></div></article><article class="project"><p class="tags">LBM D2Q9</p><h3>D2Q9 LBM Channel Flow in C++</h3><p>A compact C++ lattice Boltzmann solver for 2D Poiseuille channel flow.</p><div class="project-links"><a href="projects/lbm-poiseuille.html">Read case study →</a><a href="https://github.com/Kandil2001/LBM_Poiseuille_D2Q9_CPP" target="_blank" rel="noopener">Repository ↗</a></div></article><article class="project"><p class="tags">MPI HPC</p><h3>Distributed TSP Solver</h3><p>A C99/MPI distributed-memory Traveling Salesman solver using parallel tempering and two-opt route updates.</p><div class="project-links"><a href="projects/distributed-tsp.html">Read case study →</a><a href="https://github.com/Kandil2001/Distributed-TSP-Solver" target="_blank" rel="noopener">Repository ↗</a></div></article><article class="project"><p class="tags">Pedestrian dynamics simulation</p><h3>JuPedSim Evacuation Analysis</h3><p>A JuPedSim-based evacuation workflow for a university building layout with Python post-processing.</p><div class="project-links"><a href="projects/pedestrian-simulation.html">Read case study →</a><a href="https://github.com/Kandil2001/Jupedsim-Evacuation-Analysis" target="_blank" rel="noopener">Repository ↗</a></div></article></div></section>
 
-    <section id="experience" class="section">
-      <p class="label">Experience</p>
-      <h2>Engineering and research experience.</h2>
-      <div class="grid">
-        <div class="card"><h3>Fraunhofer FFB</h3><p>Supporting research and engineering work in battery cell production, with a focus on simulation, process understanding, and validation.</p></div>
-        <div class="card"><h3>Bergische Universität Wuppertal</h3><p>Supporting research on pedestrian flow and crowd dynamics using computer-vision-based analysis.</p></div>
-        <div class="card"><h3>Vorwerk</h3><p>Developed CFD models in STAR-CCM+ for multiphase flow applications, including phase change and Lagrangian particle tracking.</p></div>
-        <div class="card"><h3>GRIND for Engineering Solutions</h3><p>Conducted CFD analyses of industrial fluid-flow and thermal systems using ANSYS Fluent.</p></div>
-        <div class="card"><h3>Mansoura Motorsport Formula Student</h3><p>Worked on bodywork, front wing, and vehicle-design decisions, connecting aerodynamics, CAD, simulation, and manufacturing limits.</p></div>
-      </div>
-    </section>
+    <section id="experience" class="section"><p class="label">Experience</p><h2>Engineering and research experience.</h2><div class="grid"><div class="card"><h3>Fraunhofer FFB</h3><p>Supporting research and engineering work in battery cell production, with a focus on simulation, process understanding, and validation.</p></div><div class="card"><h3>Bergische Universität Wuppertal</h3><p>Supporting research on pedestrian flow and crowd dynamics using computer-vision-based analysis.</p></div><div class="card"><h3>Vorwerk</h3><p>Developed CFD models in STAR-CCM+ for multiphase flow applications, including phase change and Lagrangian particle tracking.</p></div><div class="card"><h3>GRIND for Engineering Solutions</h3><p>Conducted CFD analyses of industrial fluid-flow and thermal systems using ANSYS Fluent.</p></div><div class="card"><h3>Mansoura Motorsport Formula Student</h3><p>Worked on bodywork, front wing, and vehicle-design decisions, connecting aerodynamics, CAD, simulation, and manufacturing limits.</p></div></div></section>
 
-    <section id="certifications" class="section">
-      <p class="label">Certifications</p>
-      <h2>Verified SOLIDWORKS credentials.</h2>
-      <p>Each certificate links directly to its public Credly verification page.</p>
-      <div class="grid">
-        <div class="cert-feature"><div><p class="label">Highest credential</p><h3><a class="cert-link" href="https://www.credly.com/badges/5e27da77-882e-4fb2-ad0f-464ba1ae4d30/public_url" target="_blank" rel="noopener">SOLIDWORKS Design Expert ↗</a></h3><p>Expert-level SOLIDWORKS design credential supported by specialist certifications.</p></div><div class="badge">EXPERT</div></div>
-        <div class="cert-card"><h3>Design</h3><div class="cert-list"><div class="cert-row"><span class="tick">✓</span><a class="cert-link" href="https://www.credly.com/badges/78a67595-2897-455b-9f82-aacc58cef386/public_url" target="_blank" rel="noopener">SOLIDWORKS Design Professional ↗</a></div><div class="cert-row"><span class="tick">✓</span><a class="cert-link" href="https://www.credly.com/badges/e0145cf3-64f2-498b-a32c-dec9106447dd/public_url" target="_blank" rel="noopener">SOLIDWORKS Design Associate ↗</a></div></div></div>
-        <div class="cert-card"><h3>Advanced professional areas</h3><div class="cert-list"><div class="cert-row"><span class="tick">✓</span><a class="cert-link" href="https://www.credly.com/badges/c0c434df-55d8-4f3f-bf08-18ca75aa4c04/public_url" target="_blank" rel="noopener">SOLIDWORKS Surfacing Professional ↗</a></div><div class="cert-row"><span class="tick">✓</span><a class="cert-link" href="https://www.credly.com/badges/04e38512-c15d-4521-a0bb-b8df172425c5/public_url" target="_blank" rel="noopener">SOLIDWORKS Weldments Professional ↗</a></div><div class="cert-row"><span class="tick">✓</span><a class="cert-link" href="https://www.credly.com/badges/662ef1cf-a08a-4f2b-9035-a31b9868d5f6/public_url" target="_blank" rel="noopener">SOLIDWORKS Drawing Tools Professional ↗</a></div></div></div>
-        <div class="cert-card"><h3>Manufacturing-focused</h3><div class="cert-list"><div class="cert-row"><span class="tick">✓</span><a class="cert-link" href="https://www.credly.com/badges/9156967f-beed-460a-9d07-ebbca60b3cf3/public_url" target="_blank" rel="noopener">SOLIDWORKS Mold Making Professional ↗</a></div></div></div>
-      </div>
-    </section>
+    <section id="certifications" class="section"><p class="label">Certifications</p><h2>Verified SOLIDWORKS credentials.</h2><p>Each certificate links directly to its public Credly verification page.</p><div class="grid"><div class="cert-feature"><div><p class="label">Highest credential</p><h3><a class="cert-link" href="https://www.credly.com/badges/5e27da77-882e-4fb2-ad0f-464ba1ae4d30/public_url" target="_blank" rel="noopener">SOLIDWORKS Design Expert ↗</a></h3><p>Expert-level SOLIDWORKS design credential supported by specialist certifications.</p></div><div class="badge">EXPERT</div></div><div class="cert-card"><h3>Design</h3><div class="cert-list"><div class="cert-row"><span class="tick">✓</span><a class="cert-link" href="https://www.credly.com/badges/78a67595-2897-455b-9f82-aacc58cef386/public_url" target="_blank" rel="noopener">SOLIDWORKS Design Professional ↗</a></div><div class="cert-row"><span class="tick">✓</span><a class="cert-link" href="https://www.credly.com/badges/e0145cf3-64f2-498b-a32c-dec9106447dd/public_url" target="_blank" rel="noopener">SOLIDWORKS Design Associate ↗</a></div></div></div><div class="cert-card"><h3>Advanced professional areas</h3><div class="cert-list"><div class="cert-row"><span class="tick">✓</span><a class="cert-link" href="https://www.credly.com/badges/c0c434df-55d8-4f3f-bf08-18ca75aa4c04/public_url" target="_blank" rel="noopener">SOLIDWORKS Surfacing Professional ↗</a></div><div class="cert-row"><span class="tick">✓</span><a class="cert-link" href="https://www.credly.com/badges/04e38512-c15d-4521-a0bb-b8df172425c5/public_url" target="_blank" rel="noopener">SOLIDWORKS Weldments Professional ↗</a></div><div class="cert-row"><span class="tick">✓</span><a class="cert-link" href="https://www.credly.com/badges/662ef1cf-a08a-4f2b-9035-a31b9868d5f6/public_url" target="_blank" rel="noopener">SOLIDWORKS Drawing Tools Professional ↗</a></div></div></div><div class="cert-card"><h3>Manufacturing-focused</h3><div class="cert-list"><div class="cert-row"><span class="tick">✓</span><a class="cert-link" href="https://www.credly.com/badges/9156967f-beed-460a-9d07-ebbca60b3cf3/public_url" target="_blank" rel="noopener">SOLIDWORKS Mold Making Professional ↗</a></div></div></div></div></section>
 
-    <section id="skills" class="section">
-      <p class="label">Technical skills</p>
-      <h2>Tools and methods.</h2>
-      <div class="grid">
-        <div class="card"><h3>CFD & physics</h3><p>Incompressible flow, heat transfer, multiphase flow, aerodynamics, thermal-fluid systems, humidity, and dew-point related modeling.</p></div>
-        <div class="card"><h3>Numerical methods</h3><p>Pressure-correction ideas, iterative solvers, mesh studies, validation against reference data, and interpretation of numerical results.</p></div>
-        <div class="card"><h3>Programming</h3><p>MATLAB, Python, C, C++, Java automation, shell scripts, Git, structured CSV output, and plotting workflows.</p></div>
-        <div class="card"><h3>HPC</h3><p>MPI, OpenMP, CUDA basics, serial baselines, scaling tests, runtime comparison, and cluster-run documentation.</p></div>
-        <div class="card"><h3>CFD software</h3><p>ANSYS Fluent, STAR-CCM+, SimScale, OpenFOAM, FDS/Smokeview, post-processing, and reporting.</p></div>
-        <div class="card"><h3>CAD & design</h3><p>SOLIDWORKS design, surfacing, weldments, drawings, mold tools, manufacturability, and prototyping.</p></div>
-      </div>
-    </section>
+    <section id="skills" class="section"><p class="label">Technical skills</p><h2>Tools and methods.</h2><div class="grid"><div class="card"><h3>CFD & physics</h3><p>Incompressible flow, heat transfer, multiphase flow, aerodynamics, thermal-fluid systems, humidity, and dew-point related modeling.</p></div><div class="card"><h3>Numerical methods</h3><p>Pressure-correction ideas, iterative solvers, mesh studies, validation against reference data, and interpretation of numerical results.</p></div><div class="card"><h3>Programming</h3><p>MATLAB, Python, C, C++, Java automation, shell scripts, Git, structured CSV output, and plotting workflows.</p></div><div class="card"><h3>HPC</h3><p>MPI, OpenMP, CUDA basics, serial baselines, scaling tests, runtime comparison, and cluster-run documentation.</p></div><div class="card"><h3>CFD software</h3><p>ANSYS Fluent, STAR-CCM+, SimScale, OpenFOAM, FDS/Smokeview, post-processing, and reporting.</p></div><div class="card"><h3>CAD & design</h3><p>SOLIDWORKS design, surfacing, weldments, drawings, mold tools, manufacturability, and prototyping.</p></div></div></section>
 
-    <section id="contact" class="section">
-      <div class="contact">
-        <p class="label">Contact</p>
-        <h2>Let’s connect.</h2>
-        <p>I am interested in CFD, numerical simulation, scientific computing, and engineering R&D roles where clear modeling, validation, and reproducible workflows matter.</p>
-        <p class="contact-line"><strong>Email:</strong> <a href="mailto:a.akandil@outlook.com">a.akandil@outlook.com</a></p>
-        <p class="contact-line"><strong>ORCID:</strong> <a href="https://orcid.org/0009-0007-2724-4565" target="orcid.widget" rel="me noopener noreferrer">https://orcid.org/0009-0007-2724-4565 <img class="orcid-icon" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID iD icon"></a></p>
-      </div>
-    </section>
+    <section id="contact" class="section"><div class="contact"><p class="label">Contact</p><h2>Let’s connect.</h2><p>I am interested in CFD, numerical simulation, scientific computing, and engineering R&D roles where clear modeling, validation, and reproducible workflows matter.</p><p class="contact-line"><strong>Email:</strong> <a href="mailto:a.akandil@outlook.com">a.akandil@outlook.com</a></p><p class="contact-line"><strong>ORCID:</strong> <a href="https://orcid.org/0009-0007-2724-4565" target="orcid.widget" rel="me noopener noreferrer">https://orcid.org/0009-0007-2724-4565 <img class="orcid-icon" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID iD icon"></a></p></div></section>
   </main>
   <footer>© 2026 Ahmed Kandil. Built with GitHub Pages.</footer>
 </body>
