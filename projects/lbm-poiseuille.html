@@ -3,32 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="D2Q9 lattice Boltzmann channel-flow case study by Ahmed Kandil.">
+  <meta name="description" content="D2Q9 lattice Boltzmann channel-flow validation case study by Ahmed Kandil.">
   <title>D2Q9 LBM Channel Flow | Ahmed Kandil</title>
   <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../enhancements.css?v=14">
 </head>
 <body>
 <a class="skip-link" href="#project-content">Skip to content</a>
 <header class="site-header"><nav class="navbar" aria-label="Project navigation"><a class="logo" href="../index.html">Ahmed Kandil</a><button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button><div class="nav-links"><a href="../index.html#projects">Projects</a><a href="../index.html#experience">Experience</a><a href="../index.html#contact">Contact</a></div></nav></header>
 <main class="project-page" id="project-content">
 <section class="project-hero">
-  <p class="section-label">LBM learning project · C++</p>
-  <h1>D2Q9 LBM Channel Flow in C++</h1>
-  <p class="hero-text">A small lattice Boltzmann Method project for 2D Poiseuille flow. The goal is not to make the most advanced solver, but to understand the collide–stream cycle and verify the result against the analytical parabolic profile.</p>
-  <div class="button-row"><a class="button primary" href="https://github.com/Kandil2001/LBM_Poiseuille_D2Q9_CPP" target="_blank" rel="noopener">View Repository</a><a class="button" href="../index.html#projects">Back to Projects</a></div>
-  <div class="project-visual lbm-visual"><span>D2Q9 lattice<br>collide → stream → bounce-back</span></div>
+  <p class="section-label">LBM validation project · C++17</p>
+  <h1>D2Q9 Lattice Boltzmann Channel Flow</h1>
+  <p class="hero-text">A compact C++17 implementation of the lattice Boltzmann method for two-dimensional Poiseuille flow, built to validate the numerical velocity profile against the analytical parabolic solution.</p>
+  <div class="button-row"><a class="button primary" href="https://github.com/Kandil2001/LBM_Poiseuille_D2Q9_CPP" target="_blank" rel="noopener">View GitHub Repository</a><a class="button" href="../index.html#projects">Back to Projects</a></div>
+  <img class="project-image" src="https://raw.githubusercontent.com/Kandil2001/LBM_Poiseuille_D2Q9_CPP/main/results/velocity_profile.png" alt="LBM velocity profile compared with analytical Poiseuille solution">
 </section>
 <section class="section project-content-section">
-  <div class="proof-grid project-metrics"><div class="metric"><strong>D2Q9</strong><span>LBM lattice</span></div><div class="metric"><strong>C++</strong><span>simple solver structure</span></div><div class="metric"><strong>Poiseuille</strong><span>analytical check</span></div><div class="metric"><strong>CSV</strong><span>profile and convergence output</span></div></div>
-  <h2>Problem</h2><p>Poiseuille flow is a good first LBM case because the expected velocity profile is known. That makes it easier to see whether the implementation is physically reasonable before moving to harder CFD cases.</p>
-  <h2>My contribution</h2><ul><li>Implemented a minimal D2Q9 lattice Boltzmann solver in C++.</li><li>Used body-force-driven channel flow with top and bottom bounce-back walls.</li><li>Kept the code divided but simple: constants/helpers in <code>include/</code> and solver logic in <code>src/</code>.</li><li>Exported centreline velocity, velocity field, convergence history, and run information.</li><li>Added a Python plotting script to compare LBM output with the analytical profile.</li></ul>
-  <h2>Why it belongs on the portfolio</h2><p>This project shows learning-by-building. It is small, readable, and honest. It also supports the wider CFD portfolio because LBM can later become a second numerical method beside finite-volume pressure-correction solvers.</p>
-  <h2>Good next steps</h2><ul><li>Add a result image directly to the README and website after running the final case.</li><li>Add grid and relaxation-time sensitivity checks.</li><li>Add a short explanation of stability limits and why <code>tau</code> matters.</li><li>Later extend to lid-driven cavity LBM or obstacle flow.</li></ul>
-  <div class="button-row"><a class="button primary" href="https://github.com/Kandil2001/LBM_Poiseuille_D2Q9_CPP" target="_blank" rel="noopener">Open complete repository</a><a class="button" href="../index.html#contact">Contact me</a></div>
+  <div class="proof-grid project-metrics"><div class="metric"><strong>D2Q9</strong><span>LBM lattice</span></div><div class="metric"><strong>160 × 50</strong><span>example lattice</span></div><div class="metric"><strong>20,000</strong><span>time steps</span></div><div class="metric"><strong>tau=0.8</strong><span>relaxation time</span></div></div>
+  <h2>Problem</h2><p>Poiseuille flow is a useful first LBM validation case because the expected velocity profile is known analytically. This makes it possible to check whether the implementation is physically reasonable before moving to harder CFD cases.</p>
+  <h2>Numerical method</h2><div class="info-list"><div><h3>Lattice</h3><p>D2Q9 lattice Boltzmann model with a BGK single-relaxation-time collision step.</p></div><div><h3>Boundary conditions</h3><p>Bounce-back treatment at the upper and lower walls, with periodic streamwise direction.</p></div><div><h3>Driving force</h3><p>A small constant body force drives the channel flow and produces the analytical parabolic profile.</p></div></div>
+  <h2>Validation run</h2><p>The included validation figures are generated with <code>nx = 160</code>, <code>ny = 50</code>, <code>steps = 20000</code>, <code>tau = 0.8</code>, <code>forceX = 1e-6</code>, and <code>saveEvery = 200</code>.</p>
+  <h2>Representative results</h2><div class="result-gallery"><figure><img src="https://raw.githubusercontent.com/Kandil2001/LBM_Poiseuille_D2Q9_CPP/main/results/velocity_profile.png" alt="LBM velocity profile validation"><figcaption>Numerical centerline velocity compared with the analytical Poiseuille profile.</figcaption></figure><figure><img src="https://raw.githubusercontent.com/Kandil2001/LBM_Poiseuille_D2Q9_CPP/main/results/convergence.png" alt="LBM convergence history"><figcaption>Convergence history from the validation run.</figcaption></figure></div>
+  <h2>My contribution</h2><ul><li>Implemented the D2Q9 LBM collide-stream workflow in C++17.</li><li>Added body-force-driven channel flow, bounce-back wall handling, and periodic streamwise behavior.</li><li>Exported centerline profile, velocity field, convergence history, and run information.</li><li>Added Python post-processing to compare numerical output with the analytical profile.</li><li>Kept the repository small and readable so the numerical method remains easy to inspect and extend.</li></ul>
+  <h2>Limitations and next steps</h2><ul><li>The project uses a single-relaxation-time BGK model and one simple channel-flow validation case.</li><li>Useful next steps include grid convergence, Reynolds-number variation, OpenMP parallelization, and extension to a lid-driven cavity or obstacle-flow LBM case.</li></ul>
+  <div class="button-row"><a class="button primary" href="https://github.com/Kandil2001/LBM_Poiseuille_D2Q9_CPP" target="_blank" rel="noopener">Open Complete Repository</a><a class="button" href="../index.html#contact">Contact Me</a></div>
 </section>
 </main>
 <footer><p>© 2026 Ahmed Kandil</p></footer>
-<script src="../script.js"></script>
+<script src="../script.js?v=14"></script>
 </body>
 </html>
