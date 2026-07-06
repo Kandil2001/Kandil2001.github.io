@@ -3,358 +3,449 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ahmed Kandil | CFD & Scientific Computing</title>
-  <meta name="description" content="Ahmed Kandil portfolio: CFD, scientific computing, HPC, solver validation, MATLAB, C++, Python, MPI, OpenMP, ANSYS Fluent, STAR-CCM+, and reproducible engineering.">
-  
-  <!-- Open Graph meta tags for social sharing -->
-  <meta property="og:title" content="Ahmed Kandil | CFD & Scientific Computing">
-  <meta property="og:description" content="Portfolio showcasing CFD solver development, HPC optimization, and scientific computing projects.">
+  <title>Ahmed Kandil | CFD Engineer & Scientific Computing</title>
+  <meta name="description" content="Ahmed Kandil portfolio: CFD engineer focused on scientific computing, solver development, HPC optimization, and reproducible simulation workflows.">
+  <meta name="theme-color" content="#060f1f">
+
+  <meta property="og:title" content="Ahmed Kandil | CFD Engineer & Scientific Computing">
+  <meta property="og:description" content="Portfolio showcasing CFD solver development, scientific computing, HPC projects, and engineering experience.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://kandil2001.github.io">
-  
-  <!-- Favicon -->
+  <meta property="og:url" content="https://kandil2001.github.io/">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ahmed Kandil | CFD Engineer & Scientific Computing">
+  <meta name="twitter:description" content="CFD, scientific computing, solver development, and HPC portfolio.">
+
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
-  
+
   <style>
-    /* CSS Variables */
     :root {
-      --bg: #030816;
-      --bg2: #071527;
-      --card: rgba(8, 22, 42, 0.72);
-      --card2: rgba(12, 31, 58, 0.56);
-      --text: #f6fbff;
-      --muted: #aebbd0;
-      --soft: #7f90ab;
-      --line: rgba(92, 196, 255, 0.2);
-      --cyan: #1dd9ff;
-      --blue: #1177ff;
-      --transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+      --bg: #060f1f;
+      --bg-2: #091a34;
+      --card: rgba(14, 35, 63, 0.75);
+      --card-2: rgba(18, 45, 80, 0.85);
+      --text: #ecf7ff;
+      --muted: #afc1d8;
+      --soft: #8ca4be;
+      --line: rgba(106, 203, 255, 0.2);
+      --line-strong: rgba(106, 203, 255, 0.35);
+      --cyan: #6ad8ff;
+      --blue: #4a8cff;
+      --accent-grad: linear-gradient(120deg, var(--cyan) 0%, var(--blue) 100%);
+      --shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+      --radius: 14px;
+      --transition: all 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
-    /* Global Styles */
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       color: var(--text);
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      font-family: Inter, "Segoe UI", "SF Pro Text", Arial, sans-serif;
       line-height: 1.65;
-      background: radial-gradient(circle at 8% 6%, rgba(17, 119, 255, 0.15) 0%, transparent 50%),
-                  linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
-      background-attachment: fixed;
+      background:
+        radial-gradient(circle at 8% 5%, rgba(74, 140, 255, 0.18) 0%, transparent 45%),
+        radial-gradient(circle at 88% 12%, rgba(106, 216, 255, 0.15) 0%, transparent 42%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+      min-height: 100vh;
     }
 
-    a {
-      color: inherit;
+    a { color: inherit; }
+
+    .container {
+      width: min(1150px, calc(100% - 2.5rem));
+      margin-inline: auto;
     }
 
-    p {
-      margin: 0 0 1rem;
-      color: var(--muted);
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: -999px;
+      background: #fff;
+      color: #000;
+      padding: 0.6rem 0.85rem;
+      border-radius: 8px;
+      z-index: 9999;
     }
 
-    h1, h2, h3 {
-      margin: 0.2rem 0 1rem;
-      line-height: 1.08;
+    .skip-link:focus {
+      left: 1rem;
+      top: 1rem;
     }
 
-    h1 {
-      font-size: clamp(3.6rem, 8vw, 7.6rem);
-      letter-spacing: -0.07em;
-      max-width: 780px;
-    }
-
-    h2 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      letter-spacing: -0.04em;
-    }
-
-    h3 {
-      font-size: clamp(1.2rem, 2vw, 1.6rem);
-    }
-
-    /* Navigation */
     .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 0;
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(3, 8, 22, 0.8);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line);
+      background: rgba(6, 15, 31, 0.82);
     }
 
-    .nav-inner {
+    .nav-row {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 1rem;
     }
 
-    .logo {
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: var(--text);
+    .brand {
       text-decoration: none;
-      transition: var(--transition);
+      font-weight: 700;
+      font-size: 1.02rem;
+      letter-spacing: 0.01em;
     }
 
-    .logo:hover {
-      color: var(--cyan);
+    .brand span {
+      background: var(--accent-grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-toggle {
+      display: none;
+      border: 1px solid var(--line-strong);
+      background: transparent;
+      color: var(--text);
+      border-radius: 10px;
+      padding: 0.45rem 0.65rem;
+      cursor: pointer;
     }
 
     .links {
       display: flex;
-      gap: 2rem;
+      flex-wrap: wrap;
       align-items: center;
+      gap: 1.2rem;
     }
 
     .links a {
-      color: var(--muted);
       text-decoration: none;
-      font-size: 0.95rem;
+      color: var(--muted);
+      font-size: 0.92rem;
       transition: var(--transition);
     }
 
-    .links a:hover {
+    .links a:hover,
+    .links a:focus-visible {
       color: var(--cyan);
+      outline: none;
     }
 
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* Sections */
-    .section {
-      padding: 4rem 0;
+    section {
+      padding: 4.4rem 0;
       border-bottom: 1px solid var(--line);
     }
 
-    .section:last-of-type {
-      border-bottom: none;
-    }
+    section:last-of-type { border-bottom: none; }
 
     .label {
-      font-size: 0.75rem;
+      margin: 0 0 0.6rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      font-size: 0.74rem;
+      letter-spacing: 0.13em;
       color: var(--blue);
-      margin-bottom: 0.5rem;
-      font-weight: 600;
+      font-weight: 700;
     }
 
-    /* Hero Section */
+    h1, h2, h3 {
+      margin: 0.2rem 0 1rem;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 7.5vw, 5.8rem);
+      letter-spacing: -0.045em;
+      max-width: 12ch;
+    }
+
+    h2 { font-size: clamp(1.8rem, 4.8vw, 3rem); }
+    h3 { font-size: clamp(1.1rem, 2.2vw, 1.35rem); }
+
+    p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      max-width: 75ch;
+    }
+
     .hero {
-      padding: 6rem 0;
-      display: flex;
-      align-items: center;
-      min-height: 70vh;
-    }
-
-    .hero-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2.2rem;
+      align-items: center;
+      min-height: min(78vh, 720px);
+      padding-top: 5rem;
+      padding-bottom: 5rem;
     }
 
     .eyebrow {
-      font-size: 0.95rem;
+      margin: 0 0 1rem;
+      font-size: 0.92rem;
+      letter-spacing: 0.11em;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
       color: var(--cyan);
-      margin-bottom: 1rem;
-      font-weight: 600;
+      font-weight: 700;
     }
 
-    .hero-title {
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-title span {
-      background: linear-gradient(120deg, var(--cyan) 0%, var(--blue) 100%);
+    .hero-title .accent {
+      background: var(--accent-grad);
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
       background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .hero-line {
-      width: 60px;
-      height: 4px;
-      background: linear-gradient(120deg, var(--cyan) 0%, var(--blue) 100%);
-      margin: 1.5rem 0;
-      border-radius: 2px;
+    .hero-lead {
+      font-size: 1.08rem;
+      color: #c6d7ea;
+      margin-bottom: 1.7rem;
     }
 
-    .hero-text {
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin-bottom: 2rem;
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin: 1.2rem 0 0.5rem;
     }
 
-    /* Projects Grid */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      border-radius: 10px;
+      padding: 0.72rem 1.05rem;
+      font-weight: 600;
+      font-size: 0.94rem;
+      transition: var(--transition);
+      border: 1px solid transparent;
     }
 
-    .project {
+    .btn-primary {
+      background: var(--accent-grad);
+      color: #021224;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      outline: none;
+    }
+
+    .btn-ghost {
+      border-color: var(--line-strong);
+      color: var(--text);
+      background: rgba(14, 35, 63, 0.5);
+    }
+
+    .btn-ghost:hover,
+    .btn-ghost:focus-visible {
+      border-color: var(--cyan);
+      color: var(--cyan);
+      outline: none;
+    }
+
+    .hero-panel {
       background: var(--card);
       border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 2rem;
-      transition: var(--transition);
+      border-radius: var(--radius);
+      padding: 1.3rem;
     }
 
-    .project:hover {
-      background: var(--card2);
-      border-color: var(--cyan);
-      transform: translateY(-4px);
+    .hero-panel ul {
+      margin: 0.2rem 0 0;
+      padding-left: 1.05rem;
+      color: var(--muted);
     }
 
-    .project h3 {
-      color: var(--cyan);
-      margin-top: 0;
-    }
+    .hero-panel li { margin: 0.45rem 0; }
 
-    .project.featured {
-      grid-column: span 1;
-      border-color: var(--blue);
-    }
-
-    .project-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-
-    .project-link {
-      font-size: 0.9rem;
-      color: var(--blue);
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      border: 1px solid var(--blue);
-      border-radius: 4px;
-      transition: var(--transition);
-      display: inline-block;
-    }
-
-    .project-link:hover {
-      background: var(--blue);
-      color: #000;
-    }
-
-    /* Grid for cards (experience, skills, etc.) */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
+      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin-top: 1.7rem;
     }
 
     .card {
       background: var(--card);
       border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 2rem;
+      border-radius: var(--radius);
+      padding: 1.2rem;
       transition: var(--transition);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
     }
 
     .card:hover {
-      background: var(--card2);
-      border-color: var(--blue);
+      background: var(--card-2);
+      border-color: var(--cyan);
+      transform: translateY(-2px);
     }
 
-    .card h3 {
-      color: var(--cyan);
-      margin-top: 0;
+    .card h3 { margin-top: 0.15rem; color: var(--cyan); }
+
+    .projects {
+      display: grid;
+      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      margin-top: 1.8rem;
     }
 
-    /* Contact Section */
-    .contact {
+    .project {
+      position: relative;
       background: var(--card);
       border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 3rem;
-      max-width: 600px;
+      border-radius: var(--radius);
+      padding: 1.3rem;
+      transition: var(--transition);
+      min-height: 230px;
     }
 
-    .contact a {
-      color: var(--blue);
+    .project:hover {
+      transform: translateY(-2px);
+      border-color: var(--cyan);
+      background: var(--card-2);
+    }
+
+    .project.featured {
+      border-color: rgba(74, 140, 255, 0.55);
+      background: linear-gradient(180deg, rgba(12, 30, 56, 0.85) 0%, rgba(18, 41, 75, 0.78) 100%);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin: 0.85rem 0 1rem;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      padding: 0.22rem 0.55rem;
+      color: #d2e4f6;
+      background: rgba(10, 28, 52, 0.6);
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 1rem;
+    }
+
+    .project-link {
       text-decoration: none;
-      font-weight: 500;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      padding: 0.45rem 0.72rem;
+      font-size: 0.84rem;
+      color: #d8e8fb;
+      transition: var(--transition);
     }
 
-    .contact a:hover {
-      text-decoration: underline;
+    .project-link:hover,
+    .project-link:focus-visible {
+      border-color: var(--cyan);
+      color: var(--cyan);
+      outline: none;
     }
 
-    /* Footer */
+    .contact-box {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.45rem;
+      max-width: 780px;
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 0.6rem 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      margin-top: 1rem;
+    }
+
+    .contact-item {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .contact-item strong { color: #d8e8fb; }
+
     footer {
-      text-align: center;
-      padding: 2rem;
-      color: var(--soft);
       border-top: 1px solid var(--line);
-      margin-top: 4rem;
+      text-align: center;
+      color: var(--soft);
+      padding: 1.45rem 1rem 2rem;
+      font-size: 0.9rem;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      main {
-        padding: 0 1rem;
+    @media (max-width: 980px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: 4rem;
       }
+    }
 
-      .nav-inner {
-        padding: 0 1rem;
-        flex-direction: column;
-        gap: 1rem;
+    @media (max-width: 760px) {
+      .container { width: min(1150px, calc(100% - 1.3rem)); }
+
+      .nav-row { min-height: 64px; }
+
+      .nav-toggle {
+        display: inline-flex;
+        align-items: center;
       }
 
       .links {
-        flex-direction: column;
-        gap: 1rem;
+        display: none;
         width: 100%;
+        padding: 0.4rem 0 0.9rem;
+        border-top: 1px solid var(--line);
       }
 
-      .section {
-        padding: 2.5rem 0;
+      .links.open {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.85rem;
       }
 
-      .hero {
-        padding: 3rem 0;
-        min-height: auto;
-      }
+      section { padding: 3.2rem 0; }
+      h1 { font-size: clamp(2.2rem, 11vw, 3.4rem); }
+      .hero-lead { font-size: 1rem; }
+    }
 
-      .projects {
-        grid-template-columns: 1fr;
-      }
-
-      .contact {
-        padding: 2rem;
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
       }
     }
   </style>
 </head>
 <body>
-  <nav class="nav">
-    <div class="nav-inner">
-      <a class="logo" href="/">Ahmed Kandil</a>
-      <div class="links">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="nav" aria-label="Primary">
+    <div class="container nav-row">
+      <a class="brand" href="/">Ahmed <span>Kandil</span></a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle menu">Menu</button>
+      <div class="links" id="navLinks">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
@@ -365,164 +456,187 @@
     </div>
   </nav>
 
-  <main>
-    <section class="hero">
-      <div class="hero-grid">
-        <div>
-          <p class="eyebrow">CFD · Scientific Computing · HPC</p>
-          <h1 class="hero-title">Ahmed <span>Kandil</span></h1>
-          <div class="hero-line"></div>
-          <p class="hero-text">CFD engineer focused on solver development, numerical methods, and scientific computing. I build, validate, and optimize simulations from first principles.</p>
+  <main id="main" class="container">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">CFD · Scientific Computing · HPC</p>
+        <h1 id="hero-title" class="hero-title">Ahmed <span class="accent">Kandil</span></h1>
+        <p class="hero-lead">CFD engineer focused on numerical methods, solver development, and simulation validation. I build reproducible workflows where code meets physics and engineering decisions.</p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-ghost" href="https://github.com/Kandil2001" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="btn btn-ghost" href="mailto:a.akandil@outlook.com">Email</a>
+          <a class="btn btn-ghost" href="cv.html">Open CV</a>
         </div>
       </div>
+
+      <aside class="hero-panel" aria-label="Quick highlights">
+        <p class="label">Highlights</p>
+        <ul>
+          <li>Multi-language CFD solver work in Python, C, C++, MATLAB, and CUDA.</li>
+          <li>Benchmark-driven development with consistency checks and reproducibility.</li>
+          <li>Experience across ANSYS Fluent, STAR-CCM+, OpenFOAM, and custom solvers.</li>
+          <li>Parallel computing exposure with MPI, OpenMP, and GPU acceleration workflows.</li>
+        </ul>
+      </aside>
     </section>
 
-    <section id="about" class="section">
-      <p class="label">Engineering approach</p>
-      <h2>From physical assumptions to trustworthy results.</h2>
-      <p>A strong simulation workflow should make the full path clear: from physics and equations → discretization strategy → solver implementation → convergence analysis → validation against experiment or theory.</p>
-      <p>I'm experienced with ANSYS Fluent, STAR-CCM+, and OpenFOAM, but I also write CFD solvers from scratch in C++, Python, and MATLAB. I care about reproducibility, documentation, and understanding what the numbers actually mean.</p>
+    <section id="about" aria-labelledby="about-title">
+      <p class="label">About</p>
+      <h2 id="about-title">From physical assumptions to trustworthy simulation results.</h2>
+      <p>I focus on the full computational chain: governing equations, discretization, implementation quality, convergence, and validation against known references. My goal is not only to run simulations, but to make the numerical logic transparent, verifiable, and useful for engineering decisions.</p>
+      <p>Alongside industrial tools, I build and document custom CFD solvers to deeply understand performance, stability, and model limitations. I value clean architecture, benchmarking discipline, and clear technical communication.</p>
     </section>
 
-    <section id="projects" class="section">
-      <p class="label">Selected projects</p>
-      <h2>CFD, solver development, HPC, and simulation projects.</h2>
+    <section id="projects" aria-labelledby="projects-title">
+      <p class="label">Featured Work</p>
+      <h2 id="projects-title">Selected projects in CFD, simulation, and high-performance computing.</h2>
+
       <div class="projects">
         <article class="project featured">
-          <h3>LidCavity Solver Comparison</h3>
-          <p>Benchmarked the 2D lid-cavity problem across C++, C, MATLAB, Python, MPI, OpenMP, and CUDA. Validated all implementations against published results. Demonstrates the tradeoffs between language choice, parallelization strategy, and computational efficiency.</p>
+          <h3>Lid Cavity Solver Comparison</h3>
+          <p>Compares the lid-driven cavity benchmark across Python, C, C++, MATLAB, MPI/OpenMP, and CUDA approaches to study implementation tradeoffs and performance behavior.</p>
+          <div class="tag-row">
+            <span class="tag">CFD</span>
+            <span class="tag">Benchmarking</span>
+            <span class="tag">HPC</span>
+            <span class="tag">Reproducibility</span>
+          </div>
           <div class="project-links">
-            <a href="projects/lid-cavity-comparison.html" class="project-link">Case Study</a>
-            <a href="https://github.com/Kandil2001/LidCavity_Solver_Comparison" class="project-link" target="_blank">Repository</a>
+            <a class="project-link" href="https://github.com/Kandil2001/LidCavity_Solver_Comparison" target="_blank" rel="noopener noreferrer">Repository</a>
+            <a class="project-link" href="projects/lid-cavity-comparison.html">Case Study</a>
           </div>
         </article>
+
         <article class="project">
           <h3>Lid-Cavity C++ Solver</h3>
-          <p>Implemented a finite-volume Navier-Stokes solver for lid-cavity flow. Includes structured mesh generation, SIMPLE algorithm, and convergence diagnostics. Clean, documented codebase suitable for teaching or extension.</p>
+          <p>Finite-volume Navier–Stokes solver implementation with structured grids, SIMPLE pressure-velocity coupling, and convergence monitoring.</p>
+          <div class="tag-row">
+            <span class="tag">C++</span>
+            <span class="tag">FVM</span>
+            <span class="tag">SIMPLE</span>
+          </div>
           <div class="project-links">
-            <a href="projects/lid-cavity-cpp.html" class="project-link">Details</a>
+            <a class="project-link" href="projects/lid-cavity-cpp.html">Details</a>
           </div>
         </article>
+
         <article class="project">
           <h3>LBM Poiseuille D2Q9</h3>
-          <p>Lattice Boltzmann solver for 2D channel (Poiseuille) flow using D2Q9 lattice. Validated against analytical solution. Demonstrates stability, accuracy, and simplicity of LBM for basic incompressible flows.</p>
+          <p>Lattice Boltzmann channel-flow solver validated against analytical profiles to evaluate numerical stability and accuracy in a controlled setting.</p>
+          <div class="tag-row">
+            <span class="tag">LBM</span>
+            <span class="tag">D2Q9</span>
+            <span class="tag">Validation</span>
+          </div>
           <div class="project-links">
-            <a href="projects/lbm-poiseuille.html" class="project-link">Case Study</a>
+            <a class="project-link" href="projects/lbm-poiseuille.html">Case Study</a>
           </div>
         </article>
+
         <article class="project">
           <h3>Distributed TSP Solver</h3>
-          <p>MPI-based solver for the Traveling Salesman Problem using parallel tempering and Metropolis-Hastings sampling. Demonstrates effective load balancing and inter-process communication for stochastic optimization.</p>
-          <div class="project-links">
-            <a href="projects/distributed-tsp.html" class="project-link">Details</a>
+          <p>MPI-based optimization experiment using parallel tempering and stochastic search strategies to evaluate scaling and communication behavior.</p>
+          <div class="tag-row">
+            <span class="tag">MPI</span>
+            <span class="tag">Optimization</span>
+            <span class="tag">Parallel</span>
           </div>
-        </article>
-        <article class="project">
-          <h3>Pedestrian Simulation</h3>
-          <p>Social-force model for crowd dynamics and evacuation analysis. Implemented in Python with visualization. Shows practical application of numerical simulation to real-world safety and planning.</p>
           <div class="project-links">
-            <a href="projects/pedestrian-simulation.html" class="project-link">Details</a>
-          </div>
-        </article>
-        <article class="project">
-          <h3>Fire Dynamics Simulator</h3>
-          <p>FDS (Fire Dynamics Simulator) applications for airflow and heat-transfer analysis in enclosed spaces. Demonstrates industrial CFD tool proficiency and thermal-fluid validation workflows.</p>
-          <div class="project-links">
-            <a href="projects/fire-simulation.html" class="project-link">Details</a>
+            <a class="project-link" href="projects/distributed-tsp.html">Details</a>
           </div>
         </article>
       </div>
     </section>
 
-    <section id="experience" class="section">
+    <section id="experience" aria-labelledby="experience-title">
       <p class="label">Experience</p>
-      <h2>Engineering and research experience.</h2>
+      <h2 id="experience-title">Engineering and research background.</h2>
       <div class="grid">
-        <div class="card">
+        <article class="card">
           <h3>Fraunhofer FFB</h3>
-          <p>Supporting research in thermal-fluid simulation and validation for battery manufacturing. Focus on airflow control, moisture management, and environmental sealing.</p>
-        </div>
-        <div class="card">
-          <h3>Vorwerk (CFD Engineer)</h3>
-          <p>Steady-state and transient STAR-CCM+ simulations for airflow, thermal design, and product development. Mesh optimization, convergence strategies, and experimental validation.</p>
-        </div>
-        <div class="card">
+          <p>Thermal-fluid simulation and validation support for battery manufacturing environments, including airflow and humidity control studies.</p>
+        </article>
+        <article class="card">
+          <h3>Vorwerk · CFD Engineer</h3>
+          <p>Steady and transient STAR-CCM+ simulations for product airflow and thermal performance, with mesh strategy and validation workflows.</p>
+        </article>
+        <article class="card">
           <h3>University of Wuppertal</h3>
-          <p>Research assistant in simulation validation. Python-based data analysis, OpenFOAM workflows, and reproducible computational methods.</p>
-        </div>
-        <div class="card">
+          <p>Research assistance in simulation validation, Python analysis pipelines, and OpenFOAM-based computational studies.</p>
+        </article>
+        <article class="card">
           <h3>GRIND Engineering</h3>
-          <p>ANSYS Fluent consulting for industrial CFD: automotive, HVAC, and thermal systems. Mesh generation, boundary conditions, and results analysis.</p>
-        </div>
-        <div class="card">
-          <h3>Formula Student (Leadership)</h3>
-          <p>Head of Aerodynamics and Chief Engineer for Mansoura Motorsport. Led vehicle development, CFD optimization, and multi-disciplinary team coordination.</p>
-        </div>
-        <div class="card">
-          <h3>Education</h3>
-          <p>M.Sc. Computer Simulation in Science (University of Wuppertal, 2023-2026). B.Eng. Mechatronics (Mansoura University, 2018-2023).</p>
-        </div>
+          <p>Industrial ANSYS Fluent consulting for automotive/HVAC cases with setup optimization and result interpretation.</p>
+        </article>
       </div>
     </section>
 
-    <section id="certifications" class="section">
-      <p class="label">Certifications</p>
-      <h2>Verified SOLIDWORKS credentials.</h2>
-      <p>Each certificate links directly to its public Credly verification page:</p>
+    <section id="skills" aria-labelledby="skills-title">
+      <p class="label">Skills</p>
+      <h2 id="skills-title">Tools, methods, and computing stack.</h2>
       <div class="grid">
-        <div class="card">
-          <h3>SOLIDWORKS Certified Expert (CSWE)</h3>
-          <p>Advanced expertise in 3D CAD design, surface modeling, sheet metal, and engineering drawings. Full proficiency across the SOLIDWORKS suite.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="section">
-      <p class="label">Technical skills</p>
-      <h2>Tools and methods.</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>CFD & Physics</h3>
-          <p>Incompressible flow, heat transfer, turbulence modeling, multiphase flow, transient analysis, SIMPLE algorithm, finite volume method (FVM), convergence analysis, result validation.</p>
-        </div>
-        <div class="card">
+        <article class="card">
+          <h3>Physics & Numerics</h3>
+          <p>Incompressible flow, heat transfer, turbulence modeling, finite volume methods, convergence control, and validation practice.</p>
+        </article>
+        <article class="card">
           <h3>Programming</h3>
-          <p>C, C++, Python, MATLAB, Java. Comfortable with NumPy, Pandas, OpenCV. Strong experience with Git, Makefiles, and Unix/Linux development.</p>
-        </div>
-        <div class="card">
-          <h3>Parallel & HPC</h3>
-          <p>MPI (Message Passing Interface), OpenMP, CUDA basics. Performance optimization, benchmarking, distributed-memory programming.</p>
-        </div>
-        <div class="card">
-          <h3>CFD Software</h3>
-          <p>ANSYS Fluent (extensive), STAR-CCM+ (production workflows), OpenFOAM (research & development), FDS (fire dynamics).</p>
-        </div>
-        <div class="card">
-          <h3>CAD & CAE</h3>
-          <p>SOLIDWORKS (CSWE), Siemens NX, CATIA, ANSYS Mechanical. Mesh generation, geometry prep, simulation setup.</p>
-        </div>
-        <div class="card">
-          <h3>Languages</h3>
-          <p>English (C1), German (B2), Arabic (Native).</p>
-        </div>
+          <p>Python, C, C++, MATLAB, and Linux-based development workflows with version control and automation tooling.</p>
+        </article>
+        <article class="card">
+          <h3>Parallel & Acceleration</h3>
+          <p>MPI, OpenMP, and CUDA-oriented workflows for benchmark studies and scaling exploration.</p>
+        </article>
+        <article class="card">
+          <h3>CFD Ecosystem</h3>
+          <p>ANSYS Fluent, STAR-CCM+, OpenFOAM, and custom solver development with benchmark comparisons.</p>
+        </article>
       </div>
     </section>
 
-    <section id="contact" class="section">
-      <div class="contact">
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="contact-box">
         <p class="label">Contact</p>
-        <h2>Let's connect.</h2>
-        <p>I'm interested in CFD, numerical simulation, scientific computing, and engineering challenges where code meets physics.</p>
-        <p><strong>Email:</strong> <a href="mailto:a.akandil@outlook.com">a.akandil@outlook.com</a></p>
-        <p><strong>Phone:</strong> +49 155 60695543</p>
-        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ahmed-kandil03/" target="_blank" rel="noopener">ahmed-kandil03</a></p>
-        <p><strong>GitHub:</strong> <a href="https://github.com/Kandil2001" target="_blank" rel="noopener">Kandil2001</a></p>
+        <h2 id="contact-title">Let’s connect.</h2>
+        <p>I’m open to CFD, simulation, and scientific computing opportunities where rigorous numerical methods and practical engineering impact meet.</p>
+
+        <div class="contact-grid">
+          <p class="contact-item"><strong>Email:</strong> <a href="mailto:a.akandil@outlook.com">a.akandil@outlook.com</a></p>
+          <p class="contact-item"><strong>GitHub:</strong> <a href="https://github.com/Kandil2001" target="_blank" rel="noopener noreferrer">Kandil2001</a></p>
+          <p class="contact-item"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ahmed-kandil03/" target="_blank" rel="noopener noreferrer">ahmed-kandil03</a></p>
+          <p class="contact-item"><strong>Location:</strong> Germany</p>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
-    © 2026 Ahmed Kandil. Built with GitHub Pages.
+    © 2026 Ahmed Kandil · Built with GitHub Pages
   </footer>
+
+  <script>
+    (function () {
+      const btn = document.getElementById('navToggle');
+      const links = document.getElementById('navLinks');
+      if (!btn || !links) return;
+
+      btn.addEventListener('click', function () {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        links.classList.toggle('open');
+      });
+
+      links.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          if (window.innerWidth <= 760) {
+            links.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
