@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">CFD simulation visual</title>
+  <desc id="desc">Stylized CFD visual with streamlines, mesh grid, velocity field and validation plot.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06142a"/>
+      <stop offset="0.55" stop-color="#0b2850"/>
+      <stop offset="1" stop-color="#102f5f"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6ad8ff" stop-opacity="0.15"/>
+      <stop offset="0.5" stop-color="#6ad8ff"/>
+      <stop offset="1" stop-color="#4a8cff"/>
+    </linearGradient>
+    <radialGradient id="vortex" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#6ad8ff" stop-opacity="0.7"/>
+      <stop offset="0.42" stop-color="#4a8cff" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#06142a" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="900" height="560" rx="36" fill="url(#bg)"/>
+  <g opacity="0.22" stroke="#8edfff" stroke-width="1">
+    <path d="M80 70h740M80 130h740M80 190h740M80 250h740M80 310h740M80 370h740M80 430h740M80 490h740"/>
+    <path d="M95 55v450M170 55v450M245 55v450M320 55v450M395 55v450M470 55v450M545 55v450M620 55v450M695 55v450M770 55v450"/>
+  </g>
+
+  <rect x="76" y="70" width="456" height="380" rx="24" fill="#071a35" opacity="0.72" stroke="#6ad8ff" stroke-opacity="0.35"/>
+  <circle cx="304" cy="260" r="170" fill="url(#vortex)"/>
+
+  <g fill="none" stroke="url(#line)" stroke-width="5" stroke-linecap="round" filter="url(#glow)">
+    <path d="M116 260c80-104 232-126 320-36 82 84 44 220-72 250-118 30-236-44-226-154 8-88 102-150 188-118 72 26 96 116 42 166-48 44-128 28-148-34-16-50 22-96 72-94"/>
+    <path d="M128 176c118-84 282-58 344 58" opacity="0.75"/>
+    <path d="M154 388c116 84 288 58 342-72" opacity="0.65"/>
+  </g>
+
+  <g fill="#eaf8ff" opacity="0.9">
+    <circle cx="128" cy="176" r="4"/><circle cx="204" cy="132" r="4"/><circle cx="312" cy="124" r="4"/><circle cx="438" cy="206" r="4"/>
+    <circle cx="164" cy="388" r="4"/><circle cx="292" cy="426" r="4"/><circle cx="420" cy="362" r="4"/>
+  </g>
+
+  <g transform="translate(590 82)">
+    <rect width="236" height="150" rx="20" fill="#071a35" stroke="#6ad8ff" stroke-opacity="0.35"/>
+    <text x="22" y="34" fill="#eaf8ff" font-family="Inter,Segoe UI,Arial" font-size="18" font-weight="700">Validation</text>
+    <path d="M28 118h180" stroke="#8ca4be" stroke-opacity="0.35"/>
+    <path d="M28 108V58" stroke="#8ca4be" stroke-opacity="0.35"/>
+    <path d="M34 103c25-26 48-40 76-28 34 15 50-34 88-18" fill="none" stroke="#6ad8ff" stroke-width="5" stroke-linecap="round"/>
+    <path d="M34 100c24-20 52-34 78-25 34 12 54-26 86-18" fill="none" stroke="#f0bd5b" stroke-width="3" stroke-dasharray="7 7" stroke-linecap="round"/>
+    <text x="28" y="136" fill="#afc1d8" font-family="Inter,Segoe UI,Arial" font-size="12">CFD vs. reference data</text>
+  </g>
+
+  <g transform="translate(590 268)">
+    <rect width="236" height="150" rx="20" fill="#071a35" stroke="#6ad8ff" stroke-opacity="0.35"/>
+    <text x="22" y="34" fill="#eaf8ff" font-family="Inter,Segoe UI,Arial" font-size="18" font-weight="700">HPC workflow</text>
+    <g fill="#6ad8ff" opacity="0.9">
+      <rect x="26" y="62" width="42" height="42" rx="10"/><rect x="82" y="62" width="42" height="42" rx="10"/><rect x="138" y="62" width="42" height="42" rx="10"/>
+      <rect x="54" y="94" width="42" height="42" rx="10" opacity="0.6"/><rect x="110" y="94" width="42" height="42" rx="10" opacity="0.6"/>
+    </g>
+    <path d="M68 82h14M124 82h14M96 114h14" stroke="#eaf8ff" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+  </g>
+
+  <text x="82" y="512" fill="#eaf8ff" font-family="Inter,Segoe UI,Arial" font-size="20" font-weight="800">CFD · Solver Development · Validation · HPC</text>
+</svg>
