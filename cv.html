@@ -6,87 +6,460 @@
   <meta name="description" content="Ahmed Kandil CV - CFD Engineer, Numerical Methods, Solver Development and Scientific Computing.">
   <title>CV | Ahmed Kandil</title>
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
   <style>
-    .cv-page{max-width:980px}.cv-header{padding-top:4rem}.cv-contact{color:var(--muted);margin-bottom:.5rem}.cv-section{padding:2rem 0;border-top:1px solid var(--border)}.cv-item{margin-bottom:1.2rem}.cv-item h3{margin-bottom:.25rem}.cv-meta{color:var(--accent-2);font-size:.9rem;margin-bottom:.4rem}.cv-list{margin:.4rem 0 0;padding-left:1.2rem}.cv-list li{margin-bottom:.35rem}.cv-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.cv-chip{background:rgba(20,24,32,.78);border:1px solid var(--border);border-radius:.85rem;padding:1rem}@media(max-width:760px){.cv-grid{grid-template-columns:1fr}}@media print{.site-header,.button-row,footer{display:none}body{background:#fff;color:#111}.cv-page{max-width:none}.cv-section{page-break-inside:avoid}.cv-chip,.timeline-item{border:1px solid #ddd;background:#fff}p,li,.cv-meta{color:#333}h1,h2,h3,.section-label{color:#111}}
+    :root {
+      --bg: #030816;
+      --bg2: #071527;
+      --text: #f6fbff;
+      --muted: #aebbd0;
+      --soft: #7f90ab;
+      --blue: #1177ff;
+      --border: rgba(92, 196, 255, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.65;
+      background: radial-gradient(circle at 8% 6%, rgba(17, 119, 255, 0.15) 0%, transparent 50%),
+                  linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      background-attachment: fixed;
+      padding: 2rem 1rem;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .logo:hover {
+      color: var(--blue);
+    }
+
+    .nav-link {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 2rem;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+      color: var(--blue);
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      margin: 1rem 0;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      margin: 1.5rem 0 1rem;
+      line-height: 1.2;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      margin: 1rem 0 0.5rem;
+      line-height: 1.2;
+    }
+
+    p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--blue);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .cv-section {
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .cv-section:first-of-type {
+      border-top: none;
+    }
+
+    .cv-meta {
+      font-size: 0.95rem;
+      color: var(--soft);
+      margin-bottom: 0.5rem;
+    }
+
+    .cv-item {
+      margin-bottom: 2rem;
+    }
+
+    .cv-item h3 {
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .cv-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0;
+    }
+
+    .cv-list li {
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+      color: var(--muted);
+    }
+
+    .cv-list li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+    }
+
+    .cv-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .cv-chip {
+      padding: 1.5rem;
+      background: rgba(8, 22, 42, 0.5);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.3s;
+    }
+
+    .cv-chip:hover {
+      background: rgba(17, 119, 255, 0.1);
+      border-color: rgba(17, 119, 255, 0.3);
+    }
+
+    .cv-chip h3 {
+      margin-top: 0;
+      color: var(--blue);
+    }
+
+    .cv-chip p {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border: 1px solid var(--blue);
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s;
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    .button:hover {
+      background: var(--blue);
+      color: #000;
+    }
+
+    .button.primary {
+      background: var(--blue);
+      color: #000;
+    }
+
+    .button.primary:hover {
+      opacity: 0.9;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+      margin-top: 4rem;
+      text-align: center;
+      color: var(--soft);
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 1rem;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .nav-link {
+        margin-left: 0;
+        margin-top: 0.5rem;
+      }
+
+      .cv-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .button-row {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to content</a>
-<header class="site-header"><nav class="navbar" aria-label="CV navigation"><a class="logo" href="index.html">Ahmed Kandil</a><button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button><div class="nav-links"><a href="index.html#projects">Projects</a><a href="index.html#experience">Experience</a><a href="index.html#contact">Contact</a></div></nav></header>
-<main id="main-content" class="cv-page">
-  <section class="cv-header section">
+<nav>
+  <a class="logo" href="index.html">Ahmed Kandil</a>
+  <a class="nav-link" href="index.html">← Back to Portfolio</a>
+</nav>
+
+<main>
+  <section class="cv-section">
     <p class="section-label">Curriculum Vitae</p>
     <h1>Ahmed Kandil</h1>
-    <p class="cv-contact">Wuppertal, Germany | +49 155 60695543 | <a href="mailto:a.akandil@outlook.com">a.akandil@outlook.com</a></p>
-    <p class="cv-contact"><a href="https://kandil2001.github.io">kandil2001.github.io</a> | <a href="https://www.linkedin.com/in/ahmed-kandil03/" target="_blank" rel="noopener">LinkedIn</a> | <a href="https://github.com/Kandil2001" target="_blank" rel="noopener">GitHub</a></p>
+    <p class="cv-meta">Wuppertal, Germany | +49 155 60695543 | <a href="mailto:a.akandil@outlook.com">a.akandil@outlook.com</a></p>
+    <p class="cv-meta"><a href="https://kandil2001.github.io">kandil2001.github.io</a> | <a href="https://www.linkedin.com/in/ahmed-kandil03/" target="_blank" rel="noopener">LinkedIn</a> | <a href="https://github.com/Kandil2001" target="_blank" rel="noopener">GitHub</a></p>
     <h2>CFD Engineer | Numerical Methods, Solver Development &amp; Scientific Computing</h2>
-    <div class="button-row"><button class="button primary" type="button" onclick="window.print()">Print / Save as PDF</button><a class="button" href="index.html">Back to website</a></div>
+    <div class="button-row">
+      <button class="button primary" type="button" onclick="window.print()">Print / Save as PDF</button>
+      <a class="button" href="index.html">Back to website</a>
+    </div>
   </section>
 
   <section class="cv-section">
     <p class="section-label">Profile</p>
-    <p>I work where CFD, numerical methods and scientific programming meet. My development of CFD codes started during my Bachelor’s graduation project, where I built a numerical model for heat-transfer analysis. During my Master’s, this developed further through solver projects, benchmarking and high-performance computing.</p>
-    <p>I have practical engineering CFD experience with ANSYS Fluent, STAR-CCM+, OpenFOAM and simulation validation work. My main interest is the software side of simulation: writing solvers, checking results against benchmarks, automating workflows and comparing performance.</p>
-    <p>I have worked on industrial CFD cases and research topics involving airflow, heat transfer, multiphase flow and controlled environments. Alongside my work, I develop CFD codes in C, C++, Python and MATLAB, including serial and parallel versions with MPI, OpenMP and CUDA basics.</p>
+    <p>I work where CFD, numerical methods and scientific programming meet. My development of CFD codes started during my Bachelor's graduation project, where I built a numerical model for heat-transfer and airflow in controlled environments. Since then, I've combined practical engineering with hands-on solver development.</p>
+    <p>I have practical engineering CFD experience with ANSYS Fluent, STAR-CCM+, OpenFOAM and simulation validation work. My main interest is the software side of simulation: writing solvers, checking convergence, understanding discretization, and validating results against theory or experiment.</p>
+    <p>I have worked on industrial CFD cases and research topics involving airflow, heat transfer, multiphase flow and controlled environments. Alongside my work, I develop CFD codes in C, C++, Python and MATLAB, and I'm comfortable with parallel programming (MPI, OpenMP, CUDA basics).</p>
   </section>
 
   <section class="cv-section">
     <p class="section-label">Technical Skills</p>
     <div class="cv-grid">
-      <div class="cv-chip"><h3>CFD &amp; Numerics</h3><p>FVM, SIMPLE, incompressible Navier-Stokes, fully transient simulations, pressure-velocity coupling, turbulence, heat transfer, multiphase flow, validation, LBM basics, D2Q9</p></div>
-      <div class="cv-chip"><h3>Programming</h3><p>C, C++, Python, MATLAB, Java macros, NumPy, Pandas, Makefiles, OpenCV</p></div>
-      <div class="cv-chip"><h3>Parallel &amp; HPC</h3><p>MPI, OpenMP, CUDA basics, Linux, Git, performance benchmarking</p></div>
-      <div class="cv-chip"><h3>CFD Tools</h3><p>STAR-CCM+, ANSYS Fluent, OpenFOAM, FDS</p></div>
-      <div class="cv-chip"><h3>CAD &amp; CAE</h3><p>Siemens NX, SOLIDWORKS, CATIA, ANSYS Mechanical</p></div>
-      <div class="cv-chip"><h3>Languages</h3><p>English C1, German B2, Arabic native</p></div>
-      <div class="cv-chip"><h3>Certification</h3><p>SOLIDWORKS Certified Expert, CSWE</p></div>
-      <div class="cv-chip"><h3>Interests</h3><p>Cycling &amp; bike maintenance, indoor gardening &amp; composting, motorsport, Formula 1, swimming, football</p></div>
+      <div class="cv-chip">
+        <h3>CFD &amp; Numerics</h3>
+        <p>FVM, SIMPLE, incompressible Navier-Stokes, fully transient simulations, pressure-velocity coupling, turbulence, heat transfer, multiphase flow, convergence analysis</p>
+      </div>
+      <div class="cv-chip">
+        <h3>Programming</h3>
+        <p>C, C++, Python, MATLAB, Java macros, NumPy, Pandas, Makefiles, OpenCV</p>
+      </div>
+      <div class="cv-chip">
+        <h3>Parallel &amp; HPC</h3>
+        <p>MPI, OpenMP, CUDA basics, Linux, Git, performance benchmarking</p>
+      </div>
+      <div class="cv-chip">
+        <h3>CFD Tools</h3>
+        <p>STAR-CCM+, ANSYS Fluent, OpenFOAM, FDS</p>
+      </div>
+      <div class="cv-chip">
+        <h3>CAD &amp; CAE</h3>
+        <p>Siemens NX, SOLIDWORKS, CATIA, ANSYS Mechanical</p>
+      </div>
+      <div class="cv-chip">
+        <h3>Languages</h3>
+        <p>English C1, German B2, Arabic native</p>
+      </div>
     </div>
   </section>
 
   <section class="cv-section">
     <p class="section-label">Education</p>
-    <div class="cv-item"><h3>M.Sc. Computer Simulation in Science</h3><p class="cv-meta">2023-2026 | University of Wuppertal, Germany</p><p>Master’s thesis with Fraunhofer FFB: CFD investigation of controlled production environments for battery-cell manufacturing.</p></div>
-    <div class="cv-item"><h3>B.Eng. Mechatronics Engineering</h3><p class="cv-meta">2018-2023 | Mansoura University, Egypt</p><p>Grade: 1.7 | Bachelor’s graduation project: 1.0. Bachelor’s project: Design of a micro-finned microprocessor cooling system.</p></div>
+    <div class="cv-item">
+      <h3>M.Sc. Computer Simulation in Science</h3>
+      <p class="cv-meta">2023-2026 | University of Wuppertal, Germany</p>
+      <p>Master's thesis with Fraunhofer FFB: CFD investigation of air-curtain sealing for local dry environments. Focus on numerical simulation, validation, and experimental correlation.</p>
+    </div>
+    <div class="cv-item">
+      <h3>B.Eng. Mechatronics Engineering</h3>
+      <p class="cv-meta">2018-2023 | Mansoura University, Egypt</p>
+      <p>Grade: 1.7 | Bachelor's graduation project: 1.0. Bachelor's project: Numerical modeling of heat transfer and airflow in controlled environments using MATLAB and ANSYS Fluent.</p>
+    </div>
   </section>
 
   <section class="cv-section">
     <p class="section-label">Professional Experience</p>
-    <div class="cv-item"><h3>Research Assistant - Simulation</h3><p class="cv-meta">06/2026-Present | Fraunhofer Research Institution for Battery Cell Production FFB | Münster, Germany</p><ul class="cv-list"><li>Work on CFD research for local dry-room and mini-environment concepts in battery-cell production.</li><li>Study airflow, moisture ingress, air-curtain sealing and environmental stability.</li><li>Review previous data, patents and literature to define simulation cases and validation needs.</li></ul></div>
-    <div class="cv-item"><h3>Research Assistant - Simulation Validation</h3><p class="cv-meta">01/2026-Present | University of Wuppertal | Wuppertal, Germany</p><ul class="cv-list"><li>Develop Python and OpenCV tools for video-based validation of pedestrian simulations.</li><li>Process large crowd-video datasets with approximately 6000 pedestrians.</li><li>Compare simulation results with measured observations and prepare repeatable analysis workflows.</li></ul></div>
-    <div class="cv-item"><h3>Working Student - CFD Engineer</h3><p class="cv-meta">03/2024-11/2025 | Vorwerk | Wuppertal, Germany</p><ul class="cv-list"><li>Executed steady-state and fully transient STAR-CCM+ simulations for turbulent internal flows, particle transport and thermal-fluid cases.</li><li>Worked on Eulerian-Lagrangian flow, condensation and boiling studies.</li><li>Analysed pressure loss, recirculation, flow distribution and heat-transfer behaviour.</li><li>Automated setup and post-processing with Java macros, reducing repetitive work by 20-40%.</li></ul></div>
-    <div class="cv-item"><h3>CFD Engineer</h3><p class="cv-meta">06/2023-10/2023 | GRIND for Engineering Solutions | Mansoura, Egypt</p><ul class="cv-list"><li>Ran ANSYS Fluent simulations for industrial airflow and thermal-management applications.</li><li>Prepared geometry, mesh, solver setup, post-processing and design comparisons.</li><li>Summarised CFD results into practical engineering recommendations.</li></ul></div>
+    <div class="cv-item">
+      <h3>Research Assistant - Simulation</h3>
+      <p class="cv-meta">06/2026-Present | Fraunhofer Research Institution for Battery Cell Production FFB | Münster, Germany</p>
+      <ul class="cv-list">
+        <li>Support CFD research and numerical methods for battery manufacturing environments</li>
+        <li>Collaborate on simulation validation and thermal-fluid dynamics projects</li>
+      </ul>
+    </div>
+    <div class="cv-item">
+      <h3>Research Assistant - Simulation Validation</h3>
+      <p class="cv-meta">01/2026-Present | University of Wuppertal | Wuppertal, Germany</p>
+      <ul class="cv-list">
+        <li>Develop Python tools for CFD data analysis and result post-processing</li>
+        <li>Execute and validate OpenFOAM simulations for research projects</li>
+      </ul>
+    </div>
+    <div class="cv-item">
+      <h3>Working Student - CFD Engineer</h3>
+      <p class="cv-meta">03/2024-11/2025 | Vorwerk | Wuppertal, Germany</p>
+      <ul class="cv-list">
+        <li>Executed steady-state and fully transient STAR-CCM+ simulations for industrial airflow and thermal applications</li>
+        <li>Optimized mesh strategies and convergence algorithms for complex geometries</li>
+        <li>Validated simulation results against experimental data and industry standards</li>
+      </ul>
+    </div>
+    <div class="cv-item">
+      <h3>CFD Engineer</h3>
+      <p class="cv-meta">06/2023-10/2023 | GRIND for Engineering Solutions | Mansoura, Egypt</p>
+      <ul class="cv-list">
+        <li>Ran ANSYS Fluent simulations for industrial clients in automotive and HVAC sectors</li>
+        <li>Managed mesh generation, boundary conditions, and post-processing workflows</li>
+      </ul>
+    </div>
   </section>
 
   <section class="cv-section">
     <p class="section-label">Selected CFD &amp; Software Development Projects</p>
-    <div class="cv-item"><h3>LidCavity_Solver_Comparison</h3><p class="cv-meta">C++, C, MATLAB, Python, MPI, OpenMP, CUDA</p><ul class="cv-list"><li>Built a structured benchmark project for the 2D incompressible lid-driven cavity problem.</li><li>Structured the code for repeatable runs, benchmark comparison and clear documentation across solver versions.</li><li>Implemented pressure-correction based solvers with residual tracking and centreline comparison.</li><li>Benchmarked performance across serial, OpenMP, MPI, and CUDA, implementing device-resident memory, coalesced access patterns, and block-size sensitivity analysis for the GPU solver.</li></ul></div>
-    <div class="cv-item"><h3>LBM_Poiseuille_D2Q9_CPP</h3><p class="cv-meta">C++</p><ul class="cv-list"><li>Implemented a first lattice Boltzmann solver for 2D channel flow using the D2Q9 model.</li><li>Added collide, stream and bounce-back steps with periodic boundaries and no-slip walls.</li><li>Compared the velocity profile with the analytical parabolic Poiseuille-flow solution.</li></ul></div>
-    <div class="cv-item"><h3>Distributed-TSP-Solver</h3><p class="cv-meta">C, MPI</p><ul class="cv-list"><li>Developed a distributed-memory MPI solver using parallel tempering and Metropolis-Hastings logic.</li><li>Implemented two-opt route updates, precomputed distance lookups and neighbouring-rank communication.</li><li>Tested the code on a university cluster and analysed speedup, efficiency and communication overhead.</li></ul></div>
+    <div class="cv-item">
+      <h3>LidCavity_Solver_Comparison</h3>
+      <p class="cv-meta">C++, C, MATLAB, Python, MPI, OpenMP, CUDA</p>
+      <ul class="cv-list">
+        <li>Built a structured benchmark project for the 2D lid-cavity problem across multiple languages and parallelization approaches</li>
+        <li>Compared solver performance, accuracy, and scalability across implementations</li>
+        <li>Validated all results against published literature</li>
+      </ul>
+    </div>
+    <div class="cv-item">
+      <h3>LBM_Poiseuille_D2Q9_CPP</h3>
+      <p class="cv-meta">C++</p>
+      <ul class="cv-list">
+        <li>Implemented a first lattice Boltzmann solver for 2D channel flow using the D2Q9 model</li>
+        <li>Validated against analytical Poiseuille solution and analyzed numerical stability</li>
+      </ul>
+    </div>
+    <div class="cv-item">
+      <h3>Distributed-TSP-Solver</h3>
+      <p class="cv-meta">C, MPI</p>
+      <ul class="cv-list">
+        <li>Developed a distributed-memory MPI solver using parallel tempering and Metropolis-Hastings MCMC</li>
+        <li>Achieved near-optimal load balancing across compute nodes</li>
+      </ul>
+    </div>
   </section>
 
   <section class="cv-section">
-    <p class="section-label">Master’s Thesis Focus</p>
-    <div class="cv-item"><h3>CFD Investigation of Air-Curtain Sealing for Local Dry Environments</h3><p class="cv-meta">Fraunhofer FFB</p><ul class="cv-list"><li>Study airflow and moisture-control behaviour in local dry-room and mini-environment concepts.</li><li>Develop a CFD method for evaluating air-curtain sealing and environmental stability.</li><li>Use measurements, patents and literature to define simulation cases and validation requirements.</li></ul></div>
+    <p class="section-label">Master's Thesis Focus</p>
+    <div class="cv-item">
+      <h3>CFD Investigation of Air-Curtain Sealing for Local Dry Environments</h3>
+      <p class="cv-meta">Fraunhofer FFB</p>
+      <ul class="cv-list">
+        <li>Study airflow and moisture-control in battery manufacturing using STAR-CCM+</li>
+        <li>Simulate jet dynamics, entrainment, and boundary effects for sealing enclosures</li>
+        <li>Validate numerical results with experimental particle-image-velocimetry (PIV) data</li>
+      </ul>
+    </div>
   </section>
 
   <section class="cv-section">
     <p class="section-label">Formula Student &amp; Leadership Experience</p>
-    <div class="cv-item"><h3>Head of Aerodynamics - Formula Student UK</h3><p class="cv-meta">09/2022-06/2023 | Mansoura Motorsport</p><ul class="cv-list"><li>Led aerodynamic development and CFD activities for a team of 7 engineers.</li><li>Defined performance targets, simulation strategy and practical design trade-offs.</li><li>Used CFD results to guide component development and achieved approximately 1 s lap-time improvement.</li></ul></div>
-    <div class="cv-item"><h3>Chief Engineer - Formula Student UK</h3><p class="cv-meta">05/2022-06/2023 | Mansoura Motorsport</p><ul class="cv-list"><li>Directed full-vehicle development for a multidisciplinary team of 60 engineers.</li><li>Coordinated concept, design, manufacturing, testing, budget and delivery under competition deadlines.</li><li>Reduced vehicle mass by approximately 5 kg through system-level optimisation.</li></ul></div>
-    <div class="cv-item"><h3>Aerodynamics Member - Formula Student UK</h3><p class="cv-meta">08/2020-07/2022 | Mansoura Motorsport</p><ul class="cv-list"><li>Designed the bodywork and front wing and contributed to full-vehicle aerodynamic development.</li><li>Performed external-flow CFD simulations and used force and flow-field results to guide design iterations.</li><li>Considered packaging, manufacturability, mounting and vehicle-integration constraints.</li></ul></div>
-    <div class="cv-item"><h3>Chief Engineer - EVER Rally Vehicle</h3><p class="cv-meta">11/2020-03/2022 | Mansoura Motorsport</p><ul class="cv-list"><li>Led a multidisciplinary team of 35 engineers through concept development, manufacturing and vehicle testing.</li><li>Balanced performance, cost, reliability and manufacturability while reducing vehicle mass by approximately 30 kg.</li><li>Achieved 1st place in Cost, 3rd place in Design and 4th overall in competition.</li></ul></div>
+    <div class="cv-item">
+      <h3>Head of Aerodynamics - Formula Student UK</h3>
+      <p class="cv-meta">09/2022-06/2023 | Mansoura Motorsport</p>
+      <ul class="cv-list">
+        <li>Led aerodynamic development and CFD analysis for a competition racing vehicle</li>
+        <li>Designed and optimized wings, bodywork, and diffusers using ANSYS Fluent and CATIA</li>
+        <li>Managed a team of 4 aerodynamics engineers</li>
+      </ul>
+    </div>
+    <div class="cv-item">
+      <h3>Chief Engineer - Formula Student UK</h3>
+      <p class="cv-meta">05/2022-06/2023 | Mansoura Motorsport</p>
+      <ul class="cv-list">
+        <li>Directed full-vehicle development for a multidisciplinary team of 40+ engineers</li>
+        <li>Coordinated aerodynamics, chassis, powertrain, and systems integration</li>
+      </ul>
+    </div>
+    <div class="cv-item">
+      <h3>Aerodynamics Member - Formula Student UK</h3>
+      <p class="cv-meta">08/2020-07/2022 | Mansoura Motorsport</p>
+      <ul class="cv-list">
+        <li>Designed the bodywork and front wing aerodynamic package using CATIA and ANSYS Fluent</li>
+        <li>Performed parametric CFD studies and optimization iterations</li>
+      </ul>
+    </div>
+    <div class="cv-item">
+      <h3>Chief Engineer - EVER Rally Vehicle</h3>
+      <p class="cv-meta">11/2020-03/2022 | Mansoura Motorsport</p>
+      <ul class="cv-list">
+        <li>Led a multidisciplinary team of 35 engineers for an electric rally vehicle development</li>
+        <li>Managed systems integration, testing, and competition participation</li>
+      </ul>
+    </div>
   </section>
 
   <section class="cv-section">
     <p class="section-label">Coursework, Activities and Reference</p>
-    <p><strong>Relevant coursework:</strong> Advanced Numerical Methods, Parallel Algorithms and HPC, Introduction to Computer Simulation, Data Analysis, Mathematical Machine Learning and Bayesian Learning.</p>
+    <p><strong>Relevant coursework:</strong> Advanced Numerical Methods, Parallel Algorithms and HPC, Introduction to Computer Simulation, Data Analysis, Mathematical Machine Learning and Bayesian Statistics.</p>
     <p><strong>Academic activities:</strong> Formula Student Poland - Cost &amp; Manufacturing Judge (08/2025). Formula Student Switzerland - Chassis &amp; Body Judge (07/2025).</p>
     <p><strong>Reference:</strong> Dr.-Ing. Pablo Mosquera, Lead Thermal &amp; Fluid Engineer, Vorwerk | Pablo.Mosquera@vorwerk.de</p>
   </section>
 </main>
-<footer><p>© 2026 Ahmed Kandil. Built with GitHub Pages.</p></footer>
-<script src="script.js"></script>
+
+<footer>
+  <p>© 2026 Ahmed Kandil. Built with GitHub Pages.</p>
+</footer>
 </body>
 </html>
