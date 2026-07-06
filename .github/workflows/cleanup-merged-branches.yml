@@ -1,0 +1,62 @@
+name: Cleanup merged branches
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/cleanup-merged-branches.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cleanup-merged-branches
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    name: Delete branches already merged into main
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Delete merged remote branches
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git fetch origin '+refs/heads/*:refs/remotes/origin/*' --prune
+
+          keep_regex='^(main|master|gh-pages)$'
+          deleted=0
+          kept=0
+
+          echo "Checking remote branches against origin/main..."
+
+          while IFS= read -r branch; do
+            [[ -z "$branch" ]] && continue
+            [[ "$branch" == "HEAD" ]] && continue
+
+            if [[ "$branch" =~ $keep_regex ]]; then
+              echo "KEEP protected branch: $branch"
+              kept=$((kept + 1))
+              continue
+            fi
+
+            if git merge-base --is-ancestor "origin/$branch" "origin/main"; then
+              echo "DELETE merged branch: $branch"
+              git push origin --delete "$branch" || echo "WARNING: could not delete $branch"
+              deleted=$((deleted + 1))
+            else
+              echo "KEEP unmerged branch: $branch"
+              kept=$((kept + 1))
+            fi
+          done < <(git for-each-ref --format='%(refname:strip=3)' refs/remotes/origin | sort)
+
+          echo "Cleanup finished. Deleted $deleted merged branch(es). Kept $kept branch(es)."
