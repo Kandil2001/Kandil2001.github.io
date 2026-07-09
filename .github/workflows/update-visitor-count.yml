@@ -120,4 +120,5 @@ jobs:
             exit 0
           fi
           git commit -m "Update visitor count"
+          git pull --rebase origin main
           git push
