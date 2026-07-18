@@ -3,35 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Detailed lid-driven cavity CFD and HPC benchmark case study by Ahmed Kandil.">
+  <meta name="description" content="Work-in-progress lid-driven cavity CFD and HPC benchmark case study by Ahmed Kandil.">
   <title>Lid-Driven Cavity Solver Comparison | Ahmed Kandil</title>
   <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../style.css">
-  <link rel="stylesheet" href="../enhancements.css?v=14">
+  <link rel="stylesheet" href="../enhancements.css?v=15">
 </head>
 <body>
 <a class="skip-link" href="#project-content">Skip to content</a>
 <header class="site-header"><nav class="navbar" aria-label="Project navigation"><a class="logo" href="../index.html">Ahmed Kandil</a><button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button><div class="nav-links"><a href="../index.html#projects">Projects</a><a href="../index.html#experience">Experience</a><a href="../index.html#contact">Contact</a></div></nav></header>
 <main class="project-page" id="project-content">
 <section class="project-hero">
-  <p class="section-label">CFD benchmark · solver comparison · HPC</p>
+  <p class="section-label">Work in progress · CFD benchmark · solver comparison · HPC</p>
   <h1>Lid-Driven Cavity Solver Comparison</h1>
-  <p class="hero-text">A multi-language CFD benchmark for the 2D incompressible lid-driven cavity problem, comparing the same numerical study across MATLAB/Octave, Python, C, C++, OpenMP, MPI, and a CUDA prototype path.</p>
+  <p class="hero-text">A work-in-progress multi-language CFD benchmark for the 2D incompressible lid-driven cavity problem across MATLAB/Octave, Python, C, C++, OpenMP, MPI, and a CUDA prototype.</p>
   <div class="button-row"><a class="button primary" href="https://github.com/Kandil2001/LidCavity_Solver_Comparison" target="_blank" rel="noopener">View GitHub Repository</a><a class="button" href="../index.html#projects">Back to Projects</a></div>
   <img class="project-image" src="https://raw.githubusercontent.com/Kandil2001/LidCavity_Solver_Comparison/main/comparison/figures/physics_final/case_001_N128_Re1000_central_RBSOR_openmp_cpp_streamlines.png" alt="Representative lid-driven cavity streamlines for Re 1000">
 </section>
 <section class="section project-content-section">
-  <div class="proof-grid project-metrics"><div class="metric"><strong>8</strong><span>complete CPU solver groups</span></div><div class="metric"><strong>36</strong><span>cases per complete group</span></div><div class="metric"><strong>236.76 s</strong><span>fastest median runtime</span></div><div class="metric"><strong>N=32-128</strong><span>grid study range</span></div></div>
-  <h2>Problem</h2><p>The lid-driven cavity is a compact CFD benchmark for incompressible flow, pressure-velocity coupling, convection-scheme behavior, mesh effects, and validation against published centerline velocity data. The challenge here was not only solving one case, but keeping the benchmark consistent across several programming languages and parallelization approaches.</p>
-  <h2>Benchmark setup</h2><div class="info-list"><div><h3>Physics</h3><p>2D incompressible cavity with a moving top lid, no-slip side and bottom walls, and Reynolds-number based test cases.</p></div><div><h3>Study matrix</h3><p><code>N = 32, 64, 128</code>; <code>Re = 100, 400, 1000</code>; upwind and central convection schemes; RBGS and RBSOR pressure solvers.</p></div><div><h3>Implementations</h3><p>MATLAB/Octave, Python/NumPy, C, C++, OpenMP, MPI, and CUDA prototype path, with shared CSV-oriented comparison outputs.</p></div></div>
-  <h2>My contribution</h2><ul><li>Structured the project as a solver-comparison portfolio instead of a single isolated CFD code.</li><li>Kept cases matched by grid size, Reynolds number, convection scheme, and pressure solver so comparisons are meaningful.</li><li>Separated serial baselines, OpenMP versions, MPI case-level parallelism, and CUDA prototype work.</li><li>Prepared comparison scripts and reporting outputs for runtime, residuals, validation behavior, and completion status.</li><li>Documented incomplete solver groups transparently instead of hiding unfinished runs.</li></ul>
-  <h2>What the numbers show</h2><ul><li>Eight CPU solver groups completed the full 36-case benchmark set.</li><li>The fastest complete group was <code>c_openmp_t4</code> with a reported median runtime of 236.76 s.</li><li>The next fastest complete group was <code>cpp_openmp_t4</code> with a reported median runtime of 284.40 s.</li><li>Serial C/C++ implementations were much faster than Python and Octave vectorized workflows for the collected benchmark cases.</li><li>MPI in this project represents case-level parameter-study distribution, not CFD domain decomposition.</li></ul>
-  <h2>Why this project matters</h2><p>This project shows the full engineering workflow: physics, numerical method, implementation, automation, HPC execution, validation, runtime comparison, and honest limitations. It is stronger than a single solver because it explains how the same CFD problem behaves when the implementation language and parallelization strategy change.</p>
-  <h2>Limitations and next steps</h2><ul><li>The solvers are educational and portfolio solvers, not production CFD packages.</li><li>The MPI implementations distribute cases rather than decomposing the spatial domain.</li><li>Future work should add OpenFOAM comparison, stronger automated report generation, and a compact summary table for validation error versus runtime.</li></ul>
-  <div class="button-row"><a class="button primary" href="https://github.com/Kandil2001/LidCavity_Solver_Comparison" target="_blank" rel="noopener">Open Complete Repository</a><a class="button" href="../index.html#contact">Contact Me</a></div>
+  <div class="proof-grid project-metrics"><div class="metric"><strong>8</strong><span>execution-complete CPU groups</span></div><div class="metric"><strong>36</strong><span>configured cases per group</span></div><div class="metric"><strong>236.76 s</strong><span>current lowest median runtime</span></div><div class="metric"><strong>N=32–128</strong><span>grid range</span></div></div>
+  <h2>Problem</h2><p>The lid-driven cavity is a compact benchmark for incompressible flow, pressure-velocity coupling, convection-scheme behavior, mesh effects, and comparison with published centerline velocity data. The challenge is to keep the physical and numerical setup traceable across several languages and parallelization approaches.</p>
+  <h2>Current benchmark setup</h2><div class="info-list"><div><h3>Physics</h3><p>2D incompressible cavity with a moving top lid, no-slip side and bottom walls, and Reynolds-number-based cases.</p></div><div><h3>Study matrix</h3><p><code>N = 32, 64, 128</code>; <code>Re = 100, 400, 1000</code>; upwind and central convection schemes; RBGS and RBSOR pressure solvers.</p></div><div><h3>Implementations</h3><p>MATLAB/Octave, Python/NumPy, C, C++, OpenMP, MPI, and a CUDA prototype with CSV-oriented comparison outputs.</p></div></div>
+  <h2>My contribution</h2><ul><li>Structured the work as a multi-language solver benchmark rather than one isolated CFD code.</li><li>Matched cases by grid size, Reynolds number, convection scheme, and pressure solver.</li><li>Separated serial baselines, OpenMP implementations, MPI case-level distribution, and CUDA prototype work.</li><li>Prepared scripts and figures for runtime, residuals, validation metrics, and execution status.</li><li>Kept incomplete solver groups and current limitations visible.</li></ul>
+  <h2>How to read the current numbers</h2><p>An execution-complete case reached the end of its configured run; this does not automatically prove residual convergence. The current runtime table is therefore an interim computational comparison, not a final time-to-convergence ranking.</p><ul><li>Eight CPU solver groups executed the current 36-case configuration.</li><li><code>c_openmp_t4</code> currently has the lowest reported median runtime at 236.76 s.</li><li><code>cpp_openmp_t4</code> currently follows at 284.40 s.</li><li>MPI currently represents case-level parameter-study distribution, not spatial domain decomposition.</li><li>Convergence, validation status, iteration count, and hardware metadata are being separated more clearly.</li></ul>
+  <h2>Why this project matters</h2><p>The project connects physics, numerical methods, implementation, automation, HPC execution, validation logic, and performance measurement. Its value is the transparent comparison process, including the parts that are not final yet.</p>
+  <h2>Roadmap before completion</h2><ul><li>Separate execution status, residual convergence, and validation status in every summary.</li><li>Add repeated timing runs and variability statistics.</li><li>Record compiler, hardware, thread, rank, and commit metadata.</li><li>Improve high-Reynolds-number convergence behavior.</li><li>Define one final cross-language benchmark protocol.</li><li>Review numerical equivalence of the CUDA prototype.</li></ul>
+  <div class="button-row"><a class="button primary" href="https://github.com/Kandil2001/LidCavity_Solver_Comparison" target="_blank" rel="noopener">Open Work-in-Progress Repository</a><a class="button" href="../index.html#contact">Contact Me</a></div>
 </section>
 </main>
 <footer><p>© 2026 Ahmed Kandil</p></footer>
-<script src="../script.js?v=14"></script>
+<script src="../script.js?v=15"></script>
 </body>
 </html>
