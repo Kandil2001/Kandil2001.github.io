@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ahmed Kandil | CFD Engineer & Scientific Computing</title>
-  <meta name="description" content="Ahmed Kandil portfolio: CFD, scientific computing, solver development, HPC and simulation validation.">
+  <title>Ahmed Kandil | Computational Engineer · CFD · HPC</title>
+  <meta name="description" content="Ahmed Kandil portfolio: computational engineering, CFD, numerical solver development, scientific computing, HPC, and simulation validation.">
   <meta name="theme-color" content="#08111f">
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=143">
+  <link rel="stylesheet" href="style.css?v=144">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -28,10 +28,10 @@
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-main">
-        <p class="eyebrow">CFD · Scientific Computing · HPC</p>
+        <p class="eyebrow">Computational Engineering · CFD · HPC</p>
         <h1 id="hero-title">Ahmed Kandil</h1>
-        <p class="headline">CFD engineer focused on validated simulations, custom solvers and reproducible numerical workflows.</p>
-        <p class="hero-text">M.Sc. Computer Simulation in Science student at the University of Wuppertal, currently supporting research at Fraunhofer FFB in battery-cell production, airflow and humidity-control topics.</p>
+        <p class="headline">Computational engineer focused on CFD, numerical solvers, high-performance computing, and reproducible simulation workflows.</p>
+        <p class="hero-text">M.Sc. Computer Simulation in Science student at the University of Wuppertal, currently supporting research at Fraunhofer FFB in battery-cell production, airflow, and humidity-control topics.</p>
         <div class="actions">
           <a class="button primary" href="#projects">View projects</a>
           <a class="button" href="cv.html">Open CV</a>
@@ -42,34 +42,34 @@
       <aside class="summary-card" aria-label="Profile summary">
         <h2>At a glance</h2>
         <div class="summary-list">
-          <div><span>Current</span><strong>Fraunhofer FFB · Battery cell production</strong></div>
-          <div><span>Focus</span><strong>CFD, humidity, airflow, validation</strong></div>
-          <div><span>Code</span><strong>C++ · Python · MATLAB · MPI · OpenMP</strong></div>
+          <div><span>Current</span><strong>Fraunhofer FFB · Battery-cell production</strong></div>
+          <div><span>Focus</span><strong>CFD · HPC · numerical methods · validation</strong></div>
+          <div><span>Code</span><strong>C++ · Python · MATLAB · Rust · MPI · OpenMP</strong></div>
           <div><span>Tools</span><strong>STAR-CCM+ · Fluent · OpenFOAM · SimScale</strong></div>
         </div>
       </aside>
     </section>
 
     <section class="proof-strip" aria-label="Portfolio highlights">
-      <article><strong>Research-ready</strong><span>Simulation support for battery-cell production environments.</span></article>
-      <article><strong>Code-first</strong><span>Custom solvers, automated runs and post-processing.</span></article>
-      <article><strong>Validation mindset</strong><span>Benchmarks, analytical checks and engineering interpretation.</span></article>
-      <article><strong>Industrial tools</strong><span>STAR-CCM+, ANSYS Fluent, OpenFOAM, SimScale and FDS.</span></article>
+      <article><strong>Physics-first</strong><span>Governing equations, assumptions, and boundary conditions.</span></article>
+      <article><strong>Code-first</strong><span>Custom solvers, automated runs, and post-processing.</span></article>
+      <article><strong>Validation mindset</strong><span>Benchmarks, analytical checks, and honest limitations.</span></article>
+      <article><strong>HPC workflows</strong><span>MPI, OpenMP, CUDA-oriented work, Slurm, and Linux.</span></article>
     </section>
 
     <section id="projects" class="section" aria-labelledby="projects-title">
       <div class="section-heading">
         <p class="eyebrow">Selected work</p>
         <h2 id="projects-title">Projects</h2>
-        <p>Compact case studies showing numerical setup, implementation, performance and validation logic.</p>
+        <p>Case studies showing numerical setup, implementation, performance, validation logic, and documented limitations.</p>
       </div>
 
       <article class="project-feature">
         <div>
-          <span class="project-label">Featured CFD benchmark</span>
+          <span class="project-label">Work in progress · CFD/HPC benchmark</span>
           <h3>Lid-Driven Cavity Solver Comparison</h3>
-          <p>Multi-language CFD benchmark for the 2D incompressible lid-driven cavity problem across Python, C, C++, MATLAB, MPI/OpenMP and CUDA-oriented workflows.</p>
-          <p class="proof"><strong>Proof:</strong> 8 complete CPU solver groups, 36 cases per group and fastest median runtime of 236.76 s.</p>
+          <p>Multi-language benchmark for the 2D incompressible lid-driven cavity problem across MATLAB/Octave, Python, C, C++, OpenMP, MPI, and a CUDA prototype.</p>
+          <p class="proof"><strong>Current dataset:</strong> 8 execution-complete CPU solver groups, 36 configured cases per group, and a current lowest median runtime of 236.76 s. Convergence reporting and the final benchmark protocol are still being refined.</p>
         </div>
         <div class="project-buttons">
           <a class="button primary" href="projects/lid-cavity-comparison.html">Read case study</a>
@@ -78,10 +78,10 @@
       </article>
 
       <div class="project-grid">
-        <article class="card"><h3>Lid-Cavity C++ Solver</h3><p>Finite-volume Navier-Stokes solver with structured grids and Ghia centerline validation.</p><p class="proof">36 simulations · N = 32/64/128 · Re = 100/400/1000</p><a href="projects/lid-cavity-cpp.html">Details</a></article>
-        <article class="card"><h3>LBM Poiseuille D2Q9</h3><p>Lattice Boltzmann solver for a controlled analytical channel-flow validation case.</p><p class="proof">D2Q9 BGK · 160 x 50 lattice · 20,000 steps</p><a href="projects/lbm-poiseuille.html">Details</a></article>
-        <article class="card"><h3>Distributed TSP Solver</h3><p>MPI optimization experiment using parallel tempering and stochastic route updates.</p><p class="proof">20.7x speedup · 24 cores · about 86% efficiency</p><a href="projects/distributed-tsp.html">Details</a></article>
-        <article class="card"><h3>JuPedSim Evacuation Analysis</h3><p>Pedestrian-dynamics workflow with geometry, exits, trajectories and visualization.</p><p class="proof">WKT geometry · 9 exits · SQLite trajectories</p><a href="projects/pedestrian-simulation.html">Details</a></article>
+        <article class="card"><p class="project-label">Completed</p><h3>Lid-Cavity C++ Solver</h3><p>Finite-volume Navier-Stokes solver with structured grids and Ghia centerline comparison.</p><p class="proof">36 configured runs · N = 32/64/128 · Re = 100/400/1000</p><a href="projects/lid-cavity-cpp.html">Details</a></article>
+        <article class="card"><p class="project-label">Completed</p><h3>LBM Poiseuille D2Q9</h3><p>Lattice Boltzmann solver for an analytical channel-flow validation case.</p><p class="proof">D2Q9 BGK · 160 × 50 lattice · 20,000 steps</p><a href="projects/lbm-poiseuille.html">Details</a></article>
+        <article class="card"><p class="project-label">Completed</p><h3>Distributed TSP Solver</h3><p>MPI optimization study using parallel tempering and stochastic route updates.</p><p class="proof">Reported 20.7× speedup · 24 cores · approximately 86% efficiency</p><a href="projects/distributed-tsp.html">Details</a></article>
+        <article class="card"><p class="project-label">Completed</p><h3>JuPedSim Evacuation Analysis</h3><p>Pedestrian-dynamics workflow with geometry, exits, trajectories, and scenario comparison.</p><p class="proof">WKT geometry · 9 exits · SQLite trajectories</p><a href="projects/pedestrian-simulation.html">Details</a></article>
       </div>
     </section>
 
@@ -91,9 +91,9 @@
         <h2 id="experience-title">Engineering and research background</h2>
       </div>
       <div class="experience-list">
-        <article><span>Current</span><h3>Fraunhofer FFB</h3><p>Research support in battery-cell production, airflow, humidity control and validation concepts for local dry environments.</p></article>
-        <article><span>Research</span><h3>University of Wuppertal</h3><p>Pedestrian-flow and crowd-dynamics analysis using Python, computer-vision outputs and simulation workflows.</p></article>
-        <article><span>Industry</span><h3>Vorwerk · CFD Engineer</h3><p>STAR-CCM+ simulations for airflow, thermal performance, multiphase flow, phase change and particle tracking.</p></article>
+        <article><span>Current</span><h3>Fraunhofer FFB</h3><p>Research support in battery-cell production, airflow, humidity control, and validation concepts for local dry environments.</p></article>
+        <article><span>Research</span><h3>University of Wuppertal</h3><p>Pedestrian-flow and crowd-dynamics analysis using Python, computer-vision outputs, and simulation workflows.</p></article>
+        <article><span>Industry</span><h3>Vorwerk · CFD Engineer</h3><p>STAR-CCM+ simulations for airflow, thermal performance, multiphase flow, phase change, and particle tracking.</p></article>
         <article><span>Consulting</span><h3>GRIND Engineering</h3><p>ANSYS Fluent analysis for industrial fluid-flow and thermal cases.</p></article>
       </div>
     </section>
@@ -104,7 +104,7 @@
         <h2 id="skills-title">Tools and methods</h2>
       </div>
       <div class="skill-cloud">
-        <span>CFD</span><span>Heat transfer</span><span>Finite-volume methods</span><span>Validation</span><span>C++</span><span>Python</span><span>MATLAB</span><span>MPI</span><span>OpenMP</span><span>CUDA basics</span><span>STAR-CCM+</span><span>ANSYS Fluent</span><span>OpenFOAM</span><span>SimScale</span><span>FDS</span><span>SOLIDWORKS Expert</span>
+        <span>CFD</span><span>Heat transfer</span><span>Finite Volume Method</span><span>Lattice Boltzmann Method</span><span>Validation</span><span>C++</span><span>Python</span><span>MATLAB</span><span>Rust</span><span>MPI</span><span>OpenMP</span><span>CUDA</span><span>Slurm</span><span>STAR-CCM+</span><span>ANSYS Fluent</span><span>OpenFOAM</span><span>SimScale</span><span>FDS</span>
       </div>
     </section>
 
@@ -112,7 +112,7 @@
       <div class="final-copy">
         <p class="eyebrow">Contact</p>
         <h2 id="contact-title">Let’s connect</h2>
-        <p>Open to CFD, simulation, scientific computing and engineering R&D opportunities where numerical methods and practical engineering meet.</p>
+        <p>Open to PhD, research, and engineering R&D opportunities involving CFD, numerical simulation, scientific computing, and HPC.</p>
       </div>
       <div class="final-panel">
         <div class="final-links">
@@ -121,7 +121,7 @@
           <a class="button" href="https://www.linkedin.com/in/ahmed-kandil03/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a class="button" href="https://github.com/Kandil2001" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
-        <p class="credential-note"><strong>Verified credentials:</strong> SOLIDWORKS Design Expert + specialist certifications · <a href="cv.html">view in CV</a> · <a href="https://www.credly.com/badges/5e27da77-882e-4fb2-ad0f-464ba1ae4d30/public_url" target="_blank" rel="noopener noreferrer">Expert certificate</a></p>
+        <p class="credential-note"><strong>Verified credentials:</strong> SOLIDWORKS Design Expert and specialist certifications · <a href="cv.html">view in CV</a> · <a href="https://www.credly.com/badges/5e27da77-882e-4fb2-ad0f-464ba1ae4d30/public_url" target="_blank" rel="noopener noreferrer">Expert certificate</a></p>
         <p class="small-contact">a.akandil@outlook.com · Germany · <a href="https://orcid.org/0009-0007-2724-4565" target="_blank" rel="me noopener noreferrer">ORCID</a></p>
       </div>
     </section>
