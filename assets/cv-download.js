@@ -1,7 +1,7 @@
 (() => {
   "use strict";
   const fileName = "Ahmed_Kandil_CV.pdf";
-  const chunkCount = 8;
+  const chunkCount = 5;
   let objectUrl = null;
 
   function loadChunk(number) {
