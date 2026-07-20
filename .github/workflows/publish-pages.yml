@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -88,3 +88,12 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
             "repos/${GITHUB_REPOSITORY}/pages/builds"
+
+      - name: Record successful publish request
+        run: |
+          printf 'Pages rebuild accepted for commit %s\n' "$GITHUB_SHA" > .pages-publish-confirmed
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .pages-publish-confirmed
+          git diff --cached --quiet || git commit -m "Confirm Pages rebuild request"
+          git push
