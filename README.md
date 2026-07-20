@@ -3,6 +3,7 @@
 ![Status](https://img.shields.io/badge/Status-Active-2ea44f)
 ![Platform](https://img.shields.io/badge/Platform-GitHub%20Pages-blue)
 ![Stack](https://img.shields.io/badge/Stack-HTML%20%7C%20CSS%20%7C%20JavaScript-orange)
+[![Static site checks](https://github.com/Kandil2001/Kandil2001.github.io/actions/workflows/static-site-checks.yml/badge.svg)](https://github.com/Kandil2001/Kandil2001.github.io/actions/workflows/static-site-checks.yml)
 
 Personal portfolio website for computational engineering, CFD, numerical solver development, scientific computing, and HPC.
 
@@ -16,23 +17,24 @@ The site presents Ahmed Kandil as a:
 
 The portfolio emphasizes the ability to:
 
-- understand and explain the physical problem
+- understand and explain physical problems
 - build numerical solvers from governing equations
 - document assumptions and boundary conditions
-- monitor convergence and compare with references
+- monitor convergence and compare with reference data
 - benchmark implementations across languages and programming models
-- communicate limitations without overstating the results
+- communicate limitations without overstating results
 
 ## Current homepage structure
 
-1. Hero section with CFD, scientific-computing, and HPC positioning
-2. Summary card with current research, code, and simulation tools
-3. Evidence strip for research, code, validation, and industrial software
-4. Featured lid-driven cavity comparison project
-5. Selected completed project case studies
+1. PhD-oriented computational-engineering introduction
+2. Summary card with current research, programming, and HPC background
+3. Evidence strip for numerical methods, scientific software, validation, and HPC
+4. Featured work-in-progress lid-driven cavity comparison project
+5. Six selected completed project case studies
 6. Engineering and research experience
-7. Technical skills and simulation tools
-8. Contact, CV, LinkedIn, GitHub, credentials, and ORCID
+7. Education and verified credentials
+8. Technical skills and simulation tools
+9. Contact, downloadable CV, LinkedIn, GitHub, and ORCID
 
 ## Project status language
 
@@ -47,26 +49,40 @@ This matches the status used in the GitHub profile and repository READMEs.
 
 ```text
 index.html          homepage and recruiter-facing summary
-cv.html             web-based CV
+cv.html             embedded preview and download page for the current PDF CV
 style.css           responsive website styling
-script.js           navigation and interactive behavior
+script.js           project-page navigation behavior
 projects/           individual project case studies
-assets/             images, icons, and supporting files
-sitemap.xml         pages exposed to search engines
+assets/             images, CV data, icons, and supporting files
+sitemap.xml         public pages exposed to search engines
 robots.txt          crawler access and sitemap reference
+.github/workflows/  static-site validation workflow
 ```
 
-## Selected project pages
+## Published project pages
 
 The portfolio includes case studies for:
 
 - Lid-Driven Cavity Solver Comparison
 - Lid-Driven Cavity C++ Solver
+- Lid-Driven Cavity MATLAB Solver
 - D2Q9 Lattice Boltzmann Poiseuille Solver
+- Rust FVM Heat-Conduction Solver
 - Distributed TSP Solver
 - JuPedSim Evacuation Analysis
 
 Each case study should remain consistent with the corresponding repository regarding status, methods, results, and limitations.
+
+## Automated site check
+
+The `Static site checks` GitHub Actions workflow validates:
+
+- required homepage, CV, and project pages
+- relative links and local assets in HTML files
+- sitemap entries
+- removed placeholder and stale repository references
+
+The workflow is intentionally read-only. It does not create visitor-count commits or modify branches.
 
 ## Technology
 
@@ -97,8 +113,9 @@ When a project changes:
 2. update the GitHub profile README
 3. update the corresponding portfolio case study
 4. check that numbers, status, terminology, and limitations match
-5. update the sitemap when adding a new page
-6. verify links and mobile layout
+5. update the sitemap when adding or removing a page
+6. verify internal links and mobile layout
+7. confirm that the static-site workflow passes
 
 ## Contact
 
