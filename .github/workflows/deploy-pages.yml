@@ -64,6 +64,8 @@ jobs:
           print(f"Created verified CV PDF: {len(pdf)} bytes, SHA-256 {actual}")
           PY
 
+          sed -i 's/cv-download\.js?v=1/cv-download.js?v=3/g' index.html cv.html
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
