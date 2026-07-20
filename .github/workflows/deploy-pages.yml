@@ -25,22 +25,19 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Build static site and verified CV
+      - name: Validate and build static site
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          import base64
-          import binascii
           import hashlib
-          import re
           import shutil
 
           required = [
               Path("index.html"),
               Path("cv.html"),
+              Path("Ahmed_Kandil_CV.pdf"),
               Path("assets/language.js"),
               Path("assets/language.css"),
-              Path("assets/cv-download.js"),
           ]
           missing = [str(path) for path in required if not path.is_file()]
           if missing:
@@ -49,46 +46,20 @@ jobs:
           index = Path("index.html").read_text(encoding="utf-8")
           cv_page = Path("cv.html").read_text(encoding="utf-8")
           language = Path("assets/language.js").read_text(encoding="utf-8")
+
           if "data-language-toggle" not in index or "data-language-toggle" not in cv_page:
               raise SystemExit("Language toggle is missing.")
           if "de:" not in language or "Lebenslauf herunterladen" not in language:
               raise SystemExit("German translations are missing.")
 
-          encoded_parts = []
-          for path in sorted(Path("assets").glob("cv-data-*.js")):
-              match = re.search(
-                  r'=\s*"([A-Za-z0-9+/=]+)";\s*$',
-                  path.read_text(encoding="utf-8"),
-              )
-              if not match:
-                  raise SystemExit(f"Could not read CV data from {path}")
-              encoded_parts.append(match.group(1))
-
-          if len(encoded_parts) != 5:
-              raise SystemExit(
-                  f"Expected 5 embedded CV chunks, found {len(encoded_parts)}."
-              )
-
-          normalized_parts = [
-              part + ("=" * (-len(part) % 4))
-              for part in encoded_parts
-          ]
-
-          try:
-              pdf = base64.b64decode("".join(normalized_parts), validate=True)
-          except binascii.Error:
-              try:
-                  pdf = b"".join(
-                      base64.b64decode(part, validate=True)
-                      for part in normalized_parts
-                  )
-              except binascii.Error as error:
-                  raise SystemExit(f"Could not decode embedded CV data: {error}") from error
-
-          expected_sha256 = "222d8c593cb91bff348a435572355e1fe707bdb4463adeede4a3b49ab2d64450"
+          pdf = Path("Ahmed_Kandil_CV.pdf").read_bytes()
+          expected_sha256 = "7a76b72d61e1872cce05ea292c6a7f6744435634955a5db865d75ca9b76e108c"
           actual_sha256 = hashlib.sha256(pdf).hexdigest()
+
           if not pdf.startswith(b"%PDF-"):
-              raise SystemExit("The reconstructed CV data is not a PDF.")
+              raise SystemExit("Ahmed_Kandil_CV.pdf has no valid PDF header.")
+          if b"%%EOF" not in pdf[-1024:]:
+              raise SystemExit("Ahmed_Kandil_CV.pdf is truncated.")
           if actual_sha256 != expected_sha256:
               raise SystemExit(
                   f"CV checksum mismatch: expected {expected_sha256}, received {actual_sha256}"
@@ -109,10 +80,10 @@ jobs:
               else:
                   shutil.copy2(source, destination)
 
-          (site / "Ahmed_Kandil_CV.pdf").write_bytes(pdf)
           (site / ".nojekyll").write_text("", encoding="utf-8")
           print(
-              f"Built portfolio with verified CV: {len(pdf)} bytes, SHA-256 {actual_sha256}"
+              f"Built portfolio with verified static CV: {len(pdf)} bytes, "
+              f"SHA-256 {actual_sha256}"
           )
           PY
 
