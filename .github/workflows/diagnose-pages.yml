@@ -1,0 +1,71 @@
+name: Diagnose and configure GitHub Pages
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  pull-requests: write
+
+jobs:
+  configure-pages-source:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read and update Pages configuration
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set +e
+          before=$(gh api \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "repos/${GITHUB_REPOSITORY}/pages" \
+            --jq '{status,build_type,source,html_url}' 2>&1)
+          before_code=$?
+
+          update=$(gh api --method PUT \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            -f build_type=workflow \
+            "repos/${GITHUB_REPOSITORY}/pages" 2>&1)
+          update_code=$?
+
+          after=$(gh api \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "repos/${GITHUB_REPOSITORY}/pages" \
+            --jq '{status,build_type,source,html_url}' 2>&1)
+          after_code=$?
+
+          {
+            echo '## GitHub Pages diagnostic'
+            echo
+            echo "- Read before exit code: \`${before_code}\`"
+            echo "- Update source exit code: \`${update_code}\`"
+            echo "- Read after exit code: \`${after_code}\`"
+            echo
+            echo '### Before'
+            echo '```json'
+            printf '%s\n' "$before"
+            echo '```'
+            echo
+            echo '### Update response'
+            echo '```text'
+            printf '%s\n' "${update:-No response body; GitHub accepted the update.}"
+            echo '```'
+            echo
+            echo '### After'
+            echo '```json'
+            printf '%s\n' "$after"
+            echo '```'
+          } > /tmp/pages-diagnostic.md
+
+          gh pr comment "$PR_NUMBER" --body-file /tmp/pages-diagnostic.md
+
+          test "$before_code" -eq 0
+          test "$update_code" -eq 0
+          test "$after_code" -eq 0
