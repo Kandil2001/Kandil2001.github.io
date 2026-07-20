@@ -1,0 +1,113 @@
+name: Deploy portfolio
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build static site and verified CV
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import base64
+          import hashlib
+          import re
+          import shutil
+
+          required = [
+              Path("index.html"),
+              Path("cv.html"),
+              Path("assets/language.js"),
+              Path("assets/language.css"),
+              Path("assets/cv-download.js"),
+          ]
+          missing = [str(path) for path in required if not path.is_file()]
+          if missing:
+              raise SystemExit(f"Missing required site files: {missing}")
+
+          index = Path("index.html").read_text(encoding="utf-8")
+          cv_page = Path("cv.html").read_text(encoding="utf-8")
+          language = Path("assets/language.js").read_text(encoding="utf-8")
+          if "data-language-toggle" not in index or "data-language-toggle" not in cv_page:
+              raise SystemExit("Language toggle is missing.")
+          if "de:" not in language or "Lebenslauf herunterladen" not in language:
+              raise SystemExit("German translations are missing.")
+
+          encoded_parts = []
+          for path in sorted(Path("assets").glob("cv-data-*.js")):
+              match = re.search(
+                  r'=\s*"([A-Za-z0-9+/=]+)";\s*$',
+                  path.read_text(encoding="utf-8"),
+              )
+              if not match:
+                  raise SystemExit(f"Could not read CV data from {path}")
+              encoded_parts.append(match.group(1))
+
+          pdf = base64.b64decode("".join(encoded_parts), validate=True)
+          expected_sha256 = "7a76b72d61e1872cce05ea292c6a7f6744435634955a5db865d75ca9b76e108c"
+          actual_sha256 = hashlib.sha256(pdf).hexdigest()
+          if len(encoded_parts) != 5 or not pdf.startswith(b"%PDF-"):
+              raise SystemExit("The embedded CV data is incomplete or invalid.")
+          if actual_sha256 != expected_sha256:
+              raise SystemExit(
+                  f"CV checksum mismatch: expected {expected_sha256}, received {actual_sha256}"
+              )
+
+          site = Path("_site")
+          if site.exists():
+              shutil.rmtree(site)
+          site.mkdir()
+
+          excluded = {".git", ".github", "_site"}
+          for source in Path(".").iterdir():
+              if source.name in excluded:
+                  continue
+              destination = site / source.name
+              if source.is_dir():
+                  shutil.copytree(source, destination)
+              else:
+                  shutil.copy2(source, destination)
+
+          (site / "Ahmed_Kandil_CV.pdf").write_bytes(pdf)
+          (site / ".nojekyll").write_text("", encoding="utf-8")
+          print(
+              f"Built portfolio with verified CV: {len(pdf)} bytes, SHA-256 {actual_sha256}"
+          )
+          PY
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
