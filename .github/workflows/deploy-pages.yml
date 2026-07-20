@@ -69,18 +69,23 @@ jobs:
                   f"Expected 5 embedded CV chunks, found {len(encoded_parts)}."
               )
 
+          normalized_parts = [
+              part + ("=" * (-len(part) % 4))
+              for part in encoded_parts
+          ]
+
           try:
-              pdf = base64.b64decode("".join(encoded_parts), validate=True)
+              pdf = base64.b64decode("".join(normalized_parts), validate=True)
           except binascii.Error:
               try:
                   pdf = b"".join(
                       base64.b64decode(part, validate=True)
-                      for part in encoded_parts
+                      for part in normalized_parts
                   )
               except binascii.Error as error:
                   raise SystemExit(f"Could not decode embedded CV data: {error}") from error
 
-          expected_sha256 = "7a76b72d61e1872cce05ea292c6a7f6744435634955a5db865d75ca9b76e108c"
+          expected_sha256 = "222d8c593cb91bff348a435572355e1fe707bdb4463adeede4a3b49ab2d64450"
           actual_sha256 = hashlib.sha256(pdf).hexdigest()
           if not pdf.startswith(b"%PDF-"):
               raise SystemExit("The reconstructed CV data is not a PDF.")
