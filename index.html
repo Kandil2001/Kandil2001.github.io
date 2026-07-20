@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ahmed Kandil | Scientific Computing · CFD · HPC</title>
-  <meta name="description" content="Ahmed Kandil's engineering portfolio: CFD, numerical methods, scientific software, HPC, simulation validation, and research experience.">
+  <title>Ahmed Kandil | Computational Engineer · CFD · HPC</title>
+  <meta name="description" content="Ahmed Kandil's computational-engineering portfolio: CFD, numerical methods, scientific software, HPC, simulation validation, and research experience.">
   <meta name="theme-color" content="#08111f">
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=200">
+  <link rel="stylesheet" href="style.css?v=201">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -29,9 +29,9 @@
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-main">
-        <p class="eyebrow">PhD Applicant · Scientific Computing · Numerical Methods · CFD · HPC</p>
+        <p class="eyebrow">PhD Applicant · Computational Engineering · CFD · HPC</p>
         <h1 id="hero-title">Ahmed Kandil</h1>
-        <p class="headline">I develop and validate computational workflows that connect physical modelling, numerical methods, scientific software, and high-performance computing.</p>
+        <p class="headline">I develop and validate computational workflows that connect physical modeling, numerical methods, scientific software, and high-performance computing.</p>
         <p class="hero-text">M.Sc. candidate in Computer Simulation in Science at the University of Wuppertal, expected to graduate in January 2027. My current work at Fraunhofer FFB and the University of Wuppertal focuses on humidity transport, CFD methodology, computer-vision-assisted validation, and reproducible post-processing.</p>
         <div class="actions">
           <a class="button primary" href="#projects">View projects</a>
@@ -54,7 +54,7 @@
     </section>
 
     <section class="proof-strip" aria-label="Portfolio strengths">
-      <article><strong>Physics and numerics</strong><span>Governing equations, discretisation, boundary conditions, and solver logic.</span></article>
+      <article><strong>Physics and numerics</strong><span>Governing equations, discretization, boundary conditions, and solver logic.</span></article>
       <article><strong>Scientific software</strong><span>Reproducible code, structured outputs, automation, and version-controlled workflows.</span></article>
       <article><strong>Validation mindset</strong><span>Analytical checks, benchmark data, experiments, data-quality checks, and limitations.</span></article>
       <article><strong>HPC workflows</strong><span>Serial baselines, MPI, OpenMP, CUDA prototypes, SLURM studies, and performance comparison.</span></article>
@@ -69,10 +69,10 @@
 
       <article class="project-feature">
         <div>
-          <span class="project-label">Main portfolio project · CFD/HPC benchmark</span>
+          <span class="project-label">Work in progress · Main portfolio project · CFD/HPC benchmark</span>
           <h3>Lid-Driven Cavity Solver Comparison</h3>
-          <p>A cross-language benchmark for the two-dimensional incompressible lid-driven cavity using C++, C, MATLAB, Python, serial execution, OpenMP, MPI, hybrid MPI/OpenMP, and a prototype CUDA implementation.</p>
-          <p class="proof"><strong>Research workflow:</strong> SIMPLE-style pressure correction, structured parameter studies over grid size and Reynolds number, SLURM execution, runtime and convergence comparison, and centreline validation against the Ghia et al. benchmark.</p>
+          <p>A cross-language benchmark for the two-dimensional incompressible lid-driven cavity using C++, C, MATLAB/Octave, Python, serial execution, OpenMP, MPI, and a prototype CUDA implementation.</p>
+          <p class="proof"><strong>Research workflow:</strong> SIMPLE-style pressure correction, structured parameter studies over grid size and Reynolds number, SLURM execution, runtime and convergence comparison, and centerline comparison against the Ghia et al. benchmark.</p>
         </div>
         <div class="project-buttons">
           <a class="button primary" href="projects/lid-cavity-comparison.html">Read case study</a>
@@ -82,10 +82,10 @@
 
       <div class="project-grid project-grid-six">
         <article class="card">
-          <p class="project-label">Completed · Rust · FVM</p>
+          <p class="project-label">Completed · v1.0.0 · Rust · FVM</p>
           <h3>Rust FVM Heat Conduction</h3>
-          <p>Dependency-free two-dimensional steady heat-conduction solver using a cell-centred finite-volume formulation and Gauss-Seidel iteration.</p>
-          <p class="proof">80 × 80 control volumes · residual monitoring · CSV/SVG output</p>
+          <p>Dependency-free two-dimensional steady heat-conduction solver using a cell-centered finite-volume formulation and Gauss-Seidel iteration.</p>
+          <p class="proof">80 × 80 control volumes · residual monitoring · CSV/SVG output · CI</p>
           <a href="projects/rust-fvm-heat-conduction.html">Read case study</a>
         </article>
         <article class="card">
@@ -98,30 +98,30 @@
         <article class="card">
           <p class="project-label">Completed · C · MPI</p>
           <h3>Distributed TSP Solver</h3>
-          <p>Distributed-memory optimisation using MPI, Parallel Tempering, and Metropolis-Hastings logic.</p>
+          <p>Distributed-memory optimization using MPI, parallel tempering, and Metropolis-Hastings logic.</p>
           <p class="proof">Communication cost · speedup · efficiency analysis</p>
           <a href="projects/distributed-tsp.html">Read case study</a>
         </article>
         <article class="card">
-          <p class="project-label">Python · simulation validation</p>
+          <p class="project-label">Completed · Python · Pedestrian dynamics</p>
           <h3>JuPedSim Evacuation Analysis</h3>
-          <p>Pedestrian-flow and evacuation workflow with geometry, exits, trajectories, and comparison with experimental observations.</p>
+          <p>Pedestrian-flow and evacuation workflow with building geometry, exit assignment, trajectories, and scenario comparison.</p>
           <p class="proof">WKT geometry · SQLite trajectories · post-processing</p>
           <a href="projects/pedestrian-simulation.html">Read case study</a>
         </article>
         <article class="card">
-          <p class="project-label">Completed · C++ · CFD</p>
+          <p class="project-label">Completed · C++17 · CFD</p>
           <h3>Lid-Cavity C++ Solver</h3>
-          <p>Finite-volume Navier-Stokes solver with structured grids and centreline comparison against benchmark data.</p>
+          <p>Finite-difference pressure-correction solver with structured grids, convergence diagnostics, and centerline comparison against benchmark data.</p>
           <p class="proof">N = 32/64/128 · Re = 100/400/1000</p>
           <a href="projects/lid-cavity-cpp.html">Read case study</a>
         </article>
         <article class="card">
-          <p class="project-label">MATLAB · CFD foundation</p>
+          <p class="project-label">Completed · MATLAB · CFD</p>
           <h3>Lid-Cavity MATLAB Solver</h3>
-          <p>The MATLAB implementation that connects my earlier solver development with the larger cross-language benchmark.</p>
-          <p class="proof">Numerical workflow · visual outputs · documented cases</p>
-          <a href="https://github.com/Kandil2001/LidCavity_MATLAB" target="_blank" rel="noopener noreferrer">View GitHub repository</a>
+          <p>Reference MATLAB implementation with loop and vectorized predictors, automated parameter studies, and documented convergence limitations.</p>
+          <p class="proof">72 configured cases · 44 within selected Ghia limits</p>
+          <a href="projects/lid-cavity.html">Read case study</a>
         </article>
       </div>
     </section>
@@ -136,7 +136,7 @@
           <span>06/2026 - present</span>
           <h3>Research Assistant - Simulation</h3>
           <p class="organization">Fraunhofer FFB · Münster</p>
-          <p>Developing CFD methodology for air-curtain sealing of low-humidity mini-environments, including airflow, heat and water-vapour transport, baseline definition, boundary conditions, sensitivity cases, and a measurement-based validation workflow.</p>
+          <p>Developing CFD methodology for air-curtain sealing of low-humidity mini-environments, including airflow, heat and water-vapor transport, baseline definition, boundary conditions, sensitivity cases, and a measurement-based validation workflow.</p>
         </article>
         <article>
           <span>01/2026 - present</span>
@@ -168,8 +168,8 @@
         <article class="education-card">
           <div class="education-top"><h3>M.Sc. Computer Simulation in Science</h3><span>2023 - present · expected 01/2027</span></div>
           <p class="organization">Bergische Universität Wuppertal · Germany</p>
-          <p>72 ECTS completed; Master's thesis in progress: <em>Numerical Optimisation of Air-Curtain Sealing for Humidity-Controlled Mini-Environments in Battery Cell Production.</em></p>
-          <p class="small">Relevant study areas: high-performance computing, parallel algorithms, numerical methods, computational fluid mechanics, OpenFOAM modelling, data analysis, mathematical machine learning, and Bayesian learning.</p>
+          <p>72 ECTS completed; Master's thesis in progress: <em>Numerical Optimization of Air-Curtain Sealing for Humidity-Controlled Mini-Environments in Battery Cell Production.</em></p>
+          <p class="small">Relevant study areas: high-performance computing, parallel algorithms, numerical methods, computational fluid mechanics, OpenFOAM modeling, data analysis, mathematical machine learning, and Bayesian learning.</p>
         </article>
         <article class="education-card">
           <div class="education-top"><h3>Bachelor's Degree in Mechatronics Engineering</h3><span>2018 - 2023</span></div>
@@ -195,11 +195,11 @@
         <article><h3>Parallel and GPU computing</h3><p>MPI, OpenMP, CUDA, SLURM, Linux, and HPC workflows</p></article>
         <article><h3>Simulation software</h3><p>STAR-CCM+, ANSYS Fluent, OpenFOAM, FDS, and ANSYS Mechanical</p></article>
         <article><h3>Scientific software workflow</h3><p>Git/GitHub, Cargo, Make, Linux command line, scripting, reproducible outputs, and GitHub Actions</p></article>
-        <article><h3>Data and computer vision</h3><p>NumPy, Pandas, OpenCV, automated post-processing, data-quality checks, and quantitative comparison</p></article>
-        <article><h3>Numerical methods</h3><p>Finite-volume methods, pressure correction, Lattice Boltzmann methods, convergence analysis, mesh refinement, and validation</p></article>
+        <article><h3>Data and computer vision</h3><p>NumPy, pandas, OpenCV, automated post-processing, data-quality checks, and quantitative comparison</p></article>
+        <article><h3>Numerical methods</h3><p>Finite-volume methods, finite differences, pressure correction, Lattice Boltzmann methods, convergence analysis, mesh refinement, and validation</p></article>
       </div>
       <div class="skill-cloud" aria-label="Skill keywords">
-        <span>CFD</span><span>Heat transfer</span><span>Mass transfer</span><span>Humidity transport</span><span>Finite Volume Method</span><span>Lattice Boltzmann Method</span><span>Validation</span><span>C++</span><span>Python</span><span>C</span><span>MATLAB</span><span>Rust</span><span>MPI</span><span>OpenMP</span><span>CUDA</span><span>SLURM</span><span>STAR-CCM+</span><span>ANSYS Fluent</span><span>OpenFOAM</span><span>FDS</span><span>OpenCV</span>
+        <span>CFD</span><span>Heat transfer</span><span>Mass transfer</span><span>Humidity transport</span><span>Finite Volume Method</span><span>Finite Differences</span><span>Lattice Boltzmann Method</span><span>Validation</span><span>C++</span><span>Python</span><span>C</span><span>MATLAB</span><span>Rust</span><span>MPI</span><span>OpenMP</span><span>CUDA</span><span>SLURM</span><span>STAR-CCM+</span><span>ANSYS Fluent</span><span>OpenFOAM</span><span>FDS</span><span>OpenCV</span>
       </div>
     </section>
 
