@@ -35,6 +35,35 @@ jobs:
             -f build_type=workflow \
             "repos/${GITHUB_REPOSITORY}/pages"
 
+      - name: Build the direct CV PDF
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import base64
+          import hashlib
+          import re
+
+          parts = []
+          for path in sorted(Path("assets").glob("cv-data-*.js")):
+              text = path.read_text(encoding="utf-8")
+              match = re.search(r'=\s*"([A-Za-z0-9+/=]+)";\s*$', text)
+              if not match:
+                  raise SystemExit(f"Could not read CV data from {path}")
+              parts.append(match.group(1))
+
+          if len(parts) != 5:
+              raise SystemExit(f"Expected 5 CV chunks, found {len(parts)}")
+
+          pdf = base64.b64decode("".join(parts), validate=True)
+          expected = "7a76b72d61e1872cce05ea292c6a7f6744435634955a5db865d75ca9b76e108c"
+          actual = hashlib.sha256(pdf).hexdigest()
+          if not pdf.startswith(b"%PDF-") or actual != expected:
+              raise SystemExit(f"CV verification failed: {actual}")
+
+          Path("Ahmed_Kandil_CV.pdf").write_bytes(pdf)
+          print(f"Created verified CV PDF: {len(pdf)} bytes, SHA-256 {actual}")
+          PY
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
