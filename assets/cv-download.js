@@ -2,15 +2,18 @@
   "use strict";
 
   const fileName = "Ahmed_Kandil_CV.pdf";
+  const directPdfUrl = `${fileName}?v=3`;
   const chunkCount = 5;
-  const chunkVersion = "2";
+  const chunkVersion = "3";
   let objectUrl = null;
 
   function showError(message) {
     document.querySelectorAll("[data-cv-preview]").forEach((frame) => {
       frame.removeAttribute("src");
       frame.setAttribute("title", message);
-      frame.insertAdjacentHTML?.("afterend", `<p class="cv-error" role="alert">${message}</p>`);
+      if (!frame.nextElementSibling?.classList.contains("cv-error")) {
+        frame.insertAdjacentHTML("afterend", `<p class="cv-error" role="alert">${message}</p>`);
+      }
     });
 
     document.querySelectorAll("[data-cv-download], [data-cv-open]").forEach((link) => {
@@ -18,6 +21,19 @@
       link.setAttribute("aria-disabled", "true");
       link.addEventListener("click", (event) => event.preventDefault());
     });
+  }
+
+  async function findDirectPdf() {
+    try {
+      const response = await fetch(directPdfUrl, {
+        method: "HEAD",
+        cache: "no-store",
+      });
+      return response.ok ? directPdfUrl : null;
+    } catch (error) {
+      console.warn("The direct CV file is unavailable; using the embedded fallback.", error);
+      return null;
+    }
   }
 
   function loadChunk(number) {
@@ -42,7 +58,7 @@
     }
   }
 
-  function buildPdfUrl() {
+  function buildEmbeddedPdfUrl() {
     if (objectUrl) return objectUrl;
 
     const base64Pdf = window.__cvChunks.join("");
@@ -60,10 +76,7 @@
     return objectUrl;
   }
 
-  async function initialiseCv() {
-    await loadAllChunks();
-    const pdfUrl = buildPdfUrl();
-
+  function connectCvLinks(pdfUrl) {
     document.querySelectorAll("[data-cv-download]").forEach((link) => {
       link.href = pdfUrl;
       link.download = fileName;
@@ -81,9 +94,20 @@
     });
   }
 
+  async function initialiseCv() {
+    const directUrl = await findDirectPdf();
+    if (directUrl) {
+      connectCvLinks(directUrl);
+      return;
+    }
+
+    await loadAllChunks();
+    connectCvLinks(buildEmbeddedPdfUrl());
+  }
+
   initialiseCv().catch((error) => {
     console.error("The CV PDF could not be prepared.", error);
-    showError("The CV preview could not load. Please refresh the page and try again.");
+    showError("The CV preview could not load. Please use a refreshed browser tab and try again.");
   });
 
   window.addEventListener("beforeunload", () => {
