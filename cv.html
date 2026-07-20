@@ -6,19 +6,21 @@
   <title>CV | Ahmed Kandil</title>
   <meta name="description" content="Ahmed Kandil's current CV: computational engineering, CFD, numerical methods, scientific software, HPC, simulation validation, research experience, and selected projects.">
   <meta name="theme-color" content="#08111f">
+  <link rel="canonical" href="https://kandil2001.github.io/cv.html">
+  <link rel="alternate" hreflang="en" href="https://kandil2001.github.io/cv.html">
+  <link rel="alternate" hreflang="de" href="https://kandil2001.github.io/cv.html?lang=de">
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=201">
+  <link rel="stylesheet" href="style.css?v=202">
+  <link rel="stylesheet" href="assets/language.css?v=1">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
   <header class="site-header">
     <nav class="nav" aria-label="CV navigation">
       <a class="brand" href="index.html">Ahmed Kandil</a>
-      <div class="links">
-        <a href="index.html#projects">Projects</a>
-        <a href="index.html#experience">Experience</a>
-        <a href="index.html#education">Education</a>
-        <a href="index.html#contact">Contact</a>
+      <div class="nav-right">
+        <div class="links"><a href="index.html#projects" data-i18n="nav.projects">Projects</a><a href="index.html#experience" data-i18n="nav.experience">Experience</a><a href="index.html#education" data-i18n="nav.education">Education</a><a href="index.html#contact" data-i18n="nav.contact">Contact</a></div>
+        <button class="language-toggle" type="button" data-language-toggle aria-label="Website auf Deutsch anzeigen">DE</button>
       </div>
     </nav>
   </header>
@@ -26,41 +28,31 @@
   <main id="main" class="cv-page">
     <section class="cv-intro" aria-labelledby="cv-title">
       <div>
-        <p class="eyebrow">Current curriculum vitae</p>
+        <p class="eyebrow" data-i18n="cv.eyebrow">Current curriculum vitae</p>
         <h1 id="cv-title">Ahmed Kandil</h1>
         <p class="headline">Computational Engineer · CFD · HPC · Scientific Computing</p>
-        <p>M.Sc. candidate and PhD applicant working across numerical methods, CFD solver development, simulation validation, and high-performance computing. The current two-page CV includes research and professional experience, education, technical expertise, selected scientific-computing projects, and referees.</p>
-        <div class="actions">
-          <a class="button primary" href="#" data-cv-download>Download Ahmed_Kandil_CV.pdf</a>
-          <a class="button" href="#" data-cv-open>Open PDF in a new tab</a>
-          <a class="button subtle-button" href="index.html">Back to portfolio</a>
-        </div>
+        <p data-i18n="cv.intro">M.Sc. candidate and PhD applicant working across numerical methods, CFD solver development, simulation validation, and high-performance computing. The current two-page CV includes research and professional experience, education, technical expertise, selected scientific-computing projects, and referees.</p>
+        <div class="actions"><a class="button primary" href="#" data-cv-download data-i18n="cv.download">Download Ahmed_Kandil_CV.pdf</a><a class="button" href="#" data-cv-open data-i18n="cv.open">Open PDF in a new tab</a><a class="button subtle-button" href="index.html" data-i18n="cv.back">Back to portfolio</a></div>
       </div>
       <aside class="summary-card">
-        <h2>CV details</h2>
+        <h2 data-i18n="cv.details">CV details</h2>
         <div class="summary-list">
-          <div><span>Professional focus</span><strong>Computational engineering · CFD · HPC</strong></div>
-          <div><span>Current positions</span><strong>Fraunhofer FFB · University of Wuppertal</strong></div>
-          <div><span>Graduation</span><strong>M.Sc. expected January 2027</strong></div>
-          <div><span>Location</span><strong>Wuppertal, Germany</strong></div>
+          <div><span data-i18n="cv.focusLabel">Professional focus</span><strong data-i18n="cv.focus">Computational engineering · CFD · HPC</strong></div>
+          <div><span data-i18n="cv.positionsLabel">Current positions</span><strong>Fraunhofer FFB · University of Wuppertal</strong></div>
+          <div><span data-i18n="cv.graduationLabel">Graduation</span><strong data-i18n="cv.graduation">M.Sc. expected January 2027</strong></div>
+          <div><span data-i18n="cv.locationLabel">Location</span><strong>Wuppertal, Germany</strong></div>
         </div>
       </aside>
     </section>
 
     <section class="pdf-section" aria-labelledby="preview-title">
-      <div class="section-heading">
-        <p class="eyebrow">PDF preview</p>
-        <h2 id="preview-title">Full CV</h2>
-        <p>The download button saves the exact PDF displayed here as <strong>Ahmed_Kandil_CV.pdf</strong>.</p>
-      </div>
-      <div class="pdf-shell">
-        <iframe class="pdf-frame" data-cv-preview title="Ahmed Kandil CV PDF preview"></iframe>
-        <noscript><p>JavaScript is required for the embedded preview. Please use the downloadable CV link from the portfolio after enabling JavaScript.</p></noscript>
-      </div>
+      <div class="section-heading"><p class="eyebrow" data-i18n="cv.previewEyebrow">PDF preview</p><h2 id="preview-title" data-i18n="cv.full">Full CV</h2><p data-i18n="cv.previewText">The download button saves the exact PDF displayed here as Ahmed_Kandil_CV.pdf.</p></div>
+      <div class="pdf-shell"><iframe class="pdf-frame" data-cv-preview title="Ahmed Kandil CV PDF preview"></iframe><noscript><p>Please enable JavaScript to display or download the CV.</p></noscript></div>
     </section>
   </main>
 
-  <footer>© 2026 Ahmed Kandil · Curriculum Vitae</footer>
-  <script src="assets/cv-download.js?v=3" defer></script>
+  <footer data-i18n="cv.footer">© 2026 Ahmed Kandil · Curriculum Vitae</footer>
+  <script src="assets/language.js?v=1" defer></script>
+  <script src="assets/cv-download.js?v=4" defer></script>
 </body>
 </html>
