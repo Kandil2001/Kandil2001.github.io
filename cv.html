@@ -1,429 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ahmed Kandil CV - CFD Engineer, Numerical Methods, Solver Development, Scientific Computing, HPC and Simulation Validation.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CV | Ahmed Kandil</title>
+  <meta name="description" content="Ahmed Kandil's current CV: scientific computing, numerical methods, CFD, HPC, simulation validation, research experience, and selected projects.">
+  <meta name="theme-color" content="#08111f">
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
-  <style>
-    :root {
-      --bg: #030816;
-      --bg2: #071527;
-      --text: #f6fbff;
-      --muted: #aebbd0;
-      --soft: #7f90ab;
-      --blue: #1177ff;
-      --cyan: #5cc4ff;
-      --border: rgba(92, 196, 255, 0.15);
-      --panel: rgba(8, 22, 42, 0.54);
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      color: var(--text);
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
-      line-height: 1.65;
-      background: radial-gradient(circle at 8% 6%, rgba(17, 119, 255, 0.15) 0%, transparent 50%),
-                  linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
-      background-attachment: fixed;
-      padding: 2rem 1rem;
-    }
-
-    main { max-width: 940px; margin: 0 auto; }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 3rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .logo {
-      font-weight: 800;
-      font-size: 1.2rem;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .logo:hover { color: var(--cyan); }
-
-    .nav-link {
-      color: var(--muted);
-      text-decoration: none;
-      margin-left: 2rem;
-      transition: color 0.2s;
-    }
-
-    .nav-link:hover { color: var(--cyan); }
-
-    h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      margin: 1rem 0;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-    }
-
-    h2 {
-      font-size: clamp(1.35rem, 4vw, 2rem);
-      margin: 1.5rem 0 1rem;
-      line-height: 1.2;
-    }
-
-    h3 {
-      font-size: 1.1rem;
-      margin: 1rem 0 0.5rem;
-      line-height: 1.2;
-    }
-
-    p { margin: 0 0 1rem; color: var(--muted); }
-
-    .section-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--cyan);
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-    }
-
-    .cv-section {
-      padding: 2.5rem 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .cv-section:first-of-type { border-top: none; }
-
-    .cv-meta {
-      font-size: 0.95rem;
-      color: var(--soft);
-      margin-bottom: 0.5rem;
-    }
-
-    .cv-item { margin-bottom: 2.1rem; }
-    .cv-item h3 { color: var(--text); margin-bottom: 0.3rem; }
-
-    .cv-list {
-      list-style: none;
-      padding: 0;
-      margin: 0.5rem 0 0;
-    }
-
-    .cv-list li {
-      padding-left: 1.5rem;
-      margin-bottom: 0.5rem;
-      position: relative;
-      color: var(--muted);
-    }
-
-    .cv-list li:before {
-      content: "→";
-      position: absolute;
-      left: 0;
-      color: var(--cyan);
-    }
-
-    .cv-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.2rem;
-      margin-top: 1.5rem;
-    }
-
-    .cv-chip {
-      padding: 1.35rem;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      transition: all 0.25s;
-    }
-
-    .cv-chip:hover {
-      background: rgba(17, 119, 255, 0.1);
-      border-color: rgba(92, 196, 255, 0.35);
-    }
-
-    .cv-chip h3 { margin-top: 0; color: var(--cyan); }
-    .cv-chip p { margin-bottom: 0; font-size: 0.95rem; }
-
-    .button-row {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      border: 1px solid var(--cyan);
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 650;
-      transition: all 0.2s;
-      background: transparent;
-      color: var(--text);
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 1rem;
-    }
-
-    .button:hover { background: var(--cyan); color: #000; text-decoration: none; }
-    .button.primary { background: var(--cyan); color: #000; }
-    .button.primary:hover { opacity: 0.9; }
-
-    a { color: var(--cyan); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding-top: 2rem;
-      margin-top: 4rem;
-      text-align: center;
-      color: var(--soft);
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 640px) {
-      body { padding: 1rem; }
-      nav { flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
-      .nav-link { margin-left: 0; margin-top: 0.5rem; }
-      .cv-grid { grid-template-columns: 1fr; }
-      .button-row { flex-direction: column; }
-      .button { width: 100%; text-align: center; }
-    }
-
-    @media print {
-      body { background: #fff; color: #000; padding: 0; }
-      main { max-width: 100%; }
-      nav, .button-row, footer { display: none; }
-      .cv-section { padding: 1.1rem 0; border-top: 1px solid #ccc; }
-      h1, h2, h3, p, li, .cv-meta { color: #000; }
-      a { color: #000; text-decoration: none; }
-      .cv-chip { border: 1px solid #ccc; background: #fff; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css?v=200">
 </head>
 <body>
-<nav>
-  <a class="logo" href="index.html">Ahmed Kandil</a>
-  <a class="nav-link" href="index.html">← Back to Portfolio</a>
-</nav>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="CV navigation">
+      <a class="brand" href="index.html">Ahmed Kandil</a>
+      <div class="links">
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#education">Education</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-<main>
-  <section class="cv-section">
-    <p class="section-label">Curriculum Vitae</p>
-    <h1>Ahmed Kandil</h1>
-    <p class="cv-meta">Wuppertal, Germany | +49 155 60695543 | <a href="mailto:a.akandil@outlook.com">a.akandil@outlook.com</a></p>
-    <p class="cv-meta"><a href="https://kandil2001.github.io">Portfolio</a> | <a href="https://www.linkedin.com/in/ahmed-kandil03/" target="_blank" rel="noopener">LinkedIn</a> | <a href="https://github.com/Kandil2001" target="_blank" rel="noopener">GitHub</a> | <a href="https://orcid.org/0009-0007-2724-4565" target="_blank" rel="me noopener noreferrer">ORCID</a></p>
-    <h2>CFD Engineer | Numerical Methods, Solver Development &amp; Scientific Computing</h2>
-    <p>Simulation-focused engineer with experience across industrial CFD, custom solver development, scientific programming, validation workflows, and high-performance computing. Currently working on CFD-based airflow and humidity-control topics for battery-cell production environments.</p>
-    <div class="button-row">
-      <button class="button primary" type="button" onclick="window.print()">Print / Save as PDF</button>
-      <a class="button" href="index.html">Back to Portfolio</a>
-    </div>
-  </section>
+  <main id="main" class="cv-page">
+    <section class="cv-intro" aria-labelledby="cv-title">
+      <div>
+        <p class="eyebrow">Current curriculum vitae</p>
+        <h1 id="cv-title">Ahmed Kandil</h1>
+        <p class="headline">PhD Applicant · Scientific Computing · Numerical Methods · CFD · HPC</p>
+        <p>The downloadable file below is the current two-page CV, including research and professional experience, education, technical expertise, scientific computing projects, and referees.</p>
+        <div class="actions">
+          <a class="button primary" href="#" data-cv-download>Download Ahmed_Kandil_CV.pdf</a>
+          <a class="button" href="#" data-cv-open>Open PDF in a new tab</a>
+          <a class="button subtle-button" href="index.html">Back to portfolio</a>
+        </div>
+      </div>
+      <aside class="summary-card">
+        <h2>CV details</h2>
+        <div class="summary-list">
+          <div><span>Updated focus</span><strong>Scientific computing · CFD · HPC · validation</strong></div>
+          <div><span>Current positions</span><strong>Fraunhofer FFB · University of Wuppertal</strong></div>
+          <div><span>Graduation</span><strong>M.Sc. expected January 2027</strong></div>
+          <div><span>Location</span><strong>Wuppertal, Germany</strong></div>
+        </div>
+      </aside>
+    </section>
 
-  <section class="cv-section">
-    <p class="section-label">Profile</p>
-    <p>I work at the intersection of CFD, numerical methods, scientific computing, and engineering validation. My background combines hands-on industrial simulation work with custom CFD code development, allowing me to understand both the practical use of commercial tools and the numerical logic behind them.</p>
-    <p>My main focus is building trustworthy simulation workflows: starting from physical assumptions and boundary conditions, moving through discretization and solver setup, checking convergence and mesh effects, and validating results against reference data or experiments whenever possible.</p>
-    <p>I am especially interested in CFD software development, simulation automation, thermal-fluid systems, multiphase flow, controlled environments, and HPC-based performance studies. I use C, C++, Python, MATLAB, MPI, OpenMP, Linux tools, and CFD software such as STAR-CCM+, ANSYS Fluent, OpenFOAM, SimScale, and FDS.</p>
-  </section>
+    <section class="pdf-section" aria-labelledby="preview-title">
+      <div class="section-heading">
+        <p class="eyebrow">PDF preview</p>
+        <h2 id="preview-title">Full CV</h2>
+        <p>The download button saves the exact PDF displayed here as <strong>Ahmed_Kandil_CV.pdf</strong>.</p>
+      </div>
+      <div class="pdf-shell">
+        <iframe class="pdf-frame" data-cv-preview title="Ahmed Kandil CV PDF preview"></iframe>
+        <noscript><p>JavaScript is required for the embedded preview. Please use the downloadable CV link from the portfolio after enabling JavaScript.</p></noscript>
+      </div>
+    </section>
+  </main>
 
-  <section class="cv-section">
-    <p class="section-label">Technical Skills</p>
-    <div class="cv-grid">
-      <div class="cv-chip"><h3>CFD &amp; Numerics</h3><p>Finite volume methods, SIMPLE pressure-velocity coupling, incompressible Navier-Stokes, transient simulations, turbulence modeling, heat transfer, multiphase flow, convergence studies, mesh independence, and validation.</p></div>
-      <div class="cv-chip"><h3>Programming</h3><p>C, C++, Python, MATLAB, Java macros, NumPy, Pandas, OpenCV, Makefiles, shell scripting, Git, structured CSV outputs, plotting, automation, and reproducible workflows.</p></div>
-      <div class="cv-chip"><h3>Parallel &amp; HPC</h3><p>MPI, OpenMP, CUDA basics, Linux, cluster workflows, serial baselines, runtime comparison, scaling tests, batch scripts, and performance-oriented solver studies.</p></div>
-      <div class="cv-chip"><h3>CFD Tools</h3><p>STAR-CCM+, ANSYS Fluent, OpenFOAM, SimScale, FDS/Smokeview, mesh preparation, boundary-condition setup, post-processing, and technical reporting.</p></div>
-      <div class="cv-chip"><h3>CAD &amp; CAE</h3><p>SOLIDWORKS, Siemens NX, CATIA, ANSYS Mechanical, manufacturability, technical drawings, prototyping, Formula Student design, and engineering documentation.</p></div>
-      <div class="cv-chip"><h3>Languages</h3><p>Arabic native, English C1, German B2.</p></div>
-    </div>
-  </section>
-
-  <section class="cv-section">
-    <p class="section-label">Education</p>
-    <div class="cv-item">
-      <h3>M.Sc. Computer Simulation in Science</h3>
-      <p class="cv-meta">2023-2026 | University of Wuppertal, Germany</p>
-      <ul class="cv-list">
-        <li>Focus on numerical methods, scientific computing, computer simulation, data analysis, machine learning, and high-performance computing.</li>
-        <li>Master's thesis with Fraunhofer FFB: CFD investigation of air-curtain sealing for local dry environments in battery-cell production.</li>
-        <li>Thesis work combines airflow, humidity control, low-dew-point environments, simulation setup, and validation against experimental measurements.</li>
-      </ul>
-    </div>
-    <div class="cv-item">
-      <h3>B.Eng. Mechatronics Engineering</h3>
-      <p class="cv-meta">2018-2023 | Mansoura University, Egypt</p>
-      <ul class="cv-list">
-        <li>German grade equivalent: 1.7 | Bachelor's graduation project: 1.0.</li>
-        <li>Bachelor's project: numerical modeling of heat transfer and airflow in micro-finned cooling systems using MATLAB and ANSYS Fluent.</li>
-        <li>Built a strong foundation in mechanical systems, fluid mechanics, heat transfer, CAD, control, manufacturing, and engineering design.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="cv-section">
-    <p class="section-label">Professional Experience</p>
-    <div class="cv-item">
-      <h3>Research Assistant - Simulation</h3>
-      <p class="cv-meta">06/2026-Present | Fraunhofer Research Institution for Battery Cell Production FFB | Münster, Germany</p>
-      <ul class="cv-list">
-        <li>Support CFD and thermal-fluid research for battery-cell production environments, with a focus on airflow and humidity control.</li>
-        <li>Work on simulation concepts for local dry environments and mini-/microenvironment sealing using air-curtain approaches.</li>
-        <li>Contribute to validation-oriented workflows connecting numerical simulation, experimental data, and engineering interpretation.</li>
-        <li>Prepare literature and patent research to support simulation planning, design decisions, and thesis development.</li>
-      </ul>
-    </div>
-    <div class="cv-item">
-      <h3>Research Assistant - Simulation Validation</h3>
-      <p class="cv-meta">01/2026-Present | University of Wuppertal | Wuppertal, Germany</p>
-      <ul class="cv-list">
-        <li>Develop Python tools for processing simulation and computer-vision outputs related to pedestrian-flow and crowd-dynamics studies.</li>
-        <li>Support validation workflows through structured post-processing, plotting, and comparison of numerical or measured results.</li>
-        <li>Work with reproducible analysis pipelines that turn raw outputs into interpretable engineering and safety metrics.</li>
-      </ul>
-    </div>
-    <div class="cv-item">
-      <h3>Working Student - CFD Engineer</h3>
-      <p class="cv-meta">03/2024-11/2025 | Vorwerk | Wuppertal, Germany</p>
-      <ul class="cv-list">
-        <li>Executed steady-state and fully transient STAR-CCM+ simulations for industrial airflow and thermal applications.</li>
-        <li>Worked on multiphase-flow related topics including phase change and Lagrangian particle-tracking workflows.</li>
-        <li>Supported mesh strategy, solver settings, parametric studies, convergence monitoring, and post-processing.</li>
-        <li>Used Java macros and structured workflows to improve repeatability and reduce manual simulation effort.</li>
-      </ul>
-    </div>
-    <div class="cv-item">
-      <h3>CFD Engineer</h3>
-      <p class="cv-meta">06/2023-10/2023 | GRIND for Engineering Solutions | Mansoura, Egypt</p>
-      <ul class="cv-list">
-        <li>Ran ANSYS Fluent simulations for industrial clients in automotive, HVAC, and thermal-fluid applications.</li>
-        <li>Prepared computational domains, mesh strategies, boundary conditions, solver settings, and post-processing workflows.</li>
-        <li>Interpreted simulation results and communicated findings for design and performance decisions.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="cv-section">
-    <p class="section-label">Selected CFD &amp; Software Development Projects</p>
-    <div class="cv-item">
-      <h3>LidCavity_Solver_Comparison</h3>
-      <p class="cv-meta">C, C++, Python, MATLAB, MPI, OpenMP, CUDA | <a href="https://github.com/Kandil2001/LidCavity_Solver_Comparison" target="_blank" rel="noopener">View GitHub Repository</a></p>
-      <ul class="cv-list">
-        <li>Built a structured benchmark project for the 2D lid-driven cavity problem across multiple languages and parallelization approaches.</li>
-        <li>Compared solver behavior across serial implementations and parallel workflows to understand accuracy, runtime, and implementation tradeoffs.</li>
-        <li>Included validation mindset through reference comparisons, convergence checks, organized outputs, and reproducible run structure.</li>
-        <li>Designed the project as a portfolio case study showing both CFD knowledge and software-engineering discipline.</li>
-      </ul>
-    </div>
-    <div class="cv-item">
-      <h3>LBM_Poiseuille_D2Q9_CPP</h3>
-      <p class="cv-meta">C++ | Lattice Boltzmann Method | <a href="https://github.com/Kandil2001/LBM_Poiseuille_D2Q9_CPP" target="_blank" rel="noopener">View GitHub Repository</a></p>
-      <ul class="cv-list">
-        <li>Implemented a compact D2Q9 lattice Boltzmann solver for 2D Poiseuille channel flow.</li>
-        <li>Validated the numerical velocity profile against the analytical solution to check physical and numerical consistency.</li>
-        <li>Used the project to study boundary conditions, stability behavior, and code structure for a non-FVM CFD method.</li>
-      </ul>
-    </div>
-    <div class="cv-item">
-      <h3>Distributed-TSP-Solver</h3>
-      <p class="cv-meta">C99, MPI, Parallel Tempering | <a href="https://github.com/Kandil2001/Distributed-TSP-Solver" target="_blank" rel="noopener">View GitHub Repository</a></p>
-      <ul class="cv-list">
-        <li>Developed a distributed-memory MPI solver using parallel tempering and stochastic search strategies.</li>
-        <li>Implemented route updates, inter-process communication, and performance-aware execution for optimization experiments.</li>
-        <li>Used the project to strengthen HPC programming, parallel workload design, and runtime interpretation.</li>
-      </ul>
-    </div>
-    <div class="cv-item">
-      <h3>JuPedSim Evacuation Analysis</h3>
-      <p class="cv-meta">Python, JuPedSim, Pedestrian Dynamics | <a href="https://github.com/Kandil2001/Jupedsim-Evacuation-Analysis" target="_blank" rel="noopener">View GitHub Repository</a></p>
-      <ul class="cv-list">
-        <li>Built a pedestrian-dynamics simulation workflow around building geometry, exits, route setup, trajectories, and post-processing.</li>
-        <li>Connected simulation outputs with Python analysis to extract interpretable movement and evacuation behavior.</li>
-        <li>Demonstrates broader simulation experience beyond classical CFD while keeping the same reproducible-analysis mindset.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="cv-section">
-    <p class="section-label">Master's Thesis Focus</p>
-    <div class="cv-item">
-      <h3>CFD Investigation of Air-Curtain Sealing for Local Dry Environments</h3>
-      <p class="cv-meta">Fraunhofer FFB | Battery-cell production | Airflow, humidity control, validation</p>
-      <ul class="cv-list">
-        <li>Investigate how air curtains can reduce moisture ingress into local dry environments used in battery-cell production.</li>
-        <li>Study jet dynamics, entrainment, leakage paths, humidity transport, turbulence, temperature effects, and boundary influences.</li>
-        <li>Develop CFD workflows that can be compared against experimental data such as humidity measurements, velocity fields, and PIV data.</li>
-        <li>Connect literature and patent research with simulation design to support a realistic and application-oriented thesis direction.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="cv-section">
-    <p class="section-label">Formula Student &amp; Leadership Experience</p>
-    <div class="cv-item">
-      <h3>Head of Aerodynamics - Formula Student UK</h3>
-      <p class="cv-meta">09/2022-06/2023 | Mansoura Motorsport</p>
-      <ul class="cv-list">
-        <li>Led aerodynamic development and CFD analysis for a competition racing vehicle.</li>
-        <li>Designed and optimized wings, bodywork, and diffusers using ANSYS Fluent and CATIA.</li>
-        <li>Managed a team of aerodynamics engineers and coordinated design decisions with manufacturing and vehicle packaging constraints.</li>
-      </ul>
-    </div>
-    <div class="cv-item">
-      <h3>Chief Engineer - Formula Student UK</h3>
-      <p class="cv-meta">05/2022-06/2023 | Mansoura Motorsport</p>
-      <ul class="cv-list">
-        <li>Directed full-vehicle development for a multidisciplinary team of 40+ engineers.</li>
-        <li>Coordinated aerodynamics, chassis, powertrain, systems integration, design reviews, and competition preparation.</li>
-      </ul>
-    </div>
-    <div class="cv-item">
-      <h3>Aerodynamics Member - Formula Student UK</h3>
-      <p class="cv-meta">08/2020-07/2022 | Mansoura Motorsport</p>
-      <ul class="cv-list">
-        <li>Designed bodywork and front-wing aerodynamic packages using CATIA and ANSYS Fluent.</li>
-        <li>Performed parametric CFD studies, drag/downforce interpretation, and design iterations under manufacturing constraints.</li>
-      </ul>
-    </div>
-    <div class="cv-item">
-      <h3>Chief Engineer - EVER Rally Vehicle</h3>
-      <p class="cv-meta">11/2020-03/2022 | Mansoura Motorsport</p>
-      <ul class="cv-list">
-        <li>Led a multidisciplinary team of 35 engineers for electric rally vehicle development.</li>
-        <li>Managed systems integration, testing coordination, and competition participation.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="cv-section">
-    <p class="section-label">Certifications</p>
-    <div class="cv-grid">
-      <div class="cv-chip"><h3>SOLIDWORKS Design Expert</h3><p>Expert-level SOLIDWORKS credential with public Credly verification.</p></div>
-      <div class="cv-chip"><h3>SOLIDWORKS Professional Areas</h3><p>Design Professional, Surfacing Professional, Weldments Professional, Drawing Tools Professional, and Mold Making Professional.</p></div>
-      <div class="cv-chip"><h3>SOLIDWORKS Design Associate</h3><p>Certified associate-level design foundation supporting CAD and engineering documentation work.</p></div>
-    </div>
-  </section>
-
-  <section class="cv-section">
-    <p class="section-label">Coursework, Activities &amp; Availability</p>
-    <p><strong>Relevant coursework:</strong> Advanced Numerical Methods, Parallel Algorithms and HPC, Introduction to Computer Simulation, Data Analysis, Mathematical Machine Learning, and Bayesian Statistics.</p>
-    <p><strong>Academic activities:</strong> Formula Student Poland - Cost &amp; Manufacturing Judge (08/2025). Formula Student Switzerland - Chassis &amp; Body Judge (07/2025).</p>
-    <p><strong>Interests:</strong> CFD solver development, validation workflows, thermal-fluid simulation, battery manufacturing environments, HPC, and scientific software engineering.</p>
-    <p><strong>References:</strong> Available on request.</p>
-  </section>
-</main>
-
-<footer>
-  <p>© 2026 Ahmed Kandil. Built with GitHub Pages.</p>
-</footer>
+  <footer>© 2026 Ahmed Kandil · Curriculum Vitae</footer>
+  <script src="assets/cv-download.js?v=1" defer></script>
 </body>
 </html>
