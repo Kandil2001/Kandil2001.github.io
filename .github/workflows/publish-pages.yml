@@ -21,6 +21,10 @@ jobs:
       - name: Check out main
         uses: actions/checkout@v4
 
+      - name: Configure GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
       - name: Build and validate static site
         run: |
           python3 - <<'PY'
@@ -80,7 +84,7 @@ jobs:
           PY
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: _site
 
