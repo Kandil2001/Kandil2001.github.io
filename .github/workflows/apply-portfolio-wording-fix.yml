@@ -1,0 +1,78 @@
+name: Apply portfolio wording fix
+
+on:
+  push:
+    branches:
+      - agent/clarify-verification-and-project-status
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/clarify-verification-and-project-status
+
+      - name: Apply exact wording corrections
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          replacements = {
+              Path("index.html"): [
+                  ("Analytical velocity-profile validation · GitHub Actions", "Analytical velocity-profile verification · GitHub Actions"),
+                  ("Completed · C++17 · CFD", "Solver development study · C++17 · CFD"),
+              ],
+              Path("assets/language.js"): [
+                  ("Analytical velocity-profile validation · GitHub Actions", "Analytical velocity-profile verification · GitHub Actions"),
+                  ("Completed · C++17 · CFD", "Solver development study · C++17 · CFD"),
+                  ("Validierung des Geschwindigkeitsprofils mit analytischer Lösung · GitHub Actions", "Verifikation des Geschwindigkeitsprofils mit analytischer Lösung · GitHub Actions"),
+                  ("Abgeschlossen · C++17 · CFD", "Solver-Entwicklungsstudie · C++17 · CFD"),
+              ],
+              Path("projects/lbm-poiseuille.html"): [
+                  ("Completed D2Q9 lattice Boltzmann channel-flow validation case study by Ahmed Kandil.", "Completed D2Q9 lattice Boltzmann channel-flow verification case study by Ahmed Kandil."),
+                  ("Completed · LBM validation project · C++17", "Completed · LBM verification project · C++17"),
+                  ("Poiseuille flow is a controlled LBM validation case", "Poiseuille flow is a controlled LBM verification case"),
+                  ("<h2>Validation run</h2>", "<h2>Verification run</h2>"),
+                  ("alt=\"LBM velocity profile validation\"", "alt=\"LBM velocity profile verification\""),
+                  ("Convergence history from the validation run.", "Convergence history from the verification run."),
+                  ("one channel-flow validation case", "one channel-flow verification case"),
+                  (">Open Complete Repository<", ">Open Repository<"),
+              ],
+              Path("projects/lid-cavity-cpp.html"): [
+                  ("Completed C++ lid-driven cavity CFD case study by Ahmed Kandil.", "C++ lid-driven cavity CFD solver-development study by Ahmed Kandil."),
+                  ("Completed · CFD solver development · C++17", "Solver development study · CFD · C++17"),
+                  ("A completed serial C++17 implementation and parameter study", "A serial C++17 implementation and parameter study"),
+                  ("It provides a completed serial baseline", "It provides a documented serial baseline"),
+                  ("met the selected validation thresholds", "met the selected Ghia comparison thresholds"),
+                  ("similar validation errors to RBGS", "similar benchmark-comparison errors to RBGS"),
+                  ("<h2>Completed scope and limitations</h2>", "<h2>Implemented scope and limitations</h2>"),
+                  ("records the completed solver and parameter study as configured", "records the implemented solver and parameter study as configured"),
+                  (">Open Complete Repository<", ">Open Repository<"),
+              ],
+          }
+
+          for path, pairs in replacements.items():
+              text = path.read_text(encoding="utf-8")
+              for old, new in pairs:
+                  count = text.count(old)
+                  if count != 1:
+                      raise SystemExit(f"Expected exactly one occurrence in {path}: {old!r}; found {count}")
+                  text = text.replace(old, new)
+              path.write_text(text, encoding="utf-8")
+
+          workflow = Path(".github/workflows/apply-portfolio-wording-fix.yml")
+          workflow.unlink()
+          PY
+
+      - name: Commit corrected portfolio wording
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html assets/language.js projects/lbm-poiseuille.html projects/lid-cavity-cpp.html .github/workflows/apply-portfolio-wording-fix.yml
+          git commit -m "Clarify solver status and verification terminology"
+          git push origin HEAD:agent/clarify-verification-and-project-status
