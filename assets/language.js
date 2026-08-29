@@ -2,31 +2,11 @@
   "use strict";
 
   const STORAGE_KEY = "portfolio-language";
+  const SUPPORTED_LANGUAGES = ["en", "de", "fr"];
+  const NEXT_LANGUAGE = { en: "de", de: "fr", fr: "en" };
+
   const translations = {
-    en: {
-      pageTitle: "Ahmed Kandil | Computational Engineer · CFD · HPC",
-      pageDescription: "Ahmed Kandil's computational-engineering portfolio: CFD, numerical methods, scientific software, HPC, simulation validation, and research experience.",
-      skip: "Skip to content", "nav.projects": "Projects", "nav.experience": "Experience", "nav.education": "Education", "nav.skills": "Skills", "nav.cv": "CV", "nav.contact": "Contact",
-      "hero.eyebrow": "PhD Applicant · Computational Engineering · CFD · HPC",
-      "hero.headline": "I develop and validate computational workflows that connect physical modeling, numerical methods, scientific software, and high-performance computing.",
-      "hero.text": "M.Sc. candidate in Computer Simulation in Science at the University of Wuppertal, expected to graduate in January 2027. My current work at Fraunhofer FFB and the University of Wuppertal focuses on humidity transport, CFD methodology, computer-vision-assisted validation, and reproducible post-processing.",
-      "actions.projects": "View projects", "actions.downloadCv": "Download CV", "actions.viewCv": "View CV",
-      "summary.title": "At a glance", "summary.researchLabel": "Current research", "summary.focusLabel": "Focus", "summary.focus": "CFD · numerical methods · validation · HPC", "summary.programmingLabel": "Programming", "summary.parallelLabel": "Parallel computing", "summary.languagesLabel": "Languages", "summary.languages": "English C1 · German B2 · Arabic native",
-      "proof.physicsTitle": "Physics and numerics", "proof.physicsText": "Governing equations, discretization, boundary conditions, and solver logic.", "proof.softwareTitle": "Scientific software", "proof.softwareText": "Reproducible code, structured outputs, automation, and version-controlled workflows.", "proof.validationTitle": "Validation mindset", "proof.validationText": "Analytical checks, benchmark data, experiments, data-quality checks, and limitations.", "proof.hpcTitle": "HPC workflows", "proof.hpcText": "Serial baselines, MPI, OpenMP, CUDA prototypes, SLURM studies, and performance comparison.",
-      "projects.eyebrow": "Selected scientific computing work", "projects.title": "Projects", "projects.intro": "Projects are presented with their numerical method, implementation choices, validation logic, generated outputs, and current limitations.",
-      "projects.feature.label": "Work in progress · Main portfolio project · CFD/HPC benchmark", "projects.feature.text": "A cross-language benchmark for the two-dimensional incompressible lid-driven cavity using C++, C, MATLAB/Octave, Python, serial execution, OpenMP, MPI, and a prototype CUDA implementation.", "projects.feature.workflowLabel": "Research workflow:", "projects.feature.workflow": "SIMPLE-style pressure correction, structured parameter studies over grid size and Reynolds number, SLURM execution, runtime and convergence comparison, and centerline comparison against the Ghia et al. benchmark.", "projects.caseStudy": "Read case study", "projects.repository": "GitHub repository",
-      "projects.rust.label": "Completed · v1.0.0 · Rust · FVM", "projects.rust.text": "Dependency-free two-dimensional steady heat-conduction solver using a cell-centered finite-volume formulation and Gauss-Seidel iteration.", "projects.rust.proof": "80 × 80 control volumes · convergence monitoring · CSV/SVG output · CI",
-      "projects.lbm.label": "Completed · C++ · LBM", "projects.lbm.text": "D2Q9 BGK channel-flow solver with body-force driving, bounce-back walls, and periodic streamwise treatment.", "projects.lbm.proof": "Analytical velocity-profile verification · GitHub Actions",
-      "projects.tsp.label": "Completed · corrected repeated benchmark · C · MPI", "projects.tsp.text": "Distributed-memory parallel tempering with TSPLIB-compatible EUC_2D weights and repeated fixed-seed strong-scaling.", "projects.tsp.proof": "30 runs · Berlin52 optimum 7542 in every run · median 10.83× at 24 MPI processes",
-      "projects.jps.label": "Completed · Python · Pedestrian dynamics", "projects.jps.text": "Pedestrian-flow and evacuation workflow with building geometry, exit assignment, trajectories, and scenario comparison.", "projects.jps.proof": "WKT geometry · SQLite trajectories · post-processing",
-      "projects.cpp.label": "Solver development study · C++17 · CFD", "projects.cpp.text": "Finite-difference pressure-correction solver with structured grids, convergence diagnostics, and centerline comparison against benchmark data.",
-      "projects.matlab.label": "Completed · MATLAB · CFD", "projects.matlab.text": "Reference MATLAB implementation with loop and vectorized predictors, automated parameter studies, and documented convergence limitations.", "projects.matlab.proof": "72 configured cases · 44 within selected Ghia limits",
-      "experience.eyebrow": "Research and professional experience", "experience.title": "Engineering, research, and validation", "dates.present2026": "06/2026 - present", "dates.presentJan2026": "01/2026 - present", "experience.ffb.title": "Research Assistant - Simulation", "experience.ffb.text": "Developing CFD methodology for air-curtain sealing of low-humidity mini-environments, including airflow, heat and water-vapor transport, baseline definition, boundary conditions, sensitivity cases, and a measurement-based validation workflow.", "experience.uni.title": "Research Assistant - Simulation Validation", "experience.uni.org": "University of Wuppertal", "experience.uni.text": "Validating crowd-dynamics simulations against experimental video data, building Python/OpenCV counting and data-quality pipelines, and deriving quantitative 30 s and 60 s flow-rate metrics.", "experience.vorwerk.title": "Working Student - CFD Engineer", "experience.vorwerk.text": "Developed steady and transient STAR-CCM+ models for turbulent internal flow, heat and mass transfer, particle transport, and phase change; automated reports and plots with Java macros.", "experience.grind.title": "CFD Engineer", "experience.grind.text": "Delivered three-dimensional ANSYS Fluent studies for industrial airflow, HVAC, and thermal-management projects, including geometry, meshing, physics setup, refinement studies, and client-facing reporting.",
-      "education.eyebrow": "Education and credentials", "education.title": "Academic background", "education.msc.date": "2023 - present · expected 01/2027", "education.msc.text": "72 ECTS completed; Master's thesis in progress: Numerical Optimization of Air-Curtain Sealing for Humidity-Controlled Mini-Environments in Battery Cell Production.", "education.msc.courses": "Relevant study areas: high-performance computing, parallel algorithms, numerical methods, computational fluid mechanics, OpenFOAM modeling, data analysis, mathematical machine learning, and Bayesian learning.", "education.bsc.title": "Bachelor's Degree in Mechatronics Engineering", "education.bsc.org": "Mansoura University · Egypt", "education.bsc.grade": "CGPA 3.21/4.00; overall grade B, Very Good (85.11%); Bachelor thesis grade A+.", "education.bsc.thesis": "Thesis: Design of an Efficient Micro-Finned Cooling System for Thermal Management of Microprocessors.", "education.cswe.text": "Advanced SOLIDWORKS certification supporting a broader background in engineering design, CAD, simulation preparation, manufacturability, and technical communication.", "education.cswe.link": "View verified credential",
-      "skills.eyebrow": "Technical expertise", "skills.title": "Tools and methods", "skills.programming.title": "Programming", "skills.parallel.title": "Parallel and GPU computing", "skills.parallel.text": "MPI, OpenMP, CUDA, SLURM, Linux, and HPC workflows", "skills.software.title": "Simulation software", "skills.workflow.title": "Scientific software workflow", "skills.workflow.text": "Git/GitHub, Cargo, Make, Linux command line, scripting, reproducible outputs, and GitHub Actions", "skills.data.title": "Data and computer vision", "skills.data.text": "NumPy, pandas, OpenCV, automated post-processing, data-quality checks, and quantitative comparison", "skills.numerics.title": "Numerical methods", "skills.numerics.text": "Finite-volume methods, finite differences, pressure correction, Lattice Boltzmann methods, convergence analysis, mesh refinement, and validation", "skills.heat": "Heat transfer", "skills.mass": "Mass transfer", "skills.humidity": "Humidity transport", "skills.validation": "Validation",
-      "contact.eyebrow": "Contact", "contact.title": "Research and engineering opportunities", "contact.text": "Open to PhD and R&D opportunities involving CFD, numerical methods, scientific computing, simulation validation, and HPC.", "contact.email": "Email", footer: "© 2026 Ahmed Kandil · Built with GitHub Pages",
-      "cv.eyebrow": "Current curriculum vitae", "cv.intro": "M.Sc. candidate and PhD applicant working across numerical methods, CFD solver development, simulation validation, and high-performance computing. The current two-page CV includes research and professional experience, education, technical expertise, selected scientific-computing projects, and referees.", "cv.download": "Download Ahmed_Kandil_CV.pdf", "cv.open": "Open PDF in a new tab", "cv.back": "Back to portfolio", "cv.details": "CV details", "cv.focusLabel": "Professional focus", "cv.focus": "Computational engineering · CFD · HPC", "cv.positionsLabel": "Current positions", "cv.graduationLabel": "Graduation", "cv.graduation": "M.Sc. expected January 2027", "cv.locationLabel": "Location", "cv.previewEyebrow": "PDF preview", "cv.full": "Full CV", "cv.previewText": "The download button saves the exact PDF displayed here as Ahmed_Kandil_CV.pdf.", "cv.footer": "© 2026 Ahmed Kandil · Curriculum Vitae"
-    },
+    en: {},
     de: {
       pageTitle: "Ahmed Kandil | Computational Engineer · CFD · HPC",
       pageDescription: "Portfolio von Ahmed Kandil: CFD, numerische Methoden, wissenschaftliche Software, HPC, Simulationsvalidierung und Forschungserfahrung.",
@@ -50,14 +30,46 @@
       "skills.eyebrow": "Technische Kompetenzen", "skills.title": "Werkzeuge und Methoden", "skills.programming.title": "Programmierung", "skills.parallel.title": "Paralleles Rechnen und GPU", "skills.parallel.text": "MPI, OpenMP, CUDA, SLURM, Linux und HPC-Workflows", "skills.software.title": "Simulationssoftware", "skills.workflow.title": "Workflow für wissenschaftliche Software", "skills.workflow.text": "Git/GitHub, Cargo, Make, Linux-Kommandozeile, Skripting, reproduzierbare Ausgaben und GitHub Actions", "skills.data.title": "Datenanalyse und Computer Vision", "skills.data.text": "NumPy, pandas, OpenCV, automatisiertes Postprocessing, Datenqualitätsprüfungen und quantitative Vergleiche", "skills.numerics.title": "Numerische Methoden", "skills.numerics.text": "Finite-Volumen-Methoden, finite Differenzen, Druckkorrektur, Lattice-Boltzmann-Methoden, Konvergenzanalyse, Netzverfeinerung und Validierung", "skills.heat": "Wärmeübertragung", "skills.mass": "Stofftransport", "skills.humidity": "Feuchtetransport", "skills.validation": "Validierung",
       "contact.eyebrow": "Kontakt", "contact.title": "Forschungs- und Engineering-Möglichkeiten", "contact.text": "Offen für Promotions- und F&E-Möglichkeiten in CFD, numerischen Methoden, Scientific Computing, Simulationsvalidierung und HPC.", "contact.email": "E-Mail", footer: "© 2026 Ahmed Kandil · Erstellt mit GitHub Pages",
       "cv.eyebrow": "Aktueller Lebenslauf", "cv.intro": "Masterstudent und Promotionsbewerber mit Schwerpunkt auf numerischen Methoden, CFD-Solverentwicklung, Simulationsvalidierung und Hochleistungsrechnen. Der aktuelle zweiseitige Lebenslauf enthält Forschungs- und Berufserfahrung, Ausbildung, technische Kompetenzen, ausgewählte Scientific-Computing-Projekte und Referenzen.", "cv.download": "Ahmed_Kandil_CV.pdf herunterladen", "cv.open": "PDF in neuem Tab öffnen", "cv.back": "Zurück zum Portfolio", "cv.details": "Lebenslaufdetails", "cv.focusLabel": "Fachlicher Schwerpunkt", "cv.focus": "Computational Engineering · CFD · HPC", "cv.positionsLabel": "Aktuelle Positionen", "cv.graduationLabel": "Abschluss", "cv.graduation": "M.Sc. erwartet im Januar 2027", "cv.locationLabel": "Standort", "cv.previewEyebrow": "PDF-Vorschau", "cv.full": "Vollständiger Lebenslauf", "cv.previewText": "Die Download-Schaltfläche speichert genau die hier angezeigte PDF als Ahmed_Kandil_CV.pdf.", "cv.footer": "© 2026 Ahmed Kandil · Lebenslauf"
+    },
+    fr: {
+      pageTitle: "Ahmed Kandil | Ingénierie numérique · CFD · HPC",
+      pageDescription: "Portfolio d’Ahmed Kandil : CFD, méthodes numériques, logiciels scientifiques, calcul haute performance, validation de simulations et expérience en recherche.",
+      skip: "Aller au contenu", "nav.projects": "Projets", "nav.experience": "Expérience", "nav.education": "Formation", "nav.skills": "Compétences", "nav.cv": "CV", "nav.contact": "Contact",
+      "hero.eyebrow": "Candidat au doctorat · Ingénierie numérique · CFD · HPC",
+      "hero.headline": "Je développe et valide des workflows de calcul qui relient la modélisation physique, les méthodes numériques, les logiciels scientifiques et le calcul haute performance.",
+      "hero.text": "Étudiant en M.Sc. Computer Simulation in Science à l’Université de Wuppertal, avec un diplôme prévu en janvier 2027. Mes travaux actuels chez Fraunhofer FFB et à l’Université de Wuppertal portent sur le transport de l’humidité, la méthodologie CFD, la validation assistée par vision par ordinateur et le post-traitement reproductible.",
+      "actions.projects": "Voir les projets", "actions.downloadCv": "Télécharger le CV", "actions.viewCv": "Voir le CV",
+      "summary.title": "En bref", "summary.researchLabel": "Recherche actuelle", "summary.focusLabel": "Domaines", "summary.focus": "CFD · méthodes numériques · validation · HPC", "summary.programmingLabel": "Programmation", "summary.parallelLabel": "Calcul parallèle", "summary.languagesLabel": "Langues", "summary.languages": "Anglais C1 · Allemand B2 · Arabe langue maternelle",
+      "proof.physicsTitle": "Physique et méthodes numériques", "proof.physicsText": "Équations gouvernantes, discrétisation, conditions aux limites et logique des solveurs.", "proof.softwareTitle": "Logiciels scientifiques", "proof.softwareText": "Code reproductible, sorties structurées, automatisation et workflows versionnés.", "proof.validationTitle": "Approche de validation", "proof.validationText": "Vérifications analytiques, données de référence, expériences, contrôles de qualité des données et limites.", "proof.hpcTitle": "Workflows HPC", "proof.hpcText": "Références sérielles, MPI, OpenMP, prototypes CUDA, études SLURM et comparaison des performances.",
+      "projects.eyebrow": "Sélection de travaux en calcul scientifique", "projects.title": "Projets", "projects.intro": "Les projets présentent la méthode numérique, les choix d’implémentation, la logique de validation, les résultats générés et les limites actuelles.",
+      "projects.feature.label": "En cours · Projet principal du portfolio · Benchmark CFD/HPC", "projects.feature.text": "Un benchmark multi-langages de la cavité entraînée bidimensionnelle incompressible utilisant C++, C, MATLAB/Octave, Python, l’exécution sérielle, OpenMP, MPI et un prototype CUDA.", "projects.feature.workflowLabel": "Workflow de recherche :", "projects.feature.workflow": "Correction de pression de type SIMPLE, études paramétriques structurées sur la taille du maillage et le nombre de Reynolds, exécution SLURM, comparaison des temps de calcul et de la convergence, et comparaison des profils centraux avec le benchmark de Ghia et al.", "projects.caseStudy": "Lire l’étude de cas", "projects.repository": "Dépôt GitHub",
+      "projects.rust.label": "Terminé · v1.0.0 · Rust · FVM", "projects.rust.text": "Solveur bidimensionnel sans dépendances pour la conduction thermique stationnaire, basé sur une formulation volumes finis centrée sur les cellules et une itération de Gauss-Seidel.", "projects.rust.proof": "80 × 80 volumes de contrôle · suivi de convergence · sorties CSV/SVG · CI",
+      "projects.lbm.label": "Terminé · C++ · LBM", "projects.lbm.text": "Solveur D2Q9 BGK pour écoulement en canal, avec force volumique, parois bounce-back et traitement périodique dans la direction de l’écoulement.", "projects.lbm.proof": "Vérification analytique du profil de vitesse · GitHub Actions",
+      "projects.tsp.label": "Terminé · benchmark répété corrigé · C · MPI", "projects.tsp.text": "Parallel tempering à mémoire distribuée avec poids EUC_2D compatibles TSPLIB et mesures répétées de strong scaling avec graines fixes.", "projects.tsp.proof": "30 exécutions · optimum Berlin52 de 7542 à chaque exécution · médiane 10,83× avec 24 processus MPI",
+      "projects.jps.label": "Terminé · Python · Dynamique piétonne", "projects.jps.text": "Workflow d’écoulement piéton et d’évacuation avec géométrie du bâtiment, affectation des sorties, trajectoires et comparaison de scénarios.", "projects.jps.proof": "Géométrie WKT · trajectoires SQLite · post-traitement",
+      "projects.cpp.label": "Étude de développement de solveur · C++17 · CFD", "projects.cpp.text": "Solveur par différences finies avec correction de pression, maillages structurés, diagnostics de convergence et comparaison des profils centraux avec des données de référence.",
+      "projects.matlab.label": "Terminé · MATLAB · CFD", "projects.matlab.text": "Implémentation MATLAB de référence avec prédicteurs en boucles et vectorisés, études paramétriques automatisées et limites de convergence documentées.", "projects.matlab.proof": "72 cas configurés · 44 dans les limites Ghia sélectionnées",
+      "experience.eyebrow": "Expérience en recherche et professionnelle", "experience.title": "Ingénierie, recherche et validation", "dates.present2026": "06/2026 - aujourd’hui", "dates.presentJan2026": "01/2026 - aujourd’hui", "experience.ffb.title": "Assistant de recherche – Simulation", "experience.ffb.text": "Développement d’une méthodologie CFD pour l’étanchéité par rideau d’air de mini-environnements à faible humidité, incluant l’écoulement, les transferts de chaleur et de vapeur d’eau, la définition du cas de référence, les conditions aux limites, les études de sensibilité et un workflow de validation basé sur des mesures.", "experience.uni.title": "Assistant de recherche – Validation de simulations", "experience.uni.org": "Université de Wuppertal", "experience.uni.text": "Validation de simulations de dynamique piétonne à partir de données vidéo expérimentales, développement de pipelines Python/OpenCV pour le comptage et le contrôle de qualité des données, et calcul de métriques quantitatives de débit sur 30 s et 60 s.", "experience.vorwerk.title": "Étudiant salarié – CFD", "experience.vorwerk.text": "Développement de modèles STAR-CCM+ stationnaires et transitoires pour les écoulements internes turbulents, les transferts de chaleur et de masse, le transport de particules et les changements de phase ; automatisation des rapports et graphiques avec des macros Java.", "experience.grind.title": "Ingénieur CFD", "experience.grind.text": "Réalisation d’études ANSYS Fluent tridimensionnelles pour des projets industriels d’écoulement d’air, de CVC et de gestion thermique, incluant géométrie, maillage, configuration physique, études de raffinement et rapports destinés aux clients.",
+      "education.eyebrow": "Formation et certifications", "education.title": "Parcours académique", "education.msc.date": "2023 - aujourd’hui · diplôme prévu 01/2027", "education.msc.text": "72 ECTS validés ; mémoire de master en cours : Numerical Optimization of Air-Curtain Sealing for Humidity-Controlled Mini-Environments in Battery Cell Production.", "education.msc.courses": "Domaines d’étude pertinents : calcul haute performance, algorithmes parallèles, méthodes numériques, mécanique des fluides numérique, modélisation OpenFOAM, analyse de données, apprentissage automatique mathématique et apprentissage bayésien.", "education.bsc.title": "Licence en ingénierie mécatronique", "education.bsc.org": "Université de Mansoura · Égypte", "education.bsc.grade": "CGPA 3,21/4,00 ; note globale B, Very Good (85,11 %) ; mémoire de licence A+.", "education.bsc.thesis": "Mémoire : conception d’un système de refroidissement efficace à micro-ailettes pour la gestion thermique des microprocesseurs.", "education.cswe.text": "Certification avancée SOLIDWORKS complétant une expérience plus large en conception, CAO, préparation de simulations, aptitude à la fabrication et communication technique.", "education.cswe.link": "Voir la certification vérifiée",
+      "skills.eyebrow": "Expertise technique", "skills.title": "Outils et méthodes", "skills.programming.title": "Programmation", "skills.parallel.title": "Calcul parallèle et GPU", "skills.parallel.text": "MPI, OpenMP, CUDA, SLURM, Linux et workflows HPC", "skills.software.title": "Logiciels de simulation", "skills.workflow.title": "Workflow de logiciel scientifique", "skills.workflow.text": "Git/GitHub, Cargo, Make, ligne de commande Linux, scripts, sorties reproductibles et GitHub Actions", "skills.data.title": "Données et vision par ordinateur", "skills.data.text": "NumPy, pandas, OpenCV, post-traitement automatisé, contrôles de qualité des données et comparaison quantitative", "skills.numerics.title": "Méthodes numériques", "skills.numerics.text": "Méthodes des volumes finis, différences finies, correction de pression, méthodes de Boltzmann sur réseau, analyse de convergence, raffinement de maillage et validation", "skills.heat": "Transfert thermique", "skills.mass": "Transfert de masse", "skills.humidity": "Transport de l’humidité", "skills.validation": "Validation",
+      "contact.eyebrow": "Contact", "contact.title": "Opportunités de recherche et de R&D", "contact.text": "Ouvert aux opportunités de doctorat et de R&D impliquant la CFD, les méthodes numériques, le calcul scientifique, la validation de simulations et le HPC.", "contact.email": "E-mail", footer: "© 2026 Ahmed Kandil · Réalisé avec GitHub Pages",
+      "cv.eyebrow": "Curriculum vitae actuel", "cv.intro": "Étudiant en master et candidat au doctorat travaillant sur les méthodes numériques, le développement de solveurs CFD, la validation de simulations et le calcul haute performance. Le CV actuel de deux pages présente l’expérience en recherche et professionnelle, la formation, l’expertise technique, une sélection de projets de calcul scientifique et les références.", "cv.download": "Télécharger Ahmed_Kandil_CV.pdf", "cv.open": "Ouvrir le PDF dans un nouvel onglet", "cv.back": "Retour au portfolio", "cv.details": "Détails du CV", "cv.focusLabel": "Domaine professionnel", "cv.focus": "Ingénierie numérique · CFD · HPC", "cv.positionsLabel": "Postes actuels", "cv.graduationLabel": "Diplôme", "cv.graduation": "M.Sc. prévu en janvier 2027", "cv.locationLabel": "Lieu", "cv.previewEyebrow": "Aperçu PDF", "cv.full": "CV complet", "cv.previewText": "Le bouton de téléchargement enregistre exactement le PDF affiché ici sous le nom Ahmed_Kandil_CV.pdf.", "cv.footer": "© 2026 Ahmed Kandil · Curriculum Vitae"
     }
   };
 
+  const description = document.querySelector('meta[name="description"]');
+  translations.en.pageTitle = document.title;
+  translations.en.pageDescription = description ? description.content : "";
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    const key = element.dataset.i18n;
+    if (translations.en[key] === undefined) translations.en[key] = element.textContent;
+  });
+
   function requestedLanguage() {
     const parameter = new URLSearchParams(window.location.search).get("lang");
-    if (parameter === "de" || parameter === "en") return parameter;
+    if (SUPPORTED_LANGUAGES.includes(parameter)) return parameter;
     const stored = localStorage.getItem(STORAGE_KEY);
-    return stored === "de" ? "de" : "en";
+    return SUPPORTED_LANGUAGES.includes(stored) ? stored : "en";
   }
 
   function applyLanguage(language) {
@@ -67,28 +79,41 @@
       const value = dictionary[element.dataset.i18n];
       if (value !== undefined) element.textContent = value;
     });
+
     const isCvPage = document.body.querySelector(".cv-page");
     if (!isCvPage) {
-      document.title = dictionary.pageTitle;
-      const description = document.querySelector('meta[name="description"]');
-      if (description) description.content = dictionary.pageDescription;
+      document.title = dictionary.pageTitle || translations.en.pageTitle;
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) metaDescription.content = dictionary.pageDescription || translations.en.pageDescription;
     }
+
+    const nextLanguage = NEXT_LANGUAGE[language] || "en";
+    const labels = {
+      en: { text: "DE", aria: "Website auf Deutsch anzeigen" },
+      de: { text: "FR", aria: "Afficher le site en français" },
+      fr: { text: "EN", aria: "Show website in English" }
+    };
     document.querySelectorAll("[data-language-toggle]").forEach((button) => {
-      button.textContent = language === "de" ? "EN" : "DE";
-      button.setAttribute("aria-label", language === "de" ? "Show website in English" : "Website auf Deutsch anzeigen");
+      button.textContent = labels[language].text;
+      button.setAttribute("aria-label", labels[language].aria);
+      button.setAttribute("title", `${language.toUpperCase()} → ${nextLanguage.toUpperCase()}`);
     });
+
     localStorage.setItem(STORAGE_KEY, language);
   }
 
   const initialLanguage = requestedLanguage();
   applyLanguage(initialLanguage);
+
   document.querySelectorAll("[data-language-toggle]").forEach((button) => {
     button.addEventListener("click", () => {
-      const nextLanguage = document.documentElement.lang === "de" ? "en" : "de";
+      const currentLanguage = SUPPORTED_LANGUAGES.includes(document.documentElement.lang) ? document.documentElement.lang : "en";
+      const nextLanguage = NEXT_LANGUAGE[currentLanguage];
       applyLanguage(nextLanguage);
+
       const url = new URL(window.location.href);
-      if (nextLanguage === "de") url.searchParams.set("lang", "de");
-      else url.searchParams.delete("lang");
+      if (nextLanguage === "en") url.searchParams.delete("lang");
+      else url.searchParams.set("lang", nextLanguage);
       window.history.replaceState({}, "", url);
     });
   });
